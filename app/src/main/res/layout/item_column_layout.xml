@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dataLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/card_with_shadow"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_medium">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.dunkin.customer.widget.CustomTextView
+            android:id="@+id/tvNoteId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/spacing_xsmall"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:fontName="dd_light.ttf" />
+
+        <com.dunkin.customer.widget.CustomTextView
+            android:id="@+id/tvNoteAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvNoteId"
+            android:layout_margin="@dimen/spacing_xsmall"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:fontName="dd_light.ttf" />
+
+        <com.dunkin.customer.widget.CustomTextView
+            android:id="@+id/tvDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvNoteAmount"
+            android:layout_margin="@dimen/spacing_xsmall"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:fontName="dd_light.ttf" />
+
+        <com.dunkin.customer.widget.CustomTextView
+            android:id="@+id/tvRechargeBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvDateTime"
+            android:layout_margin="@dimen/spacing_xsmall"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:fontName="dd_light.ttf" />
+
+    </RelativeLayout>
+</LinearLayout>
+
+

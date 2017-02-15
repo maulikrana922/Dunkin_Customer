@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_medium">
+
+    <ProgressBar
+        android:id="@+id/progressLoad"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/progress_circle"
+        android:progressDrawable="@drawable/progress_circle"
+        android:visibility="visible" />
+
+    <com.dunkin.customer.widget.CustomTextView
+        android:id="@+id/txtWalletAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="start|left"
+        android:padding="@dimen/spacing_medium"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/profile_font"
+        app:fontName="dd_bold.ttf" />
+
+    <ListView
+        android:id="@+id/walletNoteList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtWalletAmount"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10dp"
+        android:scrollbars="none" />
+
+    <com.dunkin.customer.widget.CustomTextView
+        android:id="@+id/emptyElement"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/no_data_error"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:fontName="dd_bold.ttf" />
+</RelativeLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@android:color/white"
+android:orientation="vertical">
+
+
+<ProgressBar
+    android:id="@+id/progressLoad"
+    style="?android:attr/progressBarStyleLarge"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:indeterminateDrawable="@drawable/progress_circle"
+    android:progressDrawable="@drawable/progress_circle"
+    android:visibility="visible" />
+
+<LinearLayout
+    android:id="@+id/cardContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone"
+    >
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_credit_saved"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:background="@color/home_welcome_text"
+        android:textColor="@android:color/white"
+        android:padding="@dimen/spacing_medium"
+        android:gravity="center"
+        />
+
+    <ListView
+        android:id="@+id/cardList"
+        android:padding="@dimen/spacing_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="@dimen/spacing_medium"
+        />
+</LinearLayout>
+
+    <com.dunkin.customer.widget.CustomTextView
+        app:fontName="dd_bold.ttf"
+        android:id="@+id/emptyElement"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/no_data_error"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:visibility="gone"
+
+        />
+
+</LinearLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dunkin.customer.widget.RelativeLayoutButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/btn_height"
+    android:clickable="true"
+    >
+
+    <ImageView
+        android:id="@+id/imgIcon"
+        android:layout_width="@dimen/btn_height"
+        android:layout_height="@dimen/btn_height"
+        android:src="@drawable/ic_btn_login"
+       android:padding="@dimen/spacing_medium"
+        android:background="@color/textbox_font"
+        />
+
+    <com.dunkin.customer.widget.CustomTextView
+        app:fontName="dd_light.ttf"
+        android:layout_toRightOf="@+id/imgIcon"
+        android:layout_toEndOf="@+id/imgIcon"
+        android:id="@+id/btnText"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btn_height"
+        android:background="@color/btn_bg"
+        android:singleLine="true"
+        android:gravity="center"
+        android:paddingLeft="@dimen/spacing_medium"
+        android:paddingStart="@dimen/spacing_medium"
+        android:paddingRight="@dimen/spacing_medium"
+        android:paddingEnd="@dimen/spacing_medium"
+        android:textColor="@color/btn_font"
+        android:text="@string/txt_cart_btn_select"
+        />
+
+</com.dunkin.customer.widget.RelativeLayoutButton>

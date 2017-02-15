@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rlChangeLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_medium"
+        android:background="@drawable/textbox_pink_border_bg"
+        android:padding="@dimen/spacing_medium">
+
+        <com.dunkin.customer.widget.CustomHeadTextView
+            android:id="@+id/txt2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_toLeftOf="@+id/cbLanguage"
+            android:layout_toStartOf="@+id/cbLanguage"
+            android:gravity="start|left"
+            android:text="@string/lbl_language"
+            android:textColor="@color/home_welcome_text"
+            app:fontName="dd_bold.ttf" />
+
+        <com.dunkin.customer.widget.CustomTextView
+            android:id="@+id/smalltxt2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt2"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_toLeftOf="@+id/cbLanguage"
+            android:layout_toStartOf="@+id/cbLanguage"
+            android:gravity="start|left"
+            android:text="@string/lbl_small_language"
+            android:textColor="@color/setting_small_title"
+            app:fontName="dd_light.ttf" />
+
+        <CheckBox
+            android:id="@+id/cbLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:button="@drawable/custom_switch_bg"
+            android:checked="true" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/ivSettingScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="25dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="@dimen/spacing_medium"
+        android:layout_marginStart="@dimen/spacing_medium"
+        android:layout_marginRight="@dimen/spacing_medium"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        android:layout_below="@+id/rlChangeLanguage"
+        android:contentDescription="@string/app_name" />
+</RelativeLayout>

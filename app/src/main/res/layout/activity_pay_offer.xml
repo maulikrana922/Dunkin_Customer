@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.dunkin.customer.widget.CustomTextView
+        android:id="@+id/emptyElement"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/no_data_error"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:fontName="dd_bold.ttf" />
+
+    <TableLayout
+        android:id="@+id/tlHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        android:visibility="gone">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_medium">
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/lbl_offer_name"
+                android:textColor="@color/colorPrimary"
+                app:fontName="dd_bold.ttf" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/txtOfferTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/dropdown_text"
+                app:fontName="dd_bold.ttf" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_medium">
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/lbl_offer_points"
+                android:textColor="@color/colorPrimary"
+                app:fontName="dd_bold.ttf" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/txtOfferPoints"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/dropdown_text"
+                app:fontName="dd_bold.ttf" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_medium"
+            android:visibility="gone">
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/lbl_offer_total_points"
+                android:textColor="@color/colorPrimary"
+                app:fontName="dd_bold.ttf" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/txtOfferTotalPoints"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/dropdown_text"
+                app:fontName="dd_bold.ttf" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/trPaymentType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_medium">
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/txt_payment_type2"
+                android:textColor="@color/colorPrimary"
+                app:fontName="dd_bold.ttf" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/txtPaymentType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/dropdown_text"
+                app:fontName="dd_bold.ttf" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_medium">
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/lbl_total_amount"
+                android:textColor="@color/colorPrimary"
+                app:fontName="dd_bold.ttf" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/txtTotalAmount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/dropdown_text"
+                app:fontName="dd_bold.ttf" />
+        </TableRow>
+    </TableLayout>
+
+    <ListView
+        android:id="@+id/lvOfferProductsDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_medium"
+        android:divider="@color/list_divider_dialog"
+        android:dividerHeight="1dp" />
+</LinearLayout>

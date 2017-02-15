@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="background_gray">#f7f6f6</color>
+    <color name="row_even">#fcfcfc</color>
+    <color name="row_odd">#f8f8f8</color>
+    <color name="orange_text">#f8800d</color>
+    <color name="gift_layout_color">#80000000</color>
+    <color name="order_placed_text">#6dc410</color>
+    <!-- NAVIGATION VIEW COLORS -->
+
+
+    <color name="drawer_bg">#f5821f</color>
+    <color name="drawer_selected">#EE4699</color>
+    <!--  <color name="drawer_item_default">#FFFFFF</color>
+      <color name="drawer_item_checked">#FFFFFF</color>
+    -->
+
+    <color name="colorPrimary">#f5821f</color>
+    <color name="colorHover">#e9b282</color>
+    <color name="colorPrimaryDark">#f5821f</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="colorAccent">#FF80AB</color>
+    <color name="white">#ffffff</color>
+
+
+    <!-- FORMS-->
+    <color name="toolbar_title">#febadd</color>
+    <color name="textbox_bg">#30ffffff</color>
+    <color name="textbox_font">#ffffff</color>
+    <color name="textbox_border">#ffffff</color>
+    <color name="btn_bg">#95ffffff</color>
+    <color name="btn_font">#ad5b16</color>
+    <color name="btn_small_bg">#d46b10</color>
+
+    <color name="dark_content_bg">#ffffff</color>
+    <color name="price_desc_font">#663600</color>
+    <color name="dark_profile_bg">#ffc8e5</color>
+    <color name="tab_indicator">#c62176</color>
+
+    <color name="profile_bg_color">#fed6b4</color>
+    <color name="profile_font">#535152</color>
+    <color name="point_bg">#663600</color>
+
+    <!--PRODUCT SCREENS-->
+
+
+    <color name="list_bc_transperent">#fff0fe</color>
+    <!-- HOME PAGE -->
+    <color name="home_content_text">#000000</color>
+    <color name="home_title_text">#85000000</color>
+    <color name="home_welcome_text">#ee4699</color>
+    <color name="home_category_text">#400a3b</color>
+    <color name="alternate_listing_bg">#fff2d4</color>
+    <color name="alternate_image_border">#e8cba9</color>
+    <color name="btn_card_delete_red">#ff0608</color>
+    <color name="list_content_desc_font">#1f1f1f</color>
+    <color name="dropdown_border">#552b4e</color>
+    <color name="dropdown_text">#404040</color>
+    <color name="setting_small_title">#36600534</color>
+
+    <color name="done_btn_dialog">#2f2f2f</color>
+    <color name="list_divider_dialog">#663600</color>
+
+    <color name="semi_transparent">#40000000</color>
+    <color name="dialog_transparent">#60000000</color>
+
+
+
+
+</resources>

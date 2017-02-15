@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/spacing_medium"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ed_textbox_height"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:background="@drawable/textbox_border_bg"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/ed_textbox_height"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:background="@drawable/ic_profile_user_icon"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+            <com.dunkin.customer.widget.CustomEditText
+                android:id="@+id/edName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:background="@android:color/transparent"
+                android:focusable="false"
+                android:gravity="center_vertical"
+                android:hint="@string/hint_first_name"
+                android:inputType="textPersonName"
+                android:paddingEnd="@dimen/spacing_large"
+                android:paddingLeft="@dimen/spacing_large"
+                android:paddingRight="@dimen/spacing_large"
+                android:paddingStart="@dimen/spacing_large"
+                android:textColor="@color/profile_font"
+                android:textColorHint="@color/profile_font"
+                app:fontName="dd_light.ttf" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ed_textbox_height"
+            android:layout_marginTop="@dimen/spacing_xsmall"
+            android:background="@drawable/textbox_border_bg"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/ed_textbox_height"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:background="@drawable/ic_ed_email_icon"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+            <com.dunkin.customer.widget.CustomEditText
+                android:id="@+id/edEmail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:background="@android:color/transparent"
+                android:focusable="false"
+                android:gravity="center_vertical"
+                android:hint="@string/hint_email"
+                android:inputType="textWebEmailAddress"
+                android:paddingEnd="@dimen/spacing_large"
+                android:paddingLeft="@dimen/spacing_large"
+                android:paddingRight="@dimen/spacing_large"
+                android:paddingStart="@dimen/spacing_large"
+                android:textColor="@color/profile_font"
+                android:textColorHint="@color/profile_font"
+                app:fontName="dd_light.ttf" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ed_textbox_height"
+            android:layout_marginTop="@dimen/spacing_xsmall"
+            android:background="@drawable/textbox_border_bg"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/ed_textbox_height"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:background="@drawable/ic_pn_icon"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+            <com.dunkin.customer.widget.CustomEditText
+                android:id="@+id/edPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:background="@android:color/transparent"
+                android:focusable="false"
+                android:hint="@string/hint_phone_number"
+                android:inputType="phone"
+                android:maxLength="15"
+                android:paddingEnd="@dimen/spacing_large"
+                android:paddingLeft="@dimen/spacing_large"
+                android:paddingRight="@dimen/spacing_large"
+                android:paddingStart="@dimen/spacing_large"
+                android:textColor="@color/profile_font"
+                android:textColorHint="@color/profile_font"
+                app:fontName="dd_light.ttf" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xsmall"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/linear1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/btn_bg">
+
+                <ImageView
+                    android:layout_width="@dimen/ed_textbox_height"
+                    android:layout_height="@dimen/ed_textbox_height"
+                    android:layout_alignParentTop="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_ed_email_icon" />
+            </RelativeLayout>
+
+            <com.dunkin.customer.widget.CustomEditText
+                android:id="@+id/edDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/linear1"
+                android:layout_toRightOf="@+id/linear1"
+                android:background="@drawable/textbox_border_bg"
+                android:gravity="top"
+                android:hint="@string/txt_contact_description"
+                android:maxLines="6"
+                android:minHeight="@dimen/ed_textbox_height"
+                android:minLines="4"
+                android:paddingEnd="@dimen/spacing_large"
+                android:paddingLeft="@dimen/spacing_large"
+                android:paddingRight="@dimen/spacing_large"
+                android:paddingStart="@dimen/spacing_large"
+                android:paddingTop="@dimen/spacing_medium"
+                android:textColor="@color/profile_font"
+                app:fontName="dd_light.ttf" />
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/btnSubmit"
+            layout="@layout/rl_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/spacing_medium" />
+
+        <com.dunkin.customer.widget.CustomTextView
+            android:id="@+id/txtMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@string/talk_to_us_msg"
+            app:fontName="dd_bold.ttf" />
+
+
+        <LinearLayout
+            android:id="@+id/socialLinksLayouts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </LinearLayout>
+</ScrollView>

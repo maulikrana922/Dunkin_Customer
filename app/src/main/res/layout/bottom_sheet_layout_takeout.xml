@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ed_textbox_height"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:background="@drawable/textbox_border_bg"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/ed_textbox_height"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:background="@drawable/ic_credit_cal"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/edRecDate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:background="@android:color/transparent"
+                android:editable="false"
+                android:gravity="center_vertical"
+                android:hint="@string/lbl_date"
+                android:inputType="date"
+                android:paddingEnd="@dimen/spacing_medium"
+                android:paddingLeft="@dimen/spacing_medium"
+                android:paddingRight="@dimen/spacing_medium"
+                android:paddingStart="@dimen/spacing_medium"
+                android:textColor="@color/profile_font"
+                android:textColorHint="@color/profile_font"
+                app:fontName="dd_light.ttf" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ed_textbox_height"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:background="@drawable/textbox_border_bg"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/ed_textbox_height"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:background="@drawable/ic_credit_cal"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/edRecTime"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:background="@android:color/transparent"
+                android:editable="false"
+                android:gravity="center_vertical"
+                android:hint="@string/lbl_time"
+                android:inputType="date"
+                android:paddingEnd="@dimen/spacing_medium"
+                android:paddingLeft="@dimen/spacing_medium"
+                android:paddingRight="@dimen/spacing_medium"
+                android:paddingStart="@dimen/spacing_medium"
+                android:textColor="@color/profile_font"
+                android:textColorHint="@color/profile_font"
+                app:fontName="dd_light.ttf" />
+        </LinearLayout>
+
+        <com.dunkin.customer.widget.CustomTextView
+            android:id="@+id/spSelectRestaurant"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/top_bar_height"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:background="@drawable/textbox_pink_border_bg"
+            android:drawableEnd="@drawable/ic_dd_arrow"
+            android:drawableRight="@drawable/ic_dd_arrow"
+            android:gravity="center_vertical"
+            android:padding="@dimen/spacing_medium"
+            android:text="@string/txt_select_restaurant"
+            android:textColor="@color/dropdown_text"
+            app:fontName="dd_light.ttf" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <include
+            android:id="@+id/btnSetup"
+            layout="@layout/rl_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_medium"
+            android:layout_marginTop="@dimen/spacing_medium" />
+
+        <include
+            android:id="@+id/btnReset"
+            layout="@layout/rl_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_medium"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:scrollbars="none">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <ProgressBar
+            android:id="@+id/progressLoad"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateDrawable="@drawable/progress_circle"
+            android:progressDrawable="@drawable/progress_circle"
+            android:visibility="visible" />
+
+        <com.dunkin.customer.widget.CustomTextView
+            android:id="@+id/emptyElement"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="@string/no_data_error"
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:fontName="dd_bold.ttf" />
+
+        <ImageView
+            android:id="@+id/imgProfileQR"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/spacing_medium"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/llMyPoints"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgProfileQR"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_medium"
+                android:layout_marginLeft="@dimen/spacing_medium"
+                android:layout_marginRight="@dimen/spacing_medium"
+                android:layout_marginStart="@dimen/spacing_medium"
+                android:layout_weight="0.50"
+                android:background="@drawable/point_bg"
+                android:orientation="vertical">
+
+                <com.dunkin.customer.widget.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/point_bg"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_medium"
+                    android:text="@string/lbl_total_point"
+                    android:textColor="@android:color/white"
+                    app:fontName="dd_bold.ttf" />
+
+                <com.dunkin.customer.widget.CustomTextView
+                    android:id="@+id/txtMyPoint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_medium"
+                    android:text="0"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    app:fontName="dd_light.ttf" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_medium"
+                android:layout_marginLeft="@dimen/spacing_medium"
+                android:layout_marginRight="@dimen/spacing_medium"
+                android:layout_marginStart="@dimen/spacing_medium"
+                android:layout_weight="0.50"
+                android:background="@drawable/point_bg"
+                android:orientation="vertical">
+
+                <com.dunkin.customer.widget.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/point_bg"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_medium"
+                    android:text="@string/lbl_used_point"
+                    android:textColor="@android:color/white"
+                    app:fontName="dd_bold.ttf" />
+
+                <com.dunkin.customer.widget.CustomTextView
+                    android:id="@+id/txtUsedPoint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_medium"
+                    android:text="0"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    app:fontName="dd_light.ttf" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.dunkin.customer.widget.CustomTextView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/txtPercentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llMyPoints"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/spacing_medium"
+            android:gravity="center"
+            android:textColor="#479F25"
+            app:fontName="dd_bold.ttf" />
+    </RelativeLayout>
+</ScrollView>

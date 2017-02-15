@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/itemLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="@dimen/spacing_xsmall">
+
+    <ListView
+        android:id="@+id/lvRestaurantList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:divider="@color/list_divider_dialog"
+        android:dividerHeight="2dp"
+        android:layout_weight="1"
+        android:scrollbars="none" />
+
+    <LinearLayout
+        android:id="@+id/llButtonSetup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <include
+            android:id="@+id/btnSetup"
+            layout="@layout/rl_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_medium"
+            android:layout_marginTop="@dimen/spacing_medium" />
+
+    </LinearLayout>
+</LinearLayout>

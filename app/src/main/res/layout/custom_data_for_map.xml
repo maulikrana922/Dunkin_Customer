@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="@dimen/spacing_large"
+
+    >
+
+    <ImageView
+        android:id="@+id/badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_top_logo"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        >
+    </ImageView>
+
+
+    <com.dunkin.customer.widget.CustomTextView
+        app:fontName="dd_bold.ttf"
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/badge"
+        android:singleLine="true"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        />
+
+    <com.dunkin.customer.widget.CustomTextView
+        app:fontName="dd_bold.ttf"
+        android:id="@+id/snippet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/price_desc_font"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="@dimen/spacing_medium"
+        />
+
+
+    <LinearLayout
+        android:layout_below="@+id/snippet"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/imbCall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:src="@drawable/ic_map_phone"
+            android:background="@android:color/transparent"
+            />
+
+        <ImageButton
+            android:id="@+id/imbEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:src="@drawable/ic_map_email"
+            android:background="@android:color/transparent"
+            />
+
+        <ImageButton
+            android:id="@+id/imbShare"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:src="@drawable/ic_map_facebook"
+            android:background="@android:color/transparent"
+
+            />
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

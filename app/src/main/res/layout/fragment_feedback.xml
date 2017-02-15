@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/svFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/spacing_medium"
+        android:background="@android:color/white"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:isScrollContainer="true"
+            android:orientation="vertical">
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/tvText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/home_welcome_text"
+                android:padding="@dimen/spacing_medium"
+                android:text="@string/txt_select_restaurant"
+                android:textColor="@android:color/white"
+                app:fontName="dd_bold.ttf" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/spSelectRestaurent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textbox_pink_border_bg"
+                android:drawableEnd="@drawable/ic_dd_arrow"
+                android:drawableRight="@drawable/ic_dd_arrow"
+                android:padding="@dimen/spacing_large"
+                android:textColor="@color/dropdown_text"
+                app:fontName="dd_light.ttf" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:background="@color/colorPrimary"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/linear1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary">
+
+                    <ImageView
+                        android:layout_width="@dimen/ed_textbox_height"
+                        android:layout_height="@dimen/ed_textbox_height"
+                        android:layout_alignParentTop="true"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/ic_ed_email_icon" />
+                </RelativeLayout>
+
+
+                <com.dunkin.customer.widget.CustomEditText
+                    android:id="@+id/edComments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/linear1"
+                    android:layout_toRightOf="@+id/linear1"
+                    android:background="@drawable/textbox_border_bg"
+                    android:gravity="top"
+                    android:hint="@string/txt_hint_feedback_message"
+                    android:maxLines="6"
+                    android:minHeight="@dimen/ed_textbox_height"
+                    android:minLines="4"
+                    android:paddingEnd="@dimen/spacing_large"
+                    android:paddingLeft="@dimen/spacing_large"
+                    android:paddingRight="@dimen/spacing_large"
+                    android:paddingStart="@dimen/spacing_large"
+                    android:paddingTop="@dimen/spacing_medium"
+                    android:textColor="@color/profile_font"
+                    android:textColorHint="@color/profile_font"
+                    app:fontName="dd_light.ttf" />
+            </RelativeLayout>
+
+            <ProgressBar
+                android:id="@+id/progressLoad"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateDrawable="@drawable/progress_circle"
+                android:progressDrawable="@drawable/progress_circle"
+                android:visibility="visible" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ListView
+        android:id="@+id/lvRatings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/svFeedback"
+        android:layout_above="@+id/btnSubmit"/>
+
+    <include
+        android:id="@+id/btnSubmit"
+        layout="@layout/rl_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/spacing_medium" />
+</RelativeLayout>
+
+    <!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/spacing_medium"
+    android:background="@android:color/white"
+android:scrollbars="none"
+    android:fillViewport="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:isScrollContainer="true"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <com.dunkin.customer.widget.CustomTextView
+            app:fontName="dd_bold.ttf"
+            android:background="@color/home_welcome_text"
+            android:id="@+id/tvText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:padding="@dimen/spacing_medium"
+            android:text="@string/txt_select_restaurant"/>
+
+        <com.dunkin.customer.widget.CustomTextView
+            app:fontName="dd_light.ttf"
+            android:id="@+id/spSelectRestaurent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textbox_pink_border_bg"
+            android:textColor="@color/dropdown_text"
+            android:drawableEnd="@drawable/ic_dd_arrow"
+            android:drawableRight="@drawable/ic_dd_arrow"
+            android:padding="@dimen/spacing_large" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="@dimen/spacing_medium" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:id="@+id/linear1">
+                <ImageView
+                    android:layout_alignParentTop="true"
+                    android:layout_width="@dimen/ed_textbox_height"
+                    android:layout_height="@dimen/ed_textbox_height"
+
+                    android:src="@drawable/ic_ed_email_icon"/>
+            </RelativeLayout>
+
+
+
+            <com.dunkin.customer.widget.CustomEditText
+                app:fontName="dd_light.ttf"
+                android:hint="@string/txt_hint_feedback_message"
+                android:layout_toRightOf="@+id/linear1"
+                android:layout_toEndOf="@+id/linear1"
+                android:id="@+id/edComments"
+                android:minHeight="@dimen/ed_textbox_height"
+                android:background="@drawable/textbox_border_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minLines="4"
+                android:maxLines="6"
+                android:paddingTop="@dimen/spacing_medium"
+                android:gravity="top"
+                android:textColor="@color/profile_font"
+                android:textColorHint="@color/profile_font"
+                android:paddingLeft="@dimen/spacing_large"
+                android:paddingStart="@dimen/spacing_large"
+                android:paddingEnd="@dimen/spacing_large"
+                android:paddingRight="@dimen/spacing_large"
+                />
+
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progressLoad"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateDrawable="@drawable/progress_circle"
+            android:progressDrawable="@drawable/progress_circle"
+            android:visibility="visible" />
+
+        <ListView
+            android:id="@+id/lvRatings"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            />
+
+        <include
+            android:id="@+id/btnSubmit"
+            layout="@layout/rl_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            />
+
+    </LinearLayout>
+
+</ScrollView>-->

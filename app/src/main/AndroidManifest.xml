@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dunkin.customer">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <permission
+        android:name="com.dunkin.customer.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.dunkin.customer.permission.C2D_MESSAGE" />
+
+    <permission
+        android:name="com.dunkin.customer.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.dunkin.customer.permission.MAPS_RECEIVE" />
+
+    <application
+        android:name=".CustomerApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDLcvLvgQ3U0sUg4i5kdy1wLhJhOWBY3Hg" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".SplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <!-- for Gingerbread GSF backward compat -->
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.dunkin.customer" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".GcmService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".RegistrationIntentService"
+            android:exported="false" />
+
+        <activity
+            android:name=".HomeActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RegisterActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EventDetailActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OfferDetailActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GiftDetailActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CelebrationDetailActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NewsDetailActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProductDetailActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProductListActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OrderHistoryDetailActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RecurrentOrderDetailActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CartDetailActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NewCardActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OfferPaymentActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EditCardActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UpdateUserProfileActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SettingActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AppPaymentActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CounterOrderPaymentActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AppWebViewActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CartActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider673553769448453"
+            android:exported="true" />
+
+        <service
+            android:name=".service.LogoutService"
+            android:exported="false" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="1d55cf9a0795d0d1cf4d740b343ce55a76ecb2bb" />
+
+        <activity
+            android:name=".SimpleScannerActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.SCAN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/spacing_medium"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:isScrollContainer="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/llHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_medium"
+            android:background="@color/price_desc_font"
+            android:visibility="gone">
+
+            <com.dunkin.customer.widget.CustomTextView
+                app:fontName="dd_light.ttf"
+                android:id="@+id/tvCustOrderId"
+                android:gravity="left|start"
+                android:textColor="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                app:fontName="dd_light.ttf"
+                android:gravity="left|start"
+                android:id="@+id/tvCustTableId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="@dimen/spacing_medium" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                app:fontName="dd_light.ttf"
+                android:gravity="left|start"
+                android:id="@+id/tvTotalAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="@dimen/spacing_medium" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                app:fontName="dd_light.ttf"
+                android:gravity="left|start"
+                android:id="@+id/tvCustRequirePoints"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="@dimen/spacing_medium" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                app:fontName="dd_light.ttf"
+                android:gravity="left|start"
+                android:id="@+id/tvCustPaymentType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="@dimen/spacing_medium" />
+        </LinearLayout>
+
+        <com.dunkin.customer.widget.MyListView
+            android:id="@+id/lvProductDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerHeight="2dp"
+            android:visibility="gone"
+            android:divider="@color/list_divider_dialog"/>
+
+        <ProgressBar
+            android:id="@+id/progressLoad"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:indeterminateDrawable="@drawable/progress_circle"
+            android:progressDrawable="@drawable/progress_circle"
+            android:visibility="visible" />
+
+        <com.dunkin.customer.widget.CustomTextView
+            app:fontName="dd_bold.ttf"
+            android:id="@+id/emptyElement"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/no_data_error"
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+</ScrollView>

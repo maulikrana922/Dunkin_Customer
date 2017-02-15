@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/home_welcome_text"
+        android:padding="@dimen/spacing_medium"
+        android:visibility="gone">
+
+        <com.dunkin.customer.widget.CustomTextView
+            android:id="@+id/spSelectCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/orange_round_border"
+            android:drawableEnd="@drawable/ic_dd_arrow"
+            android:drawableRight="@drawable/ic_dd_arrow"
+            android:padding="@dimen/spacing_large"
+            android:textColor="@color/dropdown_text"
+            app:fontName="dd_bold.ttf" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressLoad"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:indeterminateDrawable="@drawable/progress_circle"
+        android:progressDrawable="@drawable/progress_circle"
+        android:visibility="visible" />
+
+    <ListView
+        android:id="@+id/lvLoadList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/list_divider_dialog"
+        android:dividerHeight="2dp"
+        android:scrollbars="none"
+        android:visibility="gone"/>
+
+    <com.dunkin.customer.widget.CustomTextView
+        android:id="@+id/emptyElement"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/no_data_error"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:fontName="dd_bold.ttf" />
+</LinearLayout>

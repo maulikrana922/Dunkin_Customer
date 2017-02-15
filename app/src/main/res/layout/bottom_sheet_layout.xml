@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <com.dunkin.customer.widget.CustomHeadTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/spacing_medium"
+        android:text="@string/for_today_order"
+        android:textColor="@android:color/white"
+        app:fontName="dd_bold.ttf" />
+
+    <com.dunkin.customer.widget.CustomCheckBox
+        android:id="@+id/cbOrderForToday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/spacing_medium"
+        android:layout_marginStart="@dimen/spacing_medium"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:button="@drawable/custom_checkbox_bg"
+        android:paddingLeft="@dimen/spacing_medium"
+        android:paddingStart="@dimen/spacing_medium"
+        android:text="@string/msg_order_for_today"
+        android:textColor="@color/colorPrimary"
+        app:fontName="dd_light.ttf" />
+
+    <com.dunkin.customer.widget.CustomHeadTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/spacing_medium"
+        android:text="@string/for_recurrent_order"
+        android:textColor="@android:color/white"
+        app:fontName="dd_bold.ttf" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_medium"
+        android:orientation="horizontal">
+
+        <com.dunkin.customer.widget.CustomCheckBox
+            android:id="@+id/cb0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:button="@drawable/custom_checkbox_bg"
+            android:paddingLeft="@dimen/spacing_medium"
+            android:paddingStart="@dimen/spacing_medium"
+            android:text="@string/SUN"
+            android:textColor="@color/colorPrimary"
+            app:fontName="dd_light.ttf" />
+
+        <com.dunkin.customer.widget.CustomCheckBox
+            android:id="@+id/cb1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_medium"
+            android:layout_marginRight="@dimen/spacing_medium"
+            android:layout_weight="0.25"
+            android:button="@drawable/custom_checkbox_bg"
+            android:paddingLeft="@dimen/spacing_medium"
+            android:paddingStart="@dimen/spacing_medium"
+            android:text="@string/MON"
+            android:textColor="@color/colorPrimary"
+            app:fontName="dd_light.ttf" />
+
+        <com.dunkin.customer.widget.CustomCheckBox
+            android:id="@+id/cb2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_medium"
+            android:layout_marginRight="@dimen/spacing_medium"
+            android:layout_weight="0.25"
+            android:button="@drawable/custom_checkbox_bg"
+            android:paddingLeft="@dimen/spacing_medium"
+            android:paddingStart="@dimen/spacing_medium"
+            android:text="@string/TUE"
+            android:textColor="@color/colorPrimary"
+            app:fontName="dd_light.ttf" />
+
+        <com.dunkin.customer.widget.CustomCheckBox
+            android:id="@+id/cb3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_medium"
+            android:layout_marginRight="@dimen/spacing_medium"
+            android:layout_weight="0.25"
+            android:button="@drawable/custom_checkbox_bg"
+            android:paddingLeft="@dimen/spacing_medium"
+            android:paddingStart="@dimen/spacing_medium"
+            android:text="@string/WED"
+            android:textColor="@color/colorPrimary"
+            app:fontName="dd_light.ttf" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/spacing_medium"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <com.dunkin.customer.widget.CustomCheckBox
+            android:id="@+id/cb4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_medium"
+            android:layout_marginRight="@dimen/spacing_medium"
+            android:button="@drawable/custom_checkbox_bg"
+            android:paddingLeft="@dimen/spacing_medium"
+            android:paddingStart="@dimen/spacing_medium"
+            android:text="@string/THU"
+            android:textColor="@color/colorPrimary"
+            app:fontName="dd_light.ttf" />
+
+        <com.dunkin.customer.widget.CustomCheckBox
+            android:id="@+id/cb5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="@dimen/spacing_medium"
+            android:layout_marginRight="@dimen/spacing_medium"
+            android:button="@drawable/custom_checkbox_bg"
+            android:gravity="center"
+            android:paddingLeft="@dimen/spacing_medium"
+            android:paddingStart="@dimen/spacing_medium"
+            android:text="@string/FRI"
+            android:textColor="@color/colorPrimary"
+            app:fontName="dd_light.ttf" />
+
+        <com.dunkin.customer.widget.CustomCheckBox
+            android:id="@+id/cb6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_medium"
+            android:layout_marginRight="@dimen/spacing_medium"
+            android:button="@drawable/custom_checkbox_bg"
+            android:paddingLeft="@dimen/spacing_medium"
+            android:paddingStart="@dimen/spacing_medium"
+            android:text="@string/SAT"
+            android:textColor="@color/colorPrimary"
+            app:fontName="dd_light.ttf" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ed_textbox_height"
+            android:background="@drawable/textbox_border_bg"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/ed_textbox_height"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:background="@drawable/ic_credit_cal"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/edRecStartDate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:background="@android:color/transparent"
+                android:editable="false"
+                android:gravity="center_vertical"
+                android:hint="@string/txt_start_date"
+                android:inputType="date"
+                android:paddingEnd="@dimen/spacing_medium"
+                android:paddingLeft="@dimen/spacing_medium"
+                android:paddingRight="@dimen/spacing_medium"
+                android:paddingStart="@dimen/spacing_medium"
+                android:textColor="@color/profile_font"
+                android:textColorHint="@color/profile_font"
+                app:fontName="dd_light.ttf" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ed_textbox_height"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:background="@drawable/textbox_border_bg"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/ed_textbox_height"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:background="@drawable/ic_credit_cal"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/edRecEnddate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:background="@android:color/transparent"
+                android:editable="false"
+                android:gravity="center_vertical"
+                android:hint="@string/txt_endt_date"
+                android:inputType="date"
+
+                android:paddingEnd="@dimen/spacing_medium"
+                android:paddingLeft="@dimen/spacing_medium"
+                android:paddingRight="@dimen/spacing_medium"
+                android:paddingStart="@dimen/spacing_medium"
+                android:textColor="@color/profile_font"
+                android:textColorHint="@color/profile_font"
+                app:fontName="dd_light.ttf" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <include
+            android:id="@+id/btnSetup"
+            layout="@layout/rl_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_medium"
+            android:layout_marginTop="@dimen/spacing_medium" />
+
+        <include
+            android:id="@+id/btnReset"
+            layout="@layout/rl_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_medium"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>

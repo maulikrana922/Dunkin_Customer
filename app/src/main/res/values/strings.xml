@@ -1,0 +1,454 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <!--<string name="app_name">Dunkin Lebanon</string>-->
+    <string name="app_name" translatable="false">Dunkin Leb</string>
+    <string name="facebook_app_id" translatable="false">673553769448453</string>
+    <string name="google_app_id" translatable="false">AIzaSyAHzEEEadS4uCmVkeLS8mazKMIHfnt62-I</string>
+    <string name="lbl_app_version" translatable="false">V2.0.02022017</string>
+    <string name="lbl_consulting_website" translatable="false">www.MindSource-Consulting.com - All Rights Reserved - Copyright © 2016</string>
+
+    <string name="strp">Mind#S@urce#@201</string>
+    <string name="stral">AES</string>
+    <string name="network_error">No internet connectivity.</string>
+    <string name="processing">Processing &#8230; </string>
+    <string name="al_ok">Okay</string>
+    <string name="txt_ok">Ok</string>
+    <string name="al_cancel">Cancel</string>
+    <string name="txt_skip">Skip</string>
+    <string name="txt_scan">Scan</string>
+    <string name="err_scan_and_win">There is no scope for Scan and Win.</string>
+    <string name="al_warning">@string/app_name</string>
+    <string name="al_warning_redeem">Redeem Confirmation</string>
+    <string name="al_exit_message">Do you want to log out from application ?</string>
+    <string name="al_yes">YES</string>
+    <string name="al_no">NO</string>
+    <string name="al_close">Close</string>
+    <string name="al_try_again">Try Again</string>
+    <string name="no_data_error">Nothing to see yet.</string>
+    <string name="system_error">There may be some data problem or network problem. try again after sometime.</string>
+    <string name="txt_hint_feedback_message">Enter Feedback Here</string>
+    <string name="msg_feedback_success">Feedback Posted Successfully</string>
+    <string name="txt_select_restaurant">Select Branch</string>
+    <string name="txt_hello">Hello %1$s !</string>
+    <string name="txt_avarage_ratings">Average Rating : %1$s </string>
+
+    <!-- REGISTRATION  LOGIN FORGOT PASSWORD RESOURCES -->
+    <string name="hint_first_name">First Name</string>
+    <string name="hint_last_name">Last Name</string>
+    <string name="hint_date_of_birth">Date Of Birth</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="lbl_shipping_address_same">Shipping address same as above.</string>
+    <string name="hint_phone_number">Phone Number</string>
+    <string name="hint_shipping_address">Shipping Address</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_crdc_month">MM</string>
+    <string name="hint_crdc_year">YYYY</string>
+
+    <string name="hint_cardholder_name">Name On The Card</string>
+    <string name="empty_first_name">Please Enter First Name</string>
+    <string name="is_valid_name_string">%1$s should not contain any special character or number</string>
+    <string name="empty_last_name">Please Enter Last Name</string>
+    <string name="empty_date_of_birth">Please Enter date of birth</string>
+    <!--<string name="min_val_date_of_birth">Date of birth should be less or equal to current date.</string>-->
+    <string name="min_val_date_of_birth">Date of birth should be less than current date.</string>
+    <string name="invalid_email">Entered E-Mail is not valid</string>
+    <string name="empty_password">Please Enter Password</string>
+    <string name="empty_conform_password">Please Confirm Your Password</string>
+    <string name="min_length_password">Password must be at least 6 characters long</string>
+    <string name="password_is_not_match">Password and confirm password does not match.</string>
+    <string name="empty_phone_number">Please Enter Phone Number</string>
+    <string name="min_length_phone_number">Phone number must between 8 to 15 digit long.</string>
+    <string name="empty_address">Please Enter Address</string>
+    <string name="empty_shipping_address">Please Enter Shipping Address</string>
+
+    <string name="empty_cardholder_name">Please Enter Card Holder Name</string>
+    <string name="empty_card_number">Please Enter Credit Card Number</string>
+    <string name="min_length_card_number">Card number should be at least 16 digit long</string>
+    <string name="min_length_expiry_year">Expiry Year must be 4 digit long</string>
+    <string name="min_length_expiry_month">Expiry Month must be 2 digit long</string>
+    <string name="max_val_expiry_month">Expiry Month must between 01 to 12.</string>
+    <string name="min_val_expiry_year">Expiry Year must be current or greater than current year.</string>
+    <string name="min_val_expiry_month_current">Expiry Month should be greater or equal than current month.</string>
+
+    <!-- NEAREST RESTAURANT MAP -->
+    <string name="btn_email">E-Mail</string>
+    <string name="btn_call">Call</string>
+    <string name="btn_share">Share on FB</string>
+    <string name="msg_share_success">Share successfully.</string>
+    <string name="txt_share_comment">Enter Comment</string>
+
+    <!-- Register Page -->
+    <string name="txt_select_country">Select Country</string>
+    <string name="txt_set_fav_restaurant">Choose your favorite location</string>
+
+    <!-- Login Page -->
+    <string name="hint_password">Password</string>
+    <string name="btn_signin">Sign In</string>
+    <string name="txt_or">or</string>
+    <string name="btn_signup">Sign up</string>
+    <string name="txt_forgot_pass">Forgot Your Password?</string>
+    <string name="btn_back">Back</string>
+
+    <!-- FORGOT PASSWORD -->
+    <string name="hint_email">Email Address</string>
+    <string name="btn_submit">Submit</string>
+    <string name="empty_email">Please Enter Email Address</string>
+    <!--<string name="msg_fp_response_success">We have sent you password on entered email address. please check your mail.</string>-->
+    <string name="msg_fp_response_success">Password reset link sent to your e-mail</string>
+    <string name="msg_fp_failure_status_2">E-mail sending failed. try again.</string>
+    <string name="txt_return_to_sign_in">Return to Sign in</string>
+
+    <!-- NAVIGATION MENU RESOURCES -->
+    <string name="nav_home">My Home</string>
+    <string name="nav_offer">Deal</string>
+    <string name="nav_offer2">Offers</string>
+    <string name="nav_event">Events</string>
+    <string name="nav_celebration">Celebration</string>
+    <string name="nav_news">News</string>
+    <string name="nav_news_event">Happenings</string>
+    <string name="nav_coupons">Redeem</string>
+    <string name="nav_coupons2">Rewards</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_scanner">Scanner</string>
+    <string name="nav_near_restaurant">Find us</string>
+    <string name="nav_my_profile">It\'s me!</string>
+    <string name="nav_my_point">My Points</string>
+    <string name="nav_notification">My Notifications </string>
+    <string name="txt_points">Points</string>
+    <string name="nav_products">Products</string>
+    <string name="nav_cart">My Order</string>
+    <string name="nav_recurrent_order">Recurrent Order</string>
+    <string name="nav_wallet">Pay</string>
+    <string name="nav_manage_card">Refill</string>
+    <string name="nav_scan_and_win">Scan And Win</string>
+    <string name="nav_order_history">My Favorites</string>
+    <string name="nav_order_history2">Order History</string>
+    <string name="nav_payment">Payment</string>
+    <string name="nav_get_bill">Get Bill</string>
+    <string name="nav_scratch_card">Fun n Games</string>
+    <string name="nav_contact_us">Talk to us </string>
+    <string name="nav_about_us">Get to know us</string>
+    <string name="nav_rating">Give us 5 Stars</string>
+    <string name="nav_exit">Log out</string>
+
+    <!-- HOME PAGE -->
+    <string name="home_welcome_text">WELCOME TO DUNKIN DONUTS</string>
+
+    <!-- EVENT RESOURCES -->
+    <string name="txt_event_name">Title</string>
+    <string name="txt_event_start_date">Start Date</string>
+    <string name="txt_event_end_date">End Date</string>
+    <string name="txt_event_place">Place</string>
+    <string name="txt_event_description">Description</string>
+
+    <!-- OFFER RESOURCES -->
+    <string name="txt_offre_validat_days">Valid No. Of Days</string>
+    <string name="txt_offre_per_days">Items Per Day</string>
+    <string name="txt_times_redeem">Used Redeem</string>
+    <string name="txt_times_redeem2">Used</string>
+    <string name="txt_total_times_redeem">Total Redeem</string>
+    <string name="txt_total_times_redeem2">Total</string>
+    <string name="txt_remaining_times_redeem">Remaining Redeem</string>
+    <string name="txt_remaining_times_redeem4">Remaining</string>
+    <string name="txt_remaining_times_redeem2">Remaining Redeem: </string>
+    <string name="txt_remaining_times_redeem3">Remaining Item: </string>
+    <string name="txt_availed_product">Free Availed: %1$s</string>
+    <string name="txt_availed_product_not">Free Not Availed</string>
+    <string name="txt_free_product_available">Free Available: %1$s</string>
+    <string name="txt_offre_free_type">Offer Type</string>
+    <string name="txt_free_type">Free</string>
+    <string name="txt_free_type2">%1$s Free</string>
+    <string name="num_of_buy_products">%1$s Buy</string>
+    <string name="num_of_free_products">%1$s Get</string>
+    <string name="num_of_buy_products2">Buy %1$s</string>
+    <string name="num_of_free_products2">Get %1$s</string>
+    <string name="txt_not_free_type">Paid</string>
+    <string name="txt_offer_code">Offer Code</string>
+    <string name="lbl_offer_product">Offer Product Information</string>
+    <string name="tab_offer_1">@string/nav_offer2</string>
+    <string name="tab_offer_2">Offer History</string>
+    <string name="lbl_offer_name">Offer Title</string>
+    <string name="lbl_offer_points">Required Points</string>
+    <string name="lbl_offer_total_points">Total Points</string>
+    <!-- OFFER RESOURCES -->
+
+    <!-- CELEBRATION RESOURCES -->
+    <string name="txt_to">%1$s To %2$s</string>
+
+    <!-- NEWS RESOURCES -->
+    <string name="txt_news_title">Title</string>
+    <string name="txt_news_date">News Date</string>
+    <string name="txt_news_place">Place</string>
+    <string name="txt_news_description">Description</string>
+
+    <!-- PRODUCT/CATEGORY SCREEN -->
+    <string name="msg_ask_topping_add">Do you want to add toppings?</string>
+    <string name="msg_al_add_topping_add_ons">Do you want to add \"Add-Ons\"?</string>
+    <string name="txt_add_to_cart">Add To Order</string>
+    <string name="msg_product_remove_confirmation">Do you want to remove item from order?</string>
+    <!--<string name="txt_add_topping">Add Toppings</string>-->
+    <string name="txt_add_topping">Add ons</string>
+    <string name="btn_add_toppings2">Add-Ons</string>
+    <string name="msg_add_to_cart">Item added to order</string>
+    <string name="btn_done">Done</string>
+
+    <!-- MYPROFILE SCREEN -->
+    <string name="lbl_edit_profile">Edit Profile</string>
+
+    <!-- CONTACT US SCREEN -->
+    <string name="txt_contact_description">Message</string>
+    <string name="empty_name">Please Enter Name</string>
+    <string name="empty_description">Please Enter Message</string>
+    <!--<string name="txt_contact_success">Contact form sent successfully</string>-->
+    <string name="txt_contact_success">Thank you! Message sent successfully</string>
+
+    <!-- SCRATCH CARD SCREEN -->
+    <string name="txt_lost_game">Sorry!!! You lost the game.</string>
+    <string name="txt_win_game">You won the game and received %1$s points.</string>
+    <string name="msg_scratch_card_error">Your today\'s attempt completed. try again next day.</string>
+
+    <!-- ORDER HISTORY SCREEN -->
+    <string name="lbl_order_detail">Order Detail</string>
+    <string name="lbl_recurrent_order">Recurrent Order</string>
+    <string name="lbl_recurrent_order_detail">Recurrent Order Detail</string>
+    <string name="txt_recurrent_order_date">Recurrent Order Date: %1$s TO %2$s</string>
+    <string name="txt_recurrent_order_days">Recurrent Order Days: %1$s</string>
+    <string name="txt_order_amount">Amount: %1$s</string>
+    <string name="txt_order_amount_history">Amount: %1$s %2$s</string>
+    <string name="txt_order_point">Point: %1$s</string>
+    <string name="lbl_order_point">Points</string>
+    <string name="txt_order_refund_amount">Refunded Amount: %1$s</string>
+    <string name="txt_order_shipping_address">Shipping Address</string>
+    <string name="txt_order_billing_address">Billing Address</string>
+    <string name="txt_not_applicable">Not Applicable </string>
+    <string name="al_cancel_recurrent_order_confirmation">Do you want to cancel this Recurrent Order ?</string>
+
+    <!-- GIFT STORE SCREEN-->
+    <string name="txt_redeem_for_point">Exchange for %1$s points.</string>
+    <string name="txt_remaining_point">Current Points: %1$s</string>
+    <string name="txt_chose_location">Choose pick up location</string>
+    <string name="txt_gift_reserve_success_0">User does not exist.</string>
+    <string name="txt_gift_reserve_success_1">Your gift reserved successfully.</string>
+    <string name="txt_gift_reserve_success_2">You do not have enough balance.</string>
+    <string name="tab_on_the_go">On The Go</string>
+    <string name="tab_wait_for_me">Wait For Me</string>
+    <string name="msg_confirm_redeem">Do you Wish to redeem this gift ?</string>
+    <string name="msg_confirm_redeem_wait_for_me">Do you wish to redeem this Gift? Requires 2 to 10 days.</string>
+    <string name="msg_confirm_redeem_wait_for_me2">Do you wish to redeem this gift? Requires 5 to 10 working days.</string>
+    <string name="lbl_redeem_popup_title">Title:</string>
+    <string name="lbl_redeem_popup_title2">Gift Item:</string>
+    <string name="lbl_redeem_popup_point">Point:</string>
+    <string name="lbl_redeem_popup_point2">Point(s):</string>
+    <string name="lbl_redeem_popup_desc">Description:</string>
+
+    <string name="lbl_gift_detail">Gift</string>
+    <string name="txt_gift_order_date">Order Date: %1$s</string>
+    <string name="txt_gift_collected_date">Collected Date: %1$s</string>
+
+    <!-- GET BILL -->
+    <string name="txt_get_bill_success">We have sent request to waiter. please wait.</string>
+    <string name="txt_get_bill_failure">No order found currently.</string>
+    <string name="txt_get_bill_linked">One Order is already linked.</string>
+
+    <!--MY WALLET SCREEN-->
+    <string name="txt_my_wallet_amount">Total Amount : %1$s </string>
+    <string name="txt_my_wallet_remaining_amount">Remaining Points : </string>
+
+    <!--SETTING SCREEN-->
+    <string name="lbl_notification">Notification</string>
+    <string name="lang_ar">Arabic</string>
+    <string name="lang_en">English</string>
+    <string name="lbl_language">Language</string>
+    <string name="lbl_small_notification">Enable Notification Service</string>
+    <string name="lbl_small_language">Change Language</string>
+    <string name="btn_remove_notification">Clear All</string>
+    <string name="btn_remove_selected_notification">Delete</string>
+
+    <!--CART SCREEN-->
+    <string name="hint_cart_shipping_address">Shipping Address</string>
+    <string name="hint_cart_billing_address">Billing Address</string>
+    <string name="txt_cart_btn_select">Checkout</string>
+    <string name="lbl_checkout">Check Out</string>
+    <string name="lbl_tex_quantity">Quantity</string>
+    <string name="empty_cart">Cart is empty</string>
+    <string name="lbl_total">Total</string>
+    <string name="lbl_choose_toppings">Choose Toppings</string>
+    <string name="lbl_choose_toppings2">Choose Add-Ons</string>
+    <string name="lbl_order_toppings">Order Toppings</string>
+    <string name="lbl_toppings">Toppings (%1$d)</string>
+    <string name="btn_add_toppings_value">Add-Ons(%1$d)</string>
+    <string name="lbl_cart_amount">%1$s</string>
+    <string name="lbl_order_delivery">Check for takeout </string>
+    <string name="lbl_order_recuring">Do you want to setup recurring order?</string>
+    <string name="MON">MON</string>
+    <string name="TUE">TUE</string>
+    <string name="WED">WED</string>
+    <string name="THU">THU</string>
+    <string name="FRI">FRI</string>
+    <string name="SAT">SAT</string>
+    <string name="SUN">SUN</string>
+    <string name="txt_start_date">Start date</string>
+    <string name="txt_endt_date">End date</string>
+    <string name="txt_setup_reccuring">Setup</string>
+    <string name="txt_reset_reccuring">Reset</string>
+    <string name="txt_checkbox_empty">Please select any day.</string>
+    <string name="txt_order_rect_start_date">Start Date must be current or upcoming date.</string>
+    <string name="txt_order_rect_end_date">End Date must be current or upcoming date.</string>
+    <string name="txt_order_rect_date_before">End date should not be before start date.</string>
+    <string name="txt_order_days_not_in_date">Please select proper days and dates.</string>
+    <string name="err_select_restaurant">Please select restaurant.</string>
+    <string name="txt_please_select_date">Please select date.</string>
+    <string name="txt_please_select_time">Please select time.</string>
+    <string name="lbl_date">Select Date</string>
+    <string name="lbl_time">Select Time</string>
+
+    <!-- ADD NEW CREDIT CARD RESOURCES-->
+    <string name="txt_card_number">Credit card number</string>
+    <string name="btn_add_card">Add Card</string>
+    <string name="txt_al_remove_message">Are you sure to delete ? </string>
+
+    <!--CRADIT CARD SCREEN-->
+    <string name="lbl_card_holder_name">Card Holder Name</string>
+    <string name="lbl_card_number">Card Number</string>
+    <string name="lbl_card_expiry_date">Expiry Date</string>
+    <string name="lbl_delete_card">Delete</string>
+    <string name="lbl_edit_card">Edit</string>
+    <string name="lbl_credit_saved">Saved Cards List</string>
+
+    <!-- PAYMENT BY CARD SCREEN-->
+    <string name="lbl_activity_pay">Payment</string>
+    <string name="txt_order_id">Order ID : %1$s</string>
+    <string name="txt_table_id">Table ID : %1$s</string>
+    <string name="lbl_total_amount">Total Amount</string>
+    <string name="txt_points_require">Required Points : %1$s</string>
+    <string name="txt_payment_type">Payment Type : %1$s</string>
+    <string name="txt_offer_purchase_date">Purchase Date : %1$s</string>
+    <string name="txt_payment_type2">Payment Type</string>
+
+    <string name="payment_option">Select Payment Type</string>
+    <string name="msg_payment_success">Payment done successfully. Thank you.</string>
+    <string name="msg_already_payment">Payment already been done.</string>
+    <string name="msg_payment_failed">Payment Failed Or You have insufficient balance. Try Again.</string>
+    <string name="msg_no_order_found">No order found currently.</string>
+
+    <!-- PAYMENT BY REDEEM SCREEN-->
+    <string name="txt_product_amount">%1$s %2$s</string>
+    <string name="txt_number_of_points1">%1$s Points</string>
+    <string name="txt_number_of_refund_points">%1$s Points deducted</string>
+    <string name="lbl_used_point">Used points</string>
+    <string name="lbl_total_point">My points</string>
+    <string name="tab_point_1">My Points</string>
+    <string name="tab_point_2">Redeem History</string>
+    <string name="tab_point_3">Reward History</string>
+    <string name="msg_redeem_gift" translatable="false">%1$s points %2$s against %3$s.</string>
+    <string name="msg_redeem_gift2" translatable="false">%1$s Points earned by %2$s.</string>
+    <string name="msg_redeem_gift3" translatable="false">%1$s Points deducted by %2$s.</string>
+    <string name="lbl_earned" translatable="false">earned</string>
+    <string name="lbl_deduct" translatable="false">deducted</string>
+
+    <!-- CREDITCARD EXPIRY MONTHS-->
+    <string-array name="expiry_months">
+        <item>MM</item>
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+    <!--QUESTIONS FOR FEEDBACK-->
+    <string-array name="feedback_question">
+        <item>@string/feedback_q1</item>
+        <item>@string/feedback_q2</item>
+        <item>@string/feedback_q3</item>
+        <item>@string/feedback_q4</item>
+        <item>@string/feedback_q5</item>
+    </string-array>
+
+    <!-- PAYMENT METHOD-->
+    <string name="pay_by_cash">Pay By Cash</string>
+    <string name="pay_by_wallet">Pay By Wallet</string>
+    <string name="pay_by_points">Pay By Exchange Points</string>
+
+    <!-- LANGUAGE ARRAY -->
+    <string-array name="language_array">
+        <item>@string/lang_en</item>
+        <item>@string/lang_ar</item>
+    </string-array>
+
+    <string-array name="language_code_array">
+        <item>en</item>
+        <item>ar</item>
+    </string-array>
+
+    <!-- ALL JSON MESSAGES -->
+    <string name="msg_register_success">You are successfully registered.</string>
+    <string name="msg_register_exist">You are already registered try to login.</string>
+    <string name="msg_register_error">Error occurred during registration.</string>
+    <string name="msg_login_user_not_exist">User does not exist with entered email address</string>
+    <string name="msg_login_not_match">Email address and password does not match.</string>
+    <string name="msg_login_user_inactive">User with entered email address is inactive. please contact admin.</string>
+    <string name="msg_login_success">You are successfully logged in.</string>
+    <string name="msg_logout_success">You are successfully logged out.</string>
+    <string name="msg_logout_failure">Logout failed. try again.</string>
+
+    <string name="txt_contact_failure">Contact form sent failed. try again</string>
+    <string name="msg_card_added_success">Card added/updated successfully.</string>
+    <string name="msg_card_added_failed">Card add/update failed.</string>
+    <string name="msg_profile_edit_success">Profile updated successfully</string>
+    <string name="msg_profile_edit_failed">Profile update failed.</string>
+    <string name="txt_order_status">Order Status</string>
+    <string name="feedback_q1">Did you have great experience?</string>
+    <string name="feedback_q2">User friendliness</string>
+    <string name="feedback_q3">Food test and presentation</string>
+    <string name="feedback_q4">Speed of service</string>
+    <string name="feedback_q5">Overall Atmosphere</string>
+
+    <string name="str_note_id">Note ID: </string>
+    <string name="str_note_amount">Amount: </string>
+    <string name="str_note_amount_added_on">Amount Added On: </string>
+    <string name="str_note_amount_deducted_on">Amount Deducted On: </string>
+    <string name="str_note_recharge_by">Performed by: </string>
+
+    <string name="msg_order_for_today">Do you want to place this order for today ?</string>
+    <string name="for_today_order">For Today Order</string>
+    <string name="for_recurrent_order">For Recurrent Order</string>
+
+    <string name="cal_set_day" translatable="false">set_day</string>
+    <string name="cal_set_month" translatable="false">set_month</string>
+    <string name="cal_set_year" translatable="false">set_year</string>
+    <string name="cal_set_date" translatable="false">set_date</string>
+    <string name="txt_your_favorite_restaurant">Your favorite location</string>
+
+    <string name="msg_no_gift_available">We currently don\'t have exciting gifts for this branch, please select other branch to redeem your gift.</string>
+    <string name="msg_no_gift_available2">Sorry! No gifts available for this branch, please select another one.</string>
+    <string name="txt_recurrent_date">%1$s TO %2$s</string>
+    <string name="txt_order_date">Order Date: %1$s</string>
+    <string name="lbl_rate_us" translatable="false">Rate us</string>
+
+    <string name="msg_remove_all_notification">Are you sure you want to clear all the notifications?</string>
+    <string name="lbl_counter_order_shop_name">Shop: %1$s</string>
+    <string name="lbl_tab_wallet_history">Wallet</string>
+    <string name="lbl_tab_wallet_point_history">Points History</string>
+    <string name="msg_gift_quantity_not_avail">Gift quantity is not available</string>
+    <string name="msg_failed_to_get_response">Problem in loading data, please check your internet connectivity and try again.</string>
+    <string name="str_default_date" translatable="false">00/00/0000</string>
+    <string name="talk_to_us_msg">Please allow 24 hours for our team to reply.\nOur working hours are 09:00 to 17:00 Monday to Friday</string>
+
+
+    <string name="base" translatable="false">aHR0cHM6Ly9tb2JpbGUuaWxvdmVkZC5pbmZvL2luZGV4LnBocC9hcGkv</string>
+    <string name="string" translatable="false">daj@#$@#sdlfjslkfjl)^$#5346ksajflsadfksahfhjd%^*@sa</string>
+    <string name="getProductbyCategory" translatable="false">getProductbyCategory</string>
+    <string name="success">success</string>
+    <string name="case_er">99</string>
+    <string name="case_er_br">CASE_ER</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

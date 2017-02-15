@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/spacing_medium"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/progressLoad"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/progress_circle"
+        android:progressDrawable="@drawable/progress_circle"
+        android:visibility="visible" />
+
+    <com.dunkin.customer.widget.CustomTextView
+        app:fontName="dd_bold.ttf"
+        android:id="@+id/emptyElement"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/no_data_error"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+    <ScrollView
+        android:id="@+id/scrollContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_medium"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:background="@drawable/textbox_border_bg"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/ed_textbox_height"
+                    android:layout_height="@dimen/ed_textbox_height"
+                    android:background="@drawable/ic_profile_user_icon"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY" />
+
+                <com.dunkin.customer.widget.CustomTextView
+                    android:id="@+id/tvOrderId"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ed_textbox_height"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="@dimen/spacing_medium"
+                    android:paddingLeft="@dimen/spacing_medium"
+                    android:paddingRight="@dimen/spacing_medium"
+                    android:paddingStart="@dimen/spacing_medium"
+                    android:textColor="@color/profile_font"
+                    app:fontName="dd_light.ttf" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lvShopName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:layout_marginTop="@dimen/spacing_xsmall"
+                android:background="@drawable/textbox_border_bg"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/ed_textbox_height"
+                    android:layout_height="@dimen/ed_textbox_height"
+                    android:background="@drawable/ic_profile_user_icon"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY" />
+
+                <com.dunkin.customer.widget.CustomTextView
+                    android:id="@+id/tvShopName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ed_textbox_height"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="@dimen/spacing_medium"
+                    android:paddingLeft="@dimen/spacing_medium"
+                    android:paddingRight="@dimen/spacing_medium"
+                    android:paddingStart="@dimen/spacing_medium"
+                    android:textColor="@color/profile_font"
+                    app:fontName="dd_light.ttf" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:layout_marginTop="@dimen/spacing_xsmall"
+                android:background="@drawable/textbox_border_bg"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/ed_textbox_height"
+                    android:layout_height="@dimen/ed_textbox_height"
+                    android:background="@drawable/ic_profile_user_icon"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY" />
+
+                <com.dunkin.customer.widget.CustomTextView
+                    android:id="@+id/tvAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ed_textbox_height"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="@dimen/spacing_medium"
+                    android:paddingLeft="@dimen/spacing_medium"
+                    android:paddingRight="@dimen/spacing_medium"
+                    android:paddingStart="@dimen/spacing_medium"
+                    android:textColor="@color/profile_font"
+                    app:fontName="dd_light.ttf" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:layout_marginTop="@dimen/spacing_xsmall"
+                android:background="@drawable/textbox_border_bg"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/ed_textbox_height"
+                    android:layout_height="@dimen/ed_textbox_height"
+                    android:background="@drawable/ic_profile_user_icon"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY" />
+
+                <com.dunkin.customer.widget.CustomTextView
+                    android:id="@+id/tvPoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ed_textbox_height"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="@dimen/spacing_medium"
+                    android:paddingLeft="@dimen/spacing_medium"
+                    android:paddingRight="@dimen/spacing_medium"
+                    android:paddingStart="@dimen/spacing_medium"
+                    android:textColor="@color/profile_font"
+                    app:fontName="dd_light.ttf" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:layout_marginTop="@dimen/spacing_xsmall"
+                android:background="@drawable/textbox_border_bg"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/ed_textbox_height"
+                    android:layout_height="@dimen/ed_textbox_height"
+                    android:background="@drawable/ic_profile_user_icon"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY" />
+
+                <com.dunkin.customer.widget.CustomTextView
+                    android:id="@+id/tvPaymentType"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ed_textbox_height"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="@dimen/spacing_medium"
+                    android:paddingLeft="@dimen/spacing_medium"
+                    android:paddingRight="@dimen/spacing_medium"
+                    android:paddingStart="@dimen/spacing_medium"
+                    android:textColor="@color/profile_font"
+                    app:fontName="dd_light.ttf" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:layout_marginTop="@dimen/spacing_xsmall"
+                android:background="@drawable/textbox_border_bg"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/ed_textbox_height"
+                    android:layout_height="@dimen/ed_textbox_height"
+                    android:background="@drawable/ic_profile_user_icon"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY" />
+
+                <com.dunkin.customer.widget.CustomTextView
+                    android:id="@+id/tvPaymentDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ed_textbox_height"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="@dimen/spacing_medium"
+                    android:paddingLeft="@dimen/spacing_medium"
+                    android:paddingRight="@dimen/spacing_medium"
+                    android:paddingStart="@dimen/spacing_medium"
+                    android:textColor="@color/profile_font"
+                    app:fontName="dd_light.ttf" />
+            </LinearLayout>
+
+            <include
+                android:id="@+id/btnPay"
+                layout="@layout/rl_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

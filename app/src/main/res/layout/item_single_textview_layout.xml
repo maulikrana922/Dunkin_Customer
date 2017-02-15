@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/productLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="4"
+    android:orientation="horizontal"
+    android:background="@android:color/transparent"
+    android:padding="@dimen/spacing_medium">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:id="@+id/imgLogo"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:padding="@dimen/spacing_xsmall"
+        android:background="@color/colorPrimary"/>
+
+
+    <com.dunkin.customer.widget.CustomTextView
+        app:fontName="dd_bold.ttf"
+            android:layout_weight="3.5"
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start|left|center_vertical"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:layout_margin="@dimen/spacing_medium"
+            />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/ic_home_cat_arrow"
+        />
+
+
+
+
+
+</LinearLayout>

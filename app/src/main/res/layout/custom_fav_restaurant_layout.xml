@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/spacing_xsmall">
+
+    <com.dunkin.customer.widget.CustomTextView
+        android:id="@+id/txtRestaurantName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:layout_toLeftOf="@+id/cbCheckRestaurant"
+        android:layout_toStartOf="@+id/cbCheckRestaurant"
+        android:paddingEnd="@dimen/spacing_medium"
+        android:paddingRight="@dimen/spacing_medium"
+        android:singleLine="true"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <com.dunkin.customer.widget.CustomCheckBox
+        android:id="@+id/cbCheckRestaurant"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/ed_textbox_height"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/spacing_xsmall"
+        android:button="@drawable/custom_checkbox_bg"
+        android:textColor="@color/profile_font"
+        app:fontName="dd_light.ttf" />
+</RelativeLayout>

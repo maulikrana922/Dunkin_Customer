@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:background="@android:color/white"
+    android:scrollbars="none">
+
+    <ProgressBar
+        android:id="@+id/progressLoad"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/progress_circle"
+        android:progressDrawable="@drawable/progress_circle"
+        android:visibility="visible" />
+
+    <ScrollView
+        android:id="@+id/scrollContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imgLogo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    />
+
+                <ImageButton
+                    android:id="@+id/imbVideo"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_play_arrow"
+                    android:visibility="gone"
+                    />
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/home_welcome_text"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/point_bg"
+                android:layout_margin="@dimen/spacing_medium"
+                android:padding="@dimen/spacing_medium">
+
+                <com.dunkin.customer.widget.CustomTextView
+                    app:fontName="dd_bold.ttf"
+                    android:gravity="left|start"
+                    android:id="@+id/txtTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white" />
+
+                <com.dunkin.customer.widget.CustomTextView
+                    app:fontName="dd_light.ttf"
+                    android:id="@+id/txtEventDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:layout_below="@+id/txtTitle"
+                    android:drawableLeft="@drawable/ic_date"
+                    android:drawableStart="@drawable/ic_date"
+                    android:gravity="center_vertical"
+
+                    android:drawablePadding="@dimen/spacing_medium"
+                    android:textColor="@android:color/white"
+                    />
+                <com.dunkin.customer.widget.CustomTextView
+                    app:fontName="dd_light.ttf"
+                    android:id="@+id/txtPlace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:layout_below="@+id/txtEventDate"
+                    android:gravity="center_vertical"
+                    android:drawableLeft="@drawable/ic_place"
+                    android:drawableStart="@drawable/ic_place"
+                    android:drawablePadding="@dimen/spacing_medium"
+                    android:textColor="@android:color/white"
+                    />
+            </RelativeLayout>
+
+            <com.dunkin.customer.widget.CustomTextView
+                app:fontName="dd_light.ttf"
+                android:id="@+id/txtEventDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:padding="@dimen/spacing_medium"
+                android:textColor="@color/home_content_text" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

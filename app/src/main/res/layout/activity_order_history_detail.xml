@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/progressLoad"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/progress_circle"
+        android:progressDrawable="@drawable/progress_circle"
+        android:visibility="visible" />
+
+    <ScrollView
+        android:id="@+id/scrollContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_medium"
+        android:scrollbars="none"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:isScrollContainer="true"
+            android:orientation="vertical">
+
+            <com.dunkin.customer.widget.MyListView
+                android:id="@+id/orderItemList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:divider="@color/list_divider_dialog"
+                android:dividerHeight="2dp" />
+
+            <com.dunkin.customer.widget.MyLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:background="@drawable/textbox_pink_border_bg"
+                android:orientation="vertical">
+
+                <com.dunkin.customer.widget.CustomTextView
+                    android:id="@+id/txtOrderAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="@dimen/spacing_medium"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:layout_marginStart="@dimen/spacing_medium"
+                    android:layout_marginRight="@dimen/spacing_medium"
+                    android:layout_marginEnd="@dimen/spacing_medium"
+                    android:drawableLeft="@drawable/ic_order_amount"
+                    android:drawablePadding="@dimen/spacing_medium"
+                    android:drawableStart="@drawable/ic_order_amount"
+                    android:textColor="@color/price_desc_font"
+                    app:fontName="dd_bold.ttf" />
+
+                <com.dunkin.customer.widget.CustomTextView
+                    android:id="@+id/txtOrderPoint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="@dimen/spacing_medium"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:layout_marginStart="@dimen/spacing_medium"
+                    android:layout_marginRight="@dimen/spacing_medium"
+                    android:layout_marginEnd="@dimen/spacing_medium"
+                    android:drawableLeft="@drawable/ic_order_amount"
+                    android:drawablePadding="@dimen/spacing_medium"
+                    android:drawableStart="@drawable/ic_order_amount"
+                    android:textColor="@color/price_desc_font"
+                    app:fontName="dd_bold.ttf" />
+
+                <com.dunkin.customer.widget.CustomTextView
+                    android:id="@+id/txtOrderPaymentType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="@dimen/spacing_medium"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:layout_marginStart="@dimen/spacing_medium"
+                    android:layout_marginRight="@dimen/spacing_medium"
+                    android:layout_marginEnd="@dimen/spacing_medium"
+                    android:drawableLeft="@drawable/ic_order_amount"
+                    android:drawablePadding="@dimen/spacing_medium"
+                    android:drawableStart="@drawable/ic_order_amount"
+                    android:textColor="@color/price_desc_font"
+                    app:fontName="dd_bold.ttf" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/spacing_medium"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:layout_marginStart="@dimen/spacing_medium"
+                    android:layout_marginRight="@dimen/spacing_medium"
+                    android:layout_marginEnd="@dimen/spacing_medium"
+                    android:orientation="horizontal">
+
+                    <com.dunkin.customer.widget.CustomTextView
+                        android:id="@+id/txtOrderDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:drawableLeft="@drawable/ic_order_date"
+                        android:drawablePadding="@dimen/spacing_medium"
+                        android:drawableStart="@drawable/ic_order_date"
+                        android:textColor="@color/price_desc_font"
+                        app:fontName="dd_bold.ttf" />
+
+                    <com.dunkin.customer.widget.CustomTextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtOrderDate"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:drawableLeft="@drawable/ic_truck"
+                        android:drawablePadding="@dimen/spacing_medium"
+                        android:drawableStart="@drawable/ic_truck"
+                        android:text="@string/txt_order_status"
+                        android:textColor="@color/price_desc_font"
+                        app:fontName="dd_bold.ttf" />
+
+                    <com.dunkin.customer.widget.CustomTextView
+                        android:id="@+id/txtOrderStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_alignBaseline="@+id/textView2"
+                        android:layout_below="@+id/txtOrderDate"
+                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:layout_marginLeft="@dimen/spacing_medium"
+                        android:layout_marginStart="@dimen/spacing_medium"
+                        android:layout_toEndOf="@+id/textView2"
+                        android:layout_toRightOf="@+id/textView2"
+                        android:background="@drawable/rounded_corner"
+                        android:drawablePadding="@dimen/spacing_medium"
+                        android:textColor="@android:color/white"
+                        app:fontName="dd_bold.ttf" />
+
+                </RelativeLayout>
+
+                <com.dunkin.customer.widget.CustomHeadTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:layout_marginEnd="@dimen/spacing_medium"
+                    android:layout_marginLeft="@dimen/spacing_medium"
+                    android:layout_marginRight="@dimen/spacing_medium"
+                    android:layout_marginStart="@dimen/spacing_medium"
+                    android:text="@string/txt_order_shipping_address"
+                    android:textColor="@color/home_welcome_text"
+                    android:textStyle="bold"
+                    app:fontName="dd_bold.ttf" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="@dimen/spacing_medium"
+                    android:background="@color/home_welcome_text" />
+
+                <com.dunkin.customer.widget.CustomTextView
+                    android:id="@+id/txtShippingAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_medium"
+                    android:layout_marginLeft="@dimen/spacing_medium"
+                    android:layout_marginRight="@dimen/spacing_medium"
+                    android:layout_marginStart="@dimen/spacing_medium"
+                    android:textColor="@color/price_desc_font"
+                    app:fontName="dd_light.ttf" />
+
+                <com.dunkin.customer.widget.CustomHeadTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_medium"
+                    android:layout_marginLeft="@dimen/spacing_medium"
+                    android:layout_marginRight="@dimen/spacing_medium"
+                    android:layout_marginStart="@dimen/spacing_medium"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:text="@string/txt_order_billing_address"
+                    android:textColor="@color/home_welcome_text"
+                    android:textStyle="bold"
+                    app:fontName="dd_bold.ttf" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="@dimen/spacing_medium"
+                    android:background="@color/home_welcome_text" />
+
+                <com.dunkin.customer.widget.CustomTextView
+                    android:id="@+id/txtBillingAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:layout_marginEnd="@dimen/spacing_medium"
+                    android:layout_marginLeft="@dimen/spacing_medium"
+                    android:layout_marginRight="@dimen/spacing_medium"
+                    android:layout_marginStart="@dimen/spacing_medium"
+                    android:textColor="@color/price_desc_font"
+                    app:fontName="dd_light.ttf" />
+            </com.dunkin.customer.widget.MyLinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

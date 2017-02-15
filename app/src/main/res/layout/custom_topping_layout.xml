@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/spacing_medium"
+    android:id="@+id/rl"
+    >
+
+    <com.dunkin.customer.widget.CustomTextView
+        app:fontName="dd_bold.ttf"
+        android:id="@+id/toppingName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:layout_margin="@dimen/spacing_medium"
+        android:layout_toLeftOf="@+id/cbTopping"
+        android:layout_toStartOf="@+id/cbTopping"
+        />
+
+    <com.dunkin.customer.widget.CustomTextView
+        app:fontName="dd_light.ttf"
+        android:id="@+id/toppingPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_medium"
+        android:textColor="@color/price_desc_font"
+        android:layout_below="@+id/toppingName"
+        android:layout_toLeftOf="@+id/cbTopping"
+        android:layout_toStartOf="@+id/cbTopping"
+        />
+
+<CheckBox
+    android:layout_alignParentRight="true"
+    android:layout_alignParentEnd="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/cbTopping"
+    android:layout_margin="@dimen/spacing_medium"
+    android:button="@drawable/custom_checkbox_bg"
+    />
+</RelativeLayout>

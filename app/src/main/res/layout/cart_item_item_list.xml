@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cartLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_medium">
+
+    <ImageView
+        android:id="@+id/btnRemove"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_delete" />
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:adjustViewBounds="true"
+        android:background="@color/colorPrimary"
+        android:contentDescription="@string/app_name"
+        android:padding="@dimen/spacing_xsmall"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/imgLogo"
+        android:layout_alignTop="@+id/imgLogo"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        android:layout_marginLeft="@dimen/spacing_medium"
+        android:layout_marginRight="@dimen/spacing_medium"
+        android:layout_marginStart="@dimen/spacing_medium"
+        android:layout_toEndOf="@+id/imgLogo"
+        android:layout_toLeftOf="@+id/btnRemove"
+        android:layout_toRightOf="@+id/imgLogo"
+        android:layout_toStartOf="@+id/btnRemove"
+        android:orientation="vertical">
+
+        <com.dunkin.customer.widget.CustomTextView
+            android:id="@+id/tvItemName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Product Name"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            app:fontName="dd_bold.ttf" />
+
+        <com.dunkin.customer.widget.CustomTextView
+            android:id="@+id/tvPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:text="Product Price"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/price_desc_font"
+            app:fontName="dd_light.ttf" />
+
+        <include
+            android:id="@+id/btnToppings"
+            layout="@layout/rl_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgLogo"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_medium"
+            android:layout_marginStart="@dimen/spacing_medium"
+            android:layout_weight="0.50"
+            android:orientation="horizontal">
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/lbl_tex_quantity"
+                android:textColor="@color/price_desc_font"
+                app:fontName="dd_light.ttf" />
+
+            <ImageView
+                android:id="@+id/btnDeletQty"
+                android:layout_width="@dimen/btn_height"
+                android:layout_height="@dimen/btn_height"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="2dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_minus_btn" />
+
+            <com.dunkin.customer.widget.CustomEditText
+                android:id="@+id/edQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/btn_height"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_qty_textbox_bg"
+                android:ems="3"
+                android:focusable="false"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="1"
+                app:fontName="dd_light.ttf" />
+
+            <ImageView
+                android:id="@+id/btnAddQty"
+                android:layout_width="@dimen/btn_height"
+                android:layout_height="@dimen/btn_height"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="2dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_plus_btn" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:gravity="end|right"
+            android:orientation="horizontal">
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="2dp"
+                android:text="@string/lbl_total"
+                android:textColor="@color/price_desc_font"
+                app:fontName="dd_light.ttf" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/tvTotalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/btn_height"
+                android:background="@color/colorPrimary"
+                android:padding="5dp"
+                android:text="15000.0"
+                android:textColor="@android:color/white"
+                app:fontName="dd_light.ttf" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

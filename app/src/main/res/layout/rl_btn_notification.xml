@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dunkin.customer.widget.RelativeLayoutButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/btn_height"
+    android:background="@drawable/rounded_corner_rate_us"
+    android:clickable="true">
+
+    <ImageView
+        android:id="@+id/imgIcon"
+        android:layout_width="@dimen/btn_height"
+        android:layout_height="@dimen/btn_height"
+        android:background="@color/btn_small_bg"
+        android:contentDescription="@string/app_name"
+        android:padding="@dimen/spacing_medium"
+        android:src="@drawable/ic_nav_give_me_stars" />
+
+    <com.dunkin.customer.widget.CustomTextView
+        android:id="@+id/btnText"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btn_height"
+        android:layout_toEndOf="@+id/imgIcon"
+        android:layout_toRightOf="@+id/imgIcon"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:paddingEnd="@dimen/spacing_medium"
+        android:paddingLeft="@dimen/spacing_medium"
+        android:paddingRight="@dimen/spacing_medium"
+        android:paddingStart="@dimen/spacing_medium"
+        android:singleLine="true"
+        android:text="@string/lbl_rate_us"
+        android:textColor="@android:color/white"
+        app:fontName="dd_light.ttf" />
+
+</com.dunkin.customer.widget.RelativeLayoutButton>
