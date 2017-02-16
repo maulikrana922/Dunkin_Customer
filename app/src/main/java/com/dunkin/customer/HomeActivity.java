@@ -54,7 +54,6 @@ import com.dunkin.customer.fragments.OrderHistoryFragment;
 import com.dunkin.customer.fragments.RecurrentOrderFragment;
 import com.dunkin.customer.fragments.RedeemFragment;
 import com.dunkin.customer.fragments.RotatingBannerFragment;
-import com.dunkin.customer.fragments.ScanAndWinFragment;
 import com.dunkin.customer.fragments.ScratchCardFragment;
 import com.dunkin.customer.listener.FileDownloadListener;
 import com.dunkin.customer.models.NavDrawerModel;
@@ -99,7 +98,7 @@ public class HomeActivity extends AppCompatActivity {
     private static final int SCANNER_REQUEST_CODE = 0x11;
     public static String strUrl = "", strOfferUrl = "", strGetScanImage = "", scanOfferImagePath = "",
             isScanWinEnable = "", isOfferEnable = "";
-    final String[] permsReadWrite = {"android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.READ_EXTERNAL_STORAGE"};
+        final String[] permsReadWrite = {"android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.READ_EXTERNAL_STORAGE"};
     private static final int PERMISSION_STORAGE_READ_WRITE_REQUEST_CODE = 0x21;
     private static final int CAMERA_PERMISSION_REQUEST = 0x31;
     public static String TempPath = Environment.getExternalStorageDirectory()
