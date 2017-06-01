@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.dunkin.customer.widget.CustomTextView
+        android:id="@+id/txtScan"
+        app:fontName="dd_bold.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="@string/promotion"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:background="@color/home_welcome_text"/>
+
+    <com.dunkin.customer.widget.MyListView
+        android:id="@+id/lvPlayData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="2dp"
+        android:divider="@color/list_divider_dialog"/>
+
+    <ProgressBar
+        android:id="@+id/progressLoad"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:indeterminateDrawable="@drawable/progress_circle"
+        android:progressDrawable="@drawable/progress_circle"
+        android:visibility="visible" />
+
+</LinearLayout>

@@ -67,9 +67,11 @@ public class AppController {
     }
 
     //CHECK SCAN AND WIN
-    public static void getScan(Context context, Callback callback) throws UnsupportedEncodingException {
+    public static void getScan(Context context, Callback callback) throws UnsupportedEncodingException, JSONException {
         // Log.e("DataRequest", requestString);
-        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity("", AppConstants.encodeType);
+        JSONObject jsonRequest = new JSONObject();
+        jsonRequest.put("user_id", "34772");
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
         AppUtils.requestCallAsyncTask(context, URLConstant.SCAN_AND_WIN, se, false, callback);
     }
 
@@ -842,6 +844,21 @@ public class AppController {
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
             AppUtils.requestCallAsyncTask(context, URLConstant.GET_RECURRENT_ORDER_LIST_URL, se, false, callback);
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void getPlayList(Context context, Callback callback) throws UnsupportedEncodingException {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("email", AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, ""));
+            jsonObject.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1));
+            jsonObject.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
+            jsonObject.put("page", "1");
+            //  Log.e("DataRequest", jsonObject.toString());
+            org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_PLAY_LIST, se, false, callback);
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }

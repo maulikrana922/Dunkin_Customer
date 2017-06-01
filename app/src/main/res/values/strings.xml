@@ -451,4 +451,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="scan_win">Scan &amp; Win</string>
+    <string name="play_win">Play &amp; Win</string>
+    <string name="promotion">PROMOTION</string>
+    <string name="header_promo">Promotion</string>
 </resources>

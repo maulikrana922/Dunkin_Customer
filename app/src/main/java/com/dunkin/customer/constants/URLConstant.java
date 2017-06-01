@@ -84,4 +84,5 @@ public class URLConstant {
     public static final String GET_REDEEM_POINTS_HISTORY_URL = BASE_URL + "fetchRedeemHistory";
     public static final String GET_GIFT_DETAIL_URL = BASE_URL + "fetchGiftOrderDetails";
     public static final String GET_RECURRENT_ORDER_LIST_URL = BASE_URL + "repeatOrderLists";
+    public static final String GET_PLAY_LIST = BASE_URL + "fetchPromo";
 }

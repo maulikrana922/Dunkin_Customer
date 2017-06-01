@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/itemLayout"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal"
+    android:padding="@dimen/spacing_medium">
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imgLogo"
+        android:scaleType="centerCrop"
+        android:padding="@dimen/spacing_xsmall"
+        android:adjustViewBounds="true"
+        android:background="@color/colorPrimary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/imgLogo"
+        android:layout_toEndOf="@+id/imgLogo"
+        android:layout_marginLeft="@dimen/spacing_medium"
+        android:layout_marginStart="@dimen/spacing_medium">
+
+        <com.dunkin.customer.widget.CustomTextView
+            app:fontName="dd_bold.ttf"
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|left"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:singleLine="true" />
+
+        <com.dunkin.customer.widget.CustomTextView
+            app:fontName="dd_light.ttf"
+            android:id="@+id/txtDesc"
+            android:gravity="start|left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/price_desc_font"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+        <com.dunkin.customer.widget.CustomTextView
+            app:fontName="dd_light.ttf"
+            android:id="@+id/txtPoint"
+            android:gravity="start|left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/home_welcome_text"
+            android:singleLine="true"
+            android:drawablePadding="@dimen/spacing_medium"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+    </LinearLayout>
+
+
+</RelativeLayout>

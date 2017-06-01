@@ -29,7 +29,6 @@ import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
-import com.dunkin.customer.dialogs.ScanAndWinDialog;
 import com.dunkin.customer.models.HomeCatModel;
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -41,7 +40,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import static com.dunkin.customer.HomeActivity.isOfferEnable;
-import static com.dunkin.customer.HomeActivity.scanOfferImagePath;
 import static com.dunkin.customer.R.id.imgBag;
 
 public class HomeFragment extends Fragment {
@@ -179,17 +177,17 @@ public class HomeFragment extends Fragment {
                                                          * All operation are on Image click
                                                          */
 
-//                                                        if (isOfferEnable.equalsIgnoreCase("1"))
-//                                                            ((AppCompatActivity) context).getSupportFragmentManager()
-//                                                                    .beginTransaction()
-//                                                                    .replace(R.id.content, new ScanAndWinFragment())
-//                                                                    .commitAllowingStateLoss();
+                                                        if (isOfferEnable.equalsIgnoreCase("1"))
+                                                            ((AppCompatActivity) context).getSupportFragmentManager()
+                                                                    .beginTransaction()
+                                                                    .replace(R.id.content, new ScanFragment())
+                                                                    .commitAllowingStateLoss();
 
                                                         /**
                                                          * Open Dialog instead of Fragment and perform same operation
                                                          */
-                                                        if (isOfferEnable.equalsIgnoreCase("1"))
-                                                            ScanAndWinDialog.newInstance((HomeActivity) context, scanOfferImagePath, true).show();
+//                                                        if (isOfferEnable.equalsIgnoreCase("1"))
+//                                                            ScanAndWinDialog.newInstance((HomeActivity) context, scanOfferImagePath, true).show();
 
                                                     }
                                                 }
