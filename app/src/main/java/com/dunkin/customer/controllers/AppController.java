@@ -69,9 +69,9 @@ public class AppController {
     //CHECK SCAN AND WIN
     public static void getScan(Context context, Callback callback) throws UnsupportedEncodingException, JSONException {
         // Log.e("DataRequest", requestString);
-        JSONObject jsonRequest = new JSONObject();
-        jsonRequest.put("user_id", "34772");
-        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
+//        JSONObject jsonRequest = new JSONObject();
+//        jsonRequest.put("user_id", "34772");
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity("", AppConstants.encodeType);
         AppUtils.requestCallAsyncTask(context, URLConstant.SCAN_AND_WIN, se, false, callback);
     }
 
@@ -854,7 +854,7 @@ public class AppController {
             jsonObject.put("email", AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, ""));
             jsonObject.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1));
             jsonObject.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
-            jsonObject.put("page", "1");
+//            jsonObject.put("page", "1");
             //  Log.e("DataRequest", jsonObject.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
             AppUtils.requestCallAsyncTask(context, URLConstant.GET_PLAY_LIST, se, false, callback);
@@ -862,4 +862,33 @@ public class AppController {
             e.printStackTrace();
         }
     }
+
+    public static void getPromoTicket(Context context, String promo_id, int qty, Callback callback) throws JSONException, UnsupportedEncodingException {
+        JSONObject jsonRequest = new JSONObject();
+        jsonRequest.put("email", AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, ""));
+        jsonRequest.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1));
+        jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
+        jsonRequest.put("promo_id", promo_id);
+        jsonRequest.put("qty", qty);
+        //Log.e("DataRequest", jsonRequest.toString());
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_PROMO_TICKET, se, true, callback);
+    }
+
+
+    public static void fetchMyPromoTicket(Context context, String promo_id, Callback callback) throws UnsupportedEncodingException {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("email", AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, null));
+            jsonObject.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, 0));
+//            jsonObject.put("page", "1");
+            jsonObject.put("promo_id", promo_id);
+            //   Log.e("DataRequest", jsonObject.toString());
+            org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_MY_PROMO_TICKET, se, true, callback);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

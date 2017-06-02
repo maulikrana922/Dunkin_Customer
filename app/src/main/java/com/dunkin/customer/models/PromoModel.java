@@ -13,14 +13,15 @@ import java.util.Date;
 public class PromoModel implements Serializable {
 
     private String id;
-    @JsonFormat(pattern = AppConstants.MM_DD_YYYY_SERVER)
+    @JsonFormat(pattern = AppConstants.DD_MM_YYYY_DASH)
     private Date startDate;
-    @JsonFormat(pattern = AppConstants.MM_DD_YYYY_SERVER)
+    @JsonFormat(pattern = AppConstants.DD_MM_YYYY_DASH)
     private Date endDate;
     private String name;
     private String description;
     private String promoImage;
     private String ticketPoint;
+    private String days;
     private int Qty;
 
     public String getId() {
@@ -85,5 +86,13 @@ public class PromoModel implements Serializable {
 
     public void setQty(int qty) {
         Qty = qty;
+    }
+
+    public String getDays() {
+        return days;
+    }
+
+    public void setDays(String days) {
+        this.days = days;
     }
 }

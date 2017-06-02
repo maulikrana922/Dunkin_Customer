@@ -58,6 +58,17 @@
             android:singleLine="true"
             android:drawablePadding="@dimen/spacing_medium"
             android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <com.dunkin.customer.widget.CustomTextView
+            app:fontName="dd_light.ttf"
+            android:id="@+id/txtNoOfDays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|left"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/colorPrimary"
+            android:singleLine="true" />
+
     </LinearLayout>
 
 

@@ -9,18 +9,20 @@
         android:id="@+id/txtScan"
         app:fontName="dd_bold.ttf"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:paddingTop="35dp"
+        android:paddingBottom="35dp"
+        android:layout_margin="@dimen/spacing_large"
         android:gravity="center"
         android:text="@string/scan_win"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:background="@color/tab_indicator"/>
+        android:background="@drawable/scan_button"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="5dp"
         android:background="@color/price_desc_font">
     </LinearLayout>
 
@@ -28,12 +30,21 @@
         android:id="@+id/txtPlay"
         app:fontName="dd_bold.ttf"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
+        android:paddingTop="35dp"
+        android:paddingBottom="35dp"
+        android:layout_margin="@dimen/spacing_large"
         android:text="@string/play_win"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:background="@color/colorPrimaryDark"/>
+        android:background="@drawable/play_button"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/price_desc_font">
+    </LinearLayout>
+
 </LinearLayout>

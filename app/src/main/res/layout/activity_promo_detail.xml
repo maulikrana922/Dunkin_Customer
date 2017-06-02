@@ -26,7 +26,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"/>
+                    android:scaleType="centerCrop" />
 
             </FrameLayout>
 
@@ -105,9 +105,9 @@
                     android:id="@+id/txtUserPoint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:gravity="center"
                     android:layout_marginTop="@dimen/spacing_medium"
+                    android:gravity="center"
+                    android:padding="5dp"
                     android:textColor="@android:color/black"
                     app:fontName="dd_bold.ttf" />
 
@@ -117,13 +117,39 @@
                 android:id="@+id/txtPurchase"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Purchase"
-                android:padding="10dp"
                 android:layout_margin="@dimen/spacing_medium"
                 android:background="@color/home_welcome_text"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Purchase"
                 android:textColor="@color/white"
+                android:visibility="gone"
                 app:fontName="dd_bold.ttf" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:background="@color/home_welcome_text"
+                android:drawableLeft="@drawable/ticket"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ticket"/>
+
+                <com.dunkin.customer.widget.CustomTextView3
+                    android:id="@+id/txtToken"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="My Tokens"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    app:fontName="dd_bold.ttf" />
+
+            </FrameLayout>
 
         </LinearLayout>
     </ScrollView>

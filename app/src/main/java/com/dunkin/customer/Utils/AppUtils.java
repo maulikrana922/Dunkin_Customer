@@ -1177,4 +1177,17 @@ public class AppUtils {
         }
         return dateFormat2.format(noteDate);
     }
+
+    public static String getFormattedDate(String date) {
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+        //DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.US);
+        DateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+        Date noteDate = null;
+        try {
+            noteDate = dateFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return dateFormat2.format(noteDate);
+    }
 }

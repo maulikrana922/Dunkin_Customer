@@ -40,6 +40,7 @@ public class AppConstants {
 
     public static final String YYYY_MM = "yyyy-MM";
     public static final String DD_MM_YYYY_SLASH = "dd/MM/yyyy";
+    public static final String DD_MM_YYYY_DASH = "dd-MM-yyyy";
     public static final String MM_DD_YYYY_SERVER = "MM-dd-yyyy";
     public static final String MM_DD_YYYY_HH_MM_SS_SERVER = "MM-dd-yyyy HH:mm:ss"; // 05-21-2016 11:30:26
     public static final String YYYY_MM_DD_HH_MM_SS_SERVER = "yyyy-MM-dd HH:mm:ss"; // 2016-05-21 16:25:17

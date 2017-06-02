@@ -39,7 +39,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
-import static com.dunkin.customer.HomeActivity.isOfferEnable;
 import static com.dunkin.customer.R.id.imgBag;
 
 public class HomeFragment extends Fragment {
@@ -177,7 +176,7 @@ public class HomeFragment extends Fragment {
                                                          * All operation are on Image click
                                                          */
 
-                                                        if (isOfferEnable.equalsIgnoreCase("1"))
+//                                                        if (isOfferEnable.equalsIgnoreCase("1"))
                                                             ((AppCompatActivity) context).getSupportFragmentManager()
                                                                     .beginTransaction()
                                                                     .replace(R.id.content, new ScanFragment())

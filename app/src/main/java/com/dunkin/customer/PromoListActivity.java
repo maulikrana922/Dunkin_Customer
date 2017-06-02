@@ -46,8 +46,6 @@ public class PromoListActivity extends BackActivity {
 
         playModelList = new ArrayList<>();
 
-        getDataFromAPI();
-
         lvPlayData.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -61,6 +59,12 @@ public class PromoListActivity extends BackActivity {
         });
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        getDataFromAPI();
+    }
     private void getDataFromAPI() {
 
         try {

@@ -85,4 +85,6 @@ public class URLConstant {
     public static final String GET_GIFT_DETAIL_URL = BASE_URL + "fetchGiftOrderDetails";
     public static final String GET_RECURRENT_ORDER_LIST_URL = BASE_URL + "repeatOrderLists";
     public static final String GET_PLAY_LIST = BASE_URL + "fetchPromo";
+    public static final String GET_PROMO_TICKET = BASE_URL + "getPromoTicket";
+    public static final String GET_MY_PROMO_TICKET = BASE_URL + "fetchMyPromoTicket";
 }

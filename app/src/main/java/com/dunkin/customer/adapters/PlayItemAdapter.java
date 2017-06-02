@@ -66,6 +66,7 @@ public class PlayItemAdapter extends BaseAdapter {
             viewHolder.txtDesc = (TextView) convertView.findViewById(R.id.txtDesc);
             viewHolder.txtPoint = (TextView) convertView.findViewById(R.id.txtPoint);
             viewHolder.itemLayout = (RelativeLayout) convertView.findViewById(R.id.itemLayout);
+            viewHolder.txtNoOfDays = (TextView) convertView.findViewById(R.id.txtNoOfDays);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -79,6 +80,9 @@ public class PlayItemAdapter extends BaseAdapter {
 
             viewHolder.txtTitle.setText(Html.fromHtml(playModel.getName()));
             viewHolder.txtDesc.setText(Html.fromHtml(playModel.getDescription()));
+            if(!playModel.getDays().equals("0")) {
+                viewHolder.txtNoOfDays.setText(playModel.getDays() + " Days Left");
+            }
             // viewHolder.txtDesc.setMovementMethod(LinkMovementMethod.getInstance());
         } catch (Exception e) {
             e.printStackTrace();
@@ -90,7 +94,7 @@ public class PlayItemAdapter extends BaseAdapter {
     static class ViewHolder {
         RelativeLayout itemLayout;
         ImageView imgLogo;
-        TextView txtTitle, txtDesc, txtPoint;
+        TextView txtTitle, txtDesc, txtPoint, txtNoOfDays;
     }
 
 }
