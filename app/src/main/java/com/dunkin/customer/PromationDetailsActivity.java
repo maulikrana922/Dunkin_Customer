@@ -124,8 +124,8 @@ public class PromationDetailsActivity extends BackActivity {
 
                 // Setting Dialog Message
                 alertDialog.setMessage("Are you sure you want to purchase " + promo_data.getQty()
-                        + " ticket worth " + point + " points? amount is " +
-                        "nonrefundable");
+                        + " tickets worth " + point + " points? amount is " +
+                        "non-refundable");
 
                 // On pressing Settings button
                 alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {

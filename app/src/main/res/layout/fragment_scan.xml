@@ -1,50 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <com.dunkin.customer.widget.CustomTextView3
-        android:id="@+id/txtScan"
-        app:fontName="dd_bold.ttf"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:paddingTop="35dp"
-        android:paddingBottom="35dp"
-        android:layout_margin="@dimen/spacing_large"
-        android:gravity="center"
-        android:text="@string/scan_win"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:background="@drawable/scan_button"/>
+        android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@color/price_desc_font">
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <com.dunkin.customer.widget.CustomTextView3
-        android:id="@+id/txtPlay"
-        app:fontName="dd_bold.ttf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:paddingTop="35dp"
-        android:paddingBottom="35dp"
-        android:layout_margin="@dimen/spacing_large"
-        android:text="@string/play_win"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:background="@drawable/play_button"/>
+            <ImageView
+                android:id="@+id/txtScan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@color/price_desc_font">
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/price_desc_font"></LinearLayout>
+
+            <ImageView
+                android:id="@+id/txtPlay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/price_desc_font"></LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

@@ -35,6 +35,7 @@ public class TokensActivity extends BackActivity {
     private TokenAdapter tokenAdapter;
     private ProgressBar progressLoading;
     private String promo_id;
+    private String winnerImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,9 +82,11 @@ public class TokensActivity extends BackActivity {
                                         new TypeReference<List<TokenModel>>() {
                                         });
 
+                        winnerImage = jsonResponse.getString("winnerImage");
+
                         tokenAdapter = new TokenAdapter(TokensActivity.this,
                                 ((AppCompatActivity) context).getSupportFragmentManager(),
-                                tokenModelList, winnerModelList);
+                                tokenModelList, winnerImage);
                         viewPager.setAdapter(tokenAdapter);
                         viewPager.setOffscreenPageLimit(tokenModelList.size());
 
@@ -99,11 +102,13 @@ public class TokensActivity extends BackActivity {
                                         new TypeReference<List<TokenModel>>() {
                                         });
 
+                        winnerImage = jsonResponse.getString("winnerImage");
+
                         tokenAdapter = new TokenAdapter(TokensActivity.this,
                                 ((AppCompatActivity) context).getSupportFragmentManager(),
-                                tokenModelList, winnerModelList);
+                                tokenModelList, winnerImage);
                         viewPager.setAdapter(tokenAdapter);
-                        viewPager.setOffscreenPageLimit(winnerModelList.size());
+                        viewPager.setOffscreenPageLimit(tokenModelList.size());
 
                         tabs.setViewPager(viewPager);
                     } else if (jsonResponse.getInt("success") == 100) {

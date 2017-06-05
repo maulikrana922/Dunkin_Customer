@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.dunkin.customer.R;
 import com.dunkin.customer.fragments.TokenListFragment;
+import com.dunkin.customer.fragments.WinnerListFragment;
 import com.dunkin.customer.models.TokenModel;
 
 import java.io.Serializable;
@@ -19,16 +20,16 @@ import java.util.List;
 
 public class TokenAdapter extends FragmentStatePagerAdapter {
     private List<TokenModel> tokenModelList;
-    private List<TokenModel> winnerList;
     private String[] pagerTitle;
     private Context context;
+    private String winnerImage;
 
     public TokenAdapter(Context c, FragmentManager fm, List<TokenModel> tokenModelList,
-                        List<TokenModel> winnerList) {
+                        String winnerImage) {
         super(fm);
         this.context = c;
         this.tokenModelList = tokenModelList;
-        this.winnerList = winnerList;
+        this.winnerImage = winnerImage;
         pagerTitle = new String[]{c.getString(R.string.lbl_tab_token), c.getString(R.string.lbl_tab_winning_token)};
     }
 
@@ -41,9 +42,9 @@ public class TokenAdapter extends FragmentStatePagerAdapter {
             fragment.setArguments(b);
             return fragment;
         } else {
-            TokenListFragment fragment = new TokenListFragment();
+            WinnerListFragment fragment = new WinnerListFragment();
             Bundle b = new Bundle();
-            b.putSerializable("winner_list", (Serializable) winnerList);
+            b.putString("winnerImage", winnerImage);
             fragment.setArguments(b);
             return fragment;
         }

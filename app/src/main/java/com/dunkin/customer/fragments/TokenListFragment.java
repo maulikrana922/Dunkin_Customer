@@ -20,14 +20,12 @@ import java.util.List;
 public class TokenListFragment extends Fragment {
 
     private List<TokenModel> tokenModelList;
-    private List<TokenModel> winner_list;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getArguments();
         tokenModelList = (List<TokenModel>) bundle.getSerializable("token_list");
-        winner_list = (List<TokenModel>) bundle.getSerializable("winner_list");
     }
 
     @Override
@@ -40,13 +38,6 @@ public class TokenListFragment extends Fragment {
 
             TokenListAdapter tokenListAdapter = new TokenListAdapter(getActivity(),
                     tokenModelList);
-            tokenList.setAdapter(tokenListAdapter);
-            tokenList.setEmptyView(rootView.findViewById(R.id.emptyElement));
-        }
-        if (winner_list != null && winner_list.size() > 0) {
-
-            TokenListAdapter tokenListAdapter = new TokenListAdapter(getActivity(),
-                    winner_list);
             tokenList.setAdapter(tokenListAdapter);
             tokenList.setEmptyView(rootView.findViewById(R.id.emptyElement));
         }

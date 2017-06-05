@@ -891,4 +891,12 @@ public class AppController {
         }
     }
 
+    public static void fetchPromoImage(Context context, Callback callback) throws JSONException, UnsupportedEncodingException {
+        // Log.e("DataRequest", requestString);
+        JSONObject jsonRequest = new JSONObject();
+        jsonRequest.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, 0));
+        jsonRequest.put("email", AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, null));
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, URLConstant.FETCH_PROMO_IMAGE, se, true, callback);
+    }
 }
