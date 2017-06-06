@@ -3,9 +3,9 @@
     <string name="app_name" translatable="false">Dunkin Leb</string>
     <string name="facebook_app_id" translatable="false">673553769448453</string>
     <string name="google_app_id" translatable="false">AIzaSyAHzEEEadS4uCmVkeLS8mazKMIHfnt62-I</string>
-    <string name="lbl_app_version" translatable="false">V2.0.02062017</string>
-    <string name="lbl_consulting_website" translatable="false">www.MindSource-Consulting.com - All Rights Reserved - Copyright © 2016</string>
-
+    <string name="lbl_app_version" translatable="false">V2.1.06062017</string>
+    <!--<string name="lbl_consulting_website" translatable="false">www.MindSource-Consulting.com - All Rights Reserved - Copyright © 2016</string>-->
+    <string name="lbl_consulting_website" translatable="false">Meeting Point &amp; MindSource Consulting Copyright © 2017</string>
     <string name="strp">Mind#S@urce#@201</string>
     <string name="stral">AES</string>
     <string name="network_error">No internet connectivity.</string>
@@ -364,11 +364,11 @@
 
     <!--QUESTIONS FOR FEEDBACK-->
     <string-array name="feedback_question">
-        <item>@string/feedback_q1</item>
-        <item>@string/feedback_q2</item>
-        <item>@string/feedback_q3</item>
-        <item>@string/feedback_q4</item>
-        <item>@string/feedback_q5</item>
+        <item>@string/feedback_q1_new</item>
+        <item>@string/feedback_q2_new</item>
+        <item>@string/feedback_q3_new</item>
+        <item>@string/feedback_q4_new</item>
+        <item>@string/feedback_q5_new</item>
     </string-array>
 
     <!-- PAYMENT METHOD-->
@@ -409,6 +409,12 @@
     <string name="feedback_q3">Food test and presentation</string>
     <string name="feedback_q4">Speed of service</string>
     <string name="feedback_q5">Overall Atmosphere</string>
+
+    <string name="feedback_q1_new">Was he/she smiling?</string>
+    <string name="feedback_q2_new">Did he/she suggest something new?</string>
+    <string name="feedback_q3_new">Was he/she knowledgeable about the items?</string>
+    <string name="feedback_q4_new">Did he/she thank you or wish you a great day?</string>
+    <string name="feedback_q5_new">Were you happy with your experience?</string>
 
     <string name="str_note_id">Note ID: </string>
     <string name="str_note_amount">Amount: </string>

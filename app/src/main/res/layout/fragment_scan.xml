@@ -22,7 +22,9 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_height="2dp"
                 android:background="@color/price_desc_font"></LinearLayout>
 
             <ImageView
@@ -33,7 +35,9 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 android:background="@color/price_desc_font"></LinearLayout>
 
         </LinearLayout>

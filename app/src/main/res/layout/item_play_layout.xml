@@ -56,7 +56,6 @@
             android:layout_height="wrap_content"
             android:textColor="@color/home_welcome_text"
             android:singleLine="true"
-            android:drawablePadding="@dimen/spacing_medium"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <com.dunkin.customer.widget.CustomTextView

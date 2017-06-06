@@ -674,6 +674,7 @@ public class AppController {
             JSONObject jsonRequest = new JSONObject();
             jsonRequest.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1));
             jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
+//            jsonRequest.put("user_id", "34772");
             // Log.e("DataRequest", jsonRequest.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
             AppUtils.requestCallAsyncTask(context, URLConstant.GET_MENU_LIST_URL, se, true, callback);
