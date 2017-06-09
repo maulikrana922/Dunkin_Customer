@@ -1,6 +1,5 @@
 package com.dunkin.customer;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +12,7 @@ import com.dunkin.customer.adapters.PlayItemAdapter;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.models.PromoModel;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.ramotion.foldingcell.FoldingCell;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,8 +20,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.dunkin.customer.constants.AppConstants.context;
 
 /**
  * Created by qtm-c-android on 1/6/17.
@@ -33,6 +31,7 @@ public class PromoListActivity extends BackActivity {
     private ProgressBar progressLoading;
     private String user_point;
     private List<PromoModel> playModelList;
+    private PlayItemAdapter orderItemAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,15 +47,25 @@ public class PromoListActivity extends BackActivity {
 
         lvPlayData.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PromoModel playModel = (PromoModel) parent.getAdapter().getItem(position);
-
-                Intent i = new Intent(context, PromationDetailsActivity.class);
-                i.putExtra("promo_data", playModel);
-                i.putExtra("user_point", user_point);
-                startActivity(i);
+            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+                // toggle clicked cell state
+                ((FoldingCell) view).toggle(false);
+                // register in adapter that state for selected cell is toggled
+                orderItemAdapter.registerToggle(pos);
             }
         });
+
+//        lvPlayData.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                PromoModel playModel = (PromoModel) parent.getAdapter().getItem(position);
+//
+//                Intent i = new Intent(context, PromationDetailsActivity.class);
+//                i.putExtra("promo_data", playModel);
+//                i.putExtra("user_point", user_point);
+//                startActivity(i);
+//            }
+//        });
     }
 
     @Override
@@ -81,7 +90,8 @@ public class PromoListActivity extends BackActivity {
                         user_point = jsonResponse.getString("userpoints");
                         playModelList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("promoList").toString(), new TypeReference<List<PromoModel>>() {
                         });
-                        PlayItemAdapter orderItemAdapter = new PlayItemAdapter(PromoListActivity.this, playModelList);
+                        orderItemAdapter = new PlayItemAdapter
+                                (PromoListActivity.this, playModelList, user_point);
                         lvPlayData.setAdapter(orderItemAdapter);
                     } else if (jsonResponse.getInt("success") == 0) {
                         AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));

@@ -18,11 +18,14 @@
         android:textStyle="bold"
         android:background="@color/home_welcome_text"/>
 
-    <com.dunkin.customer.widget.MyListView
+    <ListView
         android:id="@+id/lvPlayData"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:dividerHeight="2dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:scrollbars="none"
         android:divider="@color/list_divider_dialog"/>
 
     <ProgressBar
