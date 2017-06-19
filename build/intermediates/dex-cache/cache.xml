@@ -3,12 +3,48 @@
 
     <item
         is-multidex="false"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/core/1.8.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="af8d42f1f020e936b8cd9f5cb6c75993194895a3">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-core-1.8.4_1eb57640dd101ce6486757983285e09be47b95f9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_3a6279fc20f381bbf1a5d64d768c2134e5912b8e.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/qtm-c-android/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.1/2287494d4f5f9f3a9a2bb6980e3f32053721b315/core-3.2.1.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
         sha1="2287494d4f5f9f3a9a2bb6980e3f32053721b315">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/core-3.2.1_c0b0d88e6ee86f0689db58c256f1f9887955b86d.jar" />
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/core-3.2.1_c0b0d88e6ee86f0689db58c256f1f9887955b86d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_eb76d40a9cd5efeef37f3f2ab0c4d3f0d14fb130.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.0.1_8a53f282ca679906f5b75aa51aa10863a08b3386.jar" />
     </item>
     <item
         is-multidex="false"
@@ -17,34 +53,16 @@
         optimize="true"
         revision="23.0.3"
         sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_520a03772bf5d3289316971ace2388fa4981be65.jar" />
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_520a03772bf5d3289316971ace2388fa4981be65.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.0.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.0.1_c70794b43db0d29c82dbc31d6eb4e9bc108047f1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/zxing/1.8.4/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="68ef1daf85c69fca8fddf7bbb947fc51cc9f8ca3">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-zxing-1.8.4_1460859fc12919f5e140ac98848afbd257842d20.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_9ae6c264c12f69c87ced33aca57f86234abb52ff.jar" />
+        sha1="8308ed003522a2ee8958311afcc4cfd0470377cd">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gcm-10.0.1_26f3ed0dae4f3931e65e724c958df61215cdfedc.jar" />
     </item>
     <item
         is-multidex="false"
@@ -53,7 +71,7 @@
         optimize="true"
         revision="23.0.3"
         sha1="a2a55a3375bc1cef830ca426d68d2ea22961190e">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.5.0_83d3f0ea6717c586016329a4f1de3ee4a76a3f7d.jar" />
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.5.0_83d3f0ea6717c586016329a4f1de3ee4a76a3f7d.jar" />
     </item>
     <item
         is-multidex="false"
@@ -62,7 +80,7 @@
         optimize="true"
         revision="23.0.3"
         sha1="5dfa42af84584b4a862ea488da84bbbebbb06c35">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/jackson-databind-2.5.4_2414498e593a911d7bec6e5df61f0321bc3aeb28.jar" />
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/jackson-databind-2.5.4_2414498e593a911d7bec6e5df61f0321bc3aeb28.jar" />
     </item>
     <item
         is-multidex="false"
@@ -71,151 +89,88 @@
         optimize="true"
         revision="23.0.3"
         sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0_ffe61bdd331278a4b4175946a4453cd4a14079b4.jar" />
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0_ffe61bdd331278a4b4175946a4453cd4a14079b4.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="8308ed003522a2ee8958311afcc4cfd0470377cd">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gcm-10.0.1_09f401dd4dcae51d86c23d73eec3a0ab9621f1cd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_b2af739c479bb2a50d35d534b393cbb7d3de1cbe.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/libs/sun.misc.BASE64Decoder.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="acd93e3727886196f9b8434279ff445ba8611186">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/sun.misc.BASE64Decoder_2495f9b3a735ce58e74e60c400125a325b23c2bf.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/libs/org.apache.http.legacy.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="fa331331b626ee78c52bea16ce1e34b39e666ce5">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/org.apache.http.legacy_8e4cdb83c9e80551113300abbad958e5522eb81a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_bac046f82e2a3b053cb35b44de1fcc4f25f9f464.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.0.1_0c74a5f195f62ecfcf45970bd5a92f92963f1332.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_fbd18a58820aa2b64562ef9b48213e70e5895407.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_5ac4e6f3fc4da2b11922b454bbf7323866305825.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.ogaclejapan.smarttablayout/library/1.4.2/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="aa3f29ec4e29cb86dd4397254221648446d45fc2">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.ogaclejapan.smarttablayout-library-1.4.2_feab32776a954bbc4c8de2d1f81ea98e45d33b8f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.4.0/jars/classes.jar"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.4.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
         sha1="152e1df65212df23a4b5dba0e819e63bca93192c">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-android-sdk-4.4.0_03cf6fee522b2eebca951acf0202731f5ad24787.jar" />
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-android-sdk-4.4.0_902b5869eb8164b124cbc960efcbfc3726eb050d.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_31632fd82f72efe89aa1ffe267b0a62c4af3db3d.jar" />
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_cabcf0f81ddf74c369dbfeed608e56eeb15d1a9f.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_325371ee8b9c86244396f15d35c5bfa93c475262.jar" />
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_eb325b0f802f9d6dcd963a4a0ae45e7455ed3a1b.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_94305ff6a6b2a020ef1050a3173b4e9ff4e29ab1.jar" />
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.0.1_dd6b140b2c976f6a1770d85548c3b7185f457c77.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.0.1/jars/classes.jar"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.0.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-iid-10.0.1_3bed14628f3a0910b64e7a232b91d73a2943580c.jar" />
+        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-10.0.1_0ae5fcc3d1cb0ef26c59a515b650db61e77c8b7f.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
         sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_33efdffc39bb2215e547efa2850539422322838d.jar" />
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_3bb5ec6ec4d9abdc6629ccbf326e74c6a50b2422.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.0.1_e001826a2c493596769ce904b1ca951805d4a13e.jar" />
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_1ebb224a1e2c4d22d86d63485100e9104d5cb400.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_e690a94487fd0b5db140b423e1ec810ed2003d73.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/libs/sun.misc.BASE64Decoder.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="acd93e3727886196f9b8434279ff445ba8611186">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/sun.misc.BASE64Decoder_85de199a6b57b9732f33a14da0ffdf4c581ad221.jar" />
     </item>
     <item
         is-multidex="false"
@@ -224,34 +179,25 @@
         optimize="true"
         revision="23.0.3"
         sha1="0a57a2df1a23ca1ee32f129173ba7f5feaa9ac24">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/jackson-core-2.5.4_1e20eed8ba5287e57627a222566439692de799ba.jar" />
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/jackson-core-2.5.4_1e20eed8ba5287e57627a222566439692de799ba.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.0.1/jars/classes.jar"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.ogaclejapan.smarttablayout/library/1.4.2/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-10.0.1_ea134b324abb307bcfb71f3c56b55b4dccae19a9.jar" />
+        sha1="aa3f29ec4e29cb86dd4397254221648446d45fc2">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.ogaclejapan.smarttablayout-library-1.4.2_db769555fc4bb0bacb32bd94763b51999c5a4e76.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_4b3cfd31b92c9ef9da9930418fbfbcfefc1071bb.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_0f56313898c5801c25e2441289049f8830a0b22b.jar" />
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_5760252c11bcf1ba599603eccc09c1cac520bf5c.jar" />
     </item>
     <item
         is-multidex="false"
@@ -260,43 +206,97 @@
         optimize="true"
         revision="23.0.3"
         sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.4_8338984d2610f29df1caa69a4a7f3ecbe1a6ff0c.jar" />
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.4_8338984d2610f29df1caa69a4a7f3ecbe1a6ff0c.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/core/1.8.4/jars/classes.jar"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/zxing/1.8.4/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="af8d42f1f020e936b8cd9f5cb6c75993194895a3">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-core-1.8.4_122d31a703faf356689091bde8197a4f7b05e577.jar" />
+        sha1="68ef1daf85c69fca8fddf7bbb947fc51cc9f8ca3">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-zxing-1.8.4_fdcce0a95f2c90faa1784e750bda936d24681a40.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_d6517076224d4a81d61a4bce681ca24877b57c6e.jar" />
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_d8479c56e5ea3d05e4a5092b4428fa0e4b98af8c.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
         sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_d7fc2a74423c1c22606a88d6e0b14e2de02b10eb.jar" />
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_dbd901c15346283cb1e7d103abe561d48f0a11d9.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.0.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_bb6cb97b51e76cfd579b58a836a854fe67d04984.jar" />
+        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-iid-10.0.1_4b56b953028fcf0fc4cb3dcc4fb6f52703ed128b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_4279acdc0ea66572f6a0f6fb2cfa0fe497713054.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_a6ea74a075cd3e0bf1454785a37950b18c8da421.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/libs/org.apache.http.legacy.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fa331331b626ee78c52bea16ce1e34b39e666ce5">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/org.apache.http.legacy_e9717ef8ef5580b2c1dfcc4e0a56fb4fc1126f53.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_a18682a065521877268800fa5f3452b928cd63d4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_4bf3448e92df908c7c7ab2391e19b909cfa7d593.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.0.1_1005ce21ee6d438016ba7976abbacc5a02782fe2.jar" />
     </item>
 
 </items>

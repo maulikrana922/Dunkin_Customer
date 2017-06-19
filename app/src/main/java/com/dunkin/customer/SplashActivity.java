@@ -90,6 +90,7 @@ public class SplashActivity extends AppCompatActivity {
 
         if (getIntent().hasExtra("MsgType")) {
             msgType = getIntent().getIntExtra("MsgType", 0);
+            Log.e("msgtype", "" + msgType);
         }
 
         imgView = (ImageView) findViewById(R.id.imgView);

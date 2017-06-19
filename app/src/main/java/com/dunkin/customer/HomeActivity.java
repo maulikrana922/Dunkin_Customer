@@ -2,7 +2,6 @@ package com.dunkin.customer;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -54,6 +53,7 @@ import com.dunkin.customer.fragments.OrderHistoryFragment;
 import com.dunkin.customer.fragments.RecurrentOrderFragment;
 import com.dunkin.customer.fragments.RedeemFragment;
 import com.dunkin.customer.fragments.RotatingBannerFragment;
+import com.dunkin.customer.fragments.ScanFragment;
 import com.dunkin.customer.fragments.ScratchCardFragment;
 import com.dunkin.customer.listener.FileDownloadListener;
 import com.dunkin.customer.models.NavDrawerModel;
@@ -453,11 +453,15 @@ public class HomeActivity extends AppCompatActivity {
                         navigationView.setAdapter(navDrawerAdapter);
 
                         if (isFromGCM) {
+                            Log.e("msgtype", "" + msgType);
                             if (msgType == 8) {
                                 navigateAndCheckItem(AppConstants.MENU_WALLET);
                             } else if (msgType == AppConstants.MENU_FEEDBACK) {
                                 navigateAndCheckItem(AppConstants.MENU_FEEDBACK);
-                            } else
+//                            } else if (msgType == 12)
+//                            {
+//                                getSupportFragmentManager().beginTransaction().replace(R.id.content, new NotificationFragment()).commitAllowingStateLoss();
+                            }else
                                 navigateAndCheckItem(AppConstants.MENU_NOTIFICATIONS);
                         } else
                             navigateAndCheckItem(switchPosition);
@@ -695,9 +699,9 @@ public class HomeActivity extends AppCompatActivity {
                 /**
                  * Open Dialog instead of Fragment and perform same operation
                  */
-
-                if (isOfferEnable.equalsIgnoreCase("1"))
-                    ScanAndWinDialog.newInstance(HomeActivity.this, scanOfferImagePath, true).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.content, new ScanFragment()).commitAllowingStateLoss();
+//                if (isOfferEnable.equalsIgnoreCase("1"))
+//                    ScanAndWinDialog.newInstance(HomeActivity.this, scanOfferImagePath, true).show();
                 return true;
 
             default:
@@ -797,9 +801,18 @@ public class HomeActivity extends AppCompatActivity {
 //                        AppConstants.MENU_NOTIFICATIONS,
 //                        navigationView.getAdapter().getItemId(AppConstants.MENU_NOTIFICATIONS));
 
-                NavDrawerModel navModel = (NavDrawerModel) navigationView.getAdapter().getItem(position + 1);
+                if(msgType == 12)
+                {
+                    position = position;
+                }
+                else
+                {
+                    position = position + 1;
+                }
 
-                navigationView.setItemChecked(position + 1, true);
+                NavDrawerModel navModel = (NavDrawerModel) navigationView.getAdapter().getItem(position);
+
+                navigationView.setItemChecked(position, true);
                 mNavItemId = navModel.getNavId();
                 mDrawerLayout.closeDrawer(GravityCompat.START);
                 navigate(mNavItemId, currentVal);

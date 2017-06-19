@@ -15,14 +15,19 @@ import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.dialogs.ScanAndWinDialog;
+import com.dunkin.customer.models.PromoModel;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.dunkin.customer.HomeActivity.isOfferEnable;
 import static com.dunkin.customer.HomeActivity.scanOfferImagePath;
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * Created by qtm-c-android on 1/6/17.
@@ -34,6 +39,7 @@ public class ScanFragment extends Fragment {
     private View rootView;
     private ImageView txtScan, txtPlay;
     private String playImage, scanImage;
+    private List<PromoModel> playModelList = new ArrayList<>();
 
     public ScanFragment() {
         // Required empty public constructor
@@ -74,8 +80,7 @@ public class ScanFragment extends Fragment {
         txtPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(mContext, PromoListActivity.class);
-                startActivity(i);
+                getDataFromAPI();
             }
         });
 
@@ -103,6 +108,35 @@ public class ScanFragment extends Fragment {
                         scanImage = object.getString("scanImage");
                         AppUtils.setImage(txtScan, scanImage);
                         AppUtils.setImage(txtPlay, playImage);
+                    }
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getDataFromAPI() {
+
+        try {
+            AppController.getPlayList(mContext, new Callback() {
+                @Override
+                public void run(Object result) throws JSONException, IOException {
+                    JSONObject jsonResponse = new JSONObject((String) result);
+
+                    //Log.i("DataResponse", jsonResponse.toString());
+
+                    if (jsonResponse.getInt("success") == 1) {
+                        playModelList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("promoList").toString(), new TypeReference<List<PromoModel>>() {
+                        });
+                    } else if (jsonResponse.getInt("success") == 0) {
+                        AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
+                    }else if (jsonResponse.getInt("success") == 100) {
+                        AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
+                    }
+                    if(playModelList.size()>0) {
+                        Intent i = new Intent(mContext, PromoListActivity.class);
+                        startActivity(i);
                     }
                 }
             });

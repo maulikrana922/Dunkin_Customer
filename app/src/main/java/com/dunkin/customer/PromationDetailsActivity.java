@@ -153,7 +153,11 @@ public class PromationDetailsActivity extends BackActivity {
         });
 
         if (current_date != null) {
-            if (current_date.after(promo_data.getStartDate()) && current_date.before(promo_data.getEndDate())) {
+            if ((df.format(current_date).equals(df.format(promo_data.getStartDate())) ||
+                    current_date.after(promo_data.getStartDate())) &&
+                    (df.format(current_date).equals(df.format(promo_data.getEndDate())) ||
+                    current_date.before(promo_data.getEndDate())))
+            {
                 txtPurchase.setVisibility(View.VISIBLE);
                 btnAddQty.setVisibility(View.VISIBLE);
                 btnDeletQty.setVisibility(View.VISIBLE);
@@ -174,20 +178,21 @@ public class PromationDetailsActivity extends BackActivity {
                 JSONObject jsonResponse = new JSONObject((String) result);
                 //Log.i("DataResponse", jsonResponse.toString());
                 if (jsonResponse != null && jsonResponse.getInt("success") == 1) {
-                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(PromationDetailsActivity.this);
-
-                    // Setting Dialog Message
-                    alertDialog.setMessage(jsonResponse.getString("message"));
-
-                    // On pressing Settings button
-                    alertDialog.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                            finish();
-                        }
-                    });
-                    // Showing Alert Message
-                    alertDialog.show();
+                    finish();
+//                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(PromationDetailsActivity.this);
+//
+//                    // Setting Dialog Message
+//                    alertDialog.setMessage(jsonResponse.getString("message"));
+//
+//                    // On pressing Settings button
+//                    alertDialog.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            dialog.cancel();
+//                            finish();
+//                        }
+//                    });
+//                    // Showing Alert Message
+//                    alertDialog.show();
                 } else if (jsonResponse.getInt("success") == 0) {
                     AlertDialog.Builder alertDialog = new AlertDialog.Builder(PromationDetailsActivity.this);
 

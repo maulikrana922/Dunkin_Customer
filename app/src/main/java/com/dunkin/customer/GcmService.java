@@ -78,6 +78,17 @@ public class GcmService extends GcmListenerService {
             intent = new Intent(getApplicationContext(), RegisterActivity.class);
             //Clear all activities and start new task
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("12")) {
+            /*ActivityManager am = (ActivityManager) this.getSystemService(ACTIVITY_SERVICE);
+            List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
+
+            if (taskInfo.get(0).topActivity.getClassName().contains("HomeActivity")) {
+                ((HomeActivity) HomeActivity.getCustomContext()).navigateAndCheckItem(AppConstants.MENU_WALLET);
+            } else {*/
+            intent = new Intent(this, SplashActivity.class);
+            intent.putExtra("FromGCM", true);
+            intent.putExtra("MsgType", 12);
+            //}
         } else {
             intent = new Intent(this, SplashActivity.class);
             intent.putExtra("FromGCM", true);
