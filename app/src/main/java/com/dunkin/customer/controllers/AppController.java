@@ -858,7 +858,7 @@ public class AppController {
 //            jsonObject.put("page", "1");
             //  Log.e("DataRequest", jsonObject.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.GET_PLAY_LIST, se, false, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_PLAY_LIST, se, true, callback);
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -67,7 +67,7 @@
     <color name="semi_transparent">#40000000</color>
     <color name="dialog_transparent">#60000000</color>
 
-
+    <color name="bgBackSideColor">#f4f0ff</color>
 
 
 </resources>
