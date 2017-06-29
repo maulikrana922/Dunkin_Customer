@@ -156,7 +156,7 @@ public class PromationDetailsActivity extends BackActivity {
             if ((df.format(current_date).equals(df.format(promo_data.getStartDate())) ||
                     current_date.after(promo_data.getStartDate())) &&
                     (df.format(current_date).equals(df.format(promo_data.getEndDate())) ||
-                    current_date.before(promo_data.getEndDate())))
+                            current_date.before(promo_data.getEndDate())))
             {
                 txtPurchase.setVisibility(View.VISIBLE);
                 btnAddQty.setVisibility(View.VISIBLE);
@@ -228,4 +228,3 @@ public class PromationDetailsActivity extends BackActivity {
         });
     }
 }
-
