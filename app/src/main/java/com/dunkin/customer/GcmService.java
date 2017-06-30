@@ -89,6 +89,9 @@ public class GcmService extends GcmListenerService {
             intent.putExtra("FromGCM", true);
             intent.putExtra("MsgType", 12);
             //}
+        } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("13")) {
+            intent = new Intent(this, PromoCodeDetailActivity.class);
+            intent.putExtra("promoId", data.getString("promoId"));
         } else {
             intent = new Intent(this, SplashActivity.class);
             intent.putExtra("FromGCM", true);

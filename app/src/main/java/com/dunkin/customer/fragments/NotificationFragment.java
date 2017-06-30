@@ -21,6 +21,7 @@ import com.dunkin.customer.GiftDetailActivity;
 import com.dunkin.customer.OfferDetailActivity;
 import com.dunkin.customer.OfferPaymentActivity;
 import com.dunkin.customer.OrderHistoryDetailActivity;
+import com.dunkin.customer.PromoCodeDetailActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
@@ -366,7 +367,15 @@ public class NotificationFragment extends Fragment {
             intent.putExtra("giftOrderId", nmResponse.getPurchaseId());
 
             startActivity(intent);
-        } else {
+        } else if (nmResponse.getMsgtype() == 13) {
+
+            Log.i("MSG Type", "" + nmResponse.getMsgtype());
+
+            intent = new Intent(context, PromoCodeDetailActivity.class);
+            intent.putExtra("promoId", nmResponse.getPromoId());
+
+            startActivity(intent);
+        }else {
 
             Log.i("MSG Type", "" + nmResponse.getMsgtype());
 

@@ -214,6 +214,27 @@
             </intent-filter>
 
         </activity>
+
+        <activity
+            android:name=".SimpleScannerPromotionActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.SCAN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".AddPromocodeActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".PromoCodeDetailActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

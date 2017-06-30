@@ -17,6 +17,7 @@ public class NotificationResponseModel implements Serializable {
     private String offerId;
     private String purchaseId;
     private String restaurant_name;
+    private String promoId;
 
     public String getRestaurant_name() {
         return restaurant_name;
@@ -98,4 +99,11 @@ public class NotificationResponseModel implements Serializable {
         this.offerId = offerId;
     }
 
+    public String getPromoId() {
+        return promoId;
+    }
+
+    public void setPromoId(String promoId) {
+        this.promoId = promoId;
+    }
 }

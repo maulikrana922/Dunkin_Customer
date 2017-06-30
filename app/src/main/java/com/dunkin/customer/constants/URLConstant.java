@@ -88,4 +88,6 @@ public class URLConstant {
     public static final String GET_PROMO_TICKET = BASE_URL + "getPromoTicket";
     public static final String GET_MY_PROMO_TICKET = BASE_URL + "fetchMyPromoTicket";
     public static final String FETCH_PROMO_IMAGE = BASE_URL + "fetchPromoImage";
+    public static final String REDEEM_PROMO = BASE_URL + "redeemPromo";
+    public static final String GET_PROMO_DETAIL = BASE_URL + "promoCodeDetail";
 }

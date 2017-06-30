@@ -76,7 +76,8 @@ public class AppController {
     }
 
     //NEAR RESTAURANTS ON MAP
-    public static void checkAndScanWin(Context context, String requestString, int country_id, String email, Callback callback) throws JSONException, UnsupportedEncodingException {
+    public static void checkAndScanWin(Context context, String requestString, int country_id,
+                                       String email, Callback callback) throws JSONException, UnsupportedEncodingException {
         // Log.e("DataRequest", requestString);
         JSONObject jsonRequest = new JSONObject();
         jsonRequest.put("country_id", country_id);
@@ -899,5 +900,27 @@ public class AppController {
         jsonRequest.put("email", AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, null));
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
         AppUtils.requestCallAsyncTask(context, URLConstant.FETCH_PROMO_IMAGE, se, true, callback);
+    }
+
+    public static void redeemPromoCode(Context context, String promo_id, int country_id,
+                                       String email, Callback callback) throws JSONException, UnsupportedEncodingException {
+        // Log.e("DataRequest", requestString);
+        JSONObject jsonRequest = new JSONObject();
+        jsonRequest.put("country_id", country_id);
+        jsonRequest.put("email", email);
+        jsonRequest.put("promo_id", promo_id);
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, URLConstant.REDEEM_PROMO, se, false, callback);
+    }
+
+    //GET OFFER DETAIL
+    public static void getPromoDetail(Context context, int promoId, int country_id, Callback callback) throws JSONException, UnsupportedEncodingException {
+        JSONObject jsonRequest = new JSONObject();
+        jsonRequest.put("promo_id", promoId);
+        jsonRequest.put("email", AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, ""));
+        jsonRequest.put("country_id", country_id);
+        //Log.e("DataRequest", jsonRequest.toString());
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_PROMO_DETAIL, se, false, callback);
     }
 }

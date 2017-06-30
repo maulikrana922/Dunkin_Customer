@@ -9,6 +9,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/learMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -22,10 +23,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
                 android:layout_height="2dp"
-                android:background="@color/price_desc_font"></LinearLayout>
+                android:background="@color/home_content_text"></LinearLayout>
 
             <ImageView
                 android:id="@+id/txtPlay"
@@ -36,9 +35,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:background="@color/price_desc_font"></LinearLayout>
+                android:background="@color/home_content_text"></LinearLayout>
 
             <ImageView
                 android:id="@+id/txtPromo"
@@ -49,9 +46,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:background="@color/price_desc_font"></LinearLayout>
+                android:background="@color/home_content_text"></LinearLayout>
 
         </LinearLayout>
 

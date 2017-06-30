@@ -78,6 +78,7 @@ import java.util.Locale;
 import java.util.Set;
 
 import static com.dunkin.customer.constants.AppConstants.context;
+import static com.google.zxing.qrcode.decoder.ErrorCorrectionLevel.H;
 
 public class HomeActivity extends AppCompatActivity {
     private static final String NAV_ITEM_ID = "navItemId";
@@ -96,6 +97,7 @@ public class HomeActivity extends AppCompatActivity {
     private int msgType;
 
     private static final int SCANNER_REQUEST_CODE = 0x11;
+    private static final int SCANNER_PROMOTION_REQUEST_CODE = 0x111;
     public static String strUrl = "", strOfferUrl = "", strGetScanImage = "", scanOfferImagePath = "",
             isScanWinEnable = "", isOfferEnable = "";
         final String[] permsReadWrite = {"android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.READ_EXTERNAL_STORAGE"};
@@ -507,6 +509,12 @@ public class HomeActivity extends AppCompatActivity {
                 getCheckAndWinResult(code);
         }
 
+        if(requestCode == SCANNER_PROMOTION_REQUEST_CODE && resultCode == RESULT_OK) {
+            String code = !TextUtils.isEmpty(data.getStringExtra("scanner")) ? data.getStringExtra("scanner") : "";
+            if (!TextUtils.isEmpty(code))
+                redeemPromoCode(code);
+        }
+
         if (requestCode == 301 && resultCode == RESULT_OK) {
             finish();
             Intent i = new Intent(HomeActivity.this, HomeActivity.class);
@@ -537,6 +545,73 @@ public class HomeActivity extends AppCompatActivity {
 
                             } else {
                                 ((HomeActivity) mContext).navigate(AppConstants.MENU_HOME);
+                            }
+                        }
+                    });
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void redeemPromoCode(String code) {
+        try {
+            AppController.redeemPromoCode(HomeActivity.this, code,
+                    AppUtils.getAppPreference(HomeActivity.this).getInt(AppConstants.USER_COUNTRY, -1),
+                    AppUtils.getAppPreference(HomeActivity.this).getString(AppConstants.USER_EMAIL_ADDRESS, ""), new Callback() {
+                        @Override
+                        public void run(Object result) throws JSONException, IOException {
+                            JSONObject jsonResponse = new JSONObject((String) result);
+                            if (jsonResponse.getInt("success") == 1) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(HomeActivity.this);
+
+                                // Setting Dialog Message
+                                alertDialog.setMessage(jsonResponse.getString("message"));
+
+                                // On pressing Settings button
+                                alertDialog.setPositiveButton("View", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                        getSupportFragmentManager().beginTransaction().replace(R.id.content, new NotificationFragment()).commitAllowingStateLoss();
+                                    }
+                                });
+
+                                alertDialog.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                // Showing Alert Message
+                                alertDialog.show();
+                            } else if (jsonResponse.getInt("success") == 0) {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(HomeActivity.this);
+
+                                // Setting Dialog Message
+                                alertDialog.setMessage(jsonResponse.getString("message"));
+
+                                // On pressing Settings button
+                                alertDialog.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                // Showing Alert Message
+                                alertDialog.show();
+                            } else {
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(HomeActivity.this);
+
+                                // Setting Dialog Message
+                                alertDialog.setMessage(getString(R.string.system_error));
+
+                                // On pressing Settings button
+                                alertDialog.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                // Showing Alert Message
+                                alertDialog.show();
                             }
                         }
                     });

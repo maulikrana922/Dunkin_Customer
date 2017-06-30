@@ -53,9 +53,9 @@ public class AppConstants {
 
     // MENU ITEM POSITION AND ID
     public static final int MENU_HOME = 1;
-    public static final int MENU_PROFILE = 3;
-    public static final int MENU_NOTIFICATIONS = 4;
-    public static final int MENU_WALLET = 5;
+    public static final int MENU_PROFILE = 2;
+    public static final int MENU_NOTIFICATIONS = 3;
+    public static final int MENU_WALLET = 4;
     public static final int MENU_CREDIT_CARD = 6;
     public static final int MENU_PRODUCTS = 8;
     public static final int MENU_ORDER_HISTORY = 9;

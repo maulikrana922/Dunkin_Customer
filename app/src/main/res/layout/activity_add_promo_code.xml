@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="@dimen/spacing_xlarge">
+
+
+    <ImageView
+        android:layout_marginTop="30dp"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/dd"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="@color/btn_small_bg"
+        android:layout_marginTop="2dp"
+        android:text="Got a Promo code?\nEnter it here"/>
+
+        <com.dunkin.customer.widget.CustomEditText
+            app:fontName="dd_light.ttf"
+            android:id="@+id/edPromoCode"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ed_textbox_height"
+            android:inputType="textCapSentences|textCapWords"
+            android:background="@drawable/edit_bg"
+            android:hint="Enter PromoCode"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/spacing_medium"
+            android:paddingStart="@dimen/spacing_medium"
+            android:paddingRight="@dimen/spacing_medium"
+            android:paddingEnd="@dimen/spacing_medium"
+            android:textColor="@color/profile_font"
+            android:textColorHint="@color/profile_font" />
+
+    <include
+        android:layout_marginTop="@dimen/spacing_xlarge"
+        android:id="@+id/btnSubmit"
+        layout="@layout/rl_btn"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"/>
+
+</LinearLayout>

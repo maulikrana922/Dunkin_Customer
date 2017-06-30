@@ -1,18 +1,29 @@
 package com.dunkin.customer.fragments;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
+import com.dunkin.customer.AddPromocodeActivity;
 import com.dunkin.customer.PromoListActivity;
 import com.dunkin.customer.R;
+import com.dunkin.customer.SimpleScannerPromotionActivity;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
+import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.dialogs.ScanAndWinDialog;
 import com.dunkin.customer.models.PromoModel;
@@ -37,9 +48,12 @@ public class ScanFragment extends Fragment {
 
     private Context mContext;
     private View rootView;
-    private ImageView txtScan, txtPlay;
-    private String playImage, scanImage;
+    private ImageView txtScan, txtPlay, txtPromo;
+    private String playImage, scanImage, promoImage, promoStatus;
     private List<PromoModel> playModelList = new ArrayList<>();
+    private static final int SCANNER_PROMOTION_REQUEST_CODE = 0x111;
+    private LinearLayout learMain;
+    final AnimatorSet mAnimationSet = new AnimatorSet();
 
     public ScanFragment() {
         // Required empty public constructor
@@ -68,6 +82,8 @@ public class ScanFragment extends Fragment {
 
         txtScan = (ImageView) rootView.findViewById(R.id.txtScan);
         txtPlay = (ImageView) rootView.findViewById(R.id.txtPlay);
+        txtPromo = (ImageView) rootView.findViewById(R.id.txtPromo);
+        learMain = (LinearLayout) rootView.findViewById(R.id.learMain);
 
         txtScan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +100,17 @@ public class ScanFragment extends Fragment {
             }
         });
 
+        txtPromo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(promoStatus.equals("1"))
+                {
+                    chooseOption();
+                }
+            }
+        });
+
+//        animation();
         fetchPromoImage();
 
         return rootView;
@@ -106,8 +133,14 @@ public class ScanFragment extends Fragment {
                         JSONObject object = jsonResponse.getJSONObject("data");
                         playImage = object.getString("playImage");
                         scanImage = object.getString("scanImage");
+                        promoImage = object.getString("promoImage");
+                        promoStatus = object.getString("promoStatus");
+
                         AppUtils.setImage(txtScan, scanImage);
                         AppUtils.setImage(txtPlay, playImage);
+                        AppUtils.setImage(txtPromo, promoImage);
+
+//                        mAnimationSet.end();
                     }
                 }
             });
@@ -143,6 +176,49 @@ public class ScanFragment extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void chooseOption() {
+        final CharSequence[] items = { "Scan Promotion", "Enter Promotion",
+                "Cancel" };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        builder.setTitle("Select Option");
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                if (items[item].equals("Scan Promotion")) {
+                    ((Activity) mContext).startActivityForResult(new Intent(AppConstants.context, SimpleScannerPromotionActivity.class), SCANNER_PROMOTION_REQUEST_CODE);
+                } else if (items[item].equals("Enter Promotion")) {
+                    ((Activity) mContext).startActivity(new Intent(AppConstants.context, AddPromocodeActivity.class));
+                } else if (items[item].equals("Cancel")) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        builder.setCancelable(false);
+        builder.show();
+    }
+
+    private void animation()
+    {
+
+        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(learMain, "alpha", 1f, .3f);
+        fadeIn.setDuration(2000);
+
+        mAnimationSet.play(fadeIn);
+
+        mAnimationSet.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                AppUtils.setImage(txtScan, scanImage);
+                AppUtils.setImage(txtPlay, playImage);
+                AppUtils.setImage(txtPromo, promoImage);
+            }
+        });
+        mAnimationSet.start();
+
     }
 }
 
