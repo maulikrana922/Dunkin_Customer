@@ -910,7 +910,7 @@ public class AppController {
         jsonRequest.put("email", email);
         jsonRequest.put("promo_id", promo_id);
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.REDEEM_PROMO, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.REDEEM_PROMO, se, true, callback);
     }
 
     //GET OFFER DETAIL
@@ -921,6 +921,6 @@ public class AppController {
         jsonRequest.put("country_id", country_id);
         //Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_PROMO_DETAIL, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_PROMO_DETAIL, se, true, callback);
     }
 }

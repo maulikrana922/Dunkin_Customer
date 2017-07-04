@@ -8,9 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dunkin.customer.DBAdaters.DBAdapter;
@@ -31,6 +34,8 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
+import static com.facebook.FacebookSdk.getApplicationContext;
+
 public class MyWalletFragment extends Fragment {
 
     SmartTabLayout tabs;
@@ -41,6 +46,8 @@ public class MyWalletFragment extends Fragment {
     private LinearLayout scrollContainer;
     private ProgressBar progressLoading;
     private DBAdapter dbAdapter;
+    private RelativeLayout mainLayout;
+    Animation animFadein;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,9 +69,13 @@ public class MyWalletFragment extends Fragment {
 
         progressLoading = (ProgressBar) rootView.findViewById(R.id.progressLoad);
         scrollContainer = (LinearLayout) rootView.findViewById(R.id.scrollContainer);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.mainLayout);
 
         tabs = (SmartTabLayout) rootView.findViewById(R.id.tabs);
         tabs.setDistributeEvenly(true);
+
+        animFadein = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.fade_in);
 
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
         emptyView = (TextView) rootView.findViewById(R.id.emptyElement);
@@ -83,6 +94,7 @@ public class MyWalletFragment extends Fragment {
         AppController.getMyWallet(context, new Callback() {
             @Override
             public void run(Object result) throws JSONException, IOException {
+                mainLayout.startAnimation(animFadein);
                 String apiResponse = (String) result;
                 if (!apiResponse.equalsIgnoreCase(AppConstants.TIME_OUT)) {
                     JSONObject jsonResponse = new JSONObject((String) result);

@@ -103,4 +103,8 @@ public class NotificationAdapter extends BaseAdapter {
         CheckBox cbCheckNotification;
         RelativeLayout itemLayout;
     }
+
+    public String getEmojiByUnicode(){
+        return new String(Character.toChars(0x1F60A));
+    }
 }

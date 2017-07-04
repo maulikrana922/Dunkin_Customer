@@ -4,11 +4,18 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ScrollView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dunkin.customer.Utils.AppUtils;
@@ -29,20 +36,22 @@ import java.util.Date;
  * Created by qtm-c-android on 1/6/17.
  */
 
-public class PromationDetailsActivity extends BackActivity {
+public class PromationDetailsActivity extends BackActivity implements Animation.AnimationListener {
     private TextView txtOfferName, txtOfferDescription, txtPoint, txtUserPoint, txtPurchase, txtToken;
     private ImageView imgLogo;
-    private ScrollView scrollContainer;
+    private RelativeLayout scrollContainer;
     private PromoModel promo_data;
     private ImageView btnAddQty, btnDeletQty;
     private EditText edProQuantity;
     private String user_point;
+    Animation animFadein;
+    Animation animFadeout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        inflateView(R.layout.activity_promo_detail, getString(R.string.header_promo));
+        inflateView1(R.layout.activity_promo_detail, getString(R.string.header_promo));
 
         promo_data = (PromoModel) getIntent().getSerializableExtra("promo_data");
         user_point = getIntent().getStringExtra("user_point");
@@ -55,7 +64,7 @@ public class PromationDetailsActivity extends BackActivity {
         txtOfferDescription = (TextView) findViewById(R.id.txtDesc);
         txtPoint = (TextView) findViewById(R.id.txtPoint);
         imgLogo = (ImageView) findViewById(R.id.imgLogo);
-        scrollContainer = (ScrollView) findViewById(R.id.scrollContainer);
+        scrollContainer = (RelativeLayout) findViewById(R.id.scrollContainer);
         btnAddQty = (ImageView) findViewById(R.id.btnAddQty);
         btnDeletQty = (ImageView) findViewById(R.id.btnDeletQty);
         edProQuantity = (EditText) findViewById(R.id.edProQuantity);
@@ -63,13 +72,20 @@ public class PromationDetailsActivity extends BackActivity {
         txtPurchase = (TextView) findViewById(R.id.txtPurchase);
         txtToken = (TextView) findViewById(R.id.txtToken);
 
+        animFadein = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.fade_in);
+        scrollContainer.startAnimation(animFadein);
+
+        animFadeout = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.fade_out);
+        animFadeout.setAnimationListener(this);
+
         txtOfferName.setText(Html.fromHtml(promo_data.getName()));
         txtOfferDescription.setText(Html.fromHtml(promo_data.getDescription()));
         txtPoint.setText(promo_data.getTicketPoint() + " Point(s)");
         AppUtils.setImage(imgLogo, promo_data.getPromoImage());
 
         txtUserPoint.setText("Current Points : " + user_point);
-
         Calendar c = Calendar.getInstance();
         System.out.println("Current time => " + c.getTime());
 
@@ -226,5 +242,59 @@ public class PromationDetailsActivity extends BackActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onAnimationStart(Animation animation) {
+
+    }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+        finish();
+    }
+
+    @Override
+    public void onAnimationRepeat(Animation animation) {
+
+    }
+
+    void inflateView1(int layout, String title) {
+        Toolbar toolBar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolBar != null) {
+            toolBar.setTitleTextColor(ContextCompat.getColor(PromationDetailsActivity.this, android.R.color.white));
+            setSupportActionBar(toolBar);
+            if (title != null && title.length() > 0) {
+                toolBar.findViewById(R.id.brandLogo).setVisibility(View.GONE);
+                TextView tv = (TextView) toolBar.findViewById(R.id.toolbar_title);
+                tv.setText(title);
+                tv.setVisibility(View.VISIBLE);
+            } else {
+                toolBar.findViewById(R.id.brandLogo).setVisibility(View.VISIBLE);
+                toolBar.findViewById(R.id.toolbar_title).setVisibility(View.GONE);
+            }
+        }
+
+        //noinspection ConstantConditions
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(ContextCompat.getDrawable(PromationDetailsActivity.this, R.drawable.ic_nav_back));
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        FrameLayout viewContainer = (FrameLayout) findViewById(R.id.container);
+        ViewGroup.inflate(PromationDetailsActivity.this, layout, viewContainer);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+//            onBackPressed();  return true;
+            scrollContainer.startAnimation(animFadeout);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

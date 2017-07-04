@@ -7,7 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -29,6 +32,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.facebook.FacebookSdk.getApplicationContext;
+
 
 public class OfferListFragment extends Fragment {
 
@@ -39,6 +44,8 @@ public class OfferListFragment extends Fragment {
     private View rootView;
     private ProgressBar progressLoading;
     private int country_id;
+    private LinearLayout mainLayout;
+    Animation animFadein;
 
     @Override
     public void onAttach(Context context) {
@@ -51,6 +58,11 @@ public class OfferListFragment extends Fragment {
 
         rootView = inflater.inflate(R.layout.loadlistview, container, false);
         lvList = (ListView) rootView.findViewById(R.id.lvLoadList);
+
+        mainLayout = (LinearLayout) rootView.findViewById(R.id.mainLayout);
+
+        animFadein = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.fade_in);
 
         progressLoading = (ProgressBar) rootView.findViewById(R.id.progressLoad);
         //  spSelectCountry.setOnClickListener(this);
@@ -84,6 +96,7 @@ public class OfferListFragment extends Fragment {
             @Override
             public void run(Object result) throws JSONException, IOException {
                 JSONObject jsonResponse = new JSONObject((String) result);
+                mainLayout.startAnimation(animFadein);
                 if (jsonResponse.getInt("success") == 1) {
                     offerList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("offerList").toString(), new TypeReference<List<OfferModel>>() {
                     });

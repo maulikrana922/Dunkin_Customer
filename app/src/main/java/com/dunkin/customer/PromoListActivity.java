@@ -3,7 +3,10 @@ package com.dunkin.customer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -31,6 +34,8 @@ public class PromoListActivity extends BackActivity {
     private ProgressBar progressLoading;
     private String user_point;
     private List<PromoModel> playModelList;
+    private LinearLayout mainLayout;
+    Animation animFadein;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,11 @@ public class PromoListActivity extends BackActivity {
         lvPlayData = (ListView) findViewById(R.id.lvPlayData);
 
         progressLoading = (ProgressBar) findViewById(R.id.progressLoad);
+
+        mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
+
+        animFadein = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.fade_in);
 
         playModelList = new ArrayList<>();
 
@@ -74,6 +84,7 @@ public class PromoListActivity extends BackActivity {
                     //Log.i("DataResponse", jsonResponse.toString());
 
                     progressLoading.setVisibility(View.GONE);
+                    mainLayout.startAnimation(animFadein);
 
                     if (jsonResponse.getInt("success") == 1) {
                         user_point = jsonResponse.getString("userpoints");

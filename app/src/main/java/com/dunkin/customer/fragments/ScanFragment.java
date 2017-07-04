@@ -1,9 +1,5 @@
 package com.dunkin.customer.fragments;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,6 +10,8 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -44,7 +42,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
  * Created by qtm-c-android on 1/6/17.
  */
 
-public class ScanFragment extends Fragment {
+public class ScanFragment extends Fragment implements Animation.AnimationListener {
 
     private Context mContext;
     private View rootView;
@@ -53,7 +51,7 @@ public class ScanFragment extends Fragment {
     private List<PromoModel> playModelList = new ArrayList<>();
     private static final int SCANNER_PROMOTION_REQUEST_CODE = 0x111;
     private LinearLayout learMain;
-    final AnimatorSet mAnimationSet = new AnimatorSet();
+    Animation animFadein;
 
     public ScanFragment() {
         // Required empty public constructor
@@ -110,6 +108,10 @@ public class ScanFragment extends Fragment {
             }
         });
 
+        animFadein = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.fade_in);
+        animFadein.setAnimationListener(this);
+
 //        animation();
         fetchPromoImage();
 
@@ -139,6 +141,8 @@ public class ScanFragment extends Fragment {
                         AppUtils.setImage(txtScan, scanImage);
                         AppUtils.setImage(txtPlay, playImage);
                         AppUtils.setImage(txtPromo, promoImage);
+
+                        learMain.startAnimation(animFadein);
 
 //                        mAnimationSet.end();
                     }
@@ -179,17 +183,17 @@ public class ScanFragment extends Fragment {
     }
 
     private void chooseOption() {
-        final CharSequence[] items = { "Scan Promotion", "Enter Promotion",
+        final CharSequence[] items = { "Scan Promo Code", "Enter Promo Code",
                 "Cancel" };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        builder.setTitle("Select Option");
+        builder.setTitle("Select an Option");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
-                if (items[item].equals("Scan Promotion")) {
+                if (items[item].equals("Scan Promo Code")) {
                     ((Activity) mContext).startActivityForResult(new Intent(AppConstants.context, SimpleScannerPromotionActivity.class), SCANNER_PROMOTION_REQUEST_CODE);
-                } else if (items[item].equals("Enter Promotion")) {
+                } else if (items[item].equals("Enter Promo Code")) {
                     ((Activity) mContext).startActivity(new Intent(AppConstants.context, AddPromocodeActivity.class));
                 } else if (items[item].equals("Cancel")) {
                     dialog.dismiss();
@@ -200,24 +204,19 @@ public class ScanFragment extends Fragment {
         builder.show();
     }
 
-    private void animation()
-    {
+    @Override
+    public void onAnimationStart(Animation animation) {
 
-        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(learMain, "alpha", 1f, .3f);
-        fadeIn.setDuration(2000);
+    }
 
-        mAnimationSet.play(fadeIn);
+    @Override
+    public void onAnimationEnd(Animation animation) {
+        if (animation == animFadein) {
+        }
+    }
 
-        mAnimationSet.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                super.onAnimationEnd(animation);
-                AppUtils.setImage(txtScan, scanImage);
-                AppUtils.setImage(txtPlay, playImage);
-                AppUtils.setImage(txtPromo, promoImage);
-            }
-        });
-        mAnimationSet.start();
+    @Override
+    public void onAnimationRepeat(Animation animation) {
 
     }
 }

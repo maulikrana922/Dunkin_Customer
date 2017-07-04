@@ -9,11 +9,16 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 import com.dunkin.customer.R;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * Created by Admin on 2/19/2016.
@@ -25,9 +30,10 @@ public class OfferFragment extends Fragment {
     private ViewPager viewPager;
     private LinearLayout scrollContainer;
     private ProgressBar progressLoad;
-
+    private RelativeLayout mainLayout;
     private OfferFragmentPagerAdapter pagerAdapter;
     private String[] pagerTitle;
+    Animation animFadein;
 
     @Nullable
     @Override
@@ -39,6 +45,12 @@ public class OfferFragment extends Fragment {
         scrollContainer = (LinearLayout) rootView.findViewById(R.id.scrollContainer);
         tabs = (SmartTabLayout) rootView.findViewById(R.id.tabs);
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.mainLayout);
+
+        animFadein = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.fade_in);
+        mainLayout.startAnimation(animFadein);
+
 
         tabs.setDistributeEvenly(true);
         progressLoad.setVisibility(View.GONE);

@@ -5,15 +5,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    android:padding="@dimen/spacing_xlarge">
+    android:padding="@dimen/spacing_xlarge"
+    android:id="@+id/mianLayout">
 
 
-    <ImageView
+     <ImageView
         android:layout_marginTop="30dp"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/dd"/>
+        android:src="@mipmap/dd"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,7 +33,7 @@
             android:layout_height="@dimen/ed_textbox_height"
             android:inputType="textCapSentences|textCapWords"
             android:background="@drawable/edit_bg"
-            android:hint="Enter PromoCode"
+            android:hint="Enter Promo Code"
             android:layout_marginTop="15dp"
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/spacing_medium"

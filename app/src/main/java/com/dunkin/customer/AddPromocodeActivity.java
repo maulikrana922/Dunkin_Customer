@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -27,6 +29,8 @@ import java.io.IOException;
 public class AddPromocodeActivity extends BackActivity implements View.OnClickListener {
 
     private EditText edPromoCode;
+    private LinearLayout mianLayout;
+    Animation animFadein;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,11 @@ public class AddPromocodeActivity extends BackActivity implements View.OnClickLi
     private void initializeViews() {
         edPromoCode = (EditText) findViewById(R.id.edPromoCode);
         RelativeLayoutButton btnSubmit = (RelativeLayoutButton) findViewById(R.id.btnSubmit);
+        mianLayout = (LinearLayout) findViewById(R.id.mianLayout);
+
+        animFadein = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.fade_in);
+        mianLayout.startAnimation(animFadein);
         btnSubmit.btnText.setText(getString(R.string.btn_submit));
         btnSubmit.imgIcon.setImageResource(R.drawable.ic_white_submit);
         btnSubmit.setOnClickListener(AddPromocodeActivity.this);
