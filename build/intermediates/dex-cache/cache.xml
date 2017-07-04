@@ -93,6 +93,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/qtm-c-android/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.6/ce1edb914c94ebc388f086c6827e8bdeec71ac2/commons-lang-2.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0ce1edb914c94ebc388f086c6827e8bdeec71ac2">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/commons-lang-2.6_52316aa57d96ea242ef82f448cd05345cd60080f.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/qtm-c-android/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.5.0/a2a55a3375bc1cef830ca426d68d2ea22961190e/jackson-annotations-2.5.0.jar"
         jumboMode="false"
         optimize="true"
