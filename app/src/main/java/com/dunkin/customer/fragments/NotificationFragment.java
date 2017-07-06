@@ -375,7 +375,47 @@ public class NotificationFragment extends Fragment {
             intent.putExtra("promoId", nmResponse.getPromoId());
 
             startActivity(intent);
-        }else {
+        }else if (nmResponse.getMsgtype() == 14) {
+
+            if(nmResponse.getPromoType().equals("1"))
+            {
+                Log.i("MSG Type", "" + nmResponse.getMsgtype());
+
+                //((HomeActivity) getActivity()).navigateAndCheckItem(AppConstants.MENU_WALLET);
+
+                ((AppCompatActivity) context).getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.content, new MyWalletFragment())
+                        //.addToBackStack(null)
+                        .commit();
+            }else if(nmResponse.getPromoType().equals("2"))
+            {
+                Log.i("MSG Type", "" + nmResponse.getMsgtype());
+
+                intent = new Intent(context, OfferDetailActivity.class);
+                intent.putExtra("offerId", nmResponse.getOfferId());
+
+                startActivity(intent);
+            }else if(nmResponse.getPromoType().equals("3"))
+            {
+                Log.i("MSG Type", "" + nmResponse.getMsgtype());
+
+                intent = new Intent(context, OfferDetailActivity.class);
+                intent.putExtra("offerId", nmResponse.getOfferId());
+
+                startActivity(intent);
+            }else {
+                Log.i("MSG Type", "" + nmResponse.getMsgtype());
+
+                //((HomeActivity) getActivity()).navigateAndCheckItem(AppConstants.MENU_WALLET);
+
+                ((AppCompatActivity) context).getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.content, new MyWalletFragment())
+                        //.addToBackStack(null)
+                        .commit();
+            }
+        } else {
 
             Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
