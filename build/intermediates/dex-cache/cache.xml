@@ -102,6 +102,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/qtm-c-android/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.19.0/cdca49ad0977c040f603478aa2e16b2775c8fec6/google-http-client-1.19.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="cdca49ad0977c040f603478aa2e16b2775c8fec6">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/google-http-client-1.19.0_a31c45d7eadeb2994d53d5b143d6e5853b83829b.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/qtm-c-android/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.5.0/a2a55a3375bc1cef830ca426d68d2ea22961190e/jackson-annotations-2.5.0.jar"
         jumboMode="false"
         optimize="true"
@@ -138,6 +147,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/qtm-c-android/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-gson/1.19.0/b3cdefb990d5212bb2a130525b20e2c44aeffc4c/google-http-client-gson-1.19.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b3cdefb990d5212bb2a130525b20e2c44aeffc4c">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/google-http-client-gson-1.19.0_c7b9253f3265e71260b19fee7d6f575180ae5563.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.4.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -153,6 +171,15 @@
         revision="23.0.3"
         sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
         <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_cabcf0f81ddf74c369dbfeed608e56eeb15d1a9f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/qtm-c-android/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/jsr305-1.3.9_625426b3e247e785ed0df1d281885d4fa71d32ce.jar" />
     </item>
     <item
         is-multidex="false"
@@ -372,6 +399,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/qtm-c-android/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.10.3/b842f960942503cf1abbcc8c173a7f2c19d43726/jsoup-1.10.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b842f960942503cf1abbcc8c173a7f2c19d43726">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/jsoup-1.10.3_0dd4f06d9040c7101c40f0844bc8bf2a7d866d06.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.0.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -486,6 +522,15 @@
         revision="23.0.3"
         sha1="867dad63c33388ff8c7644b236579355036d075f">
         <dex dex="/home/qtm-c-android/Project/Dunkin/Backup/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_4279acdc0ea66572f6a0f6fb2cfa0fe497713054.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/qtm-c-android/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.1/2e66da15851f9f5b5079228f856c2f090ba98c38/gson-2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2e66da15851f9f5b5079228f856c2f090ba98c38">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/gson-2.1_c372fad3f453a016da4538946979602f79df8da6.jar" />
     </item>
     <item
         is-multidex="false"

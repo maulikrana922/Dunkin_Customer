@@ -85,7 +85,8 @@ public class NotificationAdapter extends BaseAdapter {
         h.txtView.setText(Html.fromHtml(nm.getResponse().getMessage()));
 
 //code for smiley
-//        h.txtView.setText(StringEscapeUtils.unescapeJava((nm.getResponse().getMessage())));
+//        h.txtView.setText(StringEscapeUtils.
+//                unescapeJava((nm.getResponse().getMessage())));
 
         h.cbCheckNotification.setFocusable(false);
         h.cbCheckNotification.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

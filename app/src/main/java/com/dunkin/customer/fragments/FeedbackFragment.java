@@ -27,6 +27,7 @@ import com.dunkin.customer.models.RestaurantModel;
 import com.dunkin.customer.widget.RelativeLayoutButton;
 import com.fasterxml.jackson.core.type.TypeReference;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -205,12 +206,22 @@ public class FeedbackFragment extends Fragment implements View.OnClickListener, 
                 //Log.e("DataResponse", jsonResponse.toString());
 
                 if (jsonResponse.getInt("success") == 1) {
-                    AppUtils.showToastMessage(context, getString(R.string.msg_feedback_success));
+//                    AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                    final AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                    alert.setMessage(StringEscapeUtils.unescapeJava(jsonResponse.getString("message")));
+                    alert.setPositiveButton(context.getString(R.string.al_ok), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            ((HomeActivity) getActivity()).navigateAndCheckItem(AppConstants.MENU_HOME);
+                        }
+                    });
+                    alert.show();
                     /*FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                     FeedbackFragment feedbackFragment = new FeedbackFragment();
                     fragmentTransaction.replace(R.id.content, feedbackFragment);
                     fragmentTransaction.commit();*/
-                    ((HomeActivity) getActivity()).navigateAndCheckItem(AppConstants.MENU_HOME);
+//                    ((HomeActivity) getActivity()).navigateAndCheckItem(AppConstants.MENU_HOME);
                 }else if (jsonResponse.getInt("success") == 100) {
                     AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                 }

@@ -903,12 +903,15 @@ public class AppController {
     }
 
     public static void redeemPromoCode(Context context, String promo_id, int country_id,
-                                       String email, Callback callback) throws JSONException, UnsupportedEncodingException {
+                                       String email, String latitude, String longitude, Callback callback)
+            throws JSONException, UnsupportedEncodingException {
         // Log.e("DataRequest", requestString);
         JSONObject jsonRequest = new JSONObject();
         jsonRequest.put("country_id", country_id);
         jsonRequest.put("email", email);
         jsonRequest.put("promo_id", promo_id);
+        jsonRequest.put("latitude", latitude);
+        jsonRequest.put("longitude", longitude);
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
         AppUtils.requestCallAsyncTask(context, URLConstant.REDEEM_PROMO, se, true, callback);
     }
@@ -922,5 +925,11 @@ public class AppController {
         //Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
         AppUtils.requestCallAsyncTask(context, URLConstant.GET_PROMO_DETAIL, se, true, callback);
+    }
+
+    public static void fetchAllSetting(Context context, String requestString, Callback callback) throws UnsupportedEncodingException {
+        //  Log.e("DataRequest", requestString);
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(requestString, AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_SETTING, se, true, callback);
     }
 }

@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
+import com.dunkin.customer.Utils.GPSTracker;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.widget.RelativeLayoutButton;
@@ -31,12 +32,16 @@ public class AddPromocodeActivity extends BackActivity implements View.OnClickLi
     private EditText edPromoCode;
     private LinearLayout mianLayout;
     Animation animFadein;
+    GPSTracker gps;
+    private double latitude, longitude;
+    private String lat, log;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         inflateView(R.layout.activity_add_promo_code, "PROMOCODE");
         initializeViews();
+        gps = new GPSTracker(AddPromocodeActivity.this);
     }
 
     private void initializeViews() {
@@ -64,10 +69,15 @@ public class AddPromocodeActivity extends BackActivity implements View.OnClickLi
             AppUtils.showError(edPromoCode, "Please Enter Promo Code");
         }else {
            String code = edPromoCode.getText().toString();
+           latitude = gps.getLatitude();
+           longitude = gps.getLongitude();
+           lat = String.valueOf(latitude);
+           log = String.valueOf(longitude);
            try {
                AppController.redeemPromoCode(AddPromocodeActivity.this, code,
                        AppUtils.getAppPreference(AddPromocodeActivity.this).getInt(AppConstants.USER_COUNTRY, -1),
-                       AppUtils.getAppPreference(AddPromocodeActivity.this).getString(AppConstants.USER_EMAIL_ADDRESS, ""), new Callback() {
+                       AppUtils.getAppPreference(AddPromocodeActivity.this).getString(AppConstants.USER_EMAIL_ADDRESS, ""),
+                       lat, log, new Callback() {
                            @Override
                            public void run(Object result) throws JSONException, IOException {
                                JSONObject jsonResponse = new JSONObject((String) result);

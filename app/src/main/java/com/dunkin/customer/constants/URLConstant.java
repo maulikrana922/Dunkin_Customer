@@ -90,4 +90,5 @@ public class URLConstant {
     public static final String FETCH_PROMO_IMAGE = BASE_URL + "fetchPromoImage";
     public static final String REDEEM_PROMO = BASE_URL + "redeemPromo";
     public static final String GET_PROMO_DETAIL = BASE_URL + "promoCodeDetail";
+    public static final String GET_SETTING = BASE_URL + "fetchAllSetting";
 }

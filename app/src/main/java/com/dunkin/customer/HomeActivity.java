@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
@@ -29,10 +30,12 @@ import android.widget.TextView;
 import com.dunkin.customer.DBAdaters.DBAdapter;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
+import com.dunkin.customer.Utils.GPSTracker;
 import com.dunkin.customer.Utils.LoadingDialog;
 import com.dunkin.customer.adapters.NavDrawerAdapter;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
+import com.dunkin.customer.dialogs.ImageDialog;
 import com.dunkin.customer.dialogs.ScanAndWinDialog;
 import com.dunkin.customer.dialogs.WinStatusDialog;
 import com.dunkin.customer.fragments.AboutUsFragment;
@@ -71,6 +74,7 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -78,7 +82,6 @@ import java.util.Locale;
 import java.util.Set;
 
 import static com.dunkin.customer.constants.AppConstants.context;
-import static com.google.zxing.qrcode.decoder.ErrorCorrectionLevel.H;
 
 public class HomeActivity extends AppCompatActivity {
     private static final String NAV_ITEM_ID = "navItemId";
@@ -109,6 +112,9 @@ public class HomeActivity extends AppCompatActivity {
 
     private LoadingDialog progressDialog;
     private String res;
+    GPSTracker gps;
+    private double latitude, longitude;
+    private String lat, log;
 
     public static Context getCustomContext() {
         return mContext;
@@ -188,7 +194,7 @@ public class HomeActivity extends AppCompatActivity {
 
         navigate(AppConstants.MENU_HOME);
 
-
+        gps = new GPSTracker(HomeActivity.this);
     }
 
     @Override
@@ -556,10 +562,15 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void redeemPromoCode(String code) {
+        latitude = gps.getLatitude();
+        longitude = gps.getLongitude();
+        lat = String.valueOf(latitude);
+        log = String.valueOf(longitude);
         try {
             AppController.redeemPromoCode(HomeActivity.this, code,
                     AppUtils.getAppPreference(HomeActivity.this).getInt(AppConstants.USER_COUNTRY, -1),
-                    AppUtils.getAppPreference(HomeActivity.this).getString(AppConstants.USER_EMAIL_ADDRESS, ""), new Callback() {
+                    AppUtils.getAppPreference(HomeActivity.this).getString(AppConstants.USER_EMAIL_ADDRESS, ""),
+                    lat, log, new Callback() {
                         @Override
                         public void run(Object result) throws JSONException, IOException {
                             JSONObject jsonResponse = new JSONObject((String) result);
@@ -1149,5 +1160,129 @@ public class HomeActivity extends AppCompatActivity {
             return null;
         }
     }
+
+//    public class CheckVersionOnPlayStore extends AsyncTask<String, String, String>
+//    {
+//        Activity mContext;
+//        String urlToGetIP;
+//
+//        public CheckVersionOnPlayStore(Activity mContext)
+//
+//        {
+//
+//            this.mContext = mContext;
+//
+//        }
+//
+//        @Override
+//        protected void onPreExecute()
+//        {
+//
+//        }
+//
+//        @Override
+//        protected String doInBackground(String... params)
+//        {
+//            HttpClient httpclient;
+//            String result = null;
+//            try
+//            {
+////                history appointment list data
+//                httpclient = new DefaultHttpClient();
+//                HttpGet httppost = new HttpGet("http://carreto.pt/tools/android-store-version/?package=com.dunkin.customer");
+//
+////                Execute HTTP Get Request
+//
+//                HttpResponse response = httpclient.execute(httppost);
+//                HttpEntity entity = response.getEntity();
+//                InputStream instream = entity.getContent();
+//                result = convertStreamToString(instream);
+//                return result;
+//            } catch (ClientProtocolException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            return null;
+//        }
+//
+//        public String convertStreamToString(InputStream is) {
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+//            StringBuilder sb = new StringBuilder();
+//            String line = null;
+//            try {
+//                while ((line = reader.readLine()) != null) {
+//                    sb.append(line + "\n");
+//                }
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            } finally {
+//                try {
+//                    is.close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            return sb.toString();
+//        }
+//
+//        @Override
+//        protected void onPostExecute(String result) {
+//            try {
+//                if (result != null) {
+//                    try {
+//                        Gson gson = new Gson();
+//                        VersionPlayStore versionInfo = gson.fromJson(result, VersionPlayStore.class);
+//                        if (Double.parseDouble(versionInfo.version) > versionCode) {
+//                            try {
+//                                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(HomeActivity.this);
+//                                alertDialogBuilder.setTitle("Adractive");
+//                                alertDialogBuilder.setMessage("Download the latest updated version of app from Playstore to get the maximum videos with maximum points and our latest entertainment shows")
+//                                        .setCancelable(false)
+//                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                                            public void onClick(DialogInterface dialog, int id) {
+//                                                final String appPackageName = getPackageName();
+////                                                getPackageName() from Context or Activity object
+//                                                try {
+//                                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+//                                                } catch (android.content.ActivityNotFoundException anfe) {
+//                                                    anfe.printStackTrace();
+//                                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+//                                                }
+//                                                dialog.cancel();
+//                                            }
+//                                        });
+//                                AlertDialog alertDialog = alertDialogBuilder.create();
+//                                if (!HomeActivity.this.isFinishing()) {
+//                                    alertDialog.show();
+//                                }
+//                            } catch (Exception ex) {
+//                                ex.printStackTrace();
+//                            }
+//                        } else {
+//                        }
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                } else {
+//                }
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+//
+//    public class VersionPlayStore
+//    {
+//        public String package_name;
+//        public boolean status;
+//        public String author;
+//        public String app_name;
+//        public boolean locale;
+//        public String publish_date;
+//        public String version;
+//        public  String message;
+//        public String last_version_description;
+//    }
 
 }

@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -35,6 +36,7 @@ import com.dunkin.customer.Utils.Callback;
 import com.dunkin.customer.adapters.FavoriteRestaurantAdapter;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
+import com.dunkin.customer.dialogs.ImageDialog;
 import com.dunkin.customer.models.CountriesModel;
 import com.dunkin.customer.models.RestaurantModel;
 import com.dunkin.customer.widget.RelativeLayoutButton;
@@ -415,10 +417,19 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                                     .setCancelable(false)
                                     .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
-
+                                            try {
+                                                PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                                                String version = String.valueOf(pInfo.versionCode);
+                                                fetchAllSetting(version);
+                                            } catch (UnsupportedEncodingException | JSONException | ParseException e) {
+                                                e.printStackTrace();
+                                            } catch(Exception e)
+                                            {
+                                                e.printStackTrace();
+                                            }
 //                                            startActivity(new Intent(context, HomeActivity.class));
-                                            startActivity(new Intent(context, RegisterActivity.class));
-                                            ((Activity) context).finish();
+//                                            startActivity(new Intent(context, RegisterActivity.class));
+//                                            ((Activity) context).finish();
                                         }
                                     });
 
@@ -448,6 +459,42 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                 }
             });
         }
+    }
+
+    private void fetchAllSetting(String version) throws UnsupportedEncodingException, JSONException, ParseException {
+
+        JSONObject jsonRequest = new JSONObject();
+
+        jsonRequest.put("email", AppUtils.getAppPreference(context)
+                .getString(AppConstants.USER_EMAIL_ADDRESS, ""));
+        jsonRequest.put("country_id", AppUtils.getAppPreference(context)
+                .getInt(AppConstants.USER_COUNTRY, -1));
+        jsonRequest.put("type", "1");
+        jsonRequest.put("version", version);
+
+        AppController.fetchAllSetting(context, jsonRequest.toString(), new Callback() {
+            @Override
+            public void run(Object result) throws JSONException, IOException {
+                try {
+                    JSONObject jsonResponse = new JSONObject((String) result);
+
+
+                    if (jsonResponse.getString("success").equals("1")) {
+                        JSONObject jsonObject = jsonResponse.getJSONObject("data");
+                        String image_url = jsonObject.getString("Image");
+                        ImageDialog.newInstance(context, image_url, true).show();
+
+                    } else if (jsonResponse.getString("success").equals("0")) {
+                        AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                    } else {
+                        AppUtils.showToastMessage(context, getString(R.string.system_error));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    AppUtils.showToastMessage(context, getString(R.string.system_error));
+                }
+            }
+        });
     }
 
     private void displayDialog(String message) {

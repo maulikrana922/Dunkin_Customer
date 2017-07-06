@@ -7,12 +7,14 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +31,7 @@ import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
+import com.dunkin.customer.dialogs.ImageDialog;
 import com.dunkin.customer.models.HomeCatModel;
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -37,6 +40,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
 import java.util.List;
 
 import static com.dunkin.customer.R.id.imgBag;
@@ -230,7 +234,18 @@ public class HomeFragment extends Fragment {
             e.printStackTrace();
         }
 
-        ((HomeActivity) context).checkScanAndWin();
+        try {
+            PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            String version = String.valueOf(pInfo.versionCode);
+            fetchAllSetting(version);
+        } catch (UnsupportedEncodingException | JSONException | ParseException e) {
+            e.printStackTrace();
+        } catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+//        ((HomeActivity) context).checkScanAndWin();
 
         return rootView;
     }
@@ -309,4 +324,44 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    private void fetchAllSetting(String version) throws UnsupportedEncodingException, JSONException, ParseException {
+
+        JSONObject jsonRequest = new JSONObject();
+
+        jsonRequest.put("email", AppUtils.getAppPreference(context)
+                .getString(AppConstants.USER_EMAIL_ADDRESS, ""));
+        jsonRequest.put("country_id", AppUtils.getAppPreference(context)
+                .getInt(AppConstants.USER_COUNTRY, -1));
+        jsonRequest.put("type", "2");
+        jsonRequest.put("version", version);
+
+        AppController.fetchAllSetting(context, jsonRequest.toString(), new Callback() {
+            @Override
+            public void run(Object result) throws JSONException, IOException {
+                try {
+                    JSONObject jsonResponse = new JSONObject((String) result);
+                    Log.e("response_setting", "response : " + jsonResponse);
+
+                    if (jsonResponse.getString("success").equals("1")) {
+                        JSONObject jsonObject = jsonResponse.getJSONObject("data");
+                        String image_url = jsonObject.getString("Image");
+                        ImageDialog.newInstance(context, image_url, false).show();
+                    }
+                    else
+                    {
+                        ((HomeActivity) context).checkScanAndWin();
+                    }
+
+//                    } else if (jsonResponse.getString("success").equals("0")) {
+//                        AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+//                    } else {
+//                        AppUtils.showToastMessage(context, getString(R.string.system_error));
+//                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    AppUtils.showToastMessage(context, getString(R.string.system_error));
+                }
+            }
+        });
+    }
 }
