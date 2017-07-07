@@ -228,6 +228,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/qtm-c-android/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/glide-3.7.0_435f41a45e673679e31d4a4d75767cc8d7e2a265.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/qtm-c-android/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
