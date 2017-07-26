@@ -46,6 +46,7 @@ public class AppConstants {
     public static final String YYYY_MM_DD_HH_MM_SS_SERVER = "yyyy-MM-dd HH:mm:ss"; // 2016-05-21 16:25:17
     public static final String DD_MM_YYYY_HH_MM_SS = "dd/MM/yyyy HH:mm:ss"; // 21/03/2016 18:14:47
     public static final String MM_YY = "MM/yyyy";
+    public static final String NOTIFICATION_COUNTER = "1";
 
 
     public static final int REQUEST_TIME_OUT = 1200000;

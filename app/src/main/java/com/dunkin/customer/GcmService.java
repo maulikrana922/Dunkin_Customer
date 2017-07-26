@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
@@ -15,6 +16,7 @@ import android.text.Html;
 import android.util.Log;
 import android.widget.RemoteViews;
 
+import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.service.LogoutService;
 import com.google.android.gms.gcm.GcmListenerService;
@@ -24,10 +26,14 @@ public class GcmService extends GcmListenerService {
     @Override
     public void onMessageReceived(String from, Bundle data) {
         Log.e("GCMResponse", data.toString());
-        sendNotification(data);
+        int counter = AppUtils.getAppPreference(this).getInt(AppConstants.NOTIFICATION_COUNTER, -1);
+        SharedPreferences.Editor editor = AppUtils.getAppPreference(this).edit();
+        editor.putInt(AppConstants.NOTIFICATION_COUNTER, counter + 1);
+        editor.apply();
+        sendNotification(data, counter);
     }
 
-    private void sendNotification(Bundle data) {
+    private void sendNotification(Bundle data, int counter) {
 
         Intent intent;
 
@@ -152,6 +158,6 @@ public class GcmService extends GcmListenerService {
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        notificationManager.notify(0 /*ID of notification */, notification);
+        notificationManager.notify(counter /*ID of notification */, notification);
     }
 }
