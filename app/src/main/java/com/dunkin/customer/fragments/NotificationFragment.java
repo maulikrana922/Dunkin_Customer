@@ -129,7 +129,7 @@ public class NotificationFragment extends Fragment {
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
-                                AppUtils.showToastMessage(context, getString(R.string.system_error));
+//                                AppUtils.showToastMessage(context, getString(R.string.system_error));
                             }
                         }
                     });
@@ -190,7 +190,7 @@ public class NotificationFragment extends Fragment {
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
-                                AppUtils.showToastMessage(context, getString(R.string.system_error));
+//                                AppUtils.showToastMessage(context, getString(R.string.system_error));
                             }
                         }
                     });

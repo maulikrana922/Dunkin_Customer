@@ -177,9 +177,15 @@
             android:name=".PromationDetailsActivity"
             android:configChanges="locale|screenSize"
             android:screenOrientation="portrait" />
+
         <activity android:name=".TokensActivity"
             android:configChanges="locale|screenSize"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".AboutUsDetailsActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />

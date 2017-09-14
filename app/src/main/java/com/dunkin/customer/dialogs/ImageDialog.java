@@ -76,6 +76,7 @@ public class ImageDialog extends Dialog {
                     }
                 } else if (FromWhere) {
                     ((Activity) mContext).startActivity(new Intent(mContext, RegisterActivity.class));
+                    ((Activity) mContext).finish();
                 }
                 ImageDialog.this.dismiss();
             }

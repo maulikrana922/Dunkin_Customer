@@ -31,7 +31,7 @@ public class WinnerListFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_winner, container, false);
         ImageView imgWinner = (ImageView) rootView.findViewById(R.id.imgWinner);
 
-        AppUtils.setImage(imgWinner, winnerImage);
+        AppUtils.setImage1(imgWinner, winnerImage);
 
         return rootView;
     }

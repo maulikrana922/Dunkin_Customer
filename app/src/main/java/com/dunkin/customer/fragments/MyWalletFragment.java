@@ -48,6 +48,7 @@ public class MyWalletFragment extends Fragment {
     private DBAdapter dbAdapter;
     private RelativeLayout mainLayout;
     Animation animFadein;
+    private ImageView imgQR;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -79,7 +80,7 @@ public class MyWalletFragment extends Fragment {
 
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
         emptyView = (TextView) rootView.findViewById(R.id.emptyElement);
-        ImageView imgQR = (ImageView) rootView.findViewById(R.id.imgProfileQR);
+        imgQR = (ImageView) rootView.findViewById(R.id.imgProfileQR);
         AppUtils.setImage(imgQR, AppUtils.getAppPreference(context).getString(AppConstants.USER_PROFILE_QR, ""));
         try {
             getDataFromAPI();
@@ -95,6 +96,8 @@ public class MyWalletFragment extends Fragment {
             @Override
             public void run(Object result) throws JSONException, IOException {
                 mainLayout.startAnimation(animFadein);
+                imgQR.setVisibility(View.VISIBLE);
+                tabs.setVisibility(View.VISIBLE);
                 String apiResponse = (String) result;
                 if (!apiResponse.equalsIgnoreCase(AppConstants.TIME_OUT)) {
                     JSONObject jsonResponse = new JSONObject((String) result);

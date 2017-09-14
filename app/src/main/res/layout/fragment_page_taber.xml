@@ -48,6 +48,7 @@
             app:stl_indicatorWithoutPadding="false"
             app:stl_overlineColor="#4D000000"
             app:stl_overlineThickness="0dp"
+            android:visibility="gone"
             app:stl_underlineColor="@color/dark_content_bg"
             app:stl_underlineThickness="1dp" />
 

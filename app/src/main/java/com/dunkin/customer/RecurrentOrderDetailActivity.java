@@ -140,7 +140,7 @@ public class RecurrentOrderDetailActivity extends BackActivity {
                     });
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
-                    AppUtils.showToastMessage(RecurrentOrderDetailActivity.this, getString(R.string.system_error));
+//                    AppUtils.showToastMessage(RecurrentOrderDetailActivity.this, getString(R.string.system_error));
                 }
             }
         });

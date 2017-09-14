@@ -932,4 +932,29 @@ public class AppController {
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(requestString, AppConstants.encodeType);
         AppUtils.requestCallAsyncTask(context, URLConstant.GET_SETTING, se, true, callback);
     }
+
+    public static void getAboutUsDetail(Context context, String listId, Callback callback) throws JSONException, UnsupportedEncodingException {
+        JSONObject jsonRequest = new JSONObject();
+        jsonRequest.put("listId", listId);
+        jsonRequest.put("type", "detail");
+        jsonRequest.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1));
+        jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_KNOW_LIST, se, true, callback);
+    }
+
+    public static void aboutUSNew(Context context, Callback callback) throws UnsupportedEncodingException {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("type", "list");
+            jsonObject.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1));
+            jsonObject.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
+//            jsonObject.put("page", "1");
+            //  Log.e("DataRequest", jsonObject.toString());
+            org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_KNOW_LIST, se, true, callback);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 }

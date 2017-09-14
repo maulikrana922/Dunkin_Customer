@@ -327,17 +327,19 @@ public class NearRestaurantFragment extends Fragment implements OnMapReadyCallba
         }
 
         LatLng latLng = new LatLng(gps.getLatitude(), gps.getLongitude());
-        Marker mMarker = gMap.addMarker(new MarkerOptions()
-                .title("It's Me")
-                .position(latLng));
-
-        mark.add(mMarker);
+//        Marker mMarker = gMap.addMarker(new MarkerOptions()
+////                .title("It's Me")
+//                .position(latLng));
+//
+//        mark.add(mMarker);
 
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
 
         for (Marker marker : mark) {
             builder.include(marker.getPosition());
         }
+
+        builder.include(latLng);
 
         LatLngBounds bounds = builder.build();
         int padding = 100; // offset from edges of the map in pixels

@@ -37,6 +37,7 @@ import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.dialogs.ScanAndWinDialog;
 import com.dunkin.customer.dialogs.WinStatusDialog;
 import com.dunkin.customer.fragments.AboutUsFragment;
+import com.dunkin.customer.fragments.AboutUsFragmentNew;
 import com.dunkin.customer.fragments.CartFragment;
 import com.dunkin.customer.fragments.CategoryFragment;
 import com.dunkin.customer.fragments.ContactUsFragment;
@@ -751,7 +752,7 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
 
             case AppConstants.MENU_ABOUT_US:
-                getSupportFragmentManager().beginTransaction().replace(R.id.content, new AboutUsFragment()).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction().replace(R.id.content, new AboutUsFragmentNew()).commitAllowingStateLoss();
                 return true;
 
             case AppConstants.MENU_LOGOUT:
@@ -852,7 +853,7 @@ public class HomeActivity extends AppCompatActivity {
                     });
                 } catch (JSONException | UnsupportedEncodingException e) {
                     e.printStackTrace();
-                    AppUtils.showToastMessage(HomeActivity.this, getString(R.string.system_error));
+//                    AppUtils.showToastMessage(HomeActivity.this, getString(R.string.system_error));
                 }
             }
         });
@@ -972,12 +973,12 @@ public class HomeActivity extends AppCompatActivity {
 
     public void checkScanAndWin() {
         try {
-            showProgressDialog();
+//            showProgressDialog();
             if (TextUtils.isEmpty(res)) {
                 AppController.getScan(mContext, new Callback() {
                     @Override
                     public void run(Object result) throws JSONException, IOException {
-                        dismissProgressDialog();
+//                        dismissProgressDialog();
                         res = (String) result;
                         processResponse(res);
                     }

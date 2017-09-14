@@ -782,6 +782,42 @@ public class AppUtils {
         }
     }
 
+    public static void setImage1(final ImageView imgView, String URL) {
+        if (!URL.isEmpty()) {
+            ImageLoader.getInstance().displayImage(URL, imgView, options, new ImageLoadingListener() {
+                @Override
+                public void onLoadingStarted(String imageUri, View view) {
+                }
+
+                @Override
+                public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+                }
+
+                @Override
+                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                    try {
+                        float imageRatio = (float) loadedImage.getWidth() / (float) loadedImage.getHeight();
+
+                        int imageViewWidth = imgView.getWidth();
+                        int imageRealHeight = (int) (imageViewWidth / imageRatio);
+
+                        Bitmap imageToShow = Bitmap.createScaledBitmap(loadedImage, imageViewWidth, imageRealHeight, true);
+                        imgView.setImageBitmap(imageToShow);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onLoadingCancelled(String imageUri, View view) {
+
+                }
+            });
+        } else {
+            imgView.setImageResource(R.drawable.ic_loading);
+        }
+    }
+
     public static void setScanImage(final ImageView imgView, String URL) {
         if (!URL.isEmpty()) {
             ImageLoader.getInstance().displayImage(URL, imgView, optionScanDialog, new ImageLoadingListener() {

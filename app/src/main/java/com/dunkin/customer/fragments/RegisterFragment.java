@@ -400,7 +400,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                             JSONObject jsonUser = jsonResponse.getJSONObject("userDetail");
 
                             SharedPreferences.Editor editor = myPrefs.edit();
-                            editor.putString(AppConstants.USER_EMAIL_ADDRESS, edEmail.getText().toString());
+//                            editor.putString(AppConstants.USER_EMAIL_ADDRESS, edEmail.getText().toString());
                             editor.putInt(AppConstants.USER_COUNTRY, countryModel.getCountry_id());
                             editor.putString(AppConstants.USER_ADDRESS, edAddress.getText().toString());
                             editor.putString(AppConstants.USER_SHIPPING_ADDRESS, edShippingAddress.getText().toString());
@@ -454,7 +454,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        AppUtils.showToastMessage(context, getString(R.string.system_error));
+//                        AppUtils.showToastMessage(context, getString(R.string.system_error));
                     }
                 }
             });
@@ -485,13 +485,15 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                         ImageDialog.newInstance(context, image_url, true).show();
 
                     } else if (jsonResponse.getString("success").equals("0")) {
-                        AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                        ((Activity) context).startActivity(new Intent(context, RegisterActivity.class));
+                        ((Activity) context).finish();
+//                        AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                     } else {
                         AppUtils.showToastMessage(context, getString(R.string.system_error));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    AppUtils.showToastMessage(context, getString(R.string.system_error));
+//                    AppUtils.showToastMessage(context, getString(R.string.system_error));
                 }
             }
         });

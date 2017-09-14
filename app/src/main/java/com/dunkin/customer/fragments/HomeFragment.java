@@ -230,19 +230,30 @@ public class HomeFragment extends Fragment {
                     }
                 }
             });
+            try {
+                PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                String version = String.valueOf(pInfo.versionCode);
+                fetchAllSetting(version);
+            } catch (UnsupportedEncodingException | JSONException | ParseException e) {
+                e.printStackTrace();
+            } catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         } catch (JSONException | UnsupportedEncodingException e) {
             e.printStackTrace();
-        }
-
-        try {
-            PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            String version = String.valueOf(pInfo.versionCode);
-            fetchAllSetting(version);
-        } catch (UnsupportedEncodingException | JSONException | ParseException e) {
-            e.printStackTrace();
-        } catch(Exception e)
-        {
-            e.printStackTrace();
+            try {
+                PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                String version = String.valueOf(pInfo.versionCode);
+                fetchAllSetting(version);
+            } catch (UnsupportedEncodingException | JSONException | ParseException ex) {
+                ex.printStackTrace();
+                ((HomeActivity) context).checkScanAndWin();
+            } catch(Exception exc)
+            {
+                exc.printStackTrace();
+                ((HomeActivity) context).checkScanAndWin();
+            }
         }
 
 //        ((HomeActivity) context).checkScanAndWin();
@@ -359,7 +370,7 @@ public class HomeFragment extends Fragment {
 //                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    AppUtils.showToastMessage(context, getString(R.string.system_error));
+//                    AppUtils.showToastMessage(context, getString(R.string.system_error));
                 }
             }
         });

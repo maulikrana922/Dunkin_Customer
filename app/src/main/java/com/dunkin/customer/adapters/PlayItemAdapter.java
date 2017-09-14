@@ -80,9 +80,9 @@ public class PlayItemAdapter extends BaseAdapter {
 
             viewHolder.txtTitle.setText(Html.fromHtml(playModel.getName()));
             viewHolder.txtDesc.setText(Html.fromHtml(playModel.getDescription()));
-            if(!playModel.getDays().equals("0")) {
+//            if(!playModel.getDays().equals("0")) {
                 viewHolder.txtNoOfDays.setText(playModel.getDays() + " Day(s) Left");
-            }
+//            }
             // viewHolder.txtDesc.setMovementMethod(LinkMovementMethod.getInstance());
         } catch (Exception e) {
             e.printStackTrace();
