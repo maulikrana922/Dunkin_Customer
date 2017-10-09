@@ -1051,11 +1051,11 @@ public class HomeActivity extends AppCompatActivity {
          * Download scan image
          */
 
-        showProgressDialog();
+//        showProgressDialog();
         new GetFileTask(mContext, new FileDownloadListener() {
             @Override
             public void onFileDownload(String path) {
-                dismissProgressDialog();
+//                dismissProgressDialog();
                 strGetScanImage = path;
                 /**
                  * If app is open and user already get scan result then don't display intro screen

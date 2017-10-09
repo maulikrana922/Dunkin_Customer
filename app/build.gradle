@@ -43,8 +43,8 @@ android {
         applicationId "com.dunkin.customer"
         minSdkVersion 11
         targetSdkVersion 23
-        versionCode 10
-        versionName "2.3.140917"
+        versionCode 11
+        versionName "2.4.051017"
     }
 
     buildTypes {
