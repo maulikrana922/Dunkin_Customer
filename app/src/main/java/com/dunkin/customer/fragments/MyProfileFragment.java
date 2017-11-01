@@ -173,7 +173,9 @@ public class MyProfileFragment extends Fragment {
                         } else if (jsonResponse.getInt("success") == 100) {
                             AppUtils.showToastMessage(getActivity(), jsonResponse.getString("message"));
                         }else {
-                            AppUtils.showToastMessage(getActivity(), getString(R.string.system_error));
+                            if(jsonResponse.getInt("success") != 99) {
+                                AppUtils.showToastMessage(getActivity(), getString(R.string.system_error));
+                            }
                         }
                     }
                 });

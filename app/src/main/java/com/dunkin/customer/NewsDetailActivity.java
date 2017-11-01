@@ -98,7 +98,9 @@ public class NewsDetailActivity extends BackActivity {
                 } else if (jsonResponse.getInt("success") == 100) {
                     AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
                 }else {
-                    AppUtils.showToastMessage(NewsDetailActivity.this, getString(R.string.system_error));
+                    if(jsonResponse.getInt("success") != 99) {
+                        AppUtils.showToastMessage(NewsDetailActivity.this, getString(R.string.system_error));
+                    }
                 }
             }
         });

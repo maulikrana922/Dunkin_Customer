@@ -594,7 +594,9 @@ public class CartDetailActivity extends BackActivity {
                                 }else if (jsonResponse.getInt("success") == 100) {
                                     AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                                 } else {
-                                    AppUtils.showToastMessage(context, getString(R.string.system_error));
+                                    if(jsonResponse.getInt("success") != 99) {
+                                        AppUtils.showToastMessage(context, getString(R.string.system_error));
+                                    }
                                 }
                             }
                         });

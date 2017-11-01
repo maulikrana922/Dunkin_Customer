@@ -122,19 +122,21 @@ public class AddPromocodeActivity extends BackActivity implements View.OnClickLi
                                    // Showing Alert Message
                                    alertDialog.show();
                                } else {
-                                   AlertDialog.Builder alertDialog = new AlertDialog.Builder(AddPromocodeActivity.this);
+                                   if(jsonResponse.getInt("success") != 99) {
+                                       AlertDialog.Builder alertDialog = new AlertDialog.Builder(AddPromocodeActivity.this);
 
-                                   // Setting Dialog Message
-                                   alertDialog.setMessage(getString(R.string.system_error));
+                                       // Setting Dialog Message
+                                       alertDialog.setMessage(getString(R.string.system_error));
 
-                                   // On pressing Settings button
-                                   alertDialog.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
-                                       public void onClick(DialogInterface dialog, int which) {
-                                           dialog.cancel();
-                                       }
-                                   });
-                                   // Showing Alert Message
-                                   alertDialog.show();
+                                       // On pressing Settings button
+                                       alertDialog.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                                           public void onClick(DialogInterface dialog, int which) {
+                                               dialog.cancel();
+                                           }
+                                       });
+                                       // Showing Alert Message
+                                       alertDialog.show();
+                                   }
                                }
                            }
                        });

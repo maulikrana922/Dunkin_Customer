@@ -76,8 +76,10 @@ public class AboutUsDetailsActivity extends BackActivity {
                 } else if (jsonResponse.getInt("success") == 100) {
                     AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
                 } else {
-                    AppUtils.showToastMessage(getApplicationContext(), getString(R.string.system_error));
-                    finish();
+                    if(jsonResponse.getInt("success") != 99) {
+                        AppUtils.showToastMessage(getApplicationContext(), getString(R.string.system_error));
+                        finish();
+                    }
                 }
             }
         });

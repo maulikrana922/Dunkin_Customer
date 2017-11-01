@@ -134,7 +134,9 @@ public class RecurrentOrderDetailActivity extends BackActivity {
                                 AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
                             }
                             else {
-                                AppUtils.showToastMessage(RecurrentOrderDetailActivity.this, getString(R.string.system_error));
+                                if(jsonResponse.getInt("success") != 99) {
+                                    AppUtils.showToastMessage(RecurrentOrderDetailActivity.this, getString(R.string.system_error));
+                                }
                             }
                         }
                     });
