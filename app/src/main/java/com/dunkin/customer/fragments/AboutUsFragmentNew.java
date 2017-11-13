@@ -75,7 +75,7 @@ public class AboutUsFragmentNew extends Fragment {
                 @Override
                 public void run(Object result) throws JSONException, IOException {
                     JSONObject jsonResponse = new JSONObject((String) result);
-                    //Log.i("LINK", jsonResponse.getString("link"));
+                    //Dunkin_Log.i("LINK", jsonResponse.getString("link"));
                     if (jsonResponse.getInt("success") == 1) {
                         progressLoading.setVisibility(View.GONE);
 

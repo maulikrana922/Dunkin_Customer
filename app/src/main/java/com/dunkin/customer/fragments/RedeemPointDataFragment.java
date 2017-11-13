@@ -69,7 +69,7 @@ public class RedeemPointDataFragment extends Fragment {
                     rootView.findViewById(R.id.progressLoad).setVisibility(View.GONE);
 
                     JSONObject jsonResponse = new JSONObject((String) result);
-                    //Log.i("DataResponse", jsonResponse.toString());
+                    //Dunkin_Log.i("DataResponse", jsonResponse.toString());
                     if (jsonResponse.getInt("success") == 1) {
                         rootView.findViewById(R.id.emptyElement).setVisibility(View.GONE);
                         imgQR.setVisibility(View.VISIBLE);
@@ -118,51 +118,51 @@ public class RedeemPointDataFragment extends Fragment {
                             txtUsedPoint.setText("0");
 
                         /*if(myPointPercentage == 1) {
-                            Log.i("Percentage", "1: " + myPointPercentage);
+                            Dunkin_Log.i("Percentage", "1: " + myPointPercentage);
                             txtPercentage.setText(String.format(" %s %%", String.valueOf(myPointPercentage)));
                             txtPercentage.setBackgroundResource(R.drawable.ic_cup_1_512);
                         } else if (myPointPercentage > 1 && myPointPercentage <= 10) {
-                            Log.i("Percentage", "2: " + myPointPercentage);
+                            Dunkin_Log.i("Percentage", "2: " + myPointPercentage);
                             txtPercentage.setText(String.format(" %s %%", String.valueOf(myPointPercentage)));
                             txtPercentage.setBackgroundResource(R.drawable.ic_cup_10_512);
                         } else if (myPointPercentage > 10 && myPointPercentage <= 20) {
-                            Log.i("Percentage", "3: " + myPointPercentage);
+                            Dunkin_Log.i("Percentage", "3: " + myPointPercentage);
                             txtPercentage.setText(String.format(" %s %%", String.valueOf(myPointPercentage)));
                             txtPercentage.setBackgroundResource(R.drawable.ic_cup_20_512);
                         } else if (myPointPercentage > 20 && myPointPercentage <= 30) {
-                            Log.i("Percentage", "4: " + myPointPercentage);
+                            Dunkin_Log.i("Percentage", "4: " + myPointPercentage);
                             txtPercentage.setText(String.format(" %s %%", String.valueOf(myPointPercentage)));
                             txtPercentage.setBackgroundResource(R.drawable.ic_cup_30_512);
                         } else if (myPointPercentage > 30 && myPointPercentage <= 40) {
-                            Log.i("Percentage", "5: " + myPointPercentage);
+                            Dunkin_Log.i("Percentage", "5: " + myPointPercentage);
                             txtPercentage.setText(String.format(" %s %%", String.valueOf(myPointPercentage)));
                             txtPercentage.setBackgroundResource(R.drawable.ic_cup_40_512);
                         } else if (myPointPercentage > 40 && myPointPercentage <= 50) {
-                            Log.i("Percentage", "6: " + myPointPercentage);
+                            Dunkin_Log.i("Percentage", "6: " + myPointPercentage);
                             txtPercentage.setText(String.format(" %s %%", String.valueOf(myPointPercentage)));
                             txtPercentage.setBackgroundResource(R.drawable.ic_cup_50_512);
                         } else if (myPointPercentage > 50 && myPointPercentage <= 60) {
-                            Log.i("Percentage", "7: " + myPointPercentage);
+                            Dunkin_Log.i("Percentage", "7: " + myPointPercentage);
                             txtPercentage.setText(String.format(" %s %%", String.valueOf(myPointPercentage)));
                             txtPercentage.setBackgroundResource(R.drawable.ic_cup_60_512);
                         } else if (myPointPercentage > 60 && myPointPercentage <= 70) {
-                            Log.i("Percentage", "8: " + myPointPercentage);
+                            Dunkin_Log.i("Percentage", "8: " + myPointPercentage);
                             txtPercentage.setText(String.format(" %s %%", String.valueOf(myPointPercentage)));
                             txtPercentage.setBackgroundResource(R.drawable.ic_cup_70_512);
                         } else if (myPointPercentage > 70 && myPointPercentage <= 80) {
-                            Log.i("Percentage", "9: " + myPointPercentage);
+                            Dunkin_Log.i("Percentage", "9: " + myPointPercentage);
                             txtPercentage.setText(String.format(" %s %%", String.valueOf(myPointPercentage)));
                             txtPercentage.setBackgroundResource(R.drawable.ic_cup_80_512);
                         } else if (myPointPercentage > 80 && myPointPercentage <= 90) {
-                            Log.i("Percentage", "10: " + myPointPercentage);
+                            Dunkin_Log.i("Percentage", "10: " + myPointPercentage);
                             txtPercentage.setText(String.format(" %s %%", String.valueOf(myPointPercentage)));
                             txtPercentage.setBackgroundResource(R.drawable.ic_cup_90_512);
                         } else if (myPointPercentage > 90 && myPointPercentage <= 100) {
-                            Log.i("Percentage", "11: " + myPointPercentage);
+                            Dunkin_Log.i("Percentage", "11: " + myPointPercentage);
                             txtPercentage.setText(String.format(" %s %%", String.valueOf(myPointPercentage)));
                             txtPercentage.setBackgroundResource(R.drawable.ic_cup_100_512);
                         } else {
-                            Log.i("Percentage", "0 or Below 0: " + myPointPercentage);
+                            Dunkin_Log.i("Percentage", "0 or Below 0: " + myPointPercentage);
                             txtPercentage.setText("0%");
                             txtPercentage.setBackgroundResource(R.drawable.ic_cup_1_512);
                         }*/

@@ -195,7 +195,7 @@ public class ProductDetailActivity extends BackActivity implements View.OnClickL
             public void run(Object result) throws JSONException, IOException {
                 JSONObject jsonResponse = new JSONObject((String) result);
 
-                //Log.e("DataResponse", jsonResponse.toString());
+                //Dunkin_Log.e("DataResponse", jsonResponse.toString());
 
                 progressLoading.setVisibility(View.GONE);
                 if (jsonResponse != null && jsonResponse.getInt("success") == 1) {

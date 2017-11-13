@@ -199,7 +199,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                             public void run(Object result) throws JSONException, IOException {
 
                                 JSONObject jsonResponse = new JSONObject((String) result);
-                                //Log.i("DataResponse", jsonResponse.toString());
+                                //Dunkin_Log.i("DataResponse", jsonResponse.toString());
                                 if (jsonResponse.getInt("success") == 1) {
                                     restaurantList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("restaurantList").toString(), new TypeReference<List<RestaurantModel>>() {
                                     });

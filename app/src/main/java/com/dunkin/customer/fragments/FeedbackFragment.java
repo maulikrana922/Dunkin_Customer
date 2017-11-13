@@ -94,7 +94,7 @@ public class FeedbackFragment extends Fragment implements View.OnClickListener, 
 
                         JSONObject jsonResponse = new JSONObject((String) result);
 
-                        //Log.e("DataResponse", jsonResponse.toString());
+                        //Dunkin_Log.e("DataResponse", jsonResponse.toString());
 
                         if (jsonResponse.getInt("success") == 1) {
 
@@ -138,7 +138,7 @@ public class FeedbackFragment extends Fragment implements View.OnClickListener, 
 
                 JSONObject jsonResponse = new JSONObject((String) result);
 
-                //Log.e("DataResponse", jsonResponse.toString());
+                //Dunkin_Log.e("DataResponse", jsonResponse.toString());
 
                 progressLoading.setVisibility(View.GONE);
 
@@ -205,7 +205,7 @@ public class FeedbackFragment extends Fragment implements View.OnClickListener, 
 
                 JSONObject jsonResponse = new JSONObject((String) result);
 
-                //Log.e("DataResponse", jsonResponse.toString());
+                //Dunkin_Log.e("DataResponse", jsonResponse.toString());
 
                 if (jsonResponse.getInt("success") == 1) {
 //                    AppUtils.showToastMessage(context, jsonResponse.getString("message"));

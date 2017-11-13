@@ -29,6 +29,7 @@ import com.dunkin.customer.HomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.dialogs.ImageDialog;
@@ -112,16 +113,30 @@ public class HomeFragment extends Fragment {
             AppController.getHomePageData(context, new Callback() {
                 @Override
                 public void run(Object result) throws JSONException, IOException {
+
                     JSONObject jsonResponse = new JSONObject((String) result);
+
+
                     if (jsonResponse.getInt("success") == 1) {
                         homeList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("landingpage").toString(), new TypeReference<List<HomeCatModel>>() {
+
+
                         });
+
+
                         for (int i = 0; i < homeList.size(); i++) {
                             final HomeCatModel hm = homeList.get(i);
+
                             final View view = viewArray[i];
+
+                            Log.v("TTT","viewArray[i] = "+hm.getId()+" "+hm.getImage()+" "+hm.getTitle());
                             view.setTag(hm);
                             AppUtils.setImage(((ImageView) view.findViewById(R.id.imgContentView)), hm.getImage());
+
+
                             ((TextView) view.findViewById(R.id.txtLabel)).setText(hm.getTitle().replaceAll("!", ""));
+
+
                             view.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(final View v) {
@@ -202,7 +217,10 @@ public class HomeFragment extends Fragment {
                                 }
                             });
                         }
+
+
                         AppUtils.setImage(inside_image, jsonResponse.getString("BackGroundImage"));
+
 
                         // Landing Page Welcome Title
                         if (jsonResponse.has("landingpageTitle")) {
@@ -211,12 +229,16 @@ public class HomeFragment extends Fragment {
                             } else {
                                 txtLandingPageTitle.setText(getString(R.string.home_welcome_text).trim());
                             }
+
+
                         } else {
                             txtLandingPageTitle.setText(getString(R.string.home_welcome_text).trim());
+
                         }
 
                         // Landing Page Description
                         if (jsonResponse.has("landingpageDescription")) {
+
                             if (AppUtils.isNotNull(jsonResponse.getString("landingpageDescription"))) {
                                 txtLandingPageDescription.setText(Html.fromHtml(jsonResponse.getString("landingpageDescription")).toString().trim());
                             } else {
@@ -226,22 +248,31 @@ public class HomeFragment extends Fragment {
                             txtLandingPageDescription.setText("Pamper yourself in a full table service setting with premium cuisine. Savor our food and vibrant surroundings while enjoying your friends and family.".trim());
                         }
                     } else if (jsonResponse.getInt("success") == 100) {
+
                         AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                     }
+
                 }
+
+
             });
+
             try {
                 PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 String version = String.valueOf(pInfo.versionCode);
                 fetchAllSetting(version);
             } catch (UnsupportedEncodingException | JSONException | ParseException e) {
                 e.printStackTrace();
+
             } catch(Exception e)
             {
                 e.printStackTrace();
+
             }
         } catch (JSONException | UnsupportedEncodingException e) {
             e.printStackTrace();
+
+
             try {
                 PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 String version = String.valueOf(pInfo.versionCode);
@@ -256,7 +287,6 @@ public class HomeFragment extends Fragment {
             }
         }
 
-//        ((HomeActivity) context).checkScanAndWin();
 
         return rootView;
     }
@@ -351,7 +381,7 @@ public class HomeFragment extends Fragment {
             public void run(Object result) throws JSONException, IOException {
                 try {
                     JSONObject jsonResponse = new JSONObject((String) result);
-                    Log.e("response_setting", "response : " + jsonResponse);
+                    Dunkin_Log.e("response_setting", "response : " + jsonResponse);
 
                     if (jsonResponse.getString("success").equals("1")) {
                         JSONObject jsonObject = jsonResponse.getJSONObject("data");

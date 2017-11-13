@@ -28,6 +28,7 @@ import android.widget.TimePicker;
 import com.dunkin.customer.DBAdaters.DBAdapter;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.adapters.CartItemsAdapter;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.constants.DBConstants;
@@ -464,7 +465,7 @@ public class CartDetailActivity extends BackActivity {
                                         e.printStackTrace();
                                     }
                                     jsonRecurring.put("selectedday", checkedBox);
-                                    Log.i("JSON RECURRING", jsonRecurring.toString());
+                                    Dunkin_Log.i("JSON RECURRING", jsonRecurring.toString());
                                     mBottomSheetDialog.dismiss();
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -659,8 +660,8 @@ public class CartDetailActivity extends BackActivity {
                             AppUtils.showToastMessage(context, getString(R.string.err_select_restaurant));
                         } else {
                             String takeoutTime = edRecTime.getText().toString();
-                            Log.i("Time", "" + compareTime(takeoutTime));
-                            Log.i("IsTodayOrder", "" + isOrderToday);
+                            Dunkin_Log.i("Time", "" + compareTime(takeoutTime));
+                            Dunkin_Log.i("IsTodayOrder", "" + isOrderToday);
 
                             if (isOrderToday) {
                                 if (compareTime(takeoutTime).equalsIgnoreCase("1") || compareTime(takeoutTime).equalsIgnoreCase("3")) {
@@ -752,8 +753,8 @@ public class CartDetailActivity extends BackActivity {
 
             dtCurrentDate = sdf.parse(dtHour + ":" + dtMin);
 
-            Log.i("CurrentTime", "" + sdf.format(dtCurrentDate));
-            Log.i("TakeoutTime", "" + sdf.format(TimeToCompare));
+            Dunkin_Log.i("CurrentTime", "" + sdf.format(dtCurrentDate));
+            Dunkin_Log.i("TakeoutTime", "" + sdf.format(TimeToCompare));
 
             if (dtCurrentDate.after(TimeToCompare)) {
                 return "1";

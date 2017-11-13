@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import com.dunkin.customer.DBAdaters.DBAdapter;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.models.CountriesModel;
@@ -90,7 +91,7 @@ public class SplashActivity extends AppCompatActivity {
 
         if (getIntent().hasExtra("MsgType")) {
             msgType = getIntent().getIntExtra("MsgType", 0);
-            Log.e("msgtype", "" + msgType);
+            Dunkin_Log.e("msgtype", "" + msgType);
         }
 
         imgView = (ImageView) findViewById(R.id.imgView);
@@ -114,7 +115,7 @@ public class SplashActivity extends AppCompatActivity {
             Intent intent = new Intent(SplashActivity.this, RegistrationIntentService.class);
             startService(intent);
         } else {
-            Log.i("GCMToken Id : ", myPrefs.getString(AppConstants.GCM_TOKEN_ID, ""));
+            Dunkin_Log.i("GCMToken Id : ", myPrefs.getString(AppConstants.GCM_TOKEN_ID, ""));
         }
     }
 
@@ -160,7 +161,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run(Object result) throws JSONException, IOException {
                 JSONObject jsonResponse = new JSONObject((String) result);
-                //Log.i("DataResponse", jsonResponse.toString());
+                //Dunkin_Log.i("DataResponse", jsonResponse.toString());
                 if (jsonResponse != null && jsonResponse.getInt("success") == 1) {
                     List<CountriesModel> countryListModel = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("countryList").toString(), new TypeReference<List<CountriesModel>>() {
                     });

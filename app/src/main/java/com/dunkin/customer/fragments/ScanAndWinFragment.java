@@ -26,6 +26,7 @@ import com.dunkin.customer.HomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.SimpleScannerActivity;
 import com.dunkin.customer.Utils.Callback;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.listener.FileDownloadListener;
@@ -358,7 +359,7 @@ public class ScanAndWinFragment extends Fragment {
                 if (!mediaStorageDir.exists()) {
                     boolean success = mediaStorageDir.mkdirs();
                     if (!success) {
-                        Log.d("CreateJarFragmentThree", "Oops! Failed to create directory");
+                        Dunkin_Log.d("CreateJarFragmentThree", "Oops! Failed to create directory");
                     }
                 }
 

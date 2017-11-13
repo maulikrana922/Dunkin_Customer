@@ -18,7 +18,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,6 +28,7 @@ import android.widget.TextView;
 import com.dunkin.customer.DBAdaters.DBAdapter;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.Utils.GPSTracker;
 import com.dunkin.customer.Utils.LoadingDialog;
 import com.dunkin.customer.adapters.NavDrawerAdapter;
@@ -36,7 +36,6 @@ import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.dialogs.ScanAndWinDialog;
 import com.dunkin.customer.dialogs.WinStatusDialog;
-import com.dunkin.customer.fragments.AboutUsFragment;
 import com.dunkin.customer.fragments.AboutUsFragmentNew;
 import com.dunkin.customer.fragments.CartFragment;
 import com.dunkin.customer.fragments.CategoryFragment;
@@ -459,7 +458,7 @@ public class HomeActivity extends AppCompatActivity {
                         navigationView.setAdapter(navDrawerAdapter);
 
                         if (isFromGCM) {
-                            Log.e("msgtype", "" + msgType);
+                            Dunkin_Log.e("msgtype", "" + msgType);
                             if (msgType == 8) {
                                 navigateAndCheckItem(AppConstants.MENU_WALLET);
                             } else if (msgType == AppConstants.MENU_FEEDBACK) {
@@ -495,7 +494,7 @@ public class HomeActivity extends AppCompatActivity {
                             } else {
                                 AppUtils.showToastMessage(HomeActivity.this, getString(R.string.system_error));
                             }
-                            Log.e("res", (String) result);
+                            Dunkin_Log.e("res", (String) result);
                         }
                     });
         } catch (Exception e) {
@@ -929,7 +928,7 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             } else {
                 if (nav.getNavId() == position) {
-                    Log.i("DATA", "" + i);
+                    Dunkin_Log.i("DATA", "" + i);
                     navigationView.performItemClick(navigationView.getAdapter().getView(i + 1, null, null),
                             i + 1,
                             navigationView.getAdapter().getItemId(i + 1));

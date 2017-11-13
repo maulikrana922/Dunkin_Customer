@@ -17,6 +17,7 @@ import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.dunkin.customer.Utils.AppUtils;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.service.LogoutService;
 import com.google.android.gms.gcm.GcmListenerService;
@@ -25,7 +26,7 @@ public class GcmService extends GcmListenerService {
 
     @Override
     public void onMessageReceived(String from, Bundle data) {
-        Log.e("GCMResponse", data.toString());
+        Dunkin_Log.e("GCMResponse", data.toString());
         int counter = AppUtils.getAppPreference(this).getInt(AppConstants.NOTIFICATION_COUNTER, -1);
         SharedPreferences.Editor editor = AppUtils.getAppPreference(this).edit();
         editor.putInt(AppConstants.NOTIFICATION_COUNTER, counter + 1);
@@ -38,28 +39,28 @@ public class GcmService extends GcmListenerService {
         Intent intent;
 
         if (data.getString("msgtype") != null && data.getString("msgtype").equals("1")) {
-            Log.i("MsgType", data.getString("msgtype"));
+            Dunkin_Log.i("MsgType", data.getString("msgtype"));
             intent = new Intent(this, AppPaymentActivity.class);
             intent.putExtra("order_id", data.getString("orderId"));
             intent.putExtra("table_id", data.getString("table_id"));
             intent.putExtra("restaurant_id", data.getString("restaurant_id"));
         } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("3")) {
-            Log.i("MsgType", data.getString("msgtype"));
+            Dunkin_Log.i("MsgType", data.getString("msgtype"));
             intent = new Intent(this, OrderHistoryDetailActivity.class);
             intent.putExtra("orderId", data.getString("orderId"));
         } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("4")) {
-            Log.i("MsgType", data.getString("msgtype"));
+            Dunkin_Log.i("MsgType", data.getString("msgtype"));
             intent = new Intent(this, CounterOrderPaymentActivity.class);
             intent.putExtra("orderId", data.getString("orderId"));
             intent.putExtra("restaurant_name", data.getString("restaurant_name"));
         } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("5")) {
-            Log.i("MsgType", data.getString("msgtype"));
+            Dunkin_Log.i("MsgType", data.getString("msgtype"));
             intent = new Intent(this, OfferPaymentActivity.class);
             intent.putExtra("offerId", data.getString("offerId"));
             intent.putExtra("country_id", data.getString("country_id"));
             intent.putExtra("reference_id", data.getString("reference_id"));
         } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("6")) {
-            Log.i("MsgType", data.getString("msgtype"));
+            Dunkin_Log.i("MsgType", data.getString("msgtype"));
             intent = new Intent(this, OfferDetailActivity.class);
             intent.putExtra("offerId", data.getString("offerId"));
         } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("8")) {
@@ -74,12 +75,12 @@ public class GcmService extends GcmListenerService {
             intent.putExtra("MsgType", 8);
             //}
         } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("9")) {
-            Log.i("MsgType", data.getString("msgtype"));
+            Dunkin_Log.i("MsgType", data.getString("msgtype"));
             intent = new Intent(this, GiftDetailActivity.class);
             intent.putExtra("giftOrderId", data.getString("purchaseId"));
         } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("11")) {
             startService(new Intent(getApplicationContext(), LogoutService.class));
-            Log.i("MsgType", data.getString("msgtype"));
+            Dunkin_Log.i("MsgType", data.getString("msgtype"));
 
             intent = new Intent(getApplicationContext(), RegisterActivity.class);
             //Clear all activities and start new task

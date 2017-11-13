@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.Log;
 
 import com.dunkin.customer.R;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.fragments.PayPointHistoryFragment;
 import com.dunkin.customer.fragments.WalletNoteListDummyFragment;
 import com.dunkin.customer.fragments.WalletNoteListFragment;
@@ -34,7 +35,7 @@ public class WalletAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         if (position == 0) {
             if (walletList != null && walletList.size() > 0) {
-                Log.i("WalletAdapter", "WalletNoteListFragment");
+                Dunkin_Log.i("WalletAdapter", "WalletNoteListFragment");
                 WalletNoteListFragment fragment = new WalletNoteListFragment();
                 Bundle b = new Bundle();
                 b.putSerializable("notes", walletList.get(position));
@@ -42,7 +43,7 @@ public class WalletAdapter extends FragmentStatePagerAdapter {
                 fragment.setArguments(b);
                 return fragment;
             } else {
-                Log.i("WalletAdapter", "WalletNoteListDummyFragment");
+                Dunkin_Log.i("WalletAdapter", "WalletNoteListDummyFragment");
                 WalletNoteListDummyFragment fragment = new WalletNoteListDummyFragment();
                 Bundle b = new Bundle();
                 b.putString("points", remainingPoints);

@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dunkin.customer.R;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.listener.RatingListener;
 import com.dunkin.customer.models.RatingModel;
 
@@ -80,7 +81,7 @@ public class RatingAdapter extends BaseAdapter {
                 element.setRates((double) rating);
                 element.setQuestion(ratingModelList.get(position).getQuestion());
                 element.setAverageRating(Double.parseDouble(String.valueOf(ratingModelList.get(position).getAverageRating())));
-                Log.e("FromUser", "" + fromUser);
+                Dunkin_Log.e("FromUser", "" + fromUser);
                 ratingListener.onRatingChanged(position, element);
             }
         });

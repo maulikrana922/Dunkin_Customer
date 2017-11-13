@@ -66,7 +66,7 @@ public class CounterOrderPaymentActivity extends BackActivity {
                 public void run(Object result) throws JSONException, IOException {
                     JSONObject jsonResponse = new JSONObject((String) result);
 
-                    //Log.i("DataResponse", jsonResponse.toString());
+                    //Dunkin_Log.i("DataResponse", jsonResponse.toString());
 
                     progressLoading.setVisibility(View.GONE);
 
@@ -175,7 +175,7 @@ public class CounterOrderPaymentActivity extends BackActivity {
                 public void run(Object result) throws JSONException, IOException {
 
                     JSONObject jsonResponse = new JSONObject((String) result);
-                    //Log.i("DataResponse", jsonResponse.toString());
+                    //Dunkin_Log.i("DataResponse", jsonResponse.toString());
 
                     if (jsonResponse.getInt("success") == 1) {
                         finish();

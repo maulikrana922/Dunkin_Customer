@@ -192,7 +192,7 @@ public class PromationDetailsActivity extends BackActivity implements Animation.
             @Override
             public void run(Object result) throws JSONException, IOException {
                 JSONObject jsonResponse = new JSONObject((String) result);
-                //Log.i("DataResponse", jsonResponse.toString());
+                //Dunkin_Log.i("DataResponse", jsonResponse.toString());
                 if (jsonResponse != null && jsonResponse.getInt("success") == 1) {
                     finish();
 //                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(PromationDetailsActivity.this);

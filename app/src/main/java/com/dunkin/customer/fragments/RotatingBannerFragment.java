@@ -76,7 +76,7 @@ public class RotatingBannerFragment extends Fragment {
             AppController.getRotatingBanner(context, AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1), new Callback() {
                 @Override
                 public void run(Object result) throws JSONException, IOException {
-                    //Log.i("DataResponse ", (String) result);
+                    //Dunkin_Log.i("DataResponse ", (String) result);
                     JSONObject jsonResponse = new JSONObject((String) result);
                     if (jsonResponse.getInt("success") == 1) {
                         bannerList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("rotatingbannerList").toString(), new TypeReference<List<RotatingBanner>>() {

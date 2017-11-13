@@ -64,7 +64,7 @@ public class RedeemPointHistoryFragment extends Fragment {
 
                 JSONObject jsonResponse = new JSONObject((String) result);
 
-                //Log.i("DataResponse", jsonResponse.toString());
+                //Dunkin_Log.i("DataResponse", jsonResponse.toString());
 
                 progressLoading.setVisibility(View.GONE);
 

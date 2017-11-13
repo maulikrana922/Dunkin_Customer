@@ -59,7 +59,7 @@ public class OfferHistoryFragment extends Fragment {
                 @Override
                 public void run(Object result) throws JSONException, IOException {
                     JSONObject jsonResponse = new JSONObject((String) result);
-                    //Log.i("DataResponse", jsonResponse.toString());
+                    //Dunkin_Log.i("DataResponse", jsonResponse.toString());
 
                     if (jsonResponse.getInt("success") == 1) {
                         offerHistoryList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("offerDetail").toString(), new TypeReference<List<OfferHistoryModel>>() {

@@ -152,7 +152,7 @@ public class GiftAdapter extends BaseAdapter {
                                         public void run(Object result) throws JSONException, IOException {
 
                                             JSONObject jsonResponse = new JSONObject((String) result);
-                                            //Log.d("DataResponse", jsonResponse.toString());
+                                            //Dunkin_Log.d("DataResponse", jsonResponse.toString());
                                             if (jsonResponse.getInt("success") == 0) {
                                                 AppUtils.showToastMessage(context, context.getString(R.string.txt_gift_reserve_success_0));
                                             }

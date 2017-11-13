@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
@@ -34,7 +35,7 @@ public class RegistrationIntentService extends IntentService {
             String token = instanceID.getToken(AppConstants.GCM_SENDER_ID,
                     GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
 
-            Log.d("GCMToken Id : ", token);
+            Dunkin_Log.d("GCMToken Id : ", token);
 
             myPrefs = AppUtils.getAppPreference(this);
             SharedPreferences.Editor editor = myPrefs.edit();
@@ -49,13 +50,13 @@ public class RegistrationIntentService extends IntentService {
                     jsonRequest.put("type", 1);
                     jsonRequest.put("lang_flag", AppUtils.getAppPreference(RegistrationIntentService.this).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
 
-                    Log.d("Request for update udid", jsonRequest.toString());
+                    Dunkin_Log.d("Request for update udid", jsonRequest.toString());
 
                     AppController.updateUDIDForUser(jsonRequest.toString(), new Callback() {
                         @Override
                         public void run(Object result) throws JSONException, IOException {
                             JSONObject jsonResponse = new JSONObject((String) result);
-                            Log.d("Updated UDID", jsonResponse.getString("message"));
+                            Dunkin_Log.d("Updated UDID", jsonResponse.getString("message"));
                         }
                     });
                 } catch (JSONException e) {
@@ -64,7 +65,7 @@ public class RegistrationIntentService extends IntentService {
             }
         } catch (IOException e) {
             e.printStackTrace();
-            Log.d("GCMToken Id : ", "Error");
+            Dunkin_Log.d("GCMToken Id : ", "Error");
         }
     }
 }

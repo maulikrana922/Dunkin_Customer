@@ -81,7 +81,7 @@ public class PromoListActivity extends BackActivity {
                 public void run(Object result) throws JSONException, IOException {
                     JSONObject jsonResponse = new JSONObject((String) result);
 
-                    //Log.i("DataResponse", jsonResponse.toString());
+                    //Dunkin_Log.i("DataResponse", jsonResponse.toString());
 
                     progressLoading.setVisibility(View.GONE);
                     mainLayout.startAnimation(animFadein);

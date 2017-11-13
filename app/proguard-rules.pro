@@ -32,7 +32,6 @@
 -dontwarn android.net.http.SslError
 -dontwarn android.webkit.WebViewClient
 
--keep class com.dunkin.customer.** { *; }
 
 -keepattributes Annotation,EnclosingMethod,Signature
 
@@ -40,3 +39,22 @@
 -dontwarn com.fasterxml.jackson.databind.*
 
 -dontwarn java.io.IOException.**
+
+
+-keepclassmembers class com.dunkin.customer.models.** { *; }
+
+-keep class com.fasterxml.jackson.annotation.** { *; }
+
+-dontwarn com.fasterxml.jackson.databind.**
+
+-dontwarn org.springframework.**
+
+
+-keep class com.fasterxml.jackson.databind.ObjectMapper {
+    public <methods>;
+    protected <methods>;
+}
+-keep class com.fasterxml.jackson.databind.ObjectWriter {
+    public ** writeValueAsString(**);
+}
+

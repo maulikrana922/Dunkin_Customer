@@ -15,7 +15,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +31,7 @@ import com.dunkin.customer.HomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.adapters.ToppingAdapter;
 import com.dunkin.customer.constants.AppConstants;
+import com.dunkin.customer.controllers.AppBase;
 import com.dunkin.customer.fragments.CartFragment;
 import com.dunkin.customer.models.OrderItemModel;
 import com.dunkin.customer.models.PaymentModel;
@@ -310,16 +310,17 @@ public class AppUtils {
     private static String makeRequest(String URL, org.apache.http.entity.StringEntity se) {
         try {
             //url with the post data
-            HttpPost httpPost = new HttpPost(AppConstants.getReverseCase(AppConstants.context) + URL);
+            AppBase appBase=new AppBase();
+            HttpPost httpPost = new HttpPost(appBase.getHeartApp() + URL);
 
             httpPost.setEntity(se);
+
             //sets a request header so the page receiving the request
             //will know what to do with it
             httpPost.setHeader("Accept", "application/json");
             httpPost.setHeader("Content-type", "application/json");
             String authorizationToken = AppUtils.getAppPreference(AppConstants.context).getString(AppConstants.USER_CASEID, "");
-            String data = AppConstants.getCase(AppConstants.context, authorizationToken);
-            httpPost.setHeader("caseId", data);
+            httpPost.setHeader(appBase.getHeartCase(), appBase.gethead(authorizationToken));
 
             HttpParams httpParameters = new BasicHttpParams();
 
@@ -337,8 +338,8 @@ public class AppUtils {
 
             //Handles what is returned from the page
             String res = httpClient.execute(httpPost, new BasicResponseHandler());
-            Log.e("URL", URL);
-            Log.e("responce", res);
+            Dunkin_Log.e("URL", URL);
+            Dunkin_Log.e("responce", res);
             checkCaseIdEr(res);
             return res;
         } catch (Exception e) {
@@ -403,7 +404,7 @@ public class AppUtils {
                     if (!isTimeOut[0]) {
                         try {
                             JSONObject jsonResponse = new JSONObject(s);
-                            Log.e("DataResponse", jsonResponse.toString());
+                            Dunkin_Log.e("DataResponse", jsonResponse.toString());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -579,7 +580,7 @@ public class AppUtils {
 
                 try {
                     JSONObject jsonResponse = new JSONObject(s);
-                    Log.e("DataResponse", jsonResponse.toString());
+                    Dunkin_Log.e("DataResponse", jsonResponse.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -654,7 +655,7 @@ public class AppUtils {
 
                     try {
                         jsonResponse[0] = new JSONObject(s);
-                        Log.e("DataResponse", jsonResponse[0].toString());
+                        Dunkin_Log.e("DataResponse", jsonResponse[0].toString());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

@@ -24,6 +24,7 @@ import android.widget.TextView;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.Utils.GPSTracker;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
@@ -112,8 +113,8 @@ public class NearRestaurantFragment extends Fragment implements OnMapReadyCallba
         LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                Log.d("Success", "Login");
-                Log.d("ACCESS TOKEN", loginResult.getAccessToken().getToken());
+                Dunkin_Log.d("Success", "Login");
+                Dunkin_Log.d("ACCESS TOKEN", loginResult.getAccessToken().getToken());
                 postOnFacebook(loginResult.getAccessToken());
             }
 
@@ -150,7 +151,7 @@ public class NearRestaurantFragment extends Fragment implements OnMapReadyCallba
                 @Override
                 public void run(Object result) throws JSONException, IOException {
                     JSONObject jsonResponse = new JSONObject((String) result);
-                    //Log.i("DataResponse", jsonResponse.toString());
+                    //Dunkin_Log.i("DataResponse", jsonResponse.toString());
                     restaurantsModelList = new ArrayList<>();
                     if (jsonResponse.getInt("success") == 1) {
                         restaurantsModelList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("restaurantList").toString(), new TypeReference<List<RestaurantsModel>>() {

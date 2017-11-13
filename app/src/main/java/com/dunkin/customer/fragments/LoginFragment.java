@@ -19,6 +19,7 @@ import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
 import com.dunkin.customer.constants.AppConstants;
+import com.dunkin.customer.controllers.AppBase;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.widget.RelativeLayoutButton;
 
@@ -126,7 +127,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                                     editor.putString(AppConstants.USER_FIRST_NAME, jsonUser.getString("firstName"));
                                     editor.putString(AppConstants.USER_PROFILE_QR, jsonUser.getString("qrCode"));
                                     editor.putString(AppConstants.USER_PHONE, jsonUser.getString("phone_number"));
-                                    editor.putString(AppConstants.USER_CASEID, jsonUser.getString("CaseId"));
+                                    editor.putString(AppConstants.USER_CASEID, jsonUser.getString(new AppBase().getHeartCase()));
                                     editor.apply();
 
                                     NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);

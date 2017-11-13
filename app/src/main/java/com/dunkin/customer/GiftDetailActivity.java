@@ -60,7 +60,7 @@ public class GiftDetailActivity extends BackActivity {
             @Override
             public void run(Object result) throws JSONException, IOException {
                 JSONObject jsonResponse = new JSONObject((String) result);
-                //Log.i("DataResponse", jsonResponse.toString());
+                //Dunkin_Log.i("DataResponse", jsonResponse.toString());
                 progressLoading.setVisibility(View.GONE);
                 if (jsonResponse != null && jsonResponse.getInt("success") == 1) {
                     GiftModel giftModel = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONObject("gifts").toString(), new TypeReference<GiftModel>() {

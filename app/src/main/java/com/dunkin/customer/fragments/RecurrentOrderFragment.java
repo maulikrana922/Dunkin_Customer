@@ -90,7 +90,7 @@ public class RecurrentOrderFragment extends Fragment {
                     progressLoading.setVisibility(View.GONE);
 
                     JSONObject jsonResponse = new JSONObject((String) result);
-                    //Log.i("DataResponse", jsonResponse.toString());
+                    //Dunkin_Log.i("DataResponse", jsonResponse.toString());
                     if (jsonResponse.getInt("success") == 1) {
                         recurrentOrderList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("orderList").toString(), new TypeReference<List<RecurrentOrderModel>>() {
                         });

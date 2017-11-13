@@ -11,6 +11,7 @@ import com.dunkin.customer.CustomerApplication;
 import com.dunkin.customer.RegisterActivity;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 
@@ -29,7 +30,7 @@ public class LogoutService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.e("Service", "Service Created");
+        Dunkin_Log.e("Service", "Service Created");
         context = LogoutService.this;
     }
 
@@ -41,7 +42,7 @@ public class LogoutService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.e("Service", "onStartCommand");
+        Dunkin_Log.e("Service", "onStartCommand");
         getDataFromIntent(intent);
         if (AppUtils.checkNetwork(context) != 0) {
             try {
@@ -78,6 +79,6 @@ public class LogoutService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.e("Service", "Service Destroyed");
+        Dunkin_Log.e("Service", "Service Destroyed");
     }
 }

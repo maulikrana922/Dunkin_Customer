@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.adapters.OfferProductDetailAdapter;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
@@ -66,7 +67,7 @@ public class OfferPaymentActivity extends BackActivity {
         if (getIntent().hasExtra("country_id"))
             country_id = Integer.parseInt(getIntent().getStringExtra("country_id"));
 
-        Log.i("DATA:", referenceId + " " + offerId + " " + country_id);
+        Dunkin_Log.i("DATA:", referenceId + " " + offerId + " " + country_id);
     }
 
     private void getDataFromAPI() {
@@ -78,12 +79,12 @@ public class OfferPaymentActivity extends BackActivity {
             jsonRequest.put("lang_flag", AppUtils.getAppPreference(OfferPaymentActivity.this).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
             jsonRequest.put("email", AppUtils.getAppPreference(OfferPaymentActivity.this).getString(AppConstants.USER_EMAIL_ADDRESS, ""));
 
-            //Log.i("REQUEST ", jsonRequest.toString());
+            //Dunkin_Log.i("REQUEST ", jsonRequest.toString());
 
             AppController.offerPurchaseDetail(OfferPaymentActivity.this, jsonRequest, new Callback() {
                 @Override
                 public void run(Object result) throws JSONException, IOException {
-                    //Log.i("DataResponse", (String) result);
+                    //Dunkin_Log.i("DataResponse", (String) result);
                     JSONObject jsonResponse = new JSONObject((String) result);
                     if (jsonResponse.getInt("success") == 1) {
                         mMenu.findItem(R.id.menu_submit).setVisible(true);
@@ -218,7 +219,7 @@ public class OfferPaymentActivity extends BackActivity {
                 public void run(Object result) throws JSONException, IOException {
                     JSONObject jsonResponse = new JSONObject((String) result);
 
-                    //Log.i("DataResponse", jsonResponse.toString());
+                    //Dunkin_Log.i("DataResponse", jsonResponse.toString());
 
                     if (jsonResponse.getInt("success") == 1) {
                         AppUtils.showToastMessage(OfferPaymentActivity.this, getString(R.string.msg_payment_success));

@@ -47,7 +47,7 @@ public class GetBillFragment extends Fragment {
                 public void run(Object result) throws JSONException, IOException {
                     JSONObject jsonResponse = new JSONObject((String) result);
                     progressLoading.setVisibility(View.GONE);
-                    //Log.i("DataResponse", jsonResponse.toString());
+                    //Dunkin_Log.i("DataResponse", jsonResponse.toString());
 
                     if (jsonResponse != null) {
                         if (jsonResponse.getInt("success") == 1) {

@@ -2,11 +2,6 @@ package com.dunkin.customer.constants;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Base64;
-
-import com.dunkin.customer.R;
-
-import java.io.UnsupportedEncodingException;
 
 /**
  * Created by Admin on 7/6/2015.
@@ -88,27 +83,4 @@ public class AppConstants {
     public static final String LANG_AR = "ar";
     public static final String TIME_OUT = "TIME_OUT";
 
-    public static String getData(String msg) {
-        try {
-            byte[] data = msg.getBytes("UTF-8");
-            return Base64.encodeToString(data, Base64.NO_WRAP);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
-    public static String getCase(Context context, String caseid) {
-        String data = "";
-        String string = context.getString(R.string.string);
-        data = data.concat(string).concat(caseid).concat(string);
-        return getData(data);
-    }
-
-    public static String getReverseCase(Context context)
-            throws UnsupportedEncodingException {
-        String string = context.getString(R.string.base);
-        return new String(Base64.decode(string, Base64.NO_WRAP), "UTF-8");
-    }
 }

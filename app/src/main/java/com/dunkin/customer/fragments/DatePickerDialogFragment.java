@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.DatePicker;
 
 import com.dunkin.customer.Utils.AppUtils;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.constants.AppConstants;
 
 import java.text.DateFormat;
@@ -41,7 +42,7 @@ public class DatePickerDialogFragment extends DialogFragment implements DatePick
         mYear = b.getInt("set_year");
         strMinDate = b.getString("MinDate");
 
-        Log.e("Min Date in Frag", strMinDate);
+        Dunkin_Log.e("Min Date in Frag", strMinDate);
 
         DateFormat dateFormat = new SimpleDateFormat(AppConstants.DD_MM_YYYY_SLASH, Locale.US);
 

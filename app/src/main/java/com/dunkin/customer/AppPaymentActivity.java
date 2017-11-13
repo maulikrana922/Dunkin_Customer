@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.adapters.OrderItemAdapter;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
@@ -100,7 +101,7 @@ public class AppPaymentActivity extends BackActivity {
 
             jsonOrderDetail.put("restaurant_id", getIntent().getStringExtra("restaurant_id"));
 
-            Log.d("jsonOrderDetail", jsonOrderDetail.toString());
+            Dunkin_Log.d("jsonOrderDetail", jsonOrderDetail.toString());
 
             if (getIntent().hasExtra("table_id"))
                 if (AppUtils.isNotNull(jsonOrderDetail.getString("table_id")))
@@ -130,7 +131,7 @@ public class AppPaymentActivity extends BackActivity {
                 public void run(Object result) throws JSONException, IOException {
                     JSONObject jsonResponse = new JSONObject((String) result);
 
-                    //Log.i("DataResponse", jsonResponse.toString());
+                    //Dunkin_Log.i("DataResponse", jsonResponse.toString());
 
                     progressLoading.setVisibility(View.GONE);
 
@@ -190,7 +191,7 @@ public class AppPaymentActivity extends BackActivity {
                 @Override
                 public void run(Object result) throws JSONException, IOException {
 
-                    //Log.d("DataResponse", (String) result);
+                    //Dunkin_Log.d("DataResponse", (String) result);
 
                     JSONObject jsonResponse = new JSONObject((String) result);
                     if (jsonResponse.getInt("success") == 1) {

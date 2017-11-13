@@ -3,363 +3,363 @@
 
     <item
         is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_e77426f492c9885c7020b44efaa60b58d02eea09.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_11d2610d0ccc92a000a9f68107392488da145399.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.19.0/cdca49ad0977c040f603478aa2e16b2775c8fec6/google-http-client-1.19.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="cdca49ad0977c040f603478aa2e16b2775c8fec6">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/google-http-client-1.19.0_95da26c844eb9157b65097cfc41aed8a816be602.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_8f8b427631bc8370571366053822ec39f39390f9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.5.4/5dfa42af84584b4a862ea488da84bbbebbb06c35/jackson-databind-2.5.4.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="5dfa42af84584b4a862ea488da84bbbebbb06c35">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/jackson-databind-2.5.4_be52302bd7ac5c2b66fbc384972d178bca62f529.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="8308ed003522a2ee8958311afcc4cfd0470377cd">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gcm-10.0.1_f709e906e6656dd341456239f93ea7e4c3353743.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_e8f5c9eafb61de354383b9037a0fb601c29239c0.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/core/1.8.4/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="af8d42f1f020e936b8cd9f5cb6c75993194895a3">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-core-1.8.4_77898264ec4d85c2dc0da0c51ce5e047d85d8016.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/libs/sun.misc.BASE64Decoder.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="acd93e3727886196f9b8434279ff445ba8611186">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/sun.misc.BASE64Decoder_da7872ab5947bf159228b44fbd54303fb9604d76.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_8ce5e7b147a45d311a913e12446c1982f9b85ed6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_7978954a6be5c80e84c718dc2bf73684b465d9ec.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0_f98cfba246909a8132bfc125d37722e2979f1d41.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.10.3/b842f960942503cf1abbcc8c173a7f2c19d43726/jsoup-1.10.3.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="b842f960942503cf1abbcc8c173a7f2c19d43726">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/jsoup-1.10.3_15a2cb6fc84eff8c62ae0aa8fc7b98f44985c594.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_016513aa07adab1a877ad12b6d32b5f0e2b265ac.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/libs/org.apache.http.legacy.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="fa331331b626ee78c52bea16ce1e34b39e666ce5">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/org.apache.http.legacy_81ddbdc5c59bc32be90b2c05523e1cd0d73d824a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_267cef6574ee573c9dd9174da4a5a0e95e7f22a6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_2789181f4a603f4a158fadef5fc82d404a4aa4b6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/zxing/1.8.4/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="68ef1daf85c69fca8fddf7bbb947fc51cc9f8ca3">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-zxing-1.8.4_e0ec247fb84bf50fe7961bc2b272d002cb70036f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.ogaclejapan.smarttablayout/library/1.4.2/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="aa3f29ec4e29cb86dd4397254221648446d45fc2">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.ogaclejapan.smarttablayout-library-1.4.2_ea9fb8af209aa5a58808e69497a951a4e7b06827.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.4.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="152e1df65212df23a4b5dba0e819e63bca93192c">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-android-sdk-4.4.0_44ceb2704fac4d5d7a2cea61f5599516f334c023.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.4/dd9eeb557650c4ad7394df23f0f5cf27a7cfc697/universal-image-loader-1.9.4.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.4_1c7c4d2b61c827914dde34a6d842b04a82f202c4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-iid-10.0.1_71f10d3b0fb7d94bd86569fec4f618abee61821f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_2531bc9afe4f74be2150e1428ade69f65b172461.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
         sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_37eeecbd9c8d4b89995ca7db789c0f811ee64816.jar" />
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_3c02bace6b5d0a2736d0de50c2e8e56377564a1f.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/latitude/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.5.0/a2a55a3375bc1cef830ca426d68d2ea22961190e/jackson-annotations-2.5.0.jar"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.0.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="a2a55a3375bc1cef830ca426d68d2ea22961190e">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.5.0_0f4f900b83ab2c16a757b1a4c73636791ae95c6f.jar" />
+        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-iid-10.0.1_61f71ae1bce0d3419283570bbf8620ef58019f73.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.0.1_b32c60f673fec86e4e5f85d43e2f916382f6722b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.0.1_69b2693e212058422b6f074ee8567df6ae10cf71.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.0.1_13f897a19dcdf2aaff2f70f9bcfddcce1f8bf327.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_41f353a7aab014e3f485e3f446ed358398c4dd05.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.6/ce1edb914c94ebc388f086c6827e8bdeec71ac2/commons-lang-2.6.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="0ce1edb914c94ebc388f086c6827e8bdeec71ac2">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/commons-lang-2.6_d3f9a783416f108d207fc0fc5f0e675cfac6caf5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.1/2287494d4f5f9f3a9a2bb6980e3f32053721b315/core-3.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="2287494d4f5f9f3a9a2bb6980e3f32053721b315">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/core-3.2.1_5b50ef14e2ce9d34eacee08c8bd149bb808af5a4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"
+        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
         sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/glide-3.7.0_940e870cb6a2e3458394f0a6d237f5ed37cd4feb.jar" />
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/glide-3.7.0_50caeca0be6b306b447a686a8bf46204a78411ef.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_0117e4294a8168479410c3fd79e639970511ea0e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-10.0.1_d69c70049d2441aa8001718ff782950d532f0ab3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/latitude/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jar="/home/mital/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
         sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_c045c296354791919a1babb060cbad228c8e1a72.jar" />
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_d09e502247f81feb255aa6c5d2ca64caada89591.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/latitude/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.5.4/a57a2df1a23ca1ee32f129173ba7f5feaa9ac24/jackson-core-2.5.4.jar"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="0a57a2df1a23ca1ee32f129173ba7f5feaa9ac24">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/jackson-core-2.5.4_700fa6fec10eae6921b1a6015348064c6591f163.jar" />
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_9b6738b30ed4d7da279a5f4cc3c9f90f1175e772.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_3c8f300964e16e5134e7031b97ab935d149f33c0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_a7c0db5c8a9717def6514014c9092f58bca52884.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_1bfb9146b33f2ef00c4ae1fc865af8318ad1de64.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.ogaclejapan.smarttablayout/library/1.4.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="aa3f29ec4e29cb86dd4397254221648446d45fc2">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.ogaclejapan.smarttablayout-library-1.4.2_76b5916c0a23126ebedd4af18ffb1f941594797d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
         sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_71386285a70c9594d125bc1fc289069ea12c3e14.jar" />
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_5dfc2acd3cd60868f1b1559e22bf53ec3f970f4f.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/latitude/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.1/2e66da15851f9f5b5079228f856c2f090ba98c38/gson-2.1.jar"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/core/1.8.4/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="2e66da15851f9f5b5079228f856c2f090ba98c38">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/gson-2.1_6c8b41e9d731d25ef84ff1caf8e849840abc8f12.jar" />
+        sha1="af8d42f1f020e936b8cd9f5cb6c75993194895a3">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-core-1.8.4_b4cd7a0ee78928b1ba53d193d85718d29e3a8396.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/latitude/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.4.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/jsr305-1.3.9_028629d2005fcd2e0d4b27217e803b3a4a065aab.jar" />
+        sha1="152e1df65212df23a4b5dba0e819e63bca93192c">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-android-sdk-4.4.0_165ef2864ed7abb30d4b101e33c2c70600bdbe5f.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/latitude/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-gson/1.19.0/b3cdefb990d5212bb2a130525b20e2c44aeffc4c/google-http-client-gson-1.19.0.jar"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/libs/sun.misc.BASE64Decoder.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="acd93e3727886196f9b8434279ff445ba8611186">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/sun.misc.BASE64Decoder_a02b2d1f20b21a0fe5e6077385fde9fdba28132b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="8308ed003522a2ee8958311afcc4cfd0470377cd">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gcm-10.0.1_1ad9b39b5618624a5925468879ce276e437b4c12.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/zxing/1.8.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="68ef1daf85c69fca8fddf7bbb947fc51cc9f8ca3">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-zxing-1.8.4_dec9eed20bdd7818b0fff12ba8da9d8dfaf01920.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_20b3511535273ee6258496711408a9b64e005c86.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/libs/org.apache.http.legacy.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fa331331b626ee78c52bea16ce1e34b39e666ce5">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/org.apache.http.legacy_34702c9d7c8e2fa13bfcead0778810a97a2eaeaf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_9de30a6e4aac00cbd6a53f3ec8694cee36765fec.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.1/2287494d4f5f9f3a9a2bb6980e3f32053721b315/core-3.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2287494d4f5f9f3a9a2bb6980e3f32053721b315">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/core-3.2.1_9a768a3c6da9a00bf9a11e9f8775b26021b37bea.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.0.1_cdf011a28475698850f75668c0b4041f1911c861.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-10.0.1_a4be4508eb6018eaf6048216c5cc8a7ec6e1c647.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.0.1_e33c462502d900953e1226046eaac1339bb27441.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_651fa6f05cd4d3adb1915031040d671c2a939a9e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_28f10aa0bad63ce1b3de629baeccf6b0bb9f8825.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_73803b5a58a3691b882be82b04fbefbc331bbf98.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.6/ce1edb914c94ebc388f086c6827e8bdeec71ac2/commons-lang-2.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0ce1edb914c94ebc388f086c6827e8bdeec71ac2">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/commons-lang-2.6_fc30b12028e48e1b17ff62d3a9080690a7b9437f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-gson/1.19.0/b3cdefb990d5212bb2a130525b20e2c44aeffc4c/google-http-client-gson-1.19.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
         sha1="b3cdefb990d5212bb2a130525b20e2c44aeffc4c">
-        <dex dex="/home/latitude/Project/Dunkin/SRC_Customer/app/build/intermediates/pre-dexed/debug/google-http-client-gson-1.19.0_0a8a6fb13ce0f0b3e204cc89ec10e61007cc3cdf.jar" />
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/google-http-client-gson-1.19.0_95f5f5a6f49d39e0d8ba976f08730b48ef22b346.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.2/1d8d8cb7cf26920ba57fb61fa56da88cc123b21f/jackson-databind-2.9.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1d8d8cb7cf26920ba57fb61fa56da88cc123b21f">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/jackson-databind-2.9.2_72b8d709b7f6c83f8974e0cf25e992a58dc2e90c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.2/aed20e50152a2f19adc1995c8d8f307c7efa414d/jackson-core-2.9.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="aed20e50152a2f19adc1995c8d8f307c7efa414d">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/jackson-core-2.9.2_290721a86f952f33ffe67db3adef3db5dd7977fe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.10.3/b842f960942503cf1abbcc8c173a7f2c19d43726/jsoup-1.10.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b842f960942503cf1abbcc8c173a7f2c19d43726">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/jsoup-1.10.3_645868c03d864334ac91ce8c5f38ee380a3983b5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.9.0/7c10d545325e3a6e72e06381afe469fd40eb701/jackson-annotations-2.9.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="07c10d545325e3a6e72e06381afe469fd40eb701">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.9.0_e05bdb01d20251195adc7bc4af67e5d5168b8362.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0_caacb09de448d743205ab99c9d0ade8fd3751e6c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_da1c9f4d9e9ac5f89860da30ab9a49c834d45f3a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.4/dd9eeb557650c4ad7394df23f0f5cf27a7cfc697/universal-image-loader-1.9.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.4_476c691d34c0056aeebcae7ccea963894dce4ce6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.19.0/cdca49ad0977c040f603478aa2e16b2775c8fec6/google-http-client-1.19.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="cdca49ad0977c040f603478aa2e16b2775c8fec6">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/google-http-client-1.19.0_647e46cf7d26e4ee470b80d6087d7843749c5622.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/android-studio/gradle/m2repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/jsr305-1.3.9_2f29570df1bea1b791397cb34735935cb8367e0a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.1/2e66da15851f9f5b5079228f856c2f090ba98c38/gson-2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2e66da15851f9f5b5079228f856c2f090ba98c38">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/gson-2.1_b965eb349e356166fff67f8faeeecbf86fd30122.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_d47b0ed3335c5b90c62ddf8589ec899aa6f820eb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.0.1_094c0fd094261215385407e6bd2860c32ffabe65.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_aaa66685f9f6e5615443f2927d4fd2cfb498923c.jar" />
     </item>
 
 </items>

@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +24,7 @@ import com.dunkin.customer.PromoCodeDetailActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.adapters.NotificationAdapter;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
@@ -304,7 +304,7 @@ public class NotificationFragment extends Fragment {
 
         if (nmResponse.getMsgtype() == 1) {
 
-            Log.i("MSG Type", "" + nmResponse.getMsgtype());
+            Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
             intent = new Intent(context, AppPaymentActivity.class);
             intent.putExtra("order_id", nmResponse.getOrderId());
@@ -314,7 +314,7 @@ public class NotificationFragment extends Fragment {
             startActivity(intent);
         } else if (nmResponse.getMsgtype() == 3) {
 
-            Log.i("MSG Type", "" + nmResponse.getMsgtype());
+            Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
             intent = new Intent(context, OrderHistoryDetailActivity.class);
             intent.putExtra("orderId", nmResponse.getOrderId());
@@ -322,7 +322,7 @@ public class NotificationFragment extends Fragment {
             startActivity(intent);
         } else if (nmResponse.getMsgtype() == 4) {
 
-            Log.i("MSG Type", "" + nmResponse.getMsgtype());
+            Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
             intent = new Intent(context, CounterOrderPaymentActivity.class);
             intent.putExtra("orderId", nmResponse.getOrderId());
@@ -331,7 +331,7 @@ public class NotificationFragment extends Fragment {
             startActivity(intent);
         } else if (nmResponse.getMsgtype() == 5) {
 
-            Log.i("MSG Type", "" + nmResponse.getMsgtype());
+            Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
             intent = new Intent(context, OfferPaymentActivity.class);
             intent.putExtra("offerId", nmResponse.getOfferId());
@@ -341,7 +341,7 @@ public class NotificationFragment extends Fragment {
             startActivity(intent);
         } else if (nmResponse.getMsgtype() == 6) {
 
-            Log.i("MSG Type", "" + nmResponse.getMsgtype());
+            Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
             intent = new Intent(context, OfferDetailActivity.class);
             intent.putExtra("offerId", nmResponse.getOfferId());
@@ -349,7 +349,7 @@ public class NotificationFragment extends Fragment {
             startActivity(intent);
         } else if (nmResponse.getMsgtype() == 8) {
 
-            Log.i("MSG Type", "" + nmResponse.getMsgtype());
+            Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
             //((HomeActivity) getActivity()).navigateAndCheckItem(AppConstants.MENU_WALLET);
 
@@ -361,7 +361,7 @@ public class NotificationFragment extends Fragment {
 
         } else if (nmResponse.getMsgtype() == 9) {
 
-            Log.i("MSG Type", "" + nmResponse.getMsgtype());
+            Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
             intent = new Intent(context, GiftDetailActivity.class);
             intent.putExtra("giftOrderId", nmResponse.getPurchaseId());
@@ -369,7 +369,7 @@ public class NotificationFragment extends Fragment {
             startActivity(intent);
         } else if (nmResponse.getMsgtype() == 13) {
 
-            Log.i("MSG Type", "" + nmResponse.getMsgtype());
+            Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
             intent = new Intent(context, PromoCodeDetailActivity.class);
             intent.putExtra("promoId", nmResponse.getPromoId());
@@ -377,9 +377,9 @@ public class NotificationFragment extends Fragment {
             startActivity(intent);
         }else if (nmResponse.getMsgtype() == 14) {
 
-            if(nmResponse.getPromoType().equals("1"))
+            if(nmResponse.getPromoType()!=null && nmResponse.getPromoType().equals("1"))
             {
-                Log.i("MSG Type", "" + nmResponse.getMsgtype());
+                Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
                 //((HomeActivity) getActivity()).navigateAndCheckItem(AppConstants.MENU_WALLET);
 
@@ -388,24 +388,24 @@ public class NotificationFragment extends Fragment {
                         .replace(R.id.content, new MyWalletFragment())
                         //.addToBackStack(null)
                         .commit();
-            }else if(nmResponse.getPromoType().equals("2"))
+            }else if(nmResponse.getPromoType()!=null && nmResponse.getPromoType().equals("2"))
             {
-                Log.i("MSG Type", "" + nmResponse.getMsgtype());
+                Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
                 intent = new Intent(context, OfferDetailActivity.class);
                 intent.putExtra("offerId", nmResponse.getOfferId());
 
                 startActivity(intent);
-            }else if(nmResponse.getPromoType().equals("3"))
+            }else if(nmResponse.getPromoType()!=null && nmResponse.getPromoType().equals("3"))
             {
-                Log.i("MSG Type", "" + nmResponse.getMsgtype());
+                Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
                 intent = new Intent(context, OfferDetailActivity.class);
                 intent.putExtra("offerId", nmResponse.getOfferId());
 
                 startActivity(intent);
             }else {
-                Log.i("MSG Type", "" + nmResponse.getMsgtype());
+                Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
                 //((HomeActivity) getActivity()).navigateAndCheckItem(AppConstants.MENU_WALLET);
 
@@ -417,7 +417,7 @@ public class NotificationFragment extends Fragment {
             }
         } else {
 
-            Log.i("MSG Type", "" + nmResponse.getMsgtype());
+            Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
             //getActivity().finish();
             //intent = new Intent(context, HomeActivity.class);

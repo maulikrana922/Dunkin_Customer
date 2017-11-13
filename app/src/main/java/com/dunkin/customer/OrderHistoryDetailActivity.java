@@ -62,7 +62,7 @@ public class OrderHistoryDetailActivity extends BackActivity {
                 public void run(Object result) throws JSONException, IOException {
                     JSONObject jsonResponse = new JSONObject((String) result);
 
-                    //Log.i("RESPONSE", jsonResponse.toString());
+                    //Dunkin_Log.i("RESPONSE", jsonResponse.toString());
 
                     progressLoading.setVisibility(View.GONE);
                     if (jsonResponse.getInt("success") == 1) {

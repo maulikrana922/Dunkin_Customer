@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.google.zxing.Result;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
@@ -79,8 +80,8 @@ public class SimpleScannerActivity extends BackActivity implements ZXingScannerV
     public void handleResult(Result rawResult) {
 
         // Do something with the result here
-        Log.v("Scanner", rawResult.getText()); // Prints scan results
-        Log.v("Scanner", rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode, pdf417 etc.)
+        Dunkin_Log.v("Scanner", rawResult.getText()); // Prints scan results
+        Dunkin_Log.v("Scanner", rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode, pdf417 etc.)
 
         // If you would like to resume scanning, call this method below:
         mScannerView.resumeCameraPreview(this);

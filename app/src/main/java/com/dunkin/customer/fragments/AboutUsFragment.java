@@ -51,10 +51,10 @@ public class AboutUsFragment extends Fragment {
                 @Override
                 public void run(Object result) throws JSONException, IOException {
                     JSONObject jsonResponse = new JSONObject((String) result);
-                    //Log.i("LINK", jsonResponse.getString("link"));
+                    //Dunkin_Log.i("LINK", jsonResponse.getString("link"));
                     if (jsonResponse.getInt("success") == 1) {
                         aboutUsURL = jsonResponse.getString("link");
-                        //Log.i("LINK", aboutUsURL);
+                        //Dunkin_Log.i("LINK", aboutUsURL);
                         aboutUsView.loadUrl(aboutUsURL);
                     }else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(context, jsonResponse.getString("message"));

@@ -11,6 +11,7 @@ import android.util.Log;
 
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
+import com.dunkin.customer.Utils.Dunkin_Log;
 import com.dunkin.customer.Utils.Encryptor;
 import com.dunkin.customer.constants.DBConstants;
 import com.dunkin.customer.models.CountriesModel;
@@ -80,7 +81,7 @@ public class DBAdapter {
                             " where " + DBConstants.CL_offline_id +
                             " = ?", new String[]{String.valueOf(id)});
             ContentValues cv = new ContentValues();
-            Log.e("Encrypted Data", "" + Encryptor.encrypt(ctx, jsonString));
+            Dunkin_Log.e("Encrypted Data", "" + Encryptor.encrypt(ctx, jsonString));
             cv.put(DBConstants.CL_json_string, Encryptor.encrypt(ctx, jsonString));
             cv.put(DBConstants.CL_offline_id, id);
 
@@ -105,7 +106,7 @@ public class DBAdapter {
                             " where " + DBConstants.CL_offline_id +
                             " = ?", new String[]{String.valueOf(id)});
             if (cr != null && cr.getCount() > 0 && cr.moveToFirst()) {
-                Log.e("Decrypted Data", "" + Encryptor.decrypt(ctx, cr.getString(cr.getColumnIndex(DBConstants.CL_json_string))));
+                Dunkin_Log.e("Decrypted Data", "" + Encryptor.decrypt(ctx, cr.getString(cr.getColumnIndex(DBConstants.CL_json_string))));
                 return Encryptor.decrypt(ctx, cr.getString(cr.getColumnIndex(DBConstants.CL_json_string)));
             }
         } catch (Exception e) {
