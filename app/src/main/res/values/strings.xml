@@ -3,7 +3,7 @@
     <string name="app_name" translatable="false">Dunkin Leb</string>
     <string name="facebook_app_id" translatable="false">673553769448453</string>
     <string name="google_app_id" translatable="false">AIzaSyAHzEEEadS4uCmVkeLS8mazKMIHfnt62-I</string>
-    <string name="lbl_app_version" translatable="false">V2.6.131117</string>
+    <string name="lbl_app_version" translatable="false">V2.6.161117</string>
     <!--<string name="lbl_consulting_website" translatable="false">www.MindSource-Consulting.com - All Rights Reserved - Copyright © 2016</string>-->
     <string name="lbl_consulting_website" translatable="false">Meeting Point &amp; MindSource Consulting Copyright © 2017</string>
     <string name="strp">Mind#S@urce#@201</string>

@@ -3,6 +3,15 @@
 
     <item
         is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/dunkin_customer/core/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9edb166ff571ca850ec5f307f1262c91c48c8ca1">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/dunkin_customer-core-unspecified_34302202bfad9ac84179f35c10aa632acc987fe6.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="false"
         optimize="true"
@@ -93,15 +102,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/core/1.8.4/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="af8d42f1f020e936b8cd9f5cb6c75993194895a3">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-core-1.8.4_b4cd7a0ee78928b1ba53d193d85718d29e3a8396.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.4.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -129,15 +129,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/zxing/1.8.4/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="68ef1daf85c69fca8fddf7bbb947fc51cc9f8ca3">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-zxing-1.8.4_dec9eed20bdd7818b0fff12ba8da9d8dfaf01920.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="false"
         optimize="true"
@@ -162,15 +153,6 @@
         revision="23.0.3"
         sha1="d5c731fc64c03dfe04d51134955b483551c35849">
         <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_9de30a6e4aac00cbd6a53f3ec8694cee36765fec.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.1/2287494d4f5f9f3a9a2bb6980e3f32053721b315/core-3.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="2287494d4f5f9f3a9a2bb6980e3f32053721b315">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/core-3.2.1_9a768a3c6da9a00bf9a11e9f8775b26021b37bea.jar" />
     </item>
     <item
         is-multidex="false"
@@ -273,6 +255,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/dunkin_customer/zbar/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a027e3bddde6529ed33b17e3482acd1b69316ee1">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/dunkin_customer-zbar-unspecified_a4331e500d90e558db3d72c050a8976c614f1f74.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.9.0/7c10d545325e3a6e72e06381afe469fd40eb701/jackson-annotations-2.9.0.jar"
         jumboMode="false"
         optimize="true"
@@ -297,6 +288,15 @@
         revision="23.0.3"
         sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
         <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_da1c9f4d9e9ac5f89860da30ab9a49c834d45f3a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/exploded-aar/dunkin_customer/zbar/unspecified/jars/libs/zbar.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e671e7a14299d6f2591fc1ae672c49861d3329c6">
+        <dex dex="/home/mital/Mital_Qtm/dunkin/dunkin_customer/app/build/intermediates/pre-dexed/debug/zbar_e282033fe82b9083add764af8874a7d0c9aa929b.jar" />
     </item>
     <item
         is-multidex="false"
