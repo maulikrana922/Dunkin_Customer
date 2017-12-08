@@ -91,8 +91,51 @@ public class AppUtils {
     private static DisplayImageOptions options, optionScanDialog;
     private static SimpleDateFormat dateFormatter;
     private static SimpleDateFormat dateTimeFormatter;
-
+    public static AlertDialog alert;
+    public static Context mContext;
     static {
+
+//        alert = new AlertDialog.Builder(context)
+//                .setTitle(context.getString(R.string.al_warning))
+//                .setMessage(context.getString(R.string.network_error))
+//                .setPositiveButton(context.getString(R.string.al_ok), new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+//                            if (((Activity) context).isDestroyed()) {
+//                                return;
+//                            }
+//                        } else {
+//                            if (((Activity) context).isFinishing()) {
+//                                return;
+//                            }
+//                        }
+//
+//                        if ((dialog != null) && !((Activity) context).isFinishing() && alert.create().isShowing()) {
+//                            dialog.dismiss();
+//                        }
+//                    }
+//                }.setNegativeButton(context.getString(R.string.al_try_again), new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+//                            if (((Activity) context).isDestroyed()) {
+//                                return;
+//                            }
+//                        } else {
+//                            if (((Activity) context).isFinishing()) {
+//                                return;
+//                            }
+//                        }
+//
+//                        if ((dialog != null) && !((Activity) context).isFinishing() && alert.create().isShowing()) {
+//                            dialog.dismiss();
+//                        }
+//                        requestCallAsyncTask(context, URL, se, isLoading, callback);
+//                    }
+//                }));
+
+
         options = new DisplayImageOptions.Builder()
                 .showImageOnLoading(R.drawable.ic_loading)
                 .showImageForEmptyUri(R.drawable.ic_loading)
@@ -362,6 +405,7 @@ public class AppUtils {
         }
     }
 
+
     //MAKE REQUEST CALL
     public static void requestCallAsyncTask(final Context context, final String URL, @SuppressWarnings("deprecation") final org.apache.http.entity.StringEntity se, final boolean isLoading, final Callback callback) {
 
@@ -504,52 +548,78 @@ public class AppUtils {
                 }
             }.execute();
         } else {
-            final AlertDialog.Builder alert = new AlertDialog.Builder(context);
-            alert.setTitle(context.getString(R.string.al_warning));
-            alert.setMessage(context.getString(R.string.network_error));
-            alert.setPositiveButton(context.getString(R.string.al_ok), new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                        if (((Activity) context).isDestroyed()) {
-                            return;
-                        }
-                    } else {
-                        if (((Activity) context).isFinishing()) {
-                            return;
-                        }
-                    }
-
-                    if ((dialog != null) && !((Activity) context).isFinishing() && alert.create().isShowing()) {
-                        dialog.dismiss();
-                    }
-                }
-            });
-
-            alert.setNegativeButton(context.getString(R.string.al_try_again), new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                        if (((Activity) context).isDestroyed()) {
-                            return;
-                        }
-                    } else {
-                        if (((Activity) context).isFinishing()) {
-                            return;
-                        }
-                    }
-
-                    if ((dialog != null) && !((Activity) context).isFinishing() && alert.create().isShowing()) {
-                        dialog.dismiss();
-                    }
-                    requestCallAsyncTask(context, URL, se, isLoading, callback);
-                }
-            });
-            if (!((Activity) context).isFinishing()) {
-                if (!alert.create().isShowing())
-                    alert.create().show();
+            if(mContext == null || context !=  mContext)
+            {
+                mContext=context;
+                alert=null;
             }
-        }
+
+                if (alert!=null) {
+                    if (!alert.isShowing()) {
+                        if (!((Activity) mContext).isFinishing()) {
+                            alert.show();
+                        }
+                    }
+                }
+                else
+                {
+                    alert = new AlertDialog.Builder(mContext)
+                            .setTitle(mContext.getString(R.string.al_warning))
+                            .setMessage(mContext.getString(R.string.network_error))
+                            .setPositiveButton(context.getString(R.string.al_ok), new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                                        if (((Activity) context).isDestroyed()) {
+                                            return;
+                                        }
+                                    } else {
+                                        if (((Activity) context).isFinishing()) {
+                                            return;
+                                        }
+                                    }
+
+                                    if ((dialog != null) && !((Activity) context).isFinishing() && alert.isShowing()) {
+                                        dialog.dismiss();
+                                    }
+                                }
+                            }).setNegativeButton(context.getString(R.string.al_try_again), new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                                        if (((Activity) context).isDestroyed()) {
+                                            return;
+                                        }
+                                    } else {
+                                        if (((Activity) context).isFinishing()) {
+                                            return;
+                                        }
+                                    }
+
+                                    if ((dialog != null) && !((Activity) context).isFinishing() && alert.isShowing()) {
+                                        dialog.dismiss();
+                                    }
+                                    requestCallAsyncTask(context, URL, se, isLoading, callback);
+                                }
+                            }).create();
+
+
+
+                    if (!((Activity) mContext).isFinishing()) {
+                        if (!alert.isShowing()) {
+                            alert.show();
+                        }
+                    }
+                }
+            }
+
+
+
+//            if (!((Activity) context).isFinishing()) {
+//                if (!alert.create().isShowing())
+//                    alert.create().show();
+//            }
+
     }
 
     //MAKE REQUEST CALL

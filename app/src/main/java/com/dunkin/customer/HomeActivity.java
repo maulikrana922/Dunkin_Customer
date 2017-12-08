@@ -103,8 +103,7 @@ public class HomeActivity extends AppCompatActivity {
         final String[] permsReadWrite = {"android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.READ_EXTERNAL_STORAGE"};
     private static final int PERMISSION_STORAGE_READ_WRITE_REQUEST_CODE = 0x21;
     private static final int CAMERA_PERMISSION_REQUEST = 0x31;
-    public static String TempPath = Environment.getExternalStorageDirectory()
-            + File.separator + "Dunkin Leb" + File.separator + "Temp" + File.separator;
+    public static String TempPath = "Dunkin Leb" + File.separator + "Temp" + File.separator;
     private File mFileTemp;
 
     private LoadingDialog progressDialog;
@@ -1129,12 +1128,9 @@ public class HomeActivity extends AppCompatActivity {
                     OutputStream fOut = null;
                     String ImageName = params[0].substring(params[0].lastIndexOf("/") + 1);//, params[0].lastIndexOf("."));
 
-                    mFileTemp = new File(
-                            Environment
-                                    .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
-                            TempPath + ImageName);
-
-                    if (!mFileTemp.exists()) {
+                    mFileTemp = new File(mediaStorageDir , ImageName);
+                    mFileTemp.createNewFile();
+//                    if (!mFileTemp.exists()) {
 
                         fOut = new FileOutputStream(mFileTemp);
 
@@ -1147,7 +1143,7 @@ public class HomeActivity extends AppCompatActivity {
                         is.close();
                         fOut.flush();
                         fOut.close();
-                    }
+//                    }
                     return mFileTemp.getAbsolutePath();
                 } catch (Exception e) {
                     e.printStackTrace();
