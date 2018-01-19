@@ -21,7 +21,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
-public class OrderHistoryDetailActivity extends BackActivity {
+public class OrderHistoryDetailActivity extends BaseActivity {
 
     private OrderModel om;
     private ListView lvOrderItemList;

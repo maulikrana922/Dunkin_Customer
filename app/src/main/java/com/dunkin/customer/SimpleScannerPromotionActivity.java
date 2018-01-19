@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -17,7 +16,7 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
  * Created by qtm-c-android on 29/6/17.
  */
 
-public class SimpleScannerPromotionActivity extends BackActivity implements ZXingScannerView.ResultHandler {
+public class SimpleScannerPromotionActivity extends BaseActivity implements ZXingScannerView.ResultHandler {
     private ZXingScannerView mScannerView;
 
     @Override

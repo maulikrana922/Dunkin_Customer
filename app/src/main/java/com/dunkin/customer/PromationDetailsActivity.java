@@ -36,7 +36,7 @@ import java.util.Date;
  * Created by qtm-c-android on 1/6/17.
  */
 
-public class PromationDetailsActivity extends BackActivity implements Animation.AnimationListener {
+public class PromationDetailsActivity extends BaseActivity implements Animation.AnimationListener {
     private TextView txtOfferName, txtOfferDescription, txtPoint, txtUserPoint, txtPurchase, txtToken;
     private ImageView imgLogo;
     private RelativeLayout scrollContainer;

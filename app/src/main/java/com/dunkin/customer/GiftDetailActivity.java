@@ -20,7 +20,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
-public class GiftDetailActivity extends BackActivity {
+public class GiftDetailActivity extends BaseActivity {
     private TextView txtGiftTitle, txtGiftDescription, txtGiftOrderDate, txtGiftCollectedDate, emptyElement;
     private ImageView imgGiftLogo;
     private ScrollView scrollContainer;

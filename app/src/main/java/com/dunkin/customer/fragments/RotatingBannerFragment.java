@@ -9,8 +9,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.dunkin.customer.HomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
@@ -73,15 +75,23 @@ public class RotatingBannerFragment extends Fragment {
         imgView = (ImageView) rootView.findViewById(R.id.imgBanner);
 
         try {
+            final FrameLayout advertisement_banner = (FrameLayout) ((HomeActivity)context).findViewById(R.id.advertisement_banner);
+
             AppController.getRotatingBanner(context, AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1), new Callback() {
                 @Override
                 public void run(Object result) throws JSONException, IOException {
                     //Dunkin_Log.i("DataResponse ", (String) result);
                     JSONObject jsonResponse = new JSONObject((String) result);
                     if (jsonResponse.getInt("success") == 1) {
+
+                        advertisement_banner.setVisibility(View.VISIBLE);
+
                         bannerList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("rotatingbannerList").toString(), new TypeReference<List<RotatingBanner>>() {
                         });
                         displayBanner();
+                    }
+                    else {
+                        advertisement_banner.setVisibility(View.GONE);
                     }
 
                     if (jsonResponse.getInt("success") == 0) {
@@ -89,7 +99,9 @@ public class RotatingBannerFragment extends Fragment {
                         imgView.setVisibility(View.GONE);
                     } else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(context, jsonResponse.getString("message"));
-                    }
+                    }else if(advertisement_banner != null) {
+                                advertisement_banner.setVisibility(View.GONE);
+                            }
                 }
             });
         } catch (JSONException | UnsupportedEncodingException e) {

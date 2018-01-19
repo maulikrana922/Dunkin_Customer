@@ -48,7 +48,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class UpdateUserProfileActivity extends BackActivity implements View.OnClickListener {
+public class UpdateUserProfileActivity extends BaseActivity implements View.OnClickListener {
     private ArrayAdapter<CountriesModel> countryAdapter;
     private CountriesModel countryModel;
     private Context context;

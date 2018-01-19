@@ -28,7 +28,7 @@ import java.util.List;
  * Created by qtm-c-android on 1/6/17.
  */
 
-public class PromoListActivity extends BackActivity {
+public class PromoListActivity extends BaseActivity {
 
     private ListView lvPlayData;
     private ProgressBar progressLoading;

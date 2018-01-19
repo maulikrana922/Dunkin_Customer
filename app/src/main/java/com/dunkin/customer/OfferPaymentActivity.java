@@ -1,7 +1,6 @@
 package com.dunkin.customer;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,7 +27,7 @@ import java.util.List;
 /**
  * Created by Admin on 3/4/2016.
  */
-public class OfferPaymentActivity extends BackActivity {
+public class OfferPaymentActivity extends BaseActivity {
 
     int offerId, country_id, currency_id;
     double points;

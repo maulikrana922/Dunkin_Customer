@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 
-public class ProductDetailActivity extends BackActivity implements View.OnClickListener {
+public class ProductDetailActivity extends BaseActivity implements View.OnClickListener {
 
     RelativeLayoutButton btnAddToCart, btnAddToppings;
     private ProductModel pm;

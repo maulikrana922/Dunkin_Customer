@@ -320,4 +320,13 @@
     <string name="tab_point_3">التاريخ مكافأة</string>
     <string name="msg_gift_quantity_not_avail">كمية هدية غير متوفرة</string>
     <string name="msg_failed_to_get_response">مشكلة في تحميل البيانات، الرجاء التحقق من اتصال الإنترنت الخاص بك وحاول مرة أخرى.</string>
+    <string name="nav_gift_appiness">هدية أبينس</string>
+    <string name="enter_point_to_share">أدخل نقطة للمشاركة</string>
+    <string name="enter_phone_number">أدخل رقم الهاتف</string>
+    <string name="enter_message">أدخل رسالة</string>
+    <string name="btn_share_point">سهم</string>
+    <string name="password_share">Are you ready to send Appiness to %s ? Please enter your account number password.</string>
+    <string name="empty_point">الرجاء إدخال نقطة</string>
+    <string name="hurray">Hurrayyyyy</string>
+    <string name="view">رأي</string>
 </resources>

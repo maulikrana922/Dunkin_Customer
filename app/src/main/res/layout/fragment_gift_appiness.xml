@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:id="@+id/mainLayout">
+
+
+
+    <LinearLayout
+        android:id="@+id/scrollContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="15dp"
+        >
+
+
+
+            <com.dunkin.customer.widget.CustomEditText
+                android:id="@+id/etPoint"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ed_textbox_height"
+                android:background="@drawable/textbox_border_bg_corner"
+                android:gravity="center_vertical"
+                android:layout_marginTop="15dp"
+                android:inputType="number"
+                android:imeOptions="actionNext"
+                android:paddingEnd="@dimen/spacing_medium"
+                android:paddingLeft="@dimen/spacing_medium"
+                android:paddingRight="@dimen/spacing_medium"
+                android:paddingStart="@dimen/spacing_medium"
+                android:textColor="@color/profile_font"
+                android:hint="@string/enter_point_to_share"
+                app:fontName="dd_light.ttf" />
+
+        <com.dunkin.customer.widget.CustomEditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ed_textbox_height"
+            android:background="@drawable/textbox_border_bg_corner"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:inputType="number"
+            android:imeOptions="actionNext"
+            android:paddingEnd="@dimen/spacing_medium"
+            android:paddingLeft="@dimen/spacing_medium"
+            android:paddingRight="@dimen/spacing_medium"
+            android:paddingStart="@dimen/spacing_medium"
+            android:textColor="@color/profile_font"
+            android:hint="@string/enter_phone_number"
+            app:fontName="dd_light.ttf" />
+
+        <com.dunkin.customer.widget.CustomEditText
+            android:id="@+id/etDesc"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/textbox_border_bg_corner"
+            android:layout_marginTop="15dp"
+            android:inputType="text"
+            android:gravity="top"
+            android:imeOptions="actionDone"
+            android:paddingEnd="@dimen/spacing_medium"
+            android:paddingLeft="@dimen/spacing_medium"
+            android:paddingRight="@dimen/spacing_medium"
+            android:paddingStart="@dimen/spacing_medium"
+            android:paddingTop="@dimen/spacing_medium"
+            android:textColor="@color/profile_font"
+            android:hint="@string/enter_message"
+            app:fontName="dd_light.ttf" />
+
+        <include
+            android:id="@+id/btnShare"
+            layout="@layout/rl_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="30dp"
+            android:clickable="true" />
+
+
+
+
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressLoad"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/progress_circle"
+        android:progressDrawable="@drawable/progress_circle"
+        android:visibility="visible" />
+
+
+</RelativeLayout>

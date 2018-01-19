@@ -27,7 +27,7 @@ import java.io.IOException;
  * Created by qtm-c-android on 29/6/17.
  */
 
-public class AddPromocodeActivity extends BackActivity implements View.OnClickListener {
+public class AddPromocodeActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText edPromoCode;
     private LinearLayout mianLayout;

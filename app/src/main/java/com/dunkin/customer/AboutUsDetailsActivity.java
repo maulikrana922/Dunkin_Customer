@@ -25,7 +25,7 @@ import java.util.List;
  * Created by latitude on 1/8/17.
  */
 
-public class AboutUsDetailsActivity extends BackActivity {
+public class AboutUsDetailsActivity extends BaseActivity {
     private TextView txtDesc;
     private ImageView img;
     private List<AboutUsModel> aboutUsModelList;

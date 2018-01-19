@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -57,7 +56,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 
-public class CartDetailActivity extends BackActivity {
+public class CartDetailActivity extends BaseActivity {
 
     public static int restaurantId = -1;
     private int restId = 0;

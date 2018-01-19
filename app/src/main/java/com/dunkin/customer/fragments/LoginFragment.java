@@ -128,6 +128,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                                     editor.putString(AppConstants.USER_PROFILE_QR, jsonUser.getString("qrCode"));
                                     editor.putString(AppConstants.USER_PHONE, jsonUser.getString("phone_number"));
                                     editor.putString(AppConstants.USER_CASEID, jsonUser.getString(new AppBase().getHeartCase()));
+                                    editor.putString(AppConstants.USER_NAME,  jsonUser.getString("firstName") + " " +  jsonUser.getString("lastName"));
                                     editor.apply();
 
                                     NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);

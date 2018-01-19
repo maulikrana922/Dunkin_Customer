@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 
-public class OfferDetailActivity extends BackActivity implements View.OnClickListener {
+public class OfferDetailActivity extends BaseActivity implements View.OnClickListener {
     private TextView txtOfferName, txtOfferDescription, txtStartDate, txtOfferCode,
             txtOfferValidateDays, txtOfferItemPerDays, txtOfferFreeType, productInfo,
             txtTimesRedeem, txtRemainingTimeRedeem, txtTotalTimesRedeem;

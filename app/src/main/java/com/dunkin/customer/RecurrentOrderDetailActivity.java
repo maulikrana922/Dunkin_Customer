@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 
-public class RecurrentOrderDetailActivity extends BackActivity {
+public class RecurrentOrderDetailActivity extends BaseActivity {
 
     private RecurrentOrderModel recurrentOrderModel;
     private ListView recurrentOrderItemList;

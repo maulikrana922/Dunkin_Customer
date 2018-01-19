@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.util.Log;
 
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.Dunkin_Log;
@@ -50,6 +49,7 @@ public class WalletAdapter extends FragmentStatePagerAdapter {
                 fragment.setArguments(b);
                 return fragment;
             }
+
         } else if (position == 1) {
             return new PayPointHistoryFragment();
         }

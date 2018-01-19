@@ -22,7 +22,7 @@ import java.io.UnsupportedEncodingException;
 /**
  * Created by Admin on 10/23/2015.
  */
-public class CounterOrderPaymentActivity extends BackActivity {
+public class CounterOrderPaymentActivity extends BaseActivity {
 
     int counterOrderId;
     private ScrollView scrollContainer;

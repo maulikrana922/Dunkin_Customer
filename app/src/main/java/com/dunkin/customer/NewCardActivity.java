@@ -21,7 +21,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 
-public class NewCardActivity extends BackActivity implements OnClickListener {
+public class NewCardActivity extends BaseActivity implements OnClickListener {
 
     private EditText edCardNumber, edCardHolderName, spMonths, spYears;
 

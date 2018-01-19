@@ -26,7 +26,7 @@ import java.io.UnsupportedEncodingException;
  * Created by qtm-c-android on 30/6/17.
  */
 
-public class PromoCodeDetailActivity extends BackActivity{
+public class PromoCodeDetailActivity extends BaseActivity {
     private TextView txtOfferCode, txtNumberUser, txtStartTime, txtEndTime,
             txtUserPoint, txtMyPoint;
     private ImageView  imgProductQrCode;

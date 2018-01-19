@@ -465,4 +465,13 @@
 
     <string name="lbl_tab_token">My Tokens</string>
     <string name="lbl_tab_winning_token">Winning Tokens</string>
+    <string name="nav_gift_appiness">Gift Appiness</string>
+    <string name="enter_point_to_share">Enter Point To Share</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="enter_message">Enter Message</string>
+    <string name="btn_share_point">Share</string>
+    <string name="password_share" >Are you ready to send Appiness to %s ? Please enter your account number password.</string>
+    <string name="empty_point">Please Enter Point</string>
+    <string name="hurray">Hurrayyyyy</string>
+    <string name="view">View</string>
 </resources>

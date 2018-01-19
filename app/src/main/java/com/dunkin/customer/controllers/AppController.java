@@ -102,6 +102,22 @@ public class AppController {
         AppUtils.requestCallAsyncTask(context, new URLConstant().getLOGIN(), se, true, callback);
     }
 
+    // SHARE POINT
+    public static void sharepoint(Context context, String email, String country_id,String point, String userscan,String type,String message, Callback callback) throws JSONException, UnsupportedEncodingException {
+        ApiParamloginUser apiParamloginUser =new ApiParamloginUser();
+        JSONObject jsonRequest = new JSONObject();
+        jsonRequest.put(apiParamloginUser.getEmail(), email);
+        jsonRequest.put("country_id", country_id);
+        jsonRequest.put("point", point);
+        jsonRequest.put("userscan", userscan);
+        jsonRequest.put("type", type);
+        jsonRequest.put("message", message);
+
+        // Dunkin_Log.e("DataRequest", jsonRequest.toString());
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, URLConstant.POINT_SHARE, se, true, callback);
+    }
+
     // FORGOT PASSWORD
     public static void forgotPassword(Context context, String email, Callback callback) throws JSONException, UnsupportedEncodingException {
         JSONObject jsonRequest = new JSONObject();
@@ -730,6 +746,19 @@ public class AppController {
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
         AppUtils.requestCallAsyncTask(context, URLConstant.MAKE_PAYMENT_FOR_COUNTER_ORDER, se, true, callback);
+    }
+
+    // GET Dashbord PAGE DATA
+    public static void getDashbordPageData(Context context,JSONObject jsonRequest, Callback callback) throws JSONException, UnsupportedEncodingException {
+        jsonRequest.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1));
+        jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
+        // Dunkin_Log.e("DataRequest", jsonRequest.toString());
+
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, URLConstant.DASHBORD_PAGE_URL, se, true, callback);
+
+//        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
+//        AppUtils.requestCallAsyncTask(context, URLConstant.DASHBORD_PAGE_URL, se, true, callback);
     }
 
     // GET HOME PAGE DATA

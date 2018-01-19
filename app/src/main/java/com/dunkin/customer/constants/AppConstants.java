@@ -69,6 +69,7 @@ public class AppConstants {
     public static final int MENU_LOGOUT = 25;
     public static final int MENU_RECURRENT_ORDER = 27;
     public static final int MENU_SCAN_AND_WIN = 28;
+    public static final int MENU_GIFT_APPINESS = 29;
 
 
     // OFFLINE DATA IDS

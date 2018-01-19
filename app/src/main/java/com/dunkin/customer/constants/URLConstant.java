@@ -46,6 +46,7 @@ public class URLConstant {
     public static final String GET_BILL =  "gainCustomerBill";
     public static final String REGISTER_CUSTOMER_URL =  "regMember";
     public static final String FORGOT_PASSWORD_URL =  "improvePass";
+    public static final String POINT_SHARE =  "putPointShift";
     public static final String UPDATE_USER_PROFILE =  "improveMember";
     public static final String LOGOUT_USER_URL =  "signMemberOut";
     public static final String GET_REDEEM_PONTS =  "pickConsumePoint";
@@ -79,6 +80,7 @@ public class URLConstant {
     public static final String COUNTER_ORDER_DETAIL =  "specificOrderCounter";
     public static final String MAKE_PAYMENT_FOR_COUNTER_ORDER =  "orderCounterClearance";
     public static final String HOME_PAGE_URL =  "gainDashboard";
+    public static final String DASHBORD_PAGE_URL =  "mainDashboard";
     public static final String OFFER_PURCHASE_DETAIL_URL =  "buyOfferDetails";
     public static final String MAKE_OFFER_PAYMENT_URL =  "offerClearance";
     public static final String OFFER_HISTORY_URL =  "catalogOfferClearance";

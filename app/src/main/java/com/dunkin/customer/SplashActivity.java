@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -207,22 +206,26 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void redirectToScreen() {
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
 
                 if (myPrefs.getString(AppConstants.USER_EMAIL_ADDRESS, null) != null) {
+
                     Intent i = new Intent(SplashActivity.this, HomeActivity.class);
                     i.putExtra("FromGCM", isFromGCM);
                     i.putExtra("MsgType", msgType);
                     startActivity(i);
                     finish();
+
                 } else {
                     startActivity(new Intent(SplashActivity.this, RegisterActivity.class));
                     finish();
                 }
             }
         }, 2000);
+
     }
 
     @SuppressLint("NewApi")

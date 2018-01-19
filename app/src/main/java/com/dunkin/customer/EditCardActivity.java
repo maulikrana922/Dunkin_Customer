@@ -20,7 +20,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 
-public class EditCardActivity extends BackActivity implements View.OnClickListener {
+public class EditCardActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText edCardNumber, edCardHolderName, spMonths, spYears;
 

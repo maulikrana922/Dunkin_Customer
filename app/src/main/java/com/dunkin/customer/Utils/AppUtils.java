@@ -88,7 +88,7 @@ public class AppUtils {
     //private static AsyncHttpClient client;
     private static ObjectMapper mapper;
     private static SharedPreferences appPreference;
-    private static DisplayImageOptions options, optionScanDialog;
+    public static DisplayImageOptions options, optionScanDialog;
     private static SimpleDateFormat dateFormatter;
     private static SimpleDateFormat dateTimeFormatter;
     public static AlertDialog alert;

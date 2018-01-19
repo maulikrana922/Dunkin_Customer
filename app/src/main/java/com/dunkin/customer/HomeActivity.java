@@ -42,6 +42,7 @@ import com.dunkin.customer.fragments.CategoryFragment;
 import com.dunkin.customer.fragments.ContactUsFragment;
 import com.dunkin.customer.fragments.FeedbackFragment;
 import com.dunkin.customer.fragments.GetBillFragment;
+import com.dunkin.customer.fragments.GiftAppinessFragment;
 import com.dunkin.customer.fragments.HomeFragment;
 import com.dunkin.customer.fragments.MyCreditCardFragment;
 import com.dunkin.customer.fragments.MyProfileFragment;
@@ -90,7 +91,7 @@ public class HomeActivity extends AppCompatActivity {
     private NavDrawerAdapter navDrawerAdapter;
     private DrawerLayout mDrawerLayout;
     private MyActionBarDrawerToggle mDrawerToggle;
-    private DBAdapter dbAdapter;
+    public DBAdapter dbAdapter;
     private List<NavDrawerModel> navigationList;
     private ArrayList<String> newsFragmentTitles;
     private boolean isFromGCM = false;
@@ -165,7 +166,7 @@ public class HomeActivity extends AppCompatActivity {
         navigationView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                NavDrawerModel navModel = (NavDrawerModel) parent.getAdapter().getItem(position);
+                NavDrawerModel navModel =(NavDrawerModel) parent.getAdapter().getItem(position);
 
                 navigationView.setItemChecked(position, true);
                 mNavItemId = navModel.getNavId();
@@ -276,6 +277,13 @@ public class HomeActivity extends AppCompatActivity {
                                     navigationList.add(new NavDrawerModel(AppConstants.MENU_CREDIT_CARD, R.drawable.ic_nav_refill, getString(R.string.nav_manage_card), false));
                             }
 
+                            // "gift appiness"
+                            if (valueSet.containsKey(29)) {
+                                if (isDynamic)
+                                    navigationList.add(new NavDrawerModel(AppConstants.MENU_GIFT_APPINESS, R.drawable.ic_gift_appiness, valueSet.get(29), false));
+                                else
+                                    navigationList.add(new NavDrawerModel(AppConstants.MENU_GIFT_APPINESS, R.drawable.ic_gift_appiness, getString(R.string.nav_gift_appiness), false));
+                            }
 
                         }
 
@@ -458,7 +466,7 @@ public class HomeActivity extends AppCompatActivity {
 
                         if (isFromGCM) {
                             Dunkin_Log.e("msgtype", "" + msgType);
-                            if (msgType == 8) {
+                            if (msgType == 8 || msgType == 14) {
                                 navigateAndCheckItem(AppConstants.MENU_WALLET);
                             } else if (msgType == AppConstants.MENU_FEEDBACK) {
                                 navigateAndCheckItem(AppConstants.MENU_FEEDBACK);
@@ -479,6 +487,7 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         try {
+            //2
             AppController.getUserProfile(HomeActivity.this, AppUtils.getAppPreference(HomeActivity.this).getString(AppConstants.USER_EMAIL_ADDRESS, ""), true
                     , new Callback() {
                         @Override
@@ -648,36 +657,42 @@ public class HomeActivity extends AppCompatActivity {
                 advertisement_banner.setVisibility(View.GONE);
             }
 
-            AppController.getRotatingBanner(HomeActivity.this, AppUtils.getAppPreference(HomeActivity.this).getInt(AppConstants.USER_COUNTRY, -1), new Callback() {
-                @Override
-                public void run(Object result) throws JSONException, IOException {
-                    JSONObject jsonResponse = new JSONObject((String) result);
+//            if (itemId != 1) {
+                //3
+//                AppController.getRotatingBanner(HomeActivity.this, AppUtils.getAppPreference(HomeActivity.this).getInt(AppConstants.USER_COUNTRY, -1), new Callback() {
+//                    @Override
+//                    public void run(Object result) throws JSONException, IOException {
+//                        JSONObject jsonResponse = new JSONObject((String) result);
+//
+//                        if (jsonResponse.getInt("success") == 1) {
+//                            if (advertisement_banner != null) {
+//                                advertisement_banner.setVisibility(View.VISIBLE);
+//                            }
+                            getSupportFragmentManager().beginTransaction().replace(R.id.advertisement_banner, RotatingBannerFragment.newInstance()).commit();
+//                        } else if (jsonResponse.getInt("success") == 100) {
+//                            AppUtils.showToastMessage(getApplicationContext(), getString(R.string.msg_register_error));
+//                        } else if (jsonResponse.getInt("success") == 100) {
+//                            AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
+//                        } else {
+//                            if (advertisement_banner != null) {
+//                                advertisement_banner.setVisibility(View.GONE);
+//                            }
+//                        }
+//                    }
+//                });
 
-                    if (jsonResponse.getInt("success") == 1) {
-                        if (advertisement_banner != null) {
-                            advertisement_banner.setVisibility(View.VISIBLE);
-                        }
-                        getSupportFragmentManager().beginTransaction().replace(R.id.advertisement_banner, RotatingBannerFragment.newInstance()).commit();
-                    } else if (jsonResponse.getInt("success") == 100) {
-                        AppUtils.showToastMessage(getApplicationContext(), getString(R.string.msg_register_error));
-                    } else if (jsonResponse.getInt("success") == 100) {
-                        AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
-                    } else {
-                        if (advertisement_banner != null) {
-                            advertisement_banner.setVisibility(View.GONE);
-                        }
-                    }
-                }
-            });
-        } catch (JSONException | UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+            } catch(Exception e){
+                e.printStackTrace();
+            }
+
 
         switch (itemId) {
             case AppConstants.MENU_HOME:
                 getSupportFragmentManager().beginTransaction().replace(R.id.content, new HomeFragment()).commitAllowingStateLoss();
                 return true;
-
+            case AppConstants.MENU_GIFT_APPINESS:
+                getSupportFragmentManager().beginTransaction().replace(R.id.content, new GiftAppinessFragment()).commitAllowingStateLoss();
+                return true;
             case AppConstants.MENU_OFFER:
                 getSupportFragmentManager().beginTransaction().replace(R.id.content, new OfferFragment()).commitAllowingStateLoss();
                 return true;
@@ -902,9 +917,16 @@ public class HomeActivity extends AppCompatActivity {
                 navigate(mNavItemId, currentVal);
                 break;
             } else if (position == AppConstants.MENU_WALLET) {
-                navigationView.performItemClick(navigationView.getAdapter().getView(AppConstants.MENU_WALLET, null, null),
-                        AppConstants.MENU_WALLET,
-                        navigationView.getAdapter().getItemId(AppConstants.MENU_WALLET));
+//                NavDrawerModel navModel =navigationList.get(AppConstants.MENU_WALLET);
+//
+//                navigationView.setItemChecked(position, true);
+//                mNavItemId = AppConstants.MENU_WALLET;
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+                navigate(AppConstants.MENU_WALLET, 0);
+
+//                navigationView.performItemClick(navigationView.getAdapter().getView(AppConstants.MENU_WALLET, null, null),
+//                        AppConstants.MENU_WALLET,
+//                        navigationView.getAdapter().getItemId(AppConstants.MENU_WALLET));
                 break;
             } else if (position == AppConstants.MENU_CONTACT_US) {
                 navigationView.performItemClick(navigationView.getAdapter().getView(AppConstants.MENU_CONTACT_US, null, null),
@@ -943,6 +965,60 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    public void opendisalogofShare(final String message) {
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setMessage(message)
+                        .setCancelable(false)
+                        .setPositiveButton(getString(R.string.view), new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                navigateAndCheckItem(AppConstants.MENU_WALLET);
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton(getString(R.string.al_close), new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                AlertDialog alert = builder.create();
+                alert.setTitle(getResources().getString(R.string.app_name));
+                alert.show();
+            }
+        });
+
+    }
+
+    public void opendisalogofSharePointReceive(final String message) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+        builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton(getString(R.string.hurray), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        navigateAndCheckItem(AppConstants.MENU_WALLET);
+                        dialog.dismiss();
+                    }
+                })
+        .setNegativeButton(getString(R.string.al_cancel), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog alert = builder.create();
+        alert.setTitle(getResources().getString(R.string.app_name));
+        alert.show();
+            }
+        });
+    }
+
     public class MyActionBarDrawerToggle extends android.support.v7.app.ActionBarDrawerToggle {
         MyActionBarDrawerToggle(Activity activity, final DrawerLayout drawerLayout, Toolbar toolbar, int openDrawerContentDescRes, int closeDrawerContentDescRes) {
             super(activity, drawerLayout, toolbar, openDrawerContentDescRes, closeDrawerContentDescRes);
@@ -975,6 +1051,8 @@ public class HomeActivity extends AppCompatActivity {
         try {
 //            showProgressDialog();
             if (TextUtils.isEmpty(res)) {
+
+                //1
                 AppController.getScan(mContext, new Callback() {
                     @Override
                     public void run(Object result) throws JSONException, IOException {
@@ -1046,7 +1124,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    private void fileDownload() {
+    public void fileDownload() {
         /**
          * Download scan image
          */
@@ -1073,12 +1151,12 @@ public class HomeActivity extends AppCompatActivity {
                  * Download offer image
                  */
 
-                new GetFileTask(mContext, new FileDownloadListener() {
-                    @Override
-                    public void onFileDownload(String path) {
-                        scanOfferImagePath = path;
-                    }
-                }).execute(strOfferUrl);
+//                new GetFileTask(mContext, new FileDownloadListener() {
+//                    @Override
+//                    public void onFileDownload(String path) {
+//                        scanOfferImagePath = path;
+//                    }
+//                }).execute(strOfferUrl);
 
             }
         }).execute(strUrl);

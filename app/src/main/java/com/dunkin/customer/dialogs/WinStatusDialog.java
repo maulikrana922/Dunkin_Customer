@@ -4,6 +4,8 @@ import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.text.TextUtils;
@@ -31,7 +33,7 @@ public class WinStatusDialog extends DialogFragment {
     private ImageView imgStatus;
     private TextView tvOk;
     private LinearLayout llMain;
-    private String strWinStatus, strStatusUrl;
+    private String strWinStatus, strStatusUrl,scanUrl;
     private static WinStatusDialog f;
     private Context mContext;
     private int rotationCount = 0;
@@ -120,12 +122,23 @@ public class WinStatusDialog extends DialogFragment {
                     JSONObject jsonObject = new JSONObject(getArguments().getString("res"));
                     strWinStatus = jsonObject.getString("winStatus");
                     strStatusUrl = jsonObject.getString("scanImage");
+                    scanUrl = jsonObject.getString("scanUrl");
 
-                    try {
-                        AppUtils.setScanImage(imgStatus, strStatusUrl);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    if(!TextUtils.isEmpty(scanUrl))
+                    {
+                        if (!scanUrl.startsWith("http://") && !scanUrl.startsWith("https://"))
+                            scanUrl = "http://" + scanUrl;
+
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(scanUrl));
+                        startActivity(browserIntent);
                     }
+                    else {
+                        try {
+                            AppUtils.setScanImage(imgStatus, strStatusUrl);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
 
                     if (strWinStatus.equalsIgnoreCase("2")) {
 //                        llMain.startAnimation(AnimationUtils.loadAnimation(AppConstants.context, R.anim.slide_down));
@@ -134,6 +147,7 @@ public class WinStatusDialog extends DialogFragment {
                     } else {
 //                        llMain.startAnimation(AnimationUtils.loadAnimation(AppConstants.context, R.anim.slide_up));
                         loadingAnimation();
+                    }
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -1,7 +1,6 @@
 package com.dunkin.customer;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,7 +24,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
-public class AppPaymentActivity extends BackActivity {
+public class AppPaymentActivity extends BaseActivity {
 
     private JSONObject jsonOrderDetail;
     private ListView lvProductDetails;

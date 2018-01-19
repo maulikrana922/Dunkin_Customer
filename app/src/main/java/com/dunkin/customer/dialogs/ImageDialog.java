@@ -7,8 +7,10 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,6 +19,10 @@ import com.dunkin.customer.HomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.RegisterActivity;
 import com.dunkin.customer.Utils.AppUtils;
+import com.dunkin.customer.fragments.HomeFragment;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 /**
  * Created by qtm-c-android on 6/7/17.
@@ -64,7 +70,39 @@ public class ImageDialog extends Dialog {
         imgBag = (ImageView) findViewById(R.id.imgBag);
         tvNo = (TextView) findViewById(R.id.tvNo);
         tvYes = (TextView) findViewById(R.id.tvYes);
-        AppUtils.setImage(imgBag, path);
+//        AppUtils.setImage(imgBag, path);
+
+        if (!TextUtils.isEmpty(path)) {
+            ImageLoader.getInstance().displayImage(path, imgBag, AppUtils.options, new ImageLoadingListener() {
+                @Override
+                public void onLoadingStarted(String imageUri, View view) {
+                }
+
+                @Override
+                public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+                }
+
+                @Override
+                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                    try {
+                        imgBag.setImageBitmap(loadedImage);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onLoadingCancelled(String imageUri, View view) {
+
+                }
+            });
+        }
+        else {
+            if (FromWhere){
+                imgBag.setImageResource(R.drawable.ic_loading);
+        }
+        }
+
         imgBag.setVisibility(View.VISIBLE);
 
         tvYes.setOnClickListener(new View.OnClickListener() {
@@ -93,8 +131,11 @@ public class ImageDialog extends Dialog {
             @Override
             public void onClick(View v) {
                 if (!FromWhere) {
-                    if (mContext instanceof HomeActivity) {
-                        ((HomeActivity) mContext).checkScanAndWin();
+//                    if (mContext instanceof HomeActivity) {
+//                        ((HomeActivity) mContext).checkScanAndWin();
+//                    }
+                    if ( ((HomeActivity) mContext).getSupportFragmentManager().findFragmentById(R.id.content) instanceof HomeFragment) {
+                        ((HomeFragment)  ((HomeActivity) mContext).getSupportFragmentManager().findFragmentById(R.id.content)).checkScanAndWin();
                     }
                 } else if (FromWhere) {
                     ((Activity) mContext).startActivity(new Intent(mContext, RegisterActivity.class));

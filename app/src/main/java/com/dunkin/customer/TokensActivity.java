@@ -28,7 +28,7 @@ import static com.dunkin.customer.constants.AppConstants.context;
  * Created by qtm-c-android on 2/6/17.
  */
 
-public class TokensActivity extends BackActivity {
+public class TokensActivity extends BaseActivity {
 
     SmartTabLayout tabs;
     ViewPager viewPager;

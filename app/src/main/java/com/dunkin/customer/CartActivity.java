@@ -24,7 +24,7 @@ import java.util.List;
 /*
 * This activity will be only used if we are redirecting from product page.
  */
-public class CartActivity extends BackActivity implements View.OnClickListener {
+public class CartActivity extends BaseActivity implements View.OnClickListener {
     public static RelativeLayoutButton btnCheckout;
     private Context context;
     private List<ProductModel> cartList;

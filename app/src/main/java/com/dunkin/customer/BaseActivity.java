@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 
-public class BackActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +35,7 @@ public class BackActivity extends AppCompatActivity {
     void inflateView(int layout, String title) {
         Toolbar toolBar = (Toolbar) findViewById(R.id.toolbar);
         if (toolBar != null) {
-            toolBar.setTitleTextColor(ContextCompat.getColor(BackActivity.this, android.R.color.white));
+            toolBar.setTitleTextColor(ContextCompat.getColor(BaseActivity.this, android.R.color.white));
             setSupportActionBar(toolBar);
             if (title != null && title.length() > 0) {
                 toolBar.findViewById(R.id.brandLogo).setVisibility(View.GONE);
@@ -50,12 +50,12 @@ public class BackActivity extends AppCompatActivity {
 
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(ContextCompat.getDrawable(BackActivity.this, R.drawable.ic_nav_back));
+        getSupportActionBar().setHomeAsUpIndicator(ContextCompat.getDrawable(BaseActivity.this, R.drawable.ic_nav_back));
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         FrameLayout viewContainer = (FrameLayout) findViewById(R.id.container);
-        ViewGroup.inflate(BackActivity.this, layout, viewContainer);
+        ViewGroup.inflate(BaseActivity.this, layout, viewContainer);
 
         try {
 
@@ -63,7 +63,7 @@ public class BackActivity extends AppCompatActivity {
             if (advertisement_banner != null) {
                 advertisement_banner.setVisibility(View.GONE);
 
-                AppController.getRotatingBanner(BackActivity.this, AppUtils.getAppPreference(BackActivity.this).getInt(AppConstants.USER_COUNTRY, -1), new Callback() {
+                AppController.getRotatingBanner(BaseActivity.this, AppUtils.getAppPreference(BaseActivity.this).getInt(AppConstants.USER_COUNTRY, -1), new Callback() {
                     @Override
                     public void run(Object result) throws JSONException, IOException {
                         JSONObject jsonResponse = new JSONObject((String) result);

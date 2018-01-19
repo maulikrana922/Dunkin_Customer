@@ -8,7 +8,7 @@ import android.webkit.WebViewClient;
 /**
  * Created by Admin on 10/1/2015.
  */
-public class AppWebViewActivity extends BackActivity {
+public class AppWebViewActivity extends BaseActivity {
 
     String URL;
     WebView wv;

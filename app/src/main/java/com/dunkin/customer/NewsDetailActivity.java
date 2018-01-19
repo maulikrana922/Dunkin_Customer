@@ -23,7 +23,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
-public class NewsDetailActivity extends BackActivity {
+public class NewsDetailActivity extends BaseActivity {
     private TextView txtTitle, txtDate, txtPlace, txtDescription;
     private ImageView imgLogo;
     private ImageButton imbVideo;

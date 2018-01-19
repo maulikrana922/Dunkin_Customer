@@ -19,7 +19,7 @@ import java.util.Locale;
 
 // data
 
-public class SettingActivity extends BackActivity {
+public class SettingActivity extends BaseActivity {
 
     private static Context context;
     private CheckBox cbLanguage;
