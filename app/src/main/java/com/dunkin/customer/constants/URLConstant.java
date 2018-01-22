@@ -81,7 +81,7 @@ public class URLConstant {
     public static final String MAKE_PAYMENT_FOR_COUNTER_ORDER =  "orderCounterClearance";
     public static final String HOME_PAGE_URL =  "gainDashboard";
     public static final String DASHBORD_PAGE_URL =  "mainDashboard";
-    public static final String OFFER_PURCHASE_DETAIL_URL =  "buyOfferDetails";
+    public static final String OFFER_PURCHASE_DETAIL_URL =  "pickOfferClearance";
     public static final String MAKE_OFFER_PAYMENT_URL =  "offerClearance";
     public static final String OFFER_HISTORY_URL =  "catalogOfferClearance";
     public static final String GET_NOTIFICATION_URL =  "catalogPush";
