@@ -121,9 +121,9 @@ public class ScanAndWinDialog extends Dialog {
                     SharedPreferences.Editor editor = AppUtils.getAppPreference(context).edit();
                     editor.putBoolean(AppConstants.USER_SCAN_RESULT, true);
                     editor.apply();
-                    if (mContext instanceof HomeActivity) {
-                        ((HomeActivity) mContext).setScanImage();
-                    }
+//                    if (mContext instanceof HomeActivity) {
+//                        ((HomeActivity) mContext).setScanImage();
+//                    }
                 } else if (isForScan) {
                     if (ActivityCompat.checkSelfPermission(mContext,
                             android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {

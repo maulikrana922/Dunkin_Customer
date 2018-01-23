@@ -6,10 +6,8 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -35,6 +33,7 @@ import com.dunkin.customer.Utils.Callback;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.dialogs.ImageDialog;
+import com.dunkin.customer.dialogs.ScanAndWinDialog;
 import com.dunkin.customer.models.DashbordModel;
 import com.dunkin.customer.models.HomeCatModel;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -94,10 +93,10 @@ public class HomeFragment extends Fragment {
         llScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences.Editor editor = AppUtils.getAppPreference(context).edit();
-                editor.putBoolean(AppConstants.USER_SCAN_RESULT, false);
-                editor.apply();
-               checkScanAndWin();
+//                SharedPreferences.Editor editor = AppUtils.getAppPreference(context).edit();
+//                editor.putBoolean(AppConstants.USER_SCAN_RESULT, false);
+//                editor.apply();
+               checkScanAndWin1();
             }
         });
 
@@ -347,8 +346,17 @@ public class HomeFragment extends Fragment {
                                     JSONObject jsonObject = jsonResponse.getJSONObject("updateApp");
                                     String image_url = jsonObject.getString("Image");
 
+                                    if (!AppUtils.getAppPreference(context).getBoolean(AppConstants.USER_SCAN_RESULT, false)) {
+                                        if (HomeActivity.isScanWinEnable.equalsIgnoreCase("1"))
+                                            ImageDialog.newInstance(context, HomeActivity.strUrl, false).show();
 
-                                    ImageDialog.newInstance(context, image_url, false).show();
+                                    }
+                                    else
+                                    {
+                                        if (HomeActivity.isScanWinEnable.equalsIgnoreCase("1") ) {
+                                            loadingAnimation(dashbordModel.BottomImage);
+                                        }
+                                    }
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -506,8 +514,8 @@ public class HomeFragment extends Fragment {
                     String res = (String) result;
                     JSONObject jsonResponse = new JSONObject(res);
                     if (jsonResponse.getString("success").equalsIgnoreCase("1")) {
-                        HomeActivity.strGetScanImage = jsonResponse.getString("scanwinImage");
-                        HomeActivity.strOfferUrl = jsonResponse.getString("offerImage");
+//                        HomeActivity.strGetScanImage = jsonResponse.getString("scanwinImage");
+//                        HomeActivity.strOfferUrl = jsonResponse.getString("offerImage");
                         HomeActivity.isScanWinEnable = jsonResponse.getString("isScanWinEnable");
 //                        HomeActivity.isOfferEnable = jsonResponse.getString("isOfferEnable");
 //                        if (!AppUtils.getAppPreference(context).getBoolean(AppConstants.USER_SCAN_RESULT, false)) {
@@ -517,6 +525,36 @@ public class HomeFragment extends Fragment {
                             if (HomeActivity.isScanWinEnable.equalsIgnoreCase("1") ) {
                                 loadingAnimation(dashbordModel.BottomImage);
                             }
+//                        }
+                    }
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void checkScanAndWin1() {
+        try {
+            //1
+            AppController.getScan(context, new Callback() {
+                @Override
+                public void run(Object result) throws JSONException, IOException {
+//                        dismissProgressDialog();
+                    String res = (String) result;
+                    JSONObject jsonResponse = new JSONObject(res);
+                    if (jsonResponse.getString("success").equalsIgnoreCase("1")) {
+//                        HomeActivity.strGetScanImage = jsonResponse.getString("scanwinImage");
+//                        HomeActivity.strOfferUrl = jsonResponse.getString("offerImage");
+                        HomeActivity.isScanWinEnable = jsonResponse.getString("isScanWinEnable");
+//                        HomeActivity.isOfferEnable = jsonResponse.getString("isOfferEnable");
+//                        if (!AppUtils.getAppPreference(context).getBoolean(AppConstants.USER_SCAN_RESULT, false)) {
+                            if (HomeActivity.isScanWinEnable.equalsIgnoreCase("1") )
+                                ScanAndWinDialog.newInstance(context, HomeActivity.strUrl, false).show();
+//                        } else {
+//                        if (HomeActivity.isScanWinEnable.equalsIgnoreCase("1") ) {
+//                            loadingAnimation(dashbordModel.BottomImage);
+//                        }
 //                        }
                     }
                 }
@@ -538,7 +576,8 @@ public class HomeFragment extends Fragment {
             }
             else
             {
-                ivScan.setImageBitmap(BitmapFactory.decodeFile(str));
+                Glide.with(this).load(str).into(ivScan);
+//                ivScan.setImageBitmap(BitmapFactory.decodeFile(str));
                 if (llScan.getVisibility() != View.VISIBLE) {
                     llScan.setVisibility(View.VISIBLE);
 

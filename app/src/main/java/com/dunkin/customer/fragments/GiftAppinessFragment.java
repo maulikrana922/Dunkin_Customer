@@ -203,6 +203,12 @@ public class GiftAppinessFragment extends Fragment {
                             etPhone.setText("");
                             etDesc.setText("");
                         }
+                        else if (jsonResponse.getInt("success") == 0) {
+                            AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+
+//                            displayDialog(jsonResponse.getString("message"));
+
+                        }
                         else if (jsonResponse.getInt("success") == 99) {
                             //AppUtils.showToastMessage(context, jsonResponse.getString("message"));
 
