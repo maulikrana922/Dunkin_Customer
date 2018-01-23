@@ -15,11 +15,21 @@ public class NewsModel implements Serializable {
     private String newsImage;
     private String title;
     @JsonFormat(pattern = AppConstants.MM_DD_YYYY_SERVER)
+    private Date  startdate;
+    @JsonFormat(pattern = AppConstants.MM_DD_YYYY_SERVER)
     private Date newsdate;
     private String description;
     private String place;
     private String newsVideo;
     private String newsVideoThumb;
+
+    public Date getStartdate() {
+        return startdate;
+    }
+
+    public void setStartdate(Date startdate) {
+        this.startdate = startdate;
+    }
 
     public String getNewsVideo() {
         return newsVideo;

@@ -87,7 +87,7 @@ public class NewsAdapter extends BaseAdapter {
 
             viewHolder.txtTitle.setText(nm.getTitle());
             viewHolder.txtDesc.setText(Html.fromHtml(nm.getDescription()));
-            viewHolder.txtDate.setText(AppUtils.getFormattedDate(nm.getNewsdate()));
+            viewHolder.txtDate.setText(AppUtils.getFormattedDate(nm.getStartdate()));
         } catch (Exception e) {
             e.printStackTrace();
         }

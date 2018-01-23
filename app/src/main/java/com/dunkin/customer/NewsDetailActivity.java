@@ -92,7 +92,7 @@ public class NewsDetailActivity extends BaseActivity {
                         //String newsDescription = Html.fromHtml("<b> " + getString(R.string.txt_news_description) + " : </b><br/>" + nm.getDescription()).toString();
                         txtDescription.setText(Html.fromHtml(nm.getDescription()));
                         txtDescription.setMovementMethod(LinkMovementMethod.getInstance());
-                        String newsDate = AppUtils.getFormattedDate(nm.getNewsdate());
+                        String newsDate = AppUtils.getFormattedDate(nm.getStartdate());
                         txtDate.setText(newsDate);
                     }
                 } else if (jsonResponse.getInt("success") == 100) {
