@@ -1,16 +1,11 @@
 package com.dunkin.customer.dialogs;
 
-import android.animation.Animator;
-import android.animation.AnimatorInflater;
-import android.animation.AnimatorSet;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -72,7 +67,7 @@ public class ImageDialog extends Dialog {
         tvYes = (TextView) findViewById(R.id.tvYes);
 //        AppUtils.setImage(imgBag, path);
 
-        if (!TextUtils.isEmpty(path)) {
+        if (path!=null) {
             ImageLoader.getInstance().displayImage(path, imgBag, AppUtils.options, new ImageLoadingListener() {
                 @Override
                 public void onLoadingStarted(String imageUri, View view) {
@@ -145,79 +140,79 @@ public class ImageDialog extends Dialog {
         });
     }
 
-    private void loadingAnimation() {
-        imgBag.setImageBitmap(BitmapFactory.decodeFile(path));
-        imgBag.setVisibility(View.VISIBLE);
-
-        final AnimatorSet loading_first = (AnimatorSet) AnimatorInflater
-                .loadAnimator(mContext, R.animator.myanimation_first);
-        final AnimatorSet loading_out_in_1 = (AnimatorSet) AnimatorInflater
-                .loadAnimator(mContext, R.animator.myanimation_two);
-
-        loading_first.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                if (rotationCount < 1) {
-                    loading_out_in_1.setTarget(imgBag);
-                    loading_out_in_1.start();
-                    imgBag.refreshDrawableState();
-                    imgBag.invalidate();
-                    rotationCount++;
-                } else {
-                    rotationCount = 0;
-                    //dismiss();
-                }
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-            }
-        });
-
-        loading_out_in_1.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                loading_first.setTarget(imgBag);
-                loading_first.start();
-                imgBag.refreshDrawableState();
-                imgBag.invalidate();
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-            }
-        });
-
-        /**
-         * Start animation if intro image load
-         * if scan image load then display no animation
-         *
-         * Now 01/02/2017
-         * As per client suggetion remove animation from intro file
-         */
-
-//        if (!isForScan) {
-//            loading_first.setTarget(imgBag);
-//            loading_first.start();
-//        }
-
-    }
+//    private void loadingAnimation() {
+//        imgBag.setImageBitmap(BitmapFactory.decodeFile(path));
+//        imgBag.setVisibility(View.VISIBLE);
+//
+//        final AnimatorSet loading_first = (AnimatorSet) AnimatorInflater
+//                .loadAnimator(mContext, R.animator.myanimation_first);
+//        final AnimatorSet loading_out_in_1 = (AnimatorSet) AnimatorInflater
+//                .loadAnimator(mContext, R.animator.myanimation_two);
+//
+//        loading_first.addListener(new Animator.AnimatorListener() {
+//            @Override
+//            public void onAnimationStart(Animator animation) {
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animator animation) {
+//            }
+//
+//            @Override
+//            public void onAnimationEnd(Animator animation) {
+//                if (rotationCount < 1) {
+//                    loading_out_in_1.setTarget(imgBag);
+//                    loading_out_in_1.start();
+//                    imgBag.refreshDrawableState();
+//                    imgBag.invalidate();
+//                    rotationCount++;
+//                } else {
+//                    rotationCount = 0;
+//                    //dismiss();
+//                }
+//            }
+//
+//            @Override
+//            public void onAnimationCancel(Animator animation) {
+//            }
+//        });
+//
+//        loading_out_in_1.addListener(new Animator.AnimatorListener() {
+//            @Override
+//            public void onAnimationStart(Animator animation) {
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animator animation) {
+//            }
+//
+//            @Override
+//            public void onAnimationEnd(Animator animation) {
+//                loading_first.setTarget(imgBag);
+//                loading_first.start();
+//                imgBag.refreshDrawableState();
+//                imgBag.invalidate();
+//            }
+//
+//            @Override
+//            public void onAnimationCancel(Animator animation) {
+//            }
+//        });
+//
+//        /**
+//         * Start animation if intro image load
+//         * if scan image load then display no animation
+//         *
+//         * Now 01/02/2017
+//         * As per client suggetion remove animation from intro file
+//         */
+//
+////        if (!isForScan) {
+////            loading_first.setTarget(imgBag);
+////            loading_first.start();
+////        }
+//
+//    }
 
     @Override
     public void dismiss() {

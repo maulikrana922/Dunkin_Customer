@@ -134,6 +134,7 @@ public class GiftAppinessFragment extends Fragment {
 
                 if (etPassword.getText().length() == 0) {
                     AppUtils.showError(etPassword, getString(R.string.empty_password));
+
                 } else {
                     InputMethodManager imm = (InputMethodManager) context.getSystemService(context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(etPassword.getWindowToken(), 0);
@@ -167,6 +168,8 @@ public class GiftAppinessFragment extends Fragment {
                                     if (jsonResponse.getInt("success") == 100) {
                                         AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                                     }
+
+                                    b.dismiss();
                                 }
                             }
                         });

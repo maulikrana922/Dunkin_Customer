@@ -35,7 +35,6 @@ import com.dunkin.customer.Utils.Callback;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.dialogs.ImageDialog;
-import com.dunkin.customer.dialogs.ScanAndWinDialog;
 import com.dunkin.customer.models.DashbordModel;
 import com.dunkin.customer.models.HomeCatModel;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -320,8 +319,6 @@ public class HomeFragment extends Fragment {
                             try {
                                 dashbordModel.BottomImage = jsonResponse.getString("BottomImage").toString();
 
-
-
                                 dashbordModel.BackGroundImage= jsonResponse.getString("BackGroundImage").toString();
                                 dashbordModel.landingpageTitle= jsonResponse.getString("landingpageTitle").toString();
                                 dashbordModel.landingpageDescription= jsonResponse.getString("landingpageDescription").toString();
@@ -330,12 +327,11 @@ public class HomeFragment extends Fragment {
                                 dashbordModel.scanwinImage= jsonResponse.getString("scanwinImage").toString();
                                 dashbordModel.offerImage= jsonResponse.getString("offerImage").toString();
 
-
                                HomeActivity.strUrl = dashbordModel.scanwinImage;
                                 HomeActivity.strOfferUrl = dashbordModel.offerImage;
                                 HomeActivity.isScanWinEnable = dashbordModel.isScanWinEnable;
                                 HomeActivity.isOfferEnable = dashbordModel.isOfferEnable;
-                                ((HomeActivity)context).fileDownload();
+//                                ((HomeActivity)context).fileDownload();
 
                                 ((HomeActivity)context).dbAdapter.open();
                                 ((HomeActivity)context).dbAdapter.addOfflineData(AppConstants.OF_PROFILE,  jsonResponse.getString("userDetail").toString());
@@ -513,15 +509,15 @@ public class HomeFragment extends Fragment {
                         HomeActivity.strGetScanImage = jsonResponse.getString("scanwinImage");
                         HomeActivity.strOfferUrl = jsonResponse.getString("offerImage");
                         HomeActivity.isScanWinEnable = jsonResponse.getString("isScanWinEnable");
-                        HomeActivity.isOfferEnable = jsonResponse.getString("isOfferEnable");
-                        if (!AppUtils.getAppPreference(context).getBoolean(AppConstants.USER_SCAN_RESULT, false)) {
-                            if (HomeActivity.isScanWinEnable.equalsIgnoreCase("1") )
-                                ScanAndWinDialog.newInstance(context, HomeActivity.strGetScanImage, false).show();
-                        } else {
+//                        HomeActivity.isOfferEnable = jsonResponse.getString("isOfferEnable");
+//                        if (!AppUtils.getAppPreference(context).getBoolean(AppConstants.USER_SCAN_RESULT, false)) {
+//                            if (HomeActivity.isScanWinEnable.equalsIgnoreCase("1") )
+//                                ScanAndWinDialog.newInstance(context, HomeActivity.strGetScanImage, false).show();
+//                        } else {
                             if (HomeActivity.isScanWinEnable.equalsIgnoreCase("1") ) {
                                 loadingAnimation(dashbordModel.BottomImage);
                             }
-                        }
+//                        }
                     }
                 }
             });
