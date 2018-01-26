@@ -12,6 +12,16 @@ import java.util.List;
  */
 public class OfferModel implements Serializable {
 
+    private String offerHappy;
+
+    public String getOfferHappy() {
+        return offerHappy;
+    }
+
+    public void setOfferHappy(String offerHappy) {
+        this.offerHappy = offerHappy;
+    }
+
     private String currency;
     private String currency_id;
     private int offerId;

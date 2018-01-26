@@ -26,6 +26,7 @@ import java.util.List;
  */
 
 public class AboutUsDetailsActivity extends BaseActivity {
+
     private TextView txtDesc;
     private ImageView img;
     private List<AboutUsModel> aboutUsModelList;
@@ -44,6 +45,7 @@ public class AboutUsDetailsActivity extends BaseActivity {
         } catch (UnsupportedEncodingException | JSONException e) {
             e.printStackTrace();
         }
+
     }
 
     private void initializeViews() {

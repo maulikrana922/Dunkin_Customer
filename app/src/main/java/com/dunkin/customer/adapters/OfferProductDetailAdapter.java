@@ -28,13 +28,15 @@ public class OfferProductDetailAdapter extends BaseAdapter {
     private String offerIsFree;
     private String priceCurrency;
     private boolean isFromOfferDetail;
+    private String offerHappy;
 
-    public OfferProductDetailAdapter(Context context, List<OfferProductModel> offerProductModels, String freeOffer, String currency, boolean fromOfferDetail) {
+    public OfferProductDetailAdapter(Context context, List<OfferProductModel> offerProductModels, String freeOffer, String currency, boolean fromOfferDetail, String offerHappy) {
         this.context = context;
         this.offerProductModels = offerProductModels;
         this.offerIsFree = freeOffer;
         this.priceCurrency = currency;
         this.isFromOfferDetail = fromOfferDetail;
+        this.offerHappy=offerHappy;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -91,7 +93,7 @@ public class OfferProductDetailAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         try {
-            if (offerIsFree.equals("Yes")) {
+            if (offerIsFree.equals("Yes") || (offerIsFree.equals("No") && offerHappy.equalsIgnoreCase("Yes"))) {
                 viewHolder.llRight.setVisibility(View.GONE);
                 viewHolder.llRemainingRedeem.setVisibility(View.GONE);
                 viewHolder.llAvailedProduct.setVisibility(View.GONE);
@@ -125,11 +127,22 @@ public class OfferProductDetailAdapter extends BaseAdapter {
                     viewHolder.offerProductname.setVisibility(View.GONE);
 
                 // Free Product
-                if (AppUtils.isNotNull(ofm.getOfferonproduct().getBuythisproduct())) {
-                    viewHolder.offerProductBuy.setVisibility(View.VISIBLE);
-                    viewHolder.offerProductBuy.setText(context.getString(R.string.txt_free_type2, ofm.getOfferonproduct().getBuythisproduct()));
-                } else
-                    viewHolder.offerProductBuy.setVisibility(View.GONE);
+                if(offerIsFree.equals("Yes")) {
+                    if (AppUtils.isNotNull(ofm.getOfferonproduct().getBuythisproduct())) {
+                        viewHolder.offerProductBuy.setVisibility(View.VISIBLE);
+                        viewHolder.offerProductBuy.setText(context.getString(R.string.txt_free_type2, ofm.getOfferonproduct().getBuythisproduct()));
+                    } else
+                        viewHolder.offerProductBuy.setVisibility(View.GONE);
+                }
+                else if((offerIsFree.equals("No") && offerHappy.equalsIgnoreCase("Yes")))
+                {
+                    if (AppUtils.isNotNull(ofm.getOfferonproduct().getBuythisproduct())) {
+                        viewHolder.offerProductBuy.setVisibility(View.VISIBLE);
+                        viewHolder.offerProductBuy.setText(context.getString(R.string.num_of_buy_products2, ofm.getOfferonproduct().getBuythisproduct()));
+                    } else
+                        viewHolder.offerProductBuy.setVisibility(View.GONE);
+                }
+
 
                 // Free Product Price
                 if (AppUtils.isNotNull(ofm.getOfferonproduct().getProductPrice())) {

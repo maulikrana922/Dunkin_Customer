@@ -104,7 +104,7 @@ public class OfferDetailActivity extends BaseActivity implements View.OnClickLis
                     of = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONObject("offerDetail").toString(), new TypeReference<OfferModel>() {
                     });
 
-                    offerProductDetailAdapter = new OfferProductDetailAdapter(OfferDetailActivity.this, of.getOfferproduct(), of.getOfferFree(), of.getCurrency(), true);
+                    offerProductDetailAdapter = new OfferProductDetailAdapter(OfferDetailActivity.this, of.getOfferproduct(), of.getOfferFree(), of.getCurrency(), true,of.getOfferHappy());
                     lvOfferProductDetails.setAdapter(offerProductDetailAdapter);
 
                     scrollContainer.setVisibility(View.VISIBLE);

@@ -90,6 +90,7 @@ public class OfferPaymentActivity extends BaseActivity {
 
                         tlHeader.setVisibility(View.VISIBLE);
                         emptyElement.setVisibility(View.GONE);
+                        String offerHappy=jsonResponse.getString("offerHappy");
                         currency_id = jsonResponse.getInt("currency_id");
                         total = AppUtils.CurrencyFormat(Double.parseDouble(String.valueOf(jsonResponse.getInt("Total"))));
                         points = jsonResponse.getDouble("Point");
@@ -133,7 +134,7 @@ public class OfferPaymentActivity extends BaseActivity {
                         List<OfferProductModel> of = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("offerproduct").toString(), new TypeReference<List<OfferProductModel>>() {
                         });
 
-                        OfferProductDetailAdapter offerProductDetailAdapter = new OfferProductDetailAdapter(OfferPaymentActivity.this, of, jsonResponse.getString("offerFree"), jsonResponse.getString("currency_code"), false);
+                        OfferProductDetailAdapter offerProductDetailAdapter = new OfferProductDetailAdapter(OfferPaymentActivity.this, of, jsonResponse.getString("offerFree"), jsonResponse.getString("currency_code"), false, offerHappy);
                         lvProductDetail.setAdapter(offerProductDetailAdapter);
                     } else if (jsonResponse.getInt("success") == 0) {
                         mMenu.findItem(R.id.menu_submit).setVisible(false);
