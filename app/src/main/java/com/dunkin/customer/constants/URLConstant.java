@@ -98,4 +98,6 @@ public class URLConstant {
     public static final String GET_PROMO_DETAIL =  "gainPromoCode";
     public static final String GET_SETTING =  "catalogSetting";
     public static final String GET_KNOW_LIST =  "catalogKnowUs";
+    public static final String PUT_STAFF_ASSESSMENT =  "putStaffAssessment";
+    public static final String GET_CATALOG_QUESTION_LIST =  "catalogQuestion";
 }

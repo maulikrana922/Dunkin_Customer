@@ -269,10 +269,27 @@ public class AppController {
         AppUtils.requestCallAsyncTask(context, URLConstant.GET_RATING_LIST, se, false, callback);
     }
 
+    //GET RATING LIST
+    public static void getCatalogQuestionList(Context context, int restaurantId, Callback callback) throws JSONException, UnsupportedEncodingException {
+        JSONObject jsonRequest = new JSONObject();
+        jsonRequest.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1));
+        jsonRequest.put("email", AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, ""));
+        jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
+        //Dunkin_Log.e("DataRequest", jsonRequest.toString());
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_CATALOG_QUESTION_LIST, se, false, callback);
+    }
+
     public static void postComments(Context context, String requestString, Callback callback) throws JSONException, UnsupportedEncodingException {
         // Dunkin_Log.e("DataRequest", requestString);
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(requestString, AppConstants.encodeType);
         AppUtils.requestCallAsyncTask(context, URLConstant.POST_COMMENTS, se, true, callback);
+    }
+
+    public static void putStaffAssessment(Context context, String requestString, Callback callback) throws JSONException, UnsupportedEncodingException {
+        // Dunkin_Log.e("DataRequest", requestString);
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(requestString, AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, URLConstant.PUT_STAFF_ASSESSMENT, se, true, callback);
     }
 
     //POST RESERVE DATA TO SERVER
@@ -693,6 +710,7 @@ public class AppController {
             JSONObject jsonRequest = new JSONObject();
             jsonRequest.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1));
             jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
+            jsonRequest.put("email", AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, ""));
 //            jsonRequest.put("user_id", "34772");
             // Dunkin_Log.e("DataRequest", jsonRequest.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);

@@ -128,6 +128,7 @@
     <string name="nav_contact_us">Talk to us </string>
     <string name="nav_about_us">Get to know us</string>
     <string name="nav_rating">Give us 5 Stars</string>
+    <string name="nav_staff_rating">Rate Staff</string>
     <string name="nav_exit">Log out</string>
 
     <!-- HOME PAGE -->
@@ -474,4 +475,10 @@
     <string name="empty_point">Please Enter Point</string>
     <string name="hurray">Hurrayyyyy</string>
     <string name="view">View</string>
+    <string name="total_count">Total Count :</string>
+    <string name="txt_hint_email_phone">Email / Phone</string>
+    <string name="empty_email_phone">Please enter email address or phone number</string>
+    <string name="enter_valid_email">Please enter valid email address</string>
+    <string name="enter_valid_phone">Please enter valid phone number</string>
+    <string name="give_rate_question">Please give rate to all question</string>
 </resources>

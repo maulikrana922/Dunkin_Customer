@@ -70,7 +70,7 @@ public class AppConstants {
     public static final int MENU_RECURRENT_ORDER = 27;
     public static final int MENU_SCAN_AND_WIN = 28;
     public static final int MENU_GIFT_APPINESS = 29;
-
+    public static final int MENU_RATE_STAFF = 30;
 
     // OFFLINE DATA IDS
     public static final int OF_SPLASH = 1;

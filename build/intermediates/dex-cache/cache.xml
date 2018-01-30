@@ -3,363 +3,363 @@
 
     <item
         is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/zbar/1.9.8/jars/libs/zbar.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e671e7a14299d6f2591fc1ae672c49861d3329c6">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/zbar_c58f466d29a7b7d6fa10aa2a5220b8894ba79fbd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.3.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.3.1_181bac500318683909b018f88fe1536bf08f764a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.2/aed20e50152a2f19adc1995c8d8f307c7efa414d/jackson-core-2.9.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="aed20e50152a2f19adc1995c8d8f307c7efa414d">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/jackson-core-2.9.2_290721a86f952f33ffe67db3adef3db5dd7977fe.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.19.0/cdca49ad0977c040f603478aa2e16b2775c8fec6/google-http-client-1.19.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="cdca49ad0977c040f603478aa2e16b2775c8fec6">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/google-http-client-1.19.0_647e46cf7d26e4ee470b80d6087d7843749c5622.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.3.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.3.1_9b78ec15e67f04c8bec1d610ada1f51a6cff1432.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.3.1_713e2a623544186b5e1a10a9658229ad1df94a95.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/zxing/1.9.8/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="414c5172d9739a35339700d133288418059e7d83">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-zxing-1.9.8_cd766d6c51abf656c1ebed2083d4e162b80d0dc5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.4.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="152e1df65212df23a4b5dba0e819e63bca93192c">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-android-sdk-4.4.0_e7ada4999b663b6a84af852d3772fab8e870fb4c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8308ed003522a2ee8958311afcc4cfd0470377cd">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gcm-10.0.1_aae7ff6709070c4b0baa5b1b24f423fb7bc069d1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.3.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.3.1_f9b917a29df7a683ecd73b71153533171ae070c4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-iid-10.0.1_38e0295baa485fad545f4dcf3395a7a975078b10.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/libs/org.apache.http.legacy.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="fa331331b626ee78c52bea16ce1e34b39e666ce5">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/org.apache.http.legacy_31c1c3976ee3660f63ac19d21107a76daf8aadae.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/glide-3.7.0_50caeca0be6b306b447a686a8bf46204a78411ef.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.10.3/b842f960942503cf1abbcc8c173a7f2c19d43726/jsoup-1.10.3.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b842f960942503cf1abbcc8c173a7f2c19d43726">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/jsoup-1.10.3_645868c03d864334ac91ce8c5f38ee380a3983b5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.3.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.3.1_707ae6d12bdf9673be175669d1321740661dcdd3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.6/ce1edb914c94ebc388f086c6827e8bdeec71ac2/commons-lang-2.6.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0ce1edb914c94ebc388f086c6827e8bdeec71ac2">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/commons-lang-2.6_fc30b12028e48e1b17ff62d3a9080690a7b9437f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.4/dd9eeb557650c4ad7394df23f0f5cf27a7cfc697/universal-image-loader-1.9.4.jar"
+        jar="/home/kinal/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.4/dd9eeb557650c4ad7394df23f0f5cf27a7cfc697/universal-image-loader-1.9.4.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.4_476c691d34c0056aeebcae7ccea963894dce4ce6.jar" />
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.4_bfdd10cf05b37f913cb7aa73f14314f7d6fe2657.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-design-25.3.1_343523835a5a3ef1a29b02c2eee1b3923e5c8629.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.3.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.3.1_3124e02c922c7da6109232c44f9b0005250ea313.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.0.1_73dbb74dbde4c7b414cba21c6e4f91724a838f65.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/libs/sun.misc.BASE64Decoder.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="acd93e3727886196f9b8434279ff445ba8611186">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/sun.misc.BASE64Decoder_822fa1799fb0f58fa2ef21958e481ab956c5bfdb.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.3.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.3.1_ec2cfae76238f778b842ce42dbcbc08ba741e114.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/core/1.9.8/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0b723383fcc5c9e6d233f12cf3670c153dcb9f72">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-core-1.9.8_715b5232381d311b5f3eb976849a2f133660ec27.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/transition/25.3.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-transition-25.3.1_4ee6c0404757d1bd4bb25418a0b28f4e70511e76.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_1f53928b21a93bb022a931d81fa92a22df8f94ad.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/android-studio/gradle/m2repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/jsr305-1.3.9_2f29570df1bea1b791397cb34735935cb8367e0a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/zbar/1.9.8/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e8a12af5f81884afc0a660216631f286bf86a448">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-zbar-1.9.8_f4b2ee3e506281cd66e2db6ef19f23aaf56eec84.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.1/2e66da15851f9f5b5079228f856c2f090ba98c38/gson-2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2e66da15851f9f5b5079228f856c2f090ba98c38">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/gson-2.1_b965eb349e356166fff67f8faeeecbf86fd30122.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.ogaclejapan.smarttablayout/library/1.4.2/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="aa3f29ec4e29cb86dd4397254221648446d45fc2">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.ogaclejapan.smarttablayout-library-1.4.2_d9588c67092a94268536e5868dd4e73f3a9fb568.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.3.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.3.1_c893da70574a755f72a927999dbe3a941cf86ba6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.3.0/73c49077166faa4c3c0059c5f583d1d7bd1475fe/core-3.3.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="73c49077166faa4c3c0059c5f583d1d7bd1475fe">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/core-3.3.0_dc3bcb4a309b346dd45b4e8376a29323befa148a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.3.1/jars/classes.jar"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.3.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-25.3.1_21dd4519ba172cb6adea8128625196818768baa1.jar" />
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-25.3.1_e279f3780e991a334c631572edca60ffffe77a70.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.0.1_3f9ed9db3f5c9991b817df81781ac1d5d4179c92.jar" />
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.0.1_a9c8d26b5c8e8046f58d5e15965a5fac2fc02d7a.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
+        jar="/home/kinal/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.6/ce1edb914c94ebc388f086c6827e8bdeec71ac2/commons-lang-2.6.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.0.1_5842d9d390cd6838f8bd07104678690a48dfafab.jar" />
+        sha1="0ce1edb914c94ebc388f086c6827e8bdeec71ac2">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/commons-lang-2.6_6dde2078f93b16d4b70fcec46029f0e98c981767.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.2/1d8d8cb7cf26920ba57fb61fa56da88cc123b21f/jackson-databind-2.9.2.jar"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/core/1.9.8/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="1d8d8cb7cf26920ba57fb61fa56da88cc123b21f">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/jackson-databind-2.9.2_72b8d709b7f6c83f8974e0cf25e992a58dc2e90c.jar" />
+        sha1="0b723383fcc5c9e6d233f12cf3670c153dcb9f72">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-core-1.9.8_8e1c9bb4403fc2cd93d9ef559765abd08874ce3c.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-gson/1.19.0/b3cdefb990d5212bb2a130525b20e2c44aeffc4c/google-http-client-gson-1.19.0.jar"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="b3cdefb990d5212bb2a130525b20e2c44aeffc4c">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/google-http-client-gson-1.19.0_95f5f5a6f49d39e0d8ba976f08730b48ef22b346.jar" />
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.0.1_0356a6c12c949e9da5c9a339f1c54aa72c2d1b53.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.3.1/jars/classes.jar"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.3.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.3.1_773e5ae03ee9cace2b734c4910d4fc4b7801d3ed.jar" />
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.3.1_8739af8e55487175d22263ad96653e8675eb4e2c.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.9.0/7c10d545325e3a6e72e06381afe469fd40eb701/jackson-annotations-2.9.0.jar"
+        jar="/home/kinal/android-studio/gradle/m2repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="07c10d545325e3a6e72e06381afe469fd40eb701">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.9.0_e05bdb01d20251195adc7bc4af67e5d5168b8362.jar" />
+        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/jsr305-1.3.9_4a7cb6177b7a4f8a6e9b4fcfa57010245e611a0a.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/mital/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.3.1_d74f2a53f9cd86724ef1975f34c157162ce5562b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.ogaclejapan.smarttablayout/library/1.4.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aa3f29ec4e29cb86dd4397254221648446d45fc2">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.ogaclejapan.smarttablayout-library-1.4.2_8399e883c1b0de9ed8262243d4fc3105bb1139f7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0_caacb09de448d743205ab99c9d0ade8fd3751e6c.jar" />
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0_32afece079da4469c041db0d885ebed9365ec65d.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.0.1/jars/classes.jar"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.android.support/transition/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.android.support-transition-25.3.1_b2961caca55faecf3239901ee8944fdd1dcce849.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.3.1_8364d9053fba6f9158f01a20af791e2da12c4fa1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.3.1_45fadb1588f8b76aa7342d89b1a19b67480fe422.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-iid-10.0.1_8d2794c6976672e35d21c824d1ea4260bd7744eb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8308ed003522a2ee8958311afcc4cfd0470377cd">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gcm-10.0.1_1b456fdff1954c0017b14bcdcb878cf4922f817d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/libs/org.apache.http.legacy.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fa331331b626ee78c52bea16ce1e34b39e666ce5">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/org.apache.http.legacy_3a378fac7ead11de8965e52cc6c5e7ebaaf8d83d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.0.1_3e63bda6312987d6ca7a2edbb828da544e7ba61e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.2/1d8d8cb7cf26920ba57fb61fa56da88cc123b21f/jackson-databind-2.9.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1d8d8cb7cf26920ba57fb61fa56da88cc123b21f">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/jackson-databind-2.9.2_97c8781b3f69aef36f8753c6030d3d9ba8e6cdc2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.3.1_4d25aa757f0a4ef83c7ff6e63f1836fb14569540.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/zxing/1.9.8/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="414c5172d9739a35339700d133288418059e7d83">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-zxing-1.9.8_c52d4ce558fbc6f6dc2484376bf4185f1917743c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-gson/1.19.0/b3cdefb990d5212bb2a130525b20e2c44aeffc4c/google-http-client-gson-1.19.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b3cdefb990d5212bb2a130525b20e2c44aeffc4c">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/google-http-client-gson-1.19.0_cf33b8a78329e4c68e4933b946c81c93c9290ea4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.3.1_82eea1ed428aedfa7da8d5bf1b9e0268f933cdd6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="152e1df65212df23a4b5dba0e819e63bca93192c">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-android-sdk-4.4.0_692dffc8a3932e448c94a4b5e627be4a6e32b2c0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.1/2e66da15851f9f5b5079228f856c2f090ba98c38/gson-2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2e66da15851f9f5b5079228f856c2f090ba98c38">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/gson-2.1_c6e7e3090c989df8d2d0e13d48c1b2494c548d4c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.3.0/73c49077166faa4c3c0059c5f583d1d7bd1475fe/core-3.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="73c49077166faa4c3c0059c5f583d1d7bd1475fe">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/core-3.3.0_499392a31de35d1c7004581507fba2484516d1c5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/zbar/1.9.8/jars/libs/zbar.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e671e7a14299d6f2591fc1ae672c49861d3329c6">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/zbar_2e6dca083c35fed42bbbd5e05fa705dc31cdf55d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.3.1_97246e259fcdf3bbcff1f1a2064d3fb23e324131.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/zbar/1.9.8/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e8a12af5f81884afc0a660216631f286bf86a448">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/me.dm7.barcodescanner-zbar-1.9.8_d0c32ce768c7315f4627d4f815e09b378a9b85a6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.10.3/b842f960942503cf1abbcc8c173a7f2c19d43726/jsoup-1.10.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b842f960942503cf1abbcc8c173a7f2c19d43726">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/jsoup-1.10.3_dd7cb186d6fb5a7aa0687c510ede1d901931b9a7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.3.1_47a48df437f21c2968023e51f0a8914b26bb6b75.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.19.0/cdca49ad0977c040f603478aa2e16b2775c8fec6/google-http-client-1.19.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cdca49ad0977c040f603478aa2e16b2775c8fec6">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/google-http-client-1.19.0_bf9e457964cc99869b53e05f9aea69c05229bf37.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/libs/sun.misc.BASE64Decoder.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="acd93e3727886196f9b8434279ff445ba8611186">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/sun.misc.BASE64Decoder_9dfae7253d9315a4e75bbaf67a4abbcbc625a1ae.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/glide-3.7.0_eb1d207c07e2e542764b30735713f8623ded4930.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.0.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
-        <dex dex="/home/mital/Mital_Qtm/dunkin/cust_repo/dunkin_customer/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-10.0.1_6c511909cb84b2f9fce6577d8622cfa9d6d444cc.jar" />
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-10.0.1_8fdd489536a3d42704e600a4c1f02e2e9152b9ff.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.android.support-design-25.3.1_bbf6f237d7ffe6df7071aa22dbf5bcb518ac79e4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_309cdb078893338fe0551238b218632b0af258a9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.3.1_65bcf2d3cb794608c2abb51002a1c07a92e4098e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.2/aed20e50152a2f19adc1995c8d8f307c7efa414d/jackson-core-2.9.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aed20e50152a2f19adc1995c8d8f307c7efa414d">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/jackson-core-2.9.2_7e03806d1ffa9a45fc2d7b91cbe591df74fef2fa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kinal/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.9.0/7c10d545325e3a6e72e06381afe469fd40eb701/jackson-annotations-2.9.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="07c10d545325e3a6e72e06381afe469fd40eb701">
+        <dex dex="/home/kinal/Kinal/Projects/Dunkin/dunkin_customer_SRC/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.9.0_3de5719f1990a85767628cd2e878b3d09dbac84c.jar" />
     </item>
 
 </items>

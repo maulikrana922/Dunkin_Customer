@@ -157,7 +157,7 @@
     <string name="msg_login_not_match">عنوان البريد الإلكتروني غير مطابق لكلمة السر</string>
     <string name="msg_login_success">تم تسجيل الدخول بنجاح.</string>
     <string name="msg_login_user_inactive">اسم المستخدم لعنوان البريد الإلكتروني الذي تم إدخاله، غير فاعل. الرجاء التواصل مع المسؤول</string>
-    <string name="txt_hello">مرحباً</string>
+    <string name="txt_hello">مرحبا%s !ً</string>
     <string name="empty_first_name">الرجاء ادخال الاسم </string>
     <string name="is_valid_name_string">لا يجوز ان يحتوي  %1$s على احرف مميزة او ارقام </string>
     <string name="empty_last_name">الرجاء ادخال اسم العائلة</string>

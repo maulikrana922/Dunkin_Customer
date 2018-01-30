@@ -52,6 +52,7 @@ import com.dunkin.customer.fragments.NewsPagerFragment;
 import com.dunkin.customer.fragments.NotificationFragment;
 import com.dunkin.customer.fragments.OfferFragment;
 import com.dunkin.customer.fragments.OrderHistoryFragment;
+import com.dunkin.customer.fragments.RateStaffFragment;
 import com.dunkin.customer.fragments.RecurrentOrderFragment;
 import com.dunkin.customer.fragments.RedeemFragment;
 import com.dunkin.customer.fragments.RotatingBannerFragment;
@@ -436,6 +437,14 @@ public class HomeActivity extends AppCompatActivity {
                                     navigationList.add(new NavDrawerModel(AppConstants.MENU_FEEDBACK, R.drawable.ic_nav_give_me_stars, getString(R.string.nav_rating), false));
                             }
 
+                            // Rate Staff
+                            if (valueSet.containsKey(30)) {
+                                if (isDynamic)
+                                    navigationList.add(new NavDrawerModel(AppConstants.MENU_RATE_STAFF, R.drawable.ic_nav_give_me_stars, valueSet.get(30), false));
+                                else
+                                    navigationList.add(new NavDrawerModel(AppConstants.MENU_RATE_STAFF, R.drawable.ic_nav_give_me_stars, getString(R.string.nav_staff_rating), false));
+                            }
+
                             // Talk to us
                             if (valueSet.containsKey(24)) {
                                 if (isDynamic)
@@ -738,6 +747,10 @@ public class HomeActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction().replace(R.id.content, new FeedbackFragment()).commitAllowingStateLoss();
                 return true;
 
+            case AppConstants.MENU_RATE_STAFF:
+                getSupportFragmentManager().beginTransaction().replace(R.id.content, new RateStaffFragment()).commitAllowingStateLoss();
+                return true;
+
             case AppConstants.MENU_GET_BILL:
                 getSupportFragmentManager().beginTransaction().replace(R.id.content, new GetBillFragment()).commitAllowingStateLoss();
                 return true;
@@ -937,6 +950,12 @@ public class HomeActivity extends AppCompatActivity {
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 FeedbackFragment feedbackFragment = new FeedbackFragment();
                 fragmentTransaction.replace(R.id.content, feedbackFragment);
+                fragmentTransaction.commitAllowingStateLoss();
+                break;
+            } else if (position == AppConstants.MENU_RATE_STAFF) {
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                RateStaffFragment rateStaffFragment = new RateStaffFragment();
+                fragmentTransaction.replace(R.id.content, rateStaffFragment);
                 fragmentTransaction.commitAllowingStateLoss();
                 break;
             } else if (position == AppConstants.MENU_NEWS_EVENT && nav.getNavId() == position) {
