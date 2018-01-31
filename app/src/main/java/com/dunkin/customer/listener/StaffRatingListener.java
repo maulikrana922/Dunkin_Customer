@@ -8,5 +8,5 @@ import com.dunkin.customer.models.RatingModel;
  */
 public interface StaffRatingListener {
 
-    public void onRatingChanged(int position, int rat, boolean isSelect);
+    public void onRatingChanged(int position, int rat);
 }

@@ -7,15 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
-import android.widget.RatingBar;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.dunkin.customer.R;
-import com.dunkin.customer.Utils.Dunkin_Log;
+import com.dunkin.customer.customSeekBar.CustomSeekBar;
+import com.dunkin.customer.customSeekBar.OnSeekBarChangeListener;
 import com.dunkin.customer.listener.StaffRatingListener;
 import com.dunkin.customer.models.CatalogQuestionModel;
-import com.dunkin.customer.models.RatingModel;
 
 import java.util.List;
 
@@ -23,7 +21,6 @@ public class StaffRatingAdapter extends BaseAdapter {
 
     private Context context;
     private List<CatalogQuestionModel> catalogQuestionModelList;
-    private LayoutInflater inflater;
     private StaffRatingListener staffRatingListener;
 
     public StaffRatingAdapter(Context context, List<CatalogQuestionModel> catalogQuestionModelList, StaffRatingListener listener) {
@@ -57,7 +54,7 @@ public class StaffRatingAdapter extends BaseAdapter {
 
             viewHolder.tvQuestion = (TextView) convertView.findViewById(R.id.tvQuestion);
             viewHolder.tvCount = (TextView) convertView.findViewById(R.id.tvCount);
-            viewHolder.seekBar = (SeekBar) convertView.findViewById(R.id.seekBar);
+            viewHolder.seekBar = (CustomSeekBar) convertView.findViewById(R.id.seekBar);
             viewHolder.ratingLayout = (LinearLayout) convertView.findViewById(R.id.ratingLayout);
 
             convertView.setTag(viewHolder);
@@ -72,24 +69,14 @@ public class StaffRatingAdapter extends BaseAdapter {
         }*/
 
         viewHolder.ratingLayout.setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent));
-        viewHolder.tvCount.setText(String.valueOf(catalogQuestionModelList.get(position).getRating()+"/"+20));
+        viewHolder.tvCount.setText(String.valueOf(catalogQuestionModelList.get(position).getRating() + "/" + 20));
         viewHolder.tvQuestion.setText(catalogQuestionModelList.get(position).getQueTitle());
-        viewHolder.seekBar.setOnSeekBarChangeListener(null);
-        viewHolder.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        viewHolder.seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                viewHolder.seekBar.setSelected(i > 0);
-                staffRatingListener.onRatingChanged(position, i, b);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
+            public void valueChanged(Number value) {
+                catalogQuestionModelList.get(position).setRating(value.intValue());
+                viewHolder.tvCount.setText(String.valueOf(catalogQuestionModelList.get(position).getRating() + "/" + 20));
+                staffRatingListener.onRatingChanged(position, value.intValue());
             }
         });
 
@@ -107,7 +94,7 @@ public class StaffRatingAdapter extends BaseAdapter {
 
     static class ViewHolder {
         TextView tvQuestion, tvCount;
-        SeekBar seekBar;
+        CustomSeekBar seekBar;
         LinearLayout ratingLayout;
     }
 }

@@ -181,21 +181,21 @@ public class RateStaffFragment extends Fragment implements View.OnClickListener,
     private void putStaffAssessment() throws UnsupportedEncodingException, JSONException {
         if (TextUtils.isEmpty(etEmail.getText().toString().trim())) {
             AppUtils.showError(etEmail, getString(R.string.empty_email_phone));
-        }else if(etEmail.getText().toString().trim().contains("@") && !android.util.Patterns.EMAIL_ADDRESS.matcher(etEmail.getText().toString().trim()).matches()) {
+        } else if (etEmail.getText().toString().trim().contains("@") && !android.util.Patterns.EMAIL_ADDRESS.matcher(etEmail.getText().toString().trim()).matches()) {
             AppUtils.showError(etEmail, getString(R.string.enter_valid_email));
-        }else if(!etEmail.getText().toString().trim().contains("@") && !android.util.Patterns.PHONE.matcher(etEmail.getText().toString().trim()).matches()) {
+        } else if (!etEmail.getText().toString().trim().contains("@") && !android.util.Patterns.PHONE.matcher(etEmail.getText().toString().trim()).matches()) {
             AppUtils.showError(etEmail, getString(R.string.enter_valid_phone));
-        }else if(catalogQuestionModelList.get(0).getRating() == 0){
+        } else if (catalogQuestionModelList.get(0).getRating() == 0) {
             AppUtils.showError(etEmail, getString(R.string.give_rate_question));
-        }else if(catalogQuestionModelList.get(1).getRating() == 0){
+        } else if (catalogQuestionModelList.get(1).getRating() == 0) {
             AppUtils.showError(etEmail, getString(R.string.give_rate_question));
-        }else if(catalogQuestionModelList.get(2).getRating() == 0){
+        } else if (catalogQuestionModelList.get(2).getRating() == 0) {
             AppUtils.showError(etEmail, getString(R.string.give_rate_question));
-        }else if(catalogQuestionModelList.get(3).getRating() == 0){
+        } else if (catalogQuestionModelList.get(3).getRating() == 0) {
             AppUtils.showError(etEmail, getString(R.string.give_rate_question));
-        }else if(catalogQuestionModelList.get(4).getRating() == 0){
+        } else if (catalogQuestionModelList.get(4).getRating() == 0) {
             AppUtils.showError(etEmail, getString(R.string.give_rate_question));
-        }else {
+        } else {
 
             List<CatalogQuestionModel> updatedRatingList = staffRatingAdapter.getUpdatedList();
 
@@ -273,10 +273,9 @@ public class RateStaffFragment extends Fragment implements View.OnClickListener,
     }
 
     @Override
-    public void onRatingChanged(int position, int rat, boolean isSelect) {
-        catalogQuestionModelList.get(position).setSelected(isSelect);
+    public void onRatingChanged(int position, int rat) {
         catalogQuestionModelList.get(position).setRating(rat);
-        staffRatingAdapter.notifyDataSetChanged();
+//        staffRatingAdapter.notifyDataSetChanged();
 
         totalRate = 0;
         for (CatalogQuestionModel catalogQuestionModel : catalogQuestionModelList) {
