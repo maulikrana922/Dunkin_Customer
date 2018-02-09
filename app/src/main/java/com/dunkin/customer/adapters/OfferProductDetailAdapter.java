@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.models.OfferProductModel;
@@ -115,7 +116,8 @@ public class OfferProductDetailAdapter extends BaseAdapter {
                 // Free Product Image
                 if (AppUtils.isNotNull(ofm.getOfferonproduct().getProductImage())) {
                     viewHolder.imgLogo.setVisibility(View.VISIBLE);
-                    AppUtils.setImage(viewHolder.imgLogo, ofm.getOfferonproduct().getProductImage());
+                    Glide.with(context).load(ofm.getOfferonproduct().getProductImage()).placeholder(R.drawable.ic_loading).error(R.drawable.ic_loading).into(viewHolder.imgLogo);
+//                    AppUtils.setImage(viewHolder.imgLogo, ofm.getOfferonproduct().getProductImage());
                 } else
                     viewHolder.imgLogo.setVisibility(View.GONE);
 
@@ -196,13 +198,15 @@ public class OfferProductDetailAdapter extends BaseAdapter {
                 // Buy Product Image
                 if (AppUtils.isNotNull(ofm.getOfferonproduct().getProductImage())) {
                     viewHolder.imgLogo.setVisibility(View.VISIBLE);
-                    AppUtils.setImage(viewHolder.imgLogo, ofm.getOfferonproduct().getProductImage());
+                    Glide.with(context).load(ofm.getOfferonproduct().getProductImage()).placeholder(R.drawable.ic_loading).error(R.drawable.ic_loading).into(viewHolder.imgLogo);
+//                    AppUtils.setImage(viewHolder.imgLogo, ofm.getOfferonproduct().getProductImage());
                 } else
                     viewHolder.imgLogo.setVisibility(View.GONE);
                 // Free Product Image
                 if (AppUtils.isNotNull(ofm.getOfferfreeproduct().getProductImage())) {
                     viewHolder.imgLogof.setVisibility(View.VISIBLE);
-                    AppUtils.setImage(viewHolder.imgLogof, ofm.getOfferfreeproduct().getProductImage());
+                    Glide.with(context).load(ofm.getOfferonproduct().getProductImage()).placeholder(R.drawable.ic_loading).error(R.drawable.ic_loading).into(viewHolder.imgLogof);
+//                    AppUtils.setImage(viewHolder.imgLogof, ofm.getOfferfreeproduct().getProductImage());
                 } else
                     viewHolder.imgLogof.setVisibility(View.GONE);
 
