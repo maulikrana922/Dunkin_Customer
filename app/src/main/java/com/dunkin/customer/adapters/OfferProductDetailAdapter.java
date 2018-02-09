@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.models.OfferProductModel;
@@ -36,7 +37,7 @@ public class OfferProductDetailAdapter extends BaseAdapter {
         this.offerIsFree = freeOffer;
         this.priceCurrency = currency;
         this.isFromOfferDetail = fromOfferDetail;
-        this.offerHappy=offerHappy;
+        this.offerHappy = offerHappy;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -115,7 +116,12 @@ public class OfferProductDetailAdapter extends BaseAdapter {
                 // Free Product Image
                 if (AppUtils.isNotNull(ofm.getOfferonproduct().getProductImage())) {
                     viewHolder.imgLogo.setVisibility(View.VISIBLE);
-                    AppUtils.setImage(viewHolder.imgLogo, ofm.getOfferonproduct().getProductImage());
+                    Glide.with(context)
+                            .load(ofm.getOfferonproduct().getProductImage())
+                            .placeholder(R.drawable.ic_loading)
+                            .error(R.drawable.ic_loading)
+                            .into(viewHolder.imgLogo);
+//                    AppUtils.setImage(viewHolder.imgLogo, ofm.getOfferonproduct().getProductImage());
                 } else
                     viewHolder.imgLogo.setVisibility(View.GONE);
 
@@ -127,15 +133,13 @@ public class OfferProductDetailAdapter extends BaseAdapter {
                     viewHolder.offerProductname.setVisibility(View.GONE);
 
                 // Free Product
-                if(offerIsFree.equals("Yes")) {
+                if (offerIsFree.equals("Yes")) {
                     if (AppUtils.isNotNull(ofm.getOfferonproduct().getBuythisproduct())) {
                         viewHolder.offerProductBuy.setVisibility(View.VISIBLE);
                         viewHolder.offerProductBuy.setText(context.getString(R.string.txt_free_type2, ofm.getOfferonproduct().getBuythisproduct()));
                     } else
                         viewHolder.offerProductBuy.setVisibility(View.GONE);
-                }
-                else if((offerIsFree.equals("No") && offerHappy.equalsIgnoreCase("Yes")))
-                {
+                } else if ((offerIsFree.equals("No") && offerHappy.equalsIgnoreCase("Yes"))) {
                     if (AppUtils.isNotNull(ofm.getOfferonproduct().getBuythisproduct())) {
                         viewHolder.offerProductBuy.setVisibility(View.VISIBLE);
                         viewHolder.offerProductBuy.setText(context.getString(R.string.num_of_buy_products2, ofm.getOfferonproduct().getBuythisproduct()));
