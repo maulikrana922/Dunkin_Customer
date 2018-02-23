@@ -71,7 +71,7 @@ public class GcmService extends GcmListenerService {
             List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
 
             if (data.getString("message").equalsIgnoreCase("Appiness Gift Successfully Sent") && taskInfo.get(0).topActivity.getClassName().contains("HomeActivity")) {
-                ((HomeActivity) HomeActivity.getCustomContext()).opendisalogofShare(data.getString("message"));
+                ((NewHomeActivity) NewHomeActivity.getCustomContext()).opendisalogofShare(data.getString("message"));
             } else {
 
                 intent = new Intent(this, SplashActivity.class);
@@ -109,7 +109,7 @@ public class GcmService extends GcmListenerService {
             List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
 
             if (taskInfo.get(0).topActivity.getClassName().contains("HomeActivity")) {
-                ((HomeActivity) HomeActivity.getCustomContext()).opendisalogofSharePointReceive(data.getString("message"));
+                ((NewHomeActivity) NewHomeActivity.getCustomContext()).opendisalogofSharePointReceive(data.getString("message"));
             } else {
 
                 intent = new Intent(this, SplashActivity.class);

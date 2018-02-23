@@ -2,6 +2,7 @@ package com.dunkin.customer.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -15,8 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
-import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -26,7 +27,8 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class RedeemFragment extends Fragment {
 
     private View rootView;
-    private SmartTabLayout tabs;
+//    private SmartTabLayout tabs;
+    private TabLayout tabs;
     private ViewPager viewPager;
     private LinearLayout scrollContainer;
     private ProgressBar progressLoad;
@@ -43,7 +45,8 @@ public class RedeemFragment extends Fragment {
 
         progressLoad = (ProgressBar) rootView.findViewById(R.id.progressLoad);
         scrollContainer = (LinearLayout) rootView.findViewById(R.id.scrollContainer);
-        tabs = (SmartTabLayout) rootView.findViewById(R.id.tabs);
+//        tabs = (SmartTabLayout) rootView.findViewById(R.id.tabs);
+        tabs = (TabLayout) rootView.findViewById(R.id.tabs);
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.mainLayout);
 
@@ -51,16 +54,22 @@ public class RedeemFragment extends Fragment {
                 R.anim.fade_in);
         mainLayout.startAnimation(animFadein);
 
-        tabs.setDistributeEvenly(true);
+//        tabs.setDistributeEvenly(true);
         progressLoad.setVisibility(View.GONE);
         scrollContainer.setVisibility(View.VISIBLE);
         pagerTitle = new String[]{getContext().getString(R.string.nav_coupons2), getContext().getString(R.string.nav_my_point)};
 
         pagerAdapter = new RedeemFragmentPagerAdapter(getChildFragmentManager());
         viewPager.setAdapter(pagerAdapter);
-        tabs.setViewPager(viewPager);
-
+//        tabs.setViewPager(viewPager);
+        tabs.setupWithViewPager(viewPager);
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((NewHomeActivity)getActivity()).setToolbarView(this);
     }
 
     private class RedeemFragmentPagerAdapter extends FragmentStatePagerAdapter {

@@ -10,11 +10,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dunkin.customer.HomeActivity;
+import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.RegisterActivity;
 import com.dunkin.customer.Utils.AppUtils;
-import com.dunkin.customer.fragments.HomeFragment;
+import com.dunkin.customer.fragments.NewHomeFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
@@ -104,8 +104,8 @@ public class ImageDialog extends Dialog {
             @Override
             public void onClick(View v) {
                 if (!FromWhere) {
-                    if (mContext instanceof HomeActivity) {
-                        ((HomeActivity) mContext).checkScanAndWin();
+                    if (mContext instanceof NewHomeActivity) {
+                        ((NewHomeActivity) mContext).checkScanAndWin();
                     }
                 } else if (FromWhere) {
                     ((Activity) mContext).startActivity(new Intent(mContext, RegisterActivity.class));
@@ -129,8 +129,8 @@ public class ImageDialog extends Dialog {
 //                    if (mContext instanceof HomeActivity) {
 //                        ((HomeActivity) mContext).checkScanAndWin();
 //                    }
-                    if ( ((HomeActivity) mContext).getSupportFragmentManager().findFragmentById(R.id.content) instanceof HomeFragment) {
-                        ((HomeFragment)  ((HomeActivity) mContext).getSupportFragmentManager().findFragmentById(R.id.content)).checkScanAndWin();
+                    if ( ((NewHomeActivity) mContext).getSupportFragmentManager().findFragmentById(R.id.content) instanceof NewHomeFragment) {
+                        ((NewHomeFragment)  ((NewHomeActivity) mContext).getSupportFragmentManager().findFragmentById(R.id.content)).checkScanAndWin();
                     }
                 } else if (FromWhere) {
                     ((Activity) mContext).startActivity(new Intent(mContext, RegisterActivity.class));

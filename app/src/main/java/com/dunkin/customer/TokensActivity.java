@@ -1,6 +1,7 @@
 package com.dunkin.customer;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -30,8 +31,9 @@ import static com.dunkin.customer.constants.AppConstants.context;
 
 public class TokensActivity extends BaseActivity {
 
-    SmartTabLayout tabs;
+//    SmartTabLayout tabs;
     ViewPager viewPager;
+    TabLayout tabs;
     private TokenAdapter tokenAdapter;
     private ProgressBar progressLoading;
     private String promo_id;
@@ -50,9 +52,9 @@ public class TokensActivity extends BaseActivity {
 
     private void initializeViews() {
         progressLoading = (ProgressBar) findViewById(R.id.progressLoad);
-
-        tabs = (SmartTabLayout) findViewById(R.id.tabs);
-        tabs.setDistributeEvenly(true);
+        tabs = (TabLayout) findViewById(R.id.tabs);
+//        tabs = (SmartTabLayout) findViewById(R.id.tabs);
+//        tabs.setDistributeEvenly(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         try {
@@ -90,7 +92,8 @@ public class TokensActivity extends BaseActivity {
                         viewPager.setAdapter(tokenAdapter);
                         viewPager.setOffscreenPageLimit(tokenModelList.size());
 
-                        tabs.setViewPager(viewPager);
+//                        tabs.setViewPager(viewPager);
+                        tabs.setupWithViewPager(viewPager);
                     } else if (jsonResponse.getInt("success") == 0) {
                         List<TokenModel> tokenModelList = AppUtils.getJsonMapper().
                                 readValue(jsonResponse.getJSONArray("ticketList").toString(),
@@ -110,7 +113,8 @@ public class TokensActivity extends BaseActivity {
                         viewPager.setAdapter(tokenAdapter);
                         viewPager.setOffscreenPageLimit(tokenModelList.size());
 
-                        tabs.setViewPager(viewPager);
+                        tabs.setupWithViewPager(viewPager);
+//                        tabs.setViewPager(viewPager);
                     } else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                     } else {

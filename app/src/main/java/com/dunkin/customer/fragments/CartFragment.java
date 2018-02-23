@@ -13,11 +13,10 @@ import android.widget.ProgressBar;
 
 import com.dunkin.customer.CartDetailActivity;
 import com.dunkin.customer.DBAdaters.DBAdapter;
-import com.dunkin.customer.HomeActivity;
+import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.adapters.CartAdapter;
-import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.models.ProductModel;
 import com.dunkin.customer.widget.RelativeLayoutButton;
 
@@ -118,7 +117,7 @@ public class CartFragment extends Fragment implements View.OnClickListener {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
-            ((HomeActivity) getActivity()).navigateAndCheckItem(AppConstants.MENU_PRODUCTS);
+            ((NewHomeActivity) getActivity()).addFragment(new CategoryFragment(), "Category");
         }
     }
 }

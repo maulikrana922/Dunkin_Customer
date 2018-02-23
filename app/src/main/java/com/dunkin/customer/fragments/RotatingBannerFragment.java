@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.dunkin.customer.HomeActivity;
+import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
@@ -75,7 +75,7 @@ public class RotatingBannerFragment extends Fragment {
         imgView = (ImageView) rootView.findViewById(R.id.imgBanner);
 
         try {
-            final FrameLayout advertisement_banner = (FrameLayout) ((HomeActivity)context).findViewById(R.id.advertisement_banner);
+            final FrameLayout advertisement_banner = (FrameLayout) ((NewHomeActivity)context).findViewById(R.id.advertisement_banner);
 
             AppController.getRotatingBanner(context, AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1), new Callback() {
                 @Override

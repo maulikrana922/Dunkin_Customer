@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.dunkin.customer.HomeActivity;
+import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
@@ -230,7 +230,7 @@ public class RateStaffFragment extends Fragment implements View.OnClickListener,
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();
-                                ((HomeActivity) getActivity()).navigateAndCheckItem(AppConstants.MENU_HOME);
+                                ((NewHomeActivity) getActivity()).addHomeFragment();
                             }
                         });
                         alert.show();

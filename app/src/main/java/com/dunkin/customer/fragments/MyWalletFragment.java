@@ -2,6 +2,7 @@ package com.dunkin.customer.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dunkin.customer.DBAdaters.DBAdapter;
+import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
@@ -25,7 +27,6 @@ import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.models.WalletModel;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,7 +39,8 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class MyWalletFragment extends Fragment {
 
-    SmartTabLayout tabs;
+//    SmartTabLayout tabs;
+    TabLayout tabs;
     ViewPager viewPager;
     private Context context;
     private WalletAdapter walletAdapter;
@@ -63,6 +65,12 @@ public class MyWalletFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        ((NewHomeActivity)getActivity()).setToolbarView(this);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_my_wallet, null);
@@ -72,8 +80,9 @@ public class MyWalletFragment extends Fragment {
         scrollContainer = (LinearLayout) rootView.findViewById(R.id.scrollContainer);
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.mainLayout);
 
-        tabs = (SmartTabLayout) rootView.findViewById(R.id.tabs);
-        tabs.setDistributeEvenly(true);
+//        tabs = (SmartTabLayout) rootView.findViewById(R.id.tabs);
+        tabs = (TabLayout) rootView.findViewById(R.id.tabs);
+//        tabs.setDistributeEvenly(true);
 
         animFadein = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.fade_in);
@@ -117,8 +126,8 @@ public class MyWalletFragment extends Fragment {
                         walletAdapter = new WalletAdapter(context, ((AppCompatActivity) context).getSupportFragmentManager(), walletModelList, remainingPoints);
                         viewPager.setAdapter(walletAdapter);
                         viewPager.setOffscreenPageLimit(walletModelList.size());
-
-                        tabs.setViewPager(viewPager);
+                        tabs.setupWithViewPager(viewPager);
+//                        tabs.setViewPager(viewPager);
                     } else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                     }else {
@@ -144,8 +153,8 @@ public class MyWalletFragment extends Fragment {
                         walletAdapter = new WalletAdapter(context, ((AppCompatActivity) context).getSupportFragmentManager(), walletModelList, remainingPoints);
                         viewPager.setAdapter(walletAdapter);
                         viewPager.setOffscreenPageLimit(walletModelList.size());
-
-                        tabs.setViewPager(viewPager);
+                        tabs.setupWithViewPager(viewPager);
+//                        tabs.setViewPager(viewPager);
                     } else {
                         scrollContainer.setVisibility(View.VISIBLE);
                         emptyView.setVisibility(View.VISIBLE);

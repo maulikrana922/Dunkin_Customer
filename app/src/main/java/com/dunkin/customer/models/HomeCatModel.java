@@ -8,7 +8,8 @@ import java.io.Serializable;
 public class HomeCatModel implements Serializable {
     private int Id;
     private String Title;
-    private String Image;
+    private String Image, HighLightImage;
+    private boolean isSelect;
 
     public int getId() {
         return Id;
@@ -32,5 +33,21 @@ public class HomeCatModel implements Serializable {
 
     public void setImage(String image) {
         Image = image;
+    }
+
+    public String getHighLightImage() {
+        return HighLightImage;
+    }
+
+    public void setHighLightImage(String highLightImage) {
+        HighLightImage = highLightImage;
+    }
+
+    public boolean isSelect() {
+        return isSelect;
+    }
+
+    public void setSelect(boolean select) {
+        isSelect = select;
     }
 }

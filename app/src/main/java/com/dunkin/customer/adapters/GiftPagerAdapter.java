@@ -36,7 +36,7 @@ public class GiftPagerAdapter extends FragmentStatePagerAdapter {
         if (titles.get(position).equals(context.getString(R.string.tab_wait_for_me))) {
             ReservedGiftFragment reservedGiftFragment = new ReservedGiftFragment();
             Bundle b = new Bundle();
-            b.putSerializable("gift", (Serializable) data.get(titles.get(position)));
+            b.putSerializable("rewards", (Serializable) data.get(titles.get(position)));
             reservedGiftFragment.setArguments(b);
             return reservedGiftFragment;
         }
@@ -44,7 +44,7 @@ public class GiftPagerAdapter extends FragmentStatePagerAdapter {
         if (titles.get(position).equals(context.getString(R.string.tab_on_the_go))) {
             NonReservedGiftFragment nonReservedGiftFragment = new NonReservedGiftFragment();
             Bundle b = new Bundle();
-            b.putSerializable("gift", (Serializable) data.get(titles.get(position)));
+            b.putSerializable("rewards", (Serializable) data.get(titles.get(position)));
             nonReservedGiftFragment.setArguments(b);
             return nonReservedGiftFragment;
         }

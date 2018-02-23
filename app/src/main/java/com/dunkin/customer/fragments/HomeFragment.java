@@ -317,7 +317,6 @@ public class HomeFragment extends Fragment {
 
                             try {
                                 dashbordModel.BottomImage = jsonResponse.getString("BottomImage").toString();
-
                                 dashbordModel.BackGroundImage= jsonResponse.getString("BackGroundImage").toString();
                                 dashbordModel.landingpageTitle= jsonResponse.getString("landingpageTitle").toString();
                                 dashbordModel.landingpageDescription= jsonResponse.getString("landingpageDescription").toString();
@@ -326,7 +325,7 @@ public class HomeFragment extends Fragment {
                                 dashbordModel.scanwinImage= jsonResponse.getString("scanwinImage").toString();
                                 dashbordModel.offerImage= jsonResponse.getString("offerImage").toString();
 
-                               HomeActivity.strUrl = dashbordModel.scanwinImage;
+                                HomeActivity.strUrl = dashbordModel.scanwinImage;
                                 HomeActivity.strOfferUrl = dashbordModel.offerImage;
                                 HomeActivity.isScanWinEnable = dashbordModel.isScanWinEnable;
                                 HomeActivity.isOfferEnable = dashbordModel.isOfferEnable;

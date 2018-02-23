@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.dunkin.customer.HomeActivity;
+import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
@@ -179,7 +179,7 @@ public class ContactUsFragment extends Fragment implements View.OnClickListener 
                                 JSONObject jsonResponse = new JSONObject((String) result);
                                 if (jsonResponse.getInt("success") == 1) {
                                     AppUtils.showToastMessage(context, getString(R.string.txt_contact_success));
-                                    ((HomeActivity) getActivity()).navigateAndCheckItem(AppConstants.MENU_HOME);
+                                    ((NewHomeActivity) getActivity()).addHomeFragment();
                                 } else if (jsonResponse.getInt("success") == 100) {
                                     AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                                 }else {

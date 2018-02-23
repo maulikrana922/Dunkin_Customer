@@ -3,6 +3,7 @@ package com.dunkin.customer;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +16,6 @@ import com.dunkin.customer.adapters.ProductListFragmentAdapter;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.models.CategoryModel;
 import com.dunkin.customer.models.ChildCatModel;
-import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
 import java.util.List;
 
@@ -32,7 +32,8 @@ public class ProductListActivity extends BaseActivity {
         TextView emptyElement = (TextView) findViewById(R.id.emptyElement);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         ProgressBar progressLoad = (ProgressBar) findViewById(R.id.progressLoad);
-        final SmartTabLayout tabsStrip = (SmartTabLayout) findViewById(R.id.tabs);
+//        final SmartTabLayout tabsStrip = (SmartTabLayout) findViewById(R.id.tabs);
+        TabLayout tabsStrip = (TabLayout) findViewById(R.id.tabs);
         LinearLayout scrollContainer = (LinearLayout) findViewById(R.id.scrollContainer);
 
         scrollContainer.setVisibility(View.VISIBLE);
@@ -50,7 +51,8 @@ public class ProductListActivity extends BaseActivity {
 
             viewPager.setAdapter(new ProductListFragmentAdapter(getSupportFragmentManager(), country_id, childCatList));
 
-            tabsStrip.setViewPager(viewPager);
+//            tabsStrip.setViewPager(viewPager);
+            tabsStrip.setupWithViewPager(viewPager);
         } else {
             progressLoad.setVisibility(View.GONE);
             emptyElement.setVisibility(View.VISIBLE);
@@ -88,7 +90,7 @@ public class ProductListActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1 && resultCode == RESULT_OK) {
             finish();
-            Intent i = new Intent(ProductListActivity.this, HomeActivity.class);
+            Intent i = new Intent(ProductListActivity.this, NewHomeActivity.class);
             i.putExtra("navigateflag", AppConstants.MENU_PRODUCTS);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);

@@ -92,7 +92,7 @@ public class AddPromocodeActivity extends BaseActivity implements View.OnClickLi
                                        public void onClick(DialogInterface dialog, int which) {
                                            dialog.cancel();
                                            finish();
-                                           Intent i = new Intent(AddPromocodeActivity.this, HomeActivity.class);
+                                           Intent i = new Intent(AddPromocodeActivity.this, NewHomeActivity.class);
                                            i.putExtra("navigateflag", AppConstants.MENU_NOTIFICATIONS);
                                            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                            startActivity(i);

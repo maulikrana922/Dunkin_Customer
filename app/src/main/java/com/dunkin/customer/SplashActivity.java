@@ -185,7 +185,7 @@ public class SplashActivity extends AppCompatActivity {
     private void getAppPermissions() {
         if (ActivityCompat.checkSelfPermission(SplashActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 || ActivityCompat.checkSelfPermission(SplashActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-                || ActivityCompat.checkSelfPermission(SplashActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                || ActivityCompat.checkSelfPermission(SplashActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(SplashActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED|| ActivityCompat.checkSelfPermission(SplashActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(SplashActivity.this, PERMISSIONS, 101);
 
@@ -213,7 +213,7 @@ public class SplashActivity extends AppCompatActivity {
 
                 if (myPrefs.getString(AppConstants.USER_EMAIL_ADDRESS, null) != null) {
 
-                    Intent i = new Intent(SplashActivity.this, HomeActivity.class);
+                    Intent i = new Intent(SplashActivity.this, NewHomeActivity.class);
                     i.putExtra("FromGCM", isFromGCM);
                     i.putExtra("MsgType", msgType);
                     startActivity(i);

@@ -19,7 +19,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.dunkin.customer.AddPromocodeActivity;
-import com.dunkin.customer.HomeActivity;
+import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.PromoListActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.SimpleScannerPromotionActivity;
@@ -39,7 +39,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.dunkin.customer.HomeActivity.isOfferEnable;
+import static com.dunkin.customer.NewHomeActivity.isOfferEnable;
 import static com.dunkin.customer.constants.AppConstants.context;
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -104,7 +104,7 @@ public class ScanFragment extends Fragment implements Animation.AnimationListene
             @Override
             public void onClick(View v) {
                 if (isOfferEnable.equalsIgnoreCase("1"))
-                    ScanAndWinDialog.newInstance(mContext, HomeActivity.strOfferUrl, true).show();
+                    ScanAndWinDialog.newInstance(mContext, NewHomeActivity.strOfferUrl, true).show();
             }
         });
 

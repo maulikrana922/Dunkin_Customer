@@ -69,5 +69,8 @@
 
     <color name="bgBackSideColor">#f4f0ff</color>
 
-
+    <color name="blue">#0077FD</color>
+    <color name="gray">#929292</color>
+    <color name="maroon">#952650</color>
+    <color name="tab_selected_color">#e26393</color>
 </resources>

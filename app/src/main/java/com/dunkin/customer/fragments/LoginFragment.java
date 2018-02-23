@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.dunkin.customer.HomeActivity;
+import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
@@ -134,7 +134,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                                     NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                                     notificationManager.cancelAll();
 
-                                    startActivity(new Intent(context, HomeActivity.class));
+                                    startActivity(new Intent(context, NewHomeActivity.class));
                                     ((Activity) context).finish();
                                 }
                                 if (jsonResponse.getInt("success") == 100) {
