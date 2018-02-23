@@ -324,7 +324,7 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
         alert.create().show();
     }
 
-    private void addGift(GiftModel gift){
+    private void addGift(final GiftModel gift){
         String tempString1, tempString2;
         if (gift.getPoints().contains(","))
             tempString1 = gift.getPoints().replaceAll(",", "");
@@ -377,6 +377,8 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                                 AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                             }
                             points = jsonResponse.getString("remainingPoint");
+                            restid = 0;
+                            GiftFragment.this.gift = null;
                         }
                     });
                 } catch (UnsupportedEncodingException e) {
@@ -391,5 +393,32 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
     @Override
     public void onGiftConfirm(GiftModel gift) {
         this.gift = gift;
+        try {
+            AppController.getRestaurantList(context, true, new Callback() {
+                @Override
+                public void run(Object result) throws JSONException, IOException {
+
+                    JSONObject jsonResponse = new JSONObject((String) result);
+                    //Dunkin_Log.i("DataResponse", jsonResponse.toString());
+                    if (jsonResponse.getInt("success") == 1) {
+
+                        restaurantList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("restaurantList").toString(), new TypeReference<List<RestaurantModel>>() {
+                        });
+
+                        restaurantAdapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, restaurantList);
+
+                        openDialog(getString(R.string.txt_select_restaurant));
+                    } else if (jsonResponse.getInt("success") == 100) {
+                        AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                    }else {
+                        if(jsonResponse.getInt("success") != 99) {
+                            AppUtils.showToastMessage(context, getString(R.string.system_error));
+                        }
+                    }
+                }
+            });
+        } catch (JSONException | UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 }
