@@ -21,6 +21,7 @@ import com.dunkin.customer.Utils.Callback;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.fragments.GiftFragment;
+import com.dunkin.customer.listener.OnGiftClick;
 import com.dunkin.customer.models.GiftModel;
 
 import org.json.JSONException;
@@ -37,13 +38,15 @@ public class GiftAdapter extends BaseAdapter {
     private Context context;
     private GiftFragment giftFragment;
     private int screenWidth, screenHeight;
+    private OnGiftClick onGiftClick;
 
-    public GiftAdapter(Context context, List<GiftModel> giftModelList, String userPoints, GiftFragment giftFragment) {
+    public GiftAdapter(Context context, List<GiftModel> giftModelList, String userPoints, GiftFragment giftFragment, OnGiftClick onGiftClick) {
         this.giftModelList = giftModelList;
         this.giftFragment = giftFragment;
         this.userPoints = userPoints;
         this.context = context;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.onGiftClick = onGiftClick;
 
         Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
         screenWidth = display.getWidth();
@@ -70,7 +73,7 @@ public class GiftAdapter extends BaseAdapter {
 
         final GiftModel gift = (GiftModel) getItem(position);
 
-        ViewHolder viewHolder;
+        final ViewHolder viewHolder;
 
         if (convertView == null) {
             viewHolder = new ViewHolder();
@@ -121,69 +124,8 @@ public class GiftAdapter extends BaseAdapter {
                 alert.setPositiveButton(context.getString(R.string.al_yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
-                        String tempString1, tempString2;
-                        if (gift.getPoints().contains(","))
-                            tempString1 = gift.getPoints().replaceAll(",", "");
-                        else
-                            tempString1 = gift.getPoints();
-
-                        if (userPoints.contains(","))
-                            tempString2 = userPoints.replaceAll(",", "");
-                        else
-                            tempString2 = userPoints;
-
-                        if (Double.parseDouble(tempString1) > Double.parseDouble(tempString2)) {
-                            AppUtils.showToastMessage(context, context.getString(R.string.txt_gift_reserve_success_2));
-                        } else {
-                            final JSONObject jsonRequest = new JSONObject();
-                            try {
-                                jsonRequest.put("email", AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, ""));
-                                jsonRequest.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1));
-                                jsonRequest.put("gift_id", gift.getGiftId());
-                                jsonRequest.put("gift_point", gift.getPoints());
-                                jsonRequest.put("gift_type", gift.getGiftType());
-                                jsonRequest.put("restaurant_id", GiftFragment.restid);
-                                jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
-
-                                try {
-                                    AppController.postGiftData(context, jsonRequest.toString(), new Callback() {
-                                        @Override
-                                        public void run(Object result) throws JSONException, IOException {
-
-                                            JSONObject jsonResponse = new JSONObject((String) result);
-                                            //Dunkin_Log.d("DataResponse", jsonResponse.toString());
-                                            if (jsonResponse.getInt("success") == 0) {
-                                                AppUtils.showToastMessage(context, context.getString(R.string.txt_gift_reserve_success_0));
-                                            }
-
-                                            if (jsonResponse.getInt("success") == 1) {
-                                                AppUtils.showToastMessage(context, context.getString(R.string.txt_gift_reserve_success_1));
-                                            }
-
-                                            if (jsonResponse.getInt("success") == 2) {
-                                                AppUtils.showToastMessage(context, context.getString(R.string.txt_gift_reserve_success_2));
-                                            }
-
-                                            if (jsonResponse.getInt("success") == 4) {
-                                                //AppUtils.showErrorDialog(context, jsonResponse.getString("message"));
-                                                AppUtils.showErrorDialog(context, context.getString(R.string.msg_gift_quantity_not_avail));
-                                                //((HomeActivity)context).navigate(AppConstants.MENU_GIFT_STORE, 0);
-                                            }
-                                            if (jsonResponse.getInt("success") == 100) {
-                                                AppUtils.showToastMessage(context, jsonResponse.getString("message"));
-                                            }
-                                            userPoints = jsonResponse.getString("remainingPoint");
-                                            giftFragment.updateUserPoint(userPoints);
-                                            notifyDataSetChanged();
-                                        }
-                                    });
-                                } catch (UnsupportedEncodingException e) {
-                                    e.printStackTrace();
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+                        if(onGiftClick != null){
+                            onGiftClick.onGiftConfirm(gift);
                         }
                     }
                 });

@@ -329,4 +329,9 @@
     <string name="empty_point">الرجاء إدخال نقطة</string>
     <string name="hurray">Hurrayyyyy</string>
     <string name="view">رأي</string>
+    <string name="home">Home</string>
+    <string name="rewards">Rewards</string>
+    <string name="offers">Offers</string>
+    <string name="pay">Pay</string>
+    <string name="more">More</string>
 </resources>

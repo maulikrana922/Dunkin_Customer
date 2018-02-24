@@ -18,6 +18,10 @@ public class DashbordModel {
     public String isOfferEnable;
     public String scanwinImage;
     public String offerImage;
+    public String tabColor, tabHighlightColor, MenuImage;
+    public UpdateApp updateApp;
+    public AppMessage appMessage;
+    public UserDetail userDetail;
 //    public UserDetail userDetail;
 //    public UpdateApp updateApp;
     

@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.dunkin.customer.HomeActivity;
+import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.SimpleScannerActivity;
 import com.dunkin.customer.Utils.Callback;
@@ -111,7 +110,7 @@ public class ScanAndWinFragment extends Fragment {
             @Override
             public void onClick(View v) {
 //                ScanAndWinDialog.this.dismiss();
-                ((HomeActivity) mContext).navigate(AppConstants.MENU_HOME);
+                ((NewHomeActivity) mContext).addHomeFragment();
             }
         });
 

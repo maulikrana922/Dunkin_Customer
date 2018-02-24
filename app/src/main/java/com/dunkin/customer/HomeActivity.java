@@ -278,7 +278,7 @@ public class HomeActivity extends AppCompatActivity {
                                     navigationList.add(new NavDrawerModel(AppConstants.MENU_CREDIT_CARD, R.drawable.ic_nav_refill, getString(R.string.nav_manage_card), false));
                             }
 
-                            // "gift appiness"
+                            // "rewards appiness"
                             if (valueSet.containsKey(29)) {
                                 if (isDynamic)
                                     navigationList.add(new NavDrawerModel(AppConstants.MENU_GIFT_APPINESS, R.drawable.ic_gift_appiness, valueSet.get(29), false));

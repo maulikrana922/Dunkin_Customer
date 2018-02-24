@@ -2,6 +2,7 @@ package com.dunkin.customer.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -21,7 +22,8 @@ import com.ogaclejapan.smarttablayout.SmartTabLayout;
 public class RedeemPointFragment extends Fragment {
 
     private View rootView;
-    private SmartTabLayout tabs;
+//    private SmartTabLayout tabs;
+    private TabLayout tabs;
     private ViewPager viewPager;
     private LinearLayout scrollContainer;
     private ProgressBar progressLoad;
@@ -37,18 +39,19 @@ public class RedeemPointFragment extends Fragment {
 
         progressLoad = (ProgressBar) rootView.findViewById(R.id.progressLoad);
         scrollContainer = (LinearLayout) rootView.findViewById(R.id.scrollContainer);
-        tabs = (SmartTabLayout) rootView.findViewById(R.id.tabs);
+//        tabs = (SmartTabLayout) rootView.findViewById(R.id.tabs);
+        tabs = (TabLayout) rootView.findViewById(R.id.tabs);
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
 
-        tabs.setDistributeEvenly(true);
+//        tabs.setDistributeEvenly(true);
         progressLoad.setVisibility(View.GONE);
         scrollContainer.setVisibility(View.VISIBLE);
         pagerTitle = new String[]{getContext().getString(R.string.tab_point_1), getContext().getString(R.string.tab_point_3)};
 
         pagerAdapter = new PointFragmentPagerAdapter(getChildFragmentManager());
         viewPager.setAdapter(pagerAdapter);
-        tabs.setViewPager(viewPager);
-
+//        tabs.setViewPager(viewPager);
+        tabs.setupWithViewPager(viewPager);
         return rootView;
     }
 

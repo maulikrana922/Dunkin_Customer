@@ -17,10 +17,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.dunkin.customer.HomeActivity;
+import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
-import com.dunkin.customer.constants.AppConstants;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -84,7 +83,7 @@ public class WinStatusDialog extends DialogFragment {
             @Override
             public void onClick(View v) {
                 WinStatusDialog.this.dismiss();
-                ((HomeActivity) mContext).navigate(AppConstants.MENU_HOME);
+                ((NewHomeActivity) mContext).addHomeFragment();
             }
         });
 
@@ -92,7 +91,7 @@ public class WinStatusDialog extends DialogFragment {
             @Override
             public void onClick(View v) {
                 WinStatusDialog.this.dismiss();
-                ((HomeActivity) mContext).navigate(AppConstants.MENU_HOME);
+                ((NewHomeActivity) mContext).addHomeFragment();
             }
         });
 
@@ -111,7 +110,7 @@ public class WinStatusDialog extends DialogFragment {
 
     @Override
     public void onDetach() {
-        ((HomeActivity) mContext).navigate(AppConstants.MENU_HOME);
+        ((NewHomeActivity) mContext).addHomeFragment();
         super.onDetach();
     }
 
@@ -167,7 +166,7 @@ public class WinStatusDialog extends DialogFragment {
     @Override
     public void dismiss() {
         // TODO Auto-generated method stub
-        ((HomeActivity) mContext).navigate(AppConstants.MENU_HOME);
+        ((NewHomeActivity) mContext).addHomeFragment();
         super.dismiss();
         System.gc();
     }

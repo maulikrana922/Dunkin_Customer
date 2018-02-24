@@ -17,7 +17,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dunkin.customer.HomeActivity;
+import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.SimpleScannerActivity;
 import com.dunkin.customer.Utils.AppUtils;
@@ -91,14 +91,14 @@ public class ScanAndWinDialog extends Dialog {
             @Override
             public void onClick(View v) {
                 if (!isForScan) {
-                    if (mContext instanceof HomeActivity) {
-                        ((HomeActivity) mContext).setScanImage();
+                    if (mContext instanceof NewHomeActivity) {
+                        ((NewHomeActivity) mContext).setScanImage();
                     }
                 } else if (isForScan) {
                     if (ActivityCompat.checkSelfPermission(mContext,
                             android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
-                        ActivityCompat.requestPermissions((HomeActivity) mContext, permsCamera, CAMERA_PERMISSION_REQUEST);
+                        ActivityCompat.requestPermissions((NewHomeActivity) mContext, permsCamera, CAMERA_PERMISSION_REQUEST);
                     } else {
                         ((Activity) mContext).startActivityForResult(new Intent(AppConstants.context, SimpleScannerActivity.class), SCANNER_REQUEST_CODE);
                     }
@@ -121,14 +121,14 @@ public class ScanAndWinDialog extends Dialog {
                     SharedPreferences.Editor editor = AppUtils.getAppPreference(context).edit();
                     editor.putBoolean(AppConstants.USER_SCAN_RESULT, true);
                     editor.apply();
-//                    if (mContext instanceof HomeActivity) {
-//                        ((HomeActivity) mContext).setScanImage();
+//                    if (mContext instanceof HomeActivity1) {
+//                        ((HomeActivity1) mContext).setScanImage();
 //                    }
                 } else if (isForScan) {
                     if (ActivityCompat.checkSelfPermission(mContext,
                             android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
-                        ActivityCompat.requestPermissions((HomeActivity) mContext, permsCamera, CAMERA_PERMISSION_REQUEST);
+                        ActivityCompat.requestPermissions((NewHomeActivity) mContext, permsCamera, CAMERA_PERMISSION_REQUEST);
                     } else {
                         ((Activity) mContext).startActivityForResult(new Intent(AppConstants.context, SimpleScannerActivity.class), SCANNER_REQUEST_CODE);
                     }
@@ -245,8 +245,8 @@ public class ScanAndWinDialog extends Dialog {
         SharedPreferences.Editor editor = AppUtils.getAppPreference(context).edit();
         editor.putBoolean(AppConstants.USER_SCAN_RESULT, true);
         editor.apply();
-        if (mContext instanceof HomeActivity) {
-            ((HomeActivity) mContext).setScanImage();
+        if (mContext instanceof NewHomeActivity) {
+            ((NewHomeActivity) mContext).setScanImage();
         }
         super.dismiss();
         System.gc();

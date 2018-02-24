@@ -59,6 +59,7 @@ public class URLConstant {
     public static final String GET_CELEBRATION_LIST =  "catalogCelebration";
     public static final String GET_CELEBRATION_DETAIL =  "specificCelebration";
     public static final String GET_GIFTS_LIST =  "catalogGift";
+    public static final String GET_ALL_GIFTS_LIST =  "catalogAllGift";
     public static final String GET_FIRST_SCRATCH_CARD =  "pickGameAttend";
     public static final String GET_CATEGORY_LIST =  "gainCategoryChild";
     public static final String GET_PRODUCT_FROM_CATEGORY =  "gainCategoryByProduct";
@@ -80,7 +81,7 @@ public class URLConstant {
     public static final String COUNTER_ORDER_DETAIL =  "specificOrderCounter";
     public static final String MAKE_PAYMENT_FOR_COUNTER_ORDER =  "orderCounterClearance";
     public static final String HOME_PAGE_URL =  "gainDashboard";
-    public static final String DASHBORD_PAGE_URL =  "mainDashboard";
+    public static final String DASHBORD_PAGE_URL =  "fethAppMessage";
     public static final String OFFER_PURCHASE_DETAIL_URL =  "pickOfferClearance";
     public static final String MAKE_OFFER_PAYMENT_URL =  "offerClearance";
     public static final String OFFER_HISTORY_URL =  "catalogOfferClearance";

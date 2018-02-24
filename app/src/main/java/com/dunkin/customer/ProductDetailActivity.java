@@ -285,7 +285,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1 && resultCode == RESULT_OK) {
             finish();
-            Intent i = new Intent(ProductDetailActivity.this, HomeActivity.class);
+            Intent i = new Intent(ProductDetailActivity.this, NewHomeActivity.class);
             i.putExtra("navigateflag", AppConstants.MENU_PRODUCTS);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);

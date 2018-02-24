@@ -2,11 +2,24 @@
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
+    android:layout_height="35dp"
     android:background="@drawable/ic_toolbar_bg"
-    android:minHeight="?attr/actionBarSize"
+    local:contentInsetStart="0dp"
+    local:contentInsetLeft="0dp"
     local:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <ImageView
+        android:id="@+id/ivBack"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_nav_back"
+        android:contentDescription="@string/app_name"
+        android:paddingStart="@dimen/ten_dp"
+        android:paddingEnd="@dimen/ten_dp"
+        android:paddingRight="@dimen/ten_dp"
+        android:paddingLeft="@dimen/ten_dp"
+        android:visibility="visible"/>
 
     <ImageView
         android:id="@+id/brandLogo"
@@ -17,6 +30,19 @@
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_top_logo" />
+
+    <ImageView
+        android:id="@+id/ivDone"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:layout_gravity="end"
+        android:src="@drawable/ic_done"
+        android:paddingStart="@dimen/ten_dp"
+        android:paddingEnd="@dimen/ten_dp"
+        android:paddingRight="@dimen/ten_dp"
+        android:paddingLeft="@dimen/ten_dp"
+        android:visibility="gone"/>
 
     <com.dunkin.customer.widget.CustomTextView
         android:id="@+id/toolbar_title"

@@ -3,7 +3,7 @@
     <string name="app_name" translatable="false">Dunkin Leb</string>
     <string name="facebook_app_id" translatable="false">673553769448453</string>
     <string name="google_app_id" translatable="false">AIzaSyAHzEEEadS4uCmVkeLS8mazKMIHfnt62-I</string>
-    <string name="lbl_app_version" translatable="false">V2.5.020218</string>
+    <string name="lbl_app_version" translatable="false">V2.5.23022018</string>
     <!--<string name="lbl_consulting_website" translatable="false">www.MindSource-Consulting.com - All Rights Reserved - Copyright © 2016</string>-->
     <string name="lbl_consulting_website" translatable="false">Meeting Point &amp; MindSource Consulting Copyright © 2018</string>
     <string name="strp">Mind#S@urce#@201</string>
@@ -481,4 +481,11 @@
     <string name="enter_valid_email">Please enter valid email address</string>
     <string name="enter_valid_phone">Please enter valid phone number</string>
     <string name="give_rate_question">Please give rate to all question</string>
+    <string name="home">Home</string>
+    <string name="rewards">Rewards</string>
+    <string name="offers">Offers</string>
+    <string name="pay">Pay</string>
+    <string name="more">More</string>
+    <string name="select_gift">Please select gift</string>
+    <string name="select_branch">Please select branch</string>
 </resources>

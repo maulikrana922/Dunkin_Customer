@@ -28,7 +28,7 @@ public class NonReservedGiftFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        giftList = (List<GiftModel>) getArguments().getSerializable("gift");
+        giftList = (List<GiftModel>) getArguments().getSerializable("rewards");
 
         rootView = inflater.inflate(R.layout.cat_gridview, container, false);
 
@@ -36,7 +36,7 @@ public class NonReservedGiftFragment extends Fragment {
 
         GridView listView = (GridView) rootView.findViewById(R.id.grid_view);
         rootView.findViewById(R.id.progressLoad).setVisibility(View.GONE);
-        giftAdapter = new GiftAdapter(getActivity(), giftList, parentFragment.getUserPoints(), parentFragment);
+        giftAdapter = new GiftAdapter(getActivity(), giftList, parentFragment.getUserPoints(), parentFragment, parentFragment);
         listView.setAdapter(giftAdapter);
         listView.setEmptyView(rootView.findViewById(R.id.emptyElement));
         return rootView;

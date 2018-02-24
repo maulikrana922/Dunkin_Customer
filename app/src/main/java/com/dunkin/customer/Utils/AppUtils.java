@@ -27,7 +27,7 @@ import android.widget.Toast;
 
 import com.dunkin.customer.CartActivity;
 import com.dunkin.customer.DBAdaters.DBAdapter;
-import com.dunkin.customer.HomeActivity;
+import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.adapters.ToppingAdapter;
 import com.dunkin.customer.constants.AppConstants;
@@ -240,12 +240,7 @@ public class AppUtils {
     }
 
     public static boolean isNotNull(String str) {
-        return !(str == null ||
-                str.equalsIgnoreCase("null") ||
-                str.equalsIgnoreCase("") ||
-                str.equalsIgnoreCase(" ") ||
-                str.equalsIgnoreCase(null) ||
-                str.trim().length() == 0);
+        return !TextUtils.isEmpty(str);
     }
 
     //MAKE REQUEST CALL
@@ -824,7 +819,7 @@ public class AppUtils {
     }
 
     public static void setImage(final ImageView imgView, String URL) {
-        if (!URL.isEmpty()) {
+        if (!TextUtils.isEmpty(URL)) {
             ImageLoader.getInstance().displayImage(URL, imgView, options, new ImageLoadingListener() {
                 @Override
                 public void onLoadingStarted(String imageUri, View view) {
@@ -854,7 +849,7 @@ public class AppUtils {
     }
 
     public static void setImage1(final ImageView imgView, String URL) {
-        if (!URL.isEmpty()) {
+        if (!TextUtils.isEmpty(URL)) {
             ImageLoader.getInstance().displayImage(URL, imgView, options, new ImageLoadingListener() {
                 @Override
                 public void onLoadingStarted(String imageUri, View view) {
@@ -890,7 +885,7 @@ public class AppUtils {
     }
 
     public static void setScanImage(final ImageView imgView, String URL) {
-        if (!URL.isEmpty()) {
+        if (!TextUtils.isEmpty(URL)) {
             ImageLoader.getInstance().displayImage(URL, imgView, optionScanDialog, new ImageLoadingListener() {
                 @Override
                 public void onLoadingStarted(String imageUri, View view) {
@@ -1128,8 +1123,8 @@ public class AppUtils {
                 // TO update the cart list
                 if (context instanceof CartActivity) {
                     ((CartActivity) context).getDataFromAPI();
-                } else if (context instanceof HomeActivity) {
-                    List<Fragment> fragments = ((HomeActivity) context).getSupportFragmentManager().getFragments();
+                } else if (context instanceof NewHomeActivity) {
+                    List<Fragment> fragments = ((NewHomeActivity) context).getSupportFragmentManager().getFragments();
                     for (Fragment fg : fragments) {
                         if (fg instanceof CartFragment && fg.isVisible()) {
                             ((CartFragment) fg).getDataFromAPI();

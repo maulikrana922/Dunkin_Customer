@@ -90,6 +90,10 @@
             android:configChanges="locale|screenSize"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".NewHomeActivity"
+            android:configChanges="locale|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".RegisterActivity"
             android:configChanges="locale|screenSize"
             android:screenOrientation="portrait" />

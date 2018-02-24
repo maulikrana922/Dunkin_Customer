@@ -235,6 +235,22 @@ public class AppController {
         AppUtils.requestCallAsyncTask(context, URLConstant.GET_GIFTS_LIST, se, true, callback);
     }
 
+    //GET ALL GIFTS LIST
+    public static void getAllGiftsList(Context context, int country_id, Callback callback) throws JSONException, UnsupportedEncodingException {
+        JSONObject jsonRequest = new JSONObject();
+        jsonRequest.put("country_id", country_id);
+        jsonRequest.put("email", AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, ""));
+        jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
+        // Dunkin_Log.e("DataRequest", jsonRequest.toString());
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_ALL_GIFTS_LIST, se, true, callback);
+    }
+
+    public static void getWeatherInfo(Context context, Callback callback) throws UnsupportedEncodingException, JSONException {
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity("", AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, URLConstant.SCAN_AND_WIN, se, false, callback);
+    }
+
     //GET OFFERS LIST
     public static void getOffersList(Context context, int country_id, Callback callback) throws JSONException, UnsupportedEncodingException {
         JSONObject jsonRequest = new JSONObject();
