@@ -31,7 +31,7 @@
 -dontwarn android.webkit.WebView
 -dontwarn android.net.http.SslError
 -dontwarn android.webkit.WebViewClient
-
+-dontwarn okio.**
 
 -keepattributes Annotation,EnclosingMethod,Signature
 
@@ -57,4 +57,3 @@
 -keep class com.fasterxml.jackson.databind.ObjectWriter {
     public ** writeValueAsString(**);
 }
-
