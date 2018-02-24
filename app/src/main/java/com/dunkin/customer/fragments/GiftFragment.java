@@ -377,8 +377,10 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                                 AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                             }
                             points = jsonResponse.getString("remainingPoint");
+                            updateUserPoint(points);
                             restid = 0;
                             GiftFragment.this.gift = null;
+                            spSelectRestaurant.setText(context.getString(R.string.txt_chose_location));
                         }
                     });
                 } catch (UnsupportedEncodingException e) {
