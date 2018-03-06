@@ -488,4 +488,7 @@
     <string name="more">More</string>
     <string name="select_gift">Please select gift</string>
     <string name="select_branch">Please select branch</string>
+    <string name="txt_hint_enter_feedback_here">Enter Feedback Here</string>
+    <string name="login">login</string>
+    <string name="txt_loyalty">Join our Loyalty Program, Collect points, Pay with your Collected Point or Pay in-App Cash, Redeem &amp; get Amazing Rewards</string>
 </resources>

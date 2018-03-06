@@ -103,10 +103,60 @@
                     android:layout_toRightOf="@+id/linear1"
                     android:background="@drawable/textbox_border_bg"
                     android:gravity="center_vertical"
-                    android:imeOptions="actionDone"
+                    android:imeOptions="actionNext"
                     android:inputType="text"
                     android:hint="@string/txt_hint_email_phone"
                     android:maxLines="1"
+                    android:minHeight="@dimen/ed_textbox_height"
+
+                    android:paddingEnd="@dimen/spacing_large"
+                    android:paddingLeft="@dimen/spacing_large"
+                    android:paddingRight="@dimen/spacing_large"
+                    android:paddingStart="@dimen/spacing_large"
+                    android:paddingTop="@dimen/spacing_medium"
+
+                    android:textColor="@color/profile_font"
+                    android:textColorHint="@color/profile_font"
+                    app:fontName="dd_light.ttf" />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:background="@color/colorPrimary"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <RelativeLayout
+                    android:id="@+id/linear2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@color/colorPrimary">
+
+                    <ImageView
+                        android:layout_width="@dimen/ed_textbox_height"
+                        android:layout_height="@dimen/ed_textbox_height"
+                        android:layout_alignParentTop="true"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/ic_ed_email_icon" />
+                </RelativeLayout>
+
+
+                <com.dunkin.customer.widget.CustomEditText
+                    android:id="@+id/etFeedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/textbox_border_bg"
+                    android:gravity="top|left"
+                    android:imeOptions="actionDone"
+                    android:inputType="textMultiLine"
+                    android:hint="@string/txt_hint_enter_feedback_here"
+                    android:maxLines="6"
+                    android:minLines="6"
+                    android:paddingTop="10dp"
                     android:minHeight="@dimen/ed_textbox_height"
                     android:paddingEnd="@dimen/spacing_large"
                     android:paddingLeft="@dimen/spacing_large"
@@ -115,7 +165,8 @@
                     android:textColor="@color/profile_font"
                     android:textColorHint="@color/profile_font"
                     app:fontName="dd_light.ttf" />
-            </RelativeLayout>
+            </LinearLayout>
+
 
             <ProgressBar
                 android:id="@+id/progressLoad"

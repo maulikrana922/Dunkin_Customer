@@ -42,7 +42,7 @@ public class RateStaffFragment extends Fragment implements View.OnClickListener,
 
     private Context context;
     private ListView lvRatings;
-    private EditText etEmail;
+    private EditText etEmail,etFeedback;
     private TextView spSelectRestaurant, tvTotalCount;
     private List<CatalogQuestionModel> catalogQuestionModelList;
     private List<RestaurantModel> restaurantList;
@@ -70,6 +70,7 @@ public class RateStaffFragment extends Fragment implements View.OnClickListener,
 
         lvRatings = (ListView) rootView.findViewById(R.id.lvRatings);
         etEmail = (EditText) rootView.findViewById(R.id.etEmail);
+        etFeedback=(EditText)rootView.findViewById(R.id.etFeedback);
         tvTotalCount = (TextView) rootView.findViewById(R.id.tvTotalCount);
         tvTotalCount.setText(totalRate + " / " + 100);
         progressLoading = (ProgressBar) rootView.findViewById(R.id.progressLoad);
@@ -206,6 +207,7 @@ public class RateStaffFragment extends Fragment implements View.OnClickListener,
             jsonRequest.put("restaurant_id", String.valueOf(restaurantModel.getRestaurantId()));
             jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
             jsonRequest.put("userscan", etEmail.getText().toString().trim());
+            jsonRequest.put("message", etFeedback.getText().toString().trim());
             int j = 1;
             for (int i = 0; i < updatedRatingList.size(); i++) {
                 jsonRequest.put("title" + j, updatedRatingList.get(i).getQueTitle());

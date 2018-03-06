@@ -8,6 +8,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -46,14 +47,14 @@ public class AddPromocodeActivity extends BaseActivity implements View.OnClickLi
 
     private void initializeViews() {
         edPromoCode = (EditText) findViewById(R.id.edPromoCode);
-        RelativeLayoutButton btnSubmit = (RelativeLayoutButton) findViewById(R.id.btnSubmit);
+        Button btnSubmit = (Button) findViewById(R.id.btnSubmit);
         mianLayout = (LinearLayout) findViewById(R.id.mianLayout);
 
         animFadein = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.fade_in);
         mianLayout.startAnimation(animFadein);
-        btnSubmit.btnText.setText(getString(R.string.btn_submit));
-        btnSubmit.imgIcon.setImageResource(R.drawable.ic_white_submit);
+//        btnSubmit.btnText.setText(getString(R.string.btn_submit));
+//        btnSubmit.imgIcon.setImageResource(R.drawable.ic_white_submit);
         btnSubmit.setOnClickListener(AddPromocodeActivity.this);
 
         LinearLayout.LayoutParams layoutParams =

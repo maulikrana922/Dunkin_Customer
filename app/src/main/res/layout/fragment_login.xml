@@ -3,143 +3,176 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/app_bg"
+    android:background="@drawable/bg"
     android:orientation="vertical">
 
-    <ScrollView
-        android:id="@+id/registerScroll"
+    <LinearLayout
+        android:id="@+id/llLoginSignUp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/spacing_xlarge"
-        android:scrollbars="none">
+        android:background="@drawable/bg_small"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_pop"
+            android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/spacing_xlarge"
-                android:src="@drawable/ic_login_icon" />
 
-            <LinearLayout
+            <ScrollView
+                android:id="@+id/registerScroll"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/ed_textbox_height"
-                android:layout_marginTop="@dimen/spacing_large"
-                android:background="@color/textbox_bg"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/spacing_xlarge"
+                android:scrollbars="none">
 
-                <ImageView
-
-                    android:layout_width="@dimen/ed_textbox_height"
-                    android:layout_height="@dimen/ed_textbox_height"
-                    android:background="@drawable/ic_ed_email_login_icon"
-                    android:scaleType="fitXY"
-
-                    />
-
-                <com.dunkin.customer.widget.CustomEditText
-                    android:id="@+id/edEmail"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/ed_textbox_height"
-                    android:background="@color/textbox_bg"
-                    android:gravity="center_vertical"
-                    android:hint="@string/hint_email"
-                    android:inputType="textWebEmailAddress"
-                    android:paddingEnd="@dimen/spacing_large"
-                    android:paddingLeft="@dimen/spacing_large"
-                    android:paddingRight="@dimen/spacing_large"
-                    android:paddingStart="@dimen/spacing_large"
-                    android:textColor="@color/textbox_font"
-                    android:textColorHint="@color/textbox_font"
-                    app:fontName="dd_light.ttf" />
-            </LinearLayout>
-
-
-            <!-- FOR PASSWORD -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/ed_textbox_height"
-                android:layout_marginTop="@dimen/spacing_xsmall"
-                android:background="@color/textbox_bg"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="@dimen/ed_textbox_height"
-                    android:layout_height="@dimen/ed_textbox_height"
-                    android:background="@drawable/ic_ed_password_icon"
-                    android:scaleType="fitXY"
-
-                    />
-
-                <com.dunkin.customer.widget.CustomEditText
-                    android:id="@+id/edPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/ed_textbox_height"
-                    android:background="@color/textbox_bg"
-                    android:gravity="center_vertical|start|left"
-                    android:hint="@string/hint_password"
-                    android:inputType="textPassword"
-                    android:paddingEnd="@dimen/spacing_large"
-                    android:paddingLeft="@dimen/spacing_large"
-                    android:paddingRight="@dimen/spacing_large"
-                    android:paddingStart="@dimen/spacing_large"
-                    android:textColor="@color/textbox_font"
-                    android:textColorHint="@color/textbox_font"
-                    app:fontName="dd_light.ttf" />
-            </LinearLayout>
-
-            <com.dunkin.customer.widget.CustomTextView
-                android:id="@+id/txtForgotPass"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_medium"
-                android:gravity="right|end"
-                android:text="@string/txt_forgot_pass"
-                android:textColor="@color/textbox_font"
-                app:fontName="dd_bold.ttf" />
-
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_large"
-                android:orientation="horizontal">
-
-                <include
-                    android:id="@+id/btnLogin"
-                    layout="@layout/rl_button"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:clickable="true" />
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                <com.dunkin.customer.widget.CustomTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/txt_or"
-                    android:textColor="@color/textbox_font"
-                    android:textStyle="bold"
-                    app:fontName="dd_light.ttf" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/spacing_xlarge"
+                        android:src="@drawable/lock_ic" />
 
 
-                <include
-                    android:id="@+id/btnSignup"
-                    layout="@layout/rl_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true" />
+                    <com.dunkin.customer.widget.CustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/txt_loyalty"
+                        android:padding="10dp"
+                        android:textColor="@color/textbox_font_pink_new"
+                        android:textStyle="bold"
+                        app:fontName="dd_light.ttf"
+                        android:gravity="center_horizontal"/>
 
-            </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_large"
+                        android:orientation="horizontal">
+
+                        <ImageView
+
+                            android:layout_width="@dimen/ed_textbox_height"
+                            android:layout_height="@dimen/ed_textbox_height"
+                            android:background="@drawable/ic_user"
+                            android:scaleType="fitXY"
+
+                            />
+
+                        <com.dunkin.customer.widget.CustomEditText
+                            android:id="@+id/edEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ed_textbox_height"
+                            android:background="@drawable/fill"
+                            android:gravity="center_vertical"
+                            android:hint="@string/hint_email"
+                            android:inputType="textWebEmailAddress"
+                            android:paddingEnd="@dimen/spacing_large"
+                            android:paddingLeft="@dimen/spacing_large"
+                            android:paddingRight="@dimen/spacing_large"
+                            android:paddingStart="@dimen/spacing_large"
+                            android:textColor="@color/textbox_font"
+                            android:textColorHint="@color/textbox_font"
+                            app:fontName="dd_light.ttf" />
+                    </LinearLayout>
+
+
+                    <!-- FOR PASSWORD -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_xsmall"
+
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/ed_textbox_height"
+                            android:layout_height="@dimen/ed_textbox_height"
+                            android:background="@drawable/ic_pwd"
+                            android:scaleType="fitXY"
+
+                            />
+
+                        <com.dunkin.customer.widget.CustomEditText
+                            android:id="@+id/edPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ed_textbox_height"
+                            android:background="@drawable/fill"
+                            android:gravity="center_vertical|start|left"
+                            android:hint="@string/hint_password"
+                            android:inputType="textPassword"
+                            android:paddingEnd="@dimen/spacing_large"
+                            android:paddingLeft="@dimen/spacing_large"
+                            android:paddingRight="@dimen/spacing_large"
+                            android:paddingStart="@dimen/spacing_large"
+                            android:textColor="@color/textbox_font"
+                            android:textColorHint="@color/textbox_font"
+                            app:fontName="dd_light.ttf" />
+                    </LinearLayout>
+
+                    <com.dunkin.customer.widget.CustomTextView
+                        android:id="@+id/txtForgotPass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:gravity="right|end"
+                        android:text="@string/txt_forgot_pass"
+                        android:textColor="@color/textbox_font_pink_new"
+                        app:fontName="dd_bold.ttf" />
+
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_large"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal">
+
+                        <Button
+                            android:id="@+id/btnLogin"
+                            android:background="@drawable/btn_small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/textbox_font"
+                            android:text="@string/btn_signin" />
+
+                        <com.dunkin.customer.widget.CustomTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="@string/txt_or"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/textbox_font_pink_new"
+                            android:textStyle="bold"
+                            android:textSize="30dp"
+                            android:textAllCaps="true"
+                            app:fontName="dd_bold.ttf" />
+
+                        <Button
+                            android:id="@+id/btnSignup"
+                            android:background="@drawable/btn_small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/textbox_font"
+                            android:text="@string/btn_signup" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
 
         </LinearLayout>
-
-    </ScrollView>
-
+    </LinearLayout>
 </LinearLayout>

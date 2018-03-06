@@ -11,6 +11,7 @@ import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -40,7 +41,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private EditText edEmail, edPassword;
     private TextView txtForgotPassword;
-    private RelativeLayoutButton btnSubmit, btnSignup;
+    private Button btnSubmit, btnSignup;
 
     @Override
     public void onAttach(Context context) {
@@ -65,14 +66,14 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         edEmail = (EditText) rootView.findViewById(R.id.edEmail);
         edPassword = (EditText) rootView.findViewById(R.id.edPassword);
 
-        btnSubmit = (RelativeLayoutButton) rootView.findViewById(R.id.btnLogin);
-        btnSignup = (RelativeLayoutButton) rootView.findViewById(R.id.btnSignup);
+        btnSubmit = (Button) rootView.findViewById(R.id.btnLogin);
+        btnSignup = (Button) rootView.findViewById(R.id.btnSignup);
 
-        btnSubmit.imgIcon.setImageResource(R.drawable.ic_btn_login);
-        btnSubmit.btnText.setText(getString(R.string.btn_signin));
-
-        btnSignup.imgIcon.setImageResource(R.drawable.ic_btn_signup);
-        btnSignup.btnText.setText(getString(R.string.btn_signup));
+//        btnSubmit.imgIcon.setImageResource(R.drawable.ic_btn_login);
+//        btnSubmit.btnText.setText(getString(R.string.btn_signin));
+//
+//        btnSignup.imgIcon.setImageResource(R.drawable.ic_btn_signup);
+//        btnSignup.btnText.setText(getString(R.string.btn_signup));
 
         txtForgotPassword = (TextView) rootView.findViewById(R.id.txtForgotPass);
 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/app_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg"
     android:orientation="vertical">
 
     <FrameLayout
@@ -10,5 +11,61 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <LinearLayout
+        android:id="@+id/llLoginSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_small"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_pop"
+            android:orientation="vertical"
+            android:gravity="center">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dd_logo"/>
+
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/txtLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/login"
+                android:textColor="@color/textbox_font"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:gravity="center"
+                android:textSize="40dp"
+                android:background="@drawable/login_btn"
+                app:fontName="dd_bold.ttf"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="20dp"/>
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/txtSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/btn_signup"
+                android:textColor="@color/textbox_font_pink_new"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:gravity="center"
+                android:textSize="40dp"
+                app:fontName="dd_bold.ttf"
+                android:layout_marginBottom="20dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+

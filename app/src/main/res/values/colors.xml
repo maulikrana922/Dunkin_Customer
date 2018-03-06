@@ -30,6 +30,7 @@
     <color name="toolbar_title">#febadd</color>
     <color name="textbox_bg">#30ffffff</color>
     <color name="textbox_font">#ffffff</color>
+    <color name="textbox_font_pink_new">#A0245E</color>
     <color name="textbox_border">#ffffff</color>
     <color name="btn_bg">#95ffffff</color>
     <color name="btn_font">#ad5b16</color>

@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -30,8 +31,8 @@ public class ForgotPasswordFragment extends Fragment implements View.OnClickList
     private Context context;
 
     private EditText edEmail;
-    private RelativeLayoutButton btnSubmit;
-    private TextView txtReturnToSignIn;
+    private Button btnSubmit;
+    private Button txtReturnToSignIn;
 
     @Override
     public void onAttach(Context context) {
@@ -51,11 +52,11 @@ public class ForgotPasswordFragment extends Fragment implements View.OnClickList
         View rootView = inflater.inflate(R.layout.fragment_forgot_password, container, false);
 
         edEmail = (EditText) rootView.findViewById(R.id.edEmail);
-        btnSubmit = (RelativeLayoutButton) rootView.findViewById(R.id.btnSubmit);
-        btnSubmit.btnText.setText(getString(R.string.btn_submit));
-        btnSubmit.imgIcon.setImageResource(R.drawable.ic_submit);
+        btnSubmit = (Button) rootView.findViewById(R.id.btnSubmit);
+//        btnSubmit.btnText.setText(getString(R.string.btn_submit));
+//        btnSubmit.imgIcon.setImageResource(R.drawable.ic_submit);
 
-        txtReturnToSignIn = (TextView) rootView.findViewById(R.id.txtReturnToSignIn);
+        txtReturnToSignIn = (Button) rootView.findViewById(R.id.txtReturnToSignIn);
 
         btnSubmit.setOnClickListener(this);
         txtReturnToSignIn.setOnClickListener(this);
