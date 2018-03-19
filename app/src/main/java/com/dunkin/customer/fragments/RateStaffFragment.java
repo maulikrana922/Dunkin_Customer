@@ -276,14 +276,16 @@ public class RateStaffFragment extends Fragment implements View.OnClickListener,
 
     @Override
     public void onRatingChanged(int position, int rat) {
-        catalogQuestionModelList.get(position).setRating(rat);
+        if(catalogQuestionModelList.size()>0) {
+            catalogQuestionModelList.get(position).setRating(rat);
 //        staffRatingAdapter.notifyDataSetChanged();
 
-        totalRate = 0;
-        for (CatalogQuestionModel catalogQuestionModel : catalogQuestionModelList) {
-            totalRate += catalogQuestionModel.getRating();
+            totalRate = 0;
+            for (CatalogQuestionModel catalogQuestionModel : catalogQuestionModelList) {
+                totalRate += catalogQuestionModel.getRating();
 
+            }
+            tvTotalCount.setText(totalRate + " / " + 100);
         }
-        tvTotalCount.setText(totalRate + " / " + 100);
     }
 }

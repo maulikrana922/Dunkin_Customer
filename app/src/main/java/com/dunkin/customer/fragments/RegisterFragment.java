@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
@@ -60,7 +61,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     SharedPreferences myPrefs;
     private View rootView;
     private Context context;
-    private RelativeLayoutButton btnRegister, btnLogin;
+    private Button btnRegister, btnLogin;
 
     private TextView spSelectCountry, edDateOfBirth, spSetFavoriteRestaurant;
     private EditText edFirstName, edLastName, edEmail, edPassword, edConfirmPassword, edPhoneNumber, edAddress, edShippingAddress;
@@ -126,13 +127,13 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         spSetFavoriteRestaurant = (TextView) rootView.findViewById(R.id.spSetFavoriteRestaurant);
         spSetFavoriteRestaurant.setSelected(true);
 
-        btnRegister = (RelativeLayoutButton) rootView.findViewById(R.id.btnRegister);
-        btnRegister.imgIcon.setImageResource(R.drawable.ic_btn_signup);
-        btnRegister.btnText.setText(getString(R.string.btn_signup));
+        btnRegister = (Button) rootView.findViewById(R.id.btnRegister);
+//        btnRegister.imgIcon.setImageResource(R.drawable.ic_btn_signup);
+//        btnRegister.btnText.setText(getString(R.string.btn_signup));
 
-        btnLogin = (RelativeLayoutButton) rootView.findViewById(R.id.btnLogin);
-        btnLogin.imgIcon.setImageResource(R.drawable.ic_btn_login);
-        btnLogin.btnText.setText(getString(R.string.btn_back));
+        btnLogin = (Button) rootView.findViewById(R.id.btnLogin);
+//        btnLogin.imgIcon.setImageResource(R.drawable.ic_btn_login);
+//        btnLogin.btnText.setText(getString(R.string.btn_back));
 
         cbAddress.setEnabled(false);
 

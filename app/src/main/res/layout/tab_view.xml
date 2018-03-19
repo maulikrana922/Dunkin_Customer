@@ -7,10 +7,10 @@
     android:gravity="center"
     android:orientation="vertical"
     android:paddingBottom="@dimen/five_dp"
-    android:paddingEnd="@dimen/twentyTwo_dp"
-    android:paddingLeft="@dimen/twentyTwo_dp"
-    android:paddingRight="@dimen/twentyTwo_dp"
-    android:paddingStart="@dimen/twentyTwo_dp"
+    android:paddingEnd="@dimen/fifteen_dp"
+    android:paddingLeft="@dimen/fifteen_dp"
+    android:paddingRight="@dimen/fifteen_dp"
+    android:paddingStart="@dimen/fifteen_dp"
     android:paddingTop="@dimen/five_dp">
 
     <ImageView

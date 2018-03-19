@@ -96,7 +96,9 @@
         <activity
             android:name=".RegisterActivity"
             android:configChanges="locale|screenSize"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1"/>
+
         <activity
             android:name=".EventDetailActivity"
             android:configChanges="locale|screenSize"

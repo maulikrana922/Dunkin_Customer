@@ -25,12 +25,21 @@
             android:layout_height="1.5dp"
             android:background="@color/gray" />
 
-        <android.support.v7.widget.RecyclerView
+        <GridView
+            android:id="@+id/rvTabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="5"
+            android:stretchMode="columnWidth"
+            android:gravity="center"
+            android:background="@android:color/white"/>
+
+        <!--<android.support.v7.widget.RecyclerView
             android:id="@+id/rvTabs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="@android:color/white"/>
+            android:background="@android:color/white"/>-->
 
     </LinearLayout>
 

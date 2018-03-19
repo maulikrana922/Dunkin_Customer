@@ -25,6 +25,9 @@
     <color name="colorAccent">#FF80AB</color>
     <color name="white">#ffffff</color>
 
+    <color name="colorPrimary1">#EE4699</color>
+    <color name="colorHover1">#febadd</color>
+    <color name="colorPrimaryDark1">#A0245E</color>
 
     <!-- FORMS-->
     <color name="toolbar_title">#febadd</color>

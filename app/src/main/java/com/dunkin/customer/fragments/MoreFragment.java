@@ -374,6 +374,7 @@ public class MoreFragment extends Fragment {
 
                         navDrawerAdapter = new NavDrawerAdapter(homeActivity, navigationList);
                         navigationView.setAdapter(navDrawerAdapter);
+                        navigationView.setItemChecked(2, true);
 
                         if (homeActivity.isFromGCM) {
                             Dunkin_Log.e("msgtype", "" + homeActivity.msgType);

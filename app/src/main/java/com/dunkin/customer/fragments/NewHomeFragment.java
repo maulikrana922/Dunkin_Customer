@@ -148,7 +148,9 @@ public class NewHomeFragment extends Fragment {
 
     private void getWeatherData() {
         if (!TextUtils.isEmpty(city) && !TextUtils.isEmpty(country)) {
-            final String weatherUrl = String.format("http://api.openweathermap.org/data/2.5/weather?q=%s,%s?&APPID=bc6b2e359ff981aab1494d4166588ea6", city, country);
+            final String weatherUrl = String.format("http://api.openweathermap.org/data/2.5/weather?lat="
+                    + homeActivity.latitude + "&lon=" + homeActivity.longitude
+                    + "&appid=bc6b2e359ff981aab1494d4166588ea6");
             new WeatherDataAsyncTask().execute(weatherUrl);
         }
     }

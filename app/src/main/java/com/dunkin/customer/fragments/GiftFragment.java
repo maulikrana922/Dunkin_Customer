@@ -38,11 +38,11 @@ import java.util.List;
 import java.util.Map;
 
 
-public class GiftFragment extends Fragment implements View.OnClickListener, OnGiftClick{
+public class GiftFragment extends Fragment implements View.OnClickListener, OnGiftClick {
 
 
     public static int restid = -1;
-//    private SmartTabLayout tabs;
+    //    private SmartTabLayout tabs;
     private TabLayout tabs;
     private ViewPager viewPager;
     private ImageView ivBranchHint;
@@ -70,7 +70,8 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
         tvRemainingPoint = (TextView) rootView.findViewById(R.id.tvRemainingPoint);
         spSelectRestaurant = (TextView) rootView.findViewById(R.id.spSelectRestaurent);
         ivBranchHint = (ImageView) rootView.findViewById(R.id.ivBranchHint);
-        ((NewHomeActivity)getActivity()).ivDone.setOnClickListener(this);
+        ((NewHomeActivity) getActivity()).ivDone.setOnClickListener(this);
+        ((NewHomeActivity) getActivity()).ivClose.setOnClickListener(this);
 
 //        tabs = (SmartTabLayout) rootView.findViewById(R.id.tabs);
         tabs = (TabLayout) rootView.findViewById(R.id.tabs);
@@ -116,7 +117,7 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                     ivBranchHint.setVisibility(View.VISIBLE);
                     viewPager.setVisibility(View.GONE);
                     AppUtils.showErrorDialog(context, context.getResources().getString(R.string.msg_no_gift_available2));
-                }else if (jsonResponse.getInt("success") == 100) {
+                } else if (jsonResponse.getInt("success") == 100) {
                     AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                 }
 
@@ -180,7 +181,7 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                     ivBranchHint.setVisibility(View.VISIBLE);
                     viewPager.setVisibility(View.GONE);
                     AppUtils.showErrorDialog(context, context.getResources().getString(R.string.msg_no_gift_available2));
-                }else if (jsonResponse.getInt("success") == 100) {
+                } else if (jsonResponse.getInt("success") == 100) {
                     AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                 }
 
@@ -247,38 +248,50 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
     @Override
     public void onClick(View v) {
         if (v == spSelectRestaurant) {
-            try {
-                AppController.getRestaurantList(context, true, new Callback() {
-                    @Override
-                    public void run(Object result) throws JSONException, IOException {
+            if (spSelectRestaurant.getText().equals(context.getString(R.string.txt_chose_location))) {
+                new AlertDialog.Builder(context)
+                        .setTitle(context.getString(R.string.app_name))
+                        .setMessage(context.getString(R.string.select_item))
+                        .setPositiveButton(context.getString(R.string.txt_ok), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        }).create().show();
+            } else {
+                try {
+                    AppController.getRestaurantList(context, true, new Callback() {
+                        @Override
+                        public void run(Object result) throws JSONException, IOException {
 
-                        JSONObject jsonResponse = new JSONObject((String) result);
-                        //Dunkin_Log.i("DataResponse", jsonResponse.toString());
-                        if (jsonResponse.getInt("success") == 1) {
+                            JSONObject jsonResponse = new JSONObject((String) result);
+                            //Dunkin_Log.i("DataResponse", jsonResponse.toString());
+                            if (jsonResponse.getInt("success") == 1) {
 
-                            restaurantList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("restaurantList").toString(), new TypeReference<List<RestaurantModel>>() {
-                            });
+                                restaurantList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("restaurantList").toString(), new TypeReference<List<RestaurantModel>>() {
+                                });
 
-                            restaurantAdapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, restaurantList);
+                                restaurantAdapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, restaurantList);
 
-                            openDialog(getString(R.string.txt_select_restaurant));
-                        } else if (jsonResponse.getInt("success") == 100) {
-                            AppUtils.showToastMessage(context, jsonResponse.getString("message"));
-                        }else {
-                            if(jsonResponse.getInt("success") != 99) {
-                                AppUtils.showToastMessage(context, getString(R.string.system_error));
+                                openDialog(getString(R.string.txt_select_restaurant));
+                            } else if (jsonResponse.getInt("success") == 100) {
+                                AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                            } else {
+                                if (jsonResponse.getInt("success") != 99) {
+                                    AppUtils.showToastMessage(context, getString(R.string.system_error));
+                                }
                             }
                         }
-                    }
-                });
-            } catch (JSONException | UnsupportedEncodingException e) {
-                e.printStackTrace();
+                    });
+                } catch (JSONException | UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
             }
-        }else if(v.getId() == R.id.ivDone){
-            if(gift != null){
-                if(restid > 0){
+        } else if (v.getId() == R.id.ivDone) {
+            if (gift != null) {
+                if (restid > 0) {
                     addGift(gift);
-                }else {
+                } else {
                     new AlertDialog.Builder(context)
                             .setTitle(context.getString(R.string.app_name))
                             .setMessage(context.getString(R.string.select_branch))
@@ -289,7 +302,7 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                                 }
                             }).create().show();
                 }
-            }else {
+            } else {
                 new AlertDialog.Builder(context)
                         .setTitle(context.getString(R.string.app_name))
                         .setMessage(context.getString(R.string.select_gift))
@@ -300,6 +313,9 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                             }
                         }).create().show();
             }
+        } else if (v.getId() == R.id.ivClose)
+        {
+            spSelectRestaurant.setText(context.getString(R.string.txt_chose_location));
         }
     }
 
@@ -324,7 +340,7 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
         alert.create().show();
     }
 
-    private void addGift(final GiftModel gift){
+    private void addGift(final GiftModel gift) {
         String tempString1, tempString2;
         if (gift.getPoints().contains(","))
             tempString1 = gift.getPoints().replaceAll(",", "");
@@ -412,8 +428,8 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                         openDialog(getString(R.string.txt_select_restaurant));
                     } else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(context, jsonResponse.getString("message"));
-                    }else {
-                        if(jsonResponse.getInt("success") != 99) {
+                    } else {
+                        if (jsonResponse.getInt("success") != 99) {
                             AppUtils.showToastMessage(context, getString(R.string.system_error));
                         }
                     }

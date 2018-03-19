@@ -13,12 +13,14 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -33,9 +35,9 @@ import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.dialogs.ImageDialog;
 import com.dunkin.customer.dialogs.ScanAndWinDialog;
 import com.dunkin.customer.dialogs.WinStatusDialog;
-import com.dunkin.customer.fragments.NewHomeFragment;
 import com.dunkin.customer.fragments.MoreFragment;
 import com.dunkin.customer.fragments.MyWalletFragment;
+import com.dunkin.customer.fragments.NewHomeFragment;
 import com.dunkin.customer.fragments.NotificationFragment;
 import com.dunkin.customer.fragments.OfferFragment;
 import com.dunkin.customer.fragments.RedeemFragment;
@@ -85,14 +87,14 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
     public DBAdapter dbAdapter;
     public boolean isFromGCM = false;
     public int msgType;
-    public ImageView ivDone;
+    public ImageView ivDone, ivClose;
     public GPSTracker gps;
     public double latitude, longitude;
     CallbackManager callbackManager;
     private ImageView ivWeather;
     private List<HomeCatModel> homeList = new ArrayList<>();
     public TabAdapter tabAdapter;
-    private RecyclerView rvTabs;
+    private GridView rvTabs;
     private OnGetTabTextColor onGetTabTextColor;
     private String lat, log;
     private LinearLayout llTabs;
@@ -100,6 +102,8 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
     private ImageView ivBack;
     private String res;
     private File mFileTemp;
+    private Animation animHyperSpace, animRotate, animZoomIn, animZoomOut, animFlip,
+            animFadeOut;
 
     public static Context getCustomContext() {
         return mContext;
@@ -113,6 +117,26 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
         initUI();
 
         gps = new GPSTracker(NewHomeActivity.this);
+
+        animHyperSpace = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.hyperspace);
+
+        animRotate = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.rotate);
+
+        animZoomIn = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.zoom_in);
+
+        animZoomOut = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.zoom_out);
+
+        animFlip = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.flip);
+
+        animFadeOut = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.fade_out);
+
+
     }
 
     private void initUI() {
@@ -123,6 +147,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
         ivBack = (ImageView) findViewById(R.id.ivBack);
         ivBack.setOnClickListener(this);
         ivDone = (ImageView) findViewById(R.id.ivDone);
+        ivClose = (ImageView) findViewById(R.id.ivClose);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -144,12 +169,159 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
         llTabs = (LinearLayout) findViewById(R.id.llTabs);
 
         ivWeather = (ImageView) findViewById(R.id.ivWeather);
-        rvTabs = (RecyclerView) findViewById(R.id.rvTabs);
-        rvTabs.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        rvTabs = (GridView) findViewById(R.id.rvTabs);
+//        rvTabs.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         tabAdapter = new TabAdapter(homeList, this, this);
         rvTabs.setAdapter(tabAdapter);
         saveUserData();
         getHomeData();
+
+        rvTabs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
+                homeList.get(position).setSelect(!homeList.get(position).isSelect());
+                for (int i = 0; i < homeList.size(); i++) {
+                    if (position != i) {
+                        homeList.get(i).setSelect(false);
+                    }
+                }
+                if (position == 0) {
+                    view.startAnimation(animHyperSpace);
+                    if (!newHomeFragment.isVisible()) {
+                        newHomeFragment = new NewHomeFragment();
+                        addFragment(newHomeFragment, homeList.get(position).getTitle());
+                    }
+                    animHyperSpace.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            view.clearAnimation();
+                            tabAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+                            view.clearAnimation();
+                            tabAdapter.notifyDataSetChanged();
+                        }
+                    });
+                }
+                if (position == 1) {
+                    view.startAnimation(animZoomIn);
+                    if (!redeemFragment.isVisible()) {
+                        redeemFragment = new RedeemFragment();
+                        addFragment(redeemFragment, homeList.get(position).getTitle());
+                    }
+                    animZoomIn.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            view.clearAnimation();
+                            view.startAnimation(animZoomOut);
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+                            view.clearAnimation();
+                        }
+                    });
+                    animZoomOut.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            view.clearAnimation();
+                            tabAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+                            view.clearAnimation();
+                            tabAdapter.notifyDataSetChanged();
+                        }
+                    });
+                }
+                if (position == 2) {
+                    view.startAnimation(animRotate);
+                    if (!offerFragment.isVisible()) {
+                        offerFragment = new OfferFragment();
+                        addFragment(offerFragment, homeList.get(position).getTitle());
+                    }
+                    animRotate.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            view.clearAnimation();
+                            tabAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+                            view.clearAnimation();
+                            tabAdapter.notifyDataSetChanged();
+                        }
+                    });
+                }
+                if (position == 3) {
+                    view.startAnimation(animFlip);
+                    if (!myWalletFragment.isVisible()) {
+                        myWalletFragment = new MyWalletFragment();
+                        addFragment(myWalletFragment, homeList.get(position).getTitle());
+                    }
+                    animFlip.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            view.clearAnimation();
+                            tabAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+                            view.clearAnimation();
+                            tabAdapter.notifyDataSetChanged();
+                        }
+                    });
+                }
+                if (position == 4) {
+                    if (!moreFragment.isVisible()) {
+                        addFragment(moreFragment, homeList.get(position).getTitle());
+                    }
+                    view.startAnimation(animFadeOut);
+                    animFadeOut.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            view.clearAnimation();
+                            tabAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+                            view.clearAnimation();
+                            tabAdapter.notifyDataSetChanged();
+                        }
+                    });
+                }
+            }
+        });
     }
 
     public void setOnGetTabTextColor(OnGetTabTextColor onGetTabTextColor) {
@@ -318,6 +490,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
             ivBack.setVisibility(View.VISIBLE);
             llTabs.setVisibility(View.GONE);
             ivDone.setVisibility(View.GONE);
+            ivClose.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().addToBackStack(fragmentTag).replace(R.id.frFragmentContainer, fragment, fragmentTag).commit();
         }
     }
@@ -331,15 +504,18 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
             } else if (fragment instanceof RedeemFragment) {
                 toolbar.setVisibility(View.VISIBLE);
                 ivDone.setVisibility(View.VISIBLE);
+                ivClose.setVisibility(View.VISIBLE);
             } else {
                 toolbar.setVisibility(View.VISIBLE);
                 ivDone.setVisibility(View.GONE);
+                ivClose.setVisibility(View.GONE);
             }
         } else {
             toolbar.setVisibility(View.VISIBLE);
             ivBack.setVisibility(View.VISIBLE);
             llTabs.setVisibility(View.GONE);
             ivDone.setVisibility(View.GONE);
+            ivClose.setVisibility(View.GONE);
         }
     }
 
