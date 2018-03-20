@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/ivWeather"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="@dimen/ten_dp"
             android:layout_marginStart="@dimen/ten_dp"
             android:contentDescription="@string/app_name"
