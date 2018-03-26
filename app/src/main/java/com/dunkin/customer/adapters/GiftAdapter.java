@@ -17,18 +17,10 @@ import android.widget.TextView;
 
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
-import com.dunkin.customer.Utils.Callback;
-import com.dunkin.customer.constants.AppConstants;
-import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.fragments.GiftFragment;
 import com.dunkin.customer.listener.OnGiftClick;
 import com.dunkin.customer.models.GiftModel;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 public class GiftAdapter extends BaseAdapter {
@@ -135,7 +127,8 @@ public class GiftAdapter extends BaseAdapter {
                         dialog.dismiss();
                     }
                 });
-                alert.create().show();
+//                alert.create().show();
+                onGiftClick.onGiftConfirm(gift);
             }
         });
         return convertView;

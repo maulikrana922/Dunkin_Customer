@@ -8,6 +8,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -330,11 +332,63 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                 restid = restaurantModel.getRestaurantId();
                 strBranchName = restaurantModel.getRestaurantName();
                 spSelectRestaurant.setText(restaurantModel.getRestaurantName());
-//                try {
-//                    getDataFromAPI(restaurantModel);
-//                } catch (UnsupportedEncodingException | JSONException e) {
-//                    e.printStackTrace();
-//                }
+                AlertDialog.Builder alert1 = new AlertDialog.Builder(context);
+                alert1.setTitle(context.getString(R.string.al_warning_redeem));
+
+                Spanned strGiftMessage;
+
+                if (gift.getGiftType() == 1) {
+                    strGiftMessage = Html.fromHtml("<b>" + context.getString(R.string.lbl_redeem_popup_title2) + "</b> " + gift.getTitle() + "<br>" +
+                            "<b>" + context.getString(R.string.lbl_redeem_popup_point2) + "</b> " + AppUtils.CurrencyFormat(Double.parseDouble(gift.getPoints())) + "<br>" +
+                            "<b>" + context.getString(R.string.lbl_redeem_popup_desc) + "</b> " + gift.getGiftDesc() + "<br><br>" +
+                            context.getString(R.string.msg_confirm_redeem));
+
+                    alert1.setMessage(strGiftMessage);
+                } else {
+                    strGiftMessage = Html.fromHtml("<b>" + context.getString(R.string.lbl_redeem_popup_title2) + "</b> " + gift.getTitle() + "<br>" +
+                            "<b>" + context.getString(R.string.lbl_redeem_popup_point2) + "</b> " + AppUtils.CurrencyFormat(Double.parseDouble(gift.getPoints())) + "<br>" +
+                            "<b>" + context.getString(R.string.lbl_redeem_popup_desc) + "</b> " + gift.getGiftDesc() + "<br><br>" +
+                            context.getString(R.string.msg_confirm_redeem_wait_for_me2));
+
+                    alert1.setMessage(strGiftMessage);
+                }
+                alert1.setPositiveButton(context.getString(R.string.al_yes), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (gift != null) {
+                            if (restid > 0) {
+                                addGift(gift);
+                            } else {
+                                new AlertDialog.Builder(context)
+                                        .setTitle(context.getString(R.string.app_name))
+                                        .setMessage(context.getString(R.string.select_branch))
+                                        .setPositiveButton(context.getString(R.string.txt_ok), new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                dialogInterface.dismiss();
+                                            }
+                                        }).create().show();
+                            }
+                        } else {
+                            new AlertDialog.Builder(context)
+                                    .setTitle(context.getString(R.string.app_name))
+                                    .setMessage(context.getString(R.string.select_gift))
+                                    .setPositiveButton(context.getString(R.string.txt_ok), new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.dismiss();
+                                        }
+                                    }).create().show();
+                        }
+                    }
+                });
+                alert1.setNegativeButton(context.getString(R.string.al_no), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                alert1.create().show();
             }
         });
         alert.create().show();

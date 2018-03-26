@@ -503,8 +503,8 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                 toolbar.setVisibility(View.GONE);
             } else if (fragment instanceof RedeemFragment) {
                 toolbar.setVisibility(View.VISIBLE);
-                ivDone.setVisibility(View.VISIBLE);
-                ivClose.setVisibility(View.VISIBLE);
+                ivDone.setVisibility(View.GONE);
+                ivClose.setVisibility(View.GONE);
             } else {
                 toolbar.setVisibility(View.VISIBLE);
                 ivDone.setVisibility(View.GONE);

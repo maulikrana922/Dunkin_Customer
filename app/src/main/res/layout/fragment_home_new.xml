@@ -65,8 +65,8 @@
 
             <ImageView
                 android:id="@+id/imgProfileQR"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
                 android:layout_gravity="center_horizontal|bottom"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/app_name" />

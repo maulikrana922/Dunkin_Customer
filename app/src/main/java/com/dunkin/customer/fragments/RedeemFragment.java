@@ -57,12 +57,14 @@ public class RedeemFragment extends Fragment {
 //        tabs.setDistributeEvenly(true);
         progressLoad.setVisibility(View.GONE);
         scrollContainer.setVisibility(View.VISIBLE);
-        pagerTitle = new String[]{getContext().getString(R.string.nav_coupons2), getContext().getString(R.string.nav_my_point)};
+//        pagerTitle = new String[]{getContext().getString(R.string.nav_coupons2), getContext().getString(R.string.nav_my_point)};
+        pagerTitle = new String[]{getContext().getString(R.string.nav_coupons2)};
 
         pagerAdapter = new RedeemFragmentPagerAdapter(getChildFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 //        tabs.setViewPager(viewPager);
         tabs.setupWithViewPager(viewPager);
+        tabs.setVisibility(View.GONE);
         return rootView;
     }
 
@@ -82,9 +84,10 @@ public class RedeemFragment extends Fragment {
         public Fragment getItem(int position) {
             if (position == 0) {
                 return new GiftFragment();
-            } else if (position == 1) {
-                return new RedeemPointFragment();
             }
+//            } else if (position == 1) {
+//                return new RedeemPointFragment();
+//            }
             return null;
         }
 

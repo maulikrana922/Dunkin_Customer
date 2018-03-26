@@ -24,19 +24,18 @@
             android:layout_gravity="center_vertical"
             android:padding="@dimen/spacing_medium"
             android:singleLine="true"
+            android:visibility="gone"
             android:text="@string/txt_chose_location"
             android:textColor="@color/dropdown_text"
             app:fontName="dd_light.ttf" />
 
         <com.dunkin.customer.widget.CustomTextView
             android:id="@+id/tvRemainingPoint"
-            android:layout_marginStart="@dimen/five_dp"
-            android:layout_marginLeft="@dimen/five_dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="0.5"
-            android:gravity="center_vertical|left|start"
+            android:gravity="center"
             android:paddingLeft="@dimen/five_dp"
             android:paddingStart="@dimen/five_dp"
             android:paddingRight="@dimen/spacing_xsmall"

@@ -28,7 +28,7 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            style="@style/customTabLayout1"/>
+            style="@style/customTabLayout1" />
 
         <!--<com.ogaclejapan.smarttablayout.SmartTabLayout-->
             <!--android:id="@+id/tabs"-->
