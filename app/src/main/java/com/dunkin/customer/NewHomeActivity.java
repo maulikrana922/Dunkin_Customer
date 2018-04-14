@@ -483,8 +483,11 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
     }
 
     public void addFragment(Fragment fragment, String fragmentTag) {
-        if (fragment instanceof NewHomeFragment || fragment instanceof RedeemFragment || fragment instanceof OfferFragment || fragment instanceof MyWalletFragment || fragment instanceof MoreFragment) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.frFragmentContainer, fragment, fragmentTag).commit();
+        if (fragment instanceof NewHomeFragment || fragment instanceof RedeemFragment ||
+                fragment instanceof OfferFragment || fragment instanceof MyWalletFragment ||
+                fragment instanceof MoreFragment) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frFragmentContainer, fragment, fragmentTag).commit();
         } else {
             toolbar.setVisibility(View.VISIBLE);
             ivBack.setVisibility(View.VISIBLE);
@@ -492,6 +495,41 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
             ivDone.setVisibility(View.GONE);
             ivClose.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().addToBackStack(fragmentTag).replace(R.id.frFragmentContainer, fragment, fragmentTag).commit();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (redeemFragment.isAdded()) {
+            addFragment(newHomeFragment, "Home");
+            for (int i = 0; i < homeList.size(); i++) {
+                homeList.get(i).setSelect(false);
+            }
+            homeList.get(0).setSelect(true);
+            tabAdapter.notifyDataSetChanged();
+        } else if (offerFragment.isAdded()) {
+            addFragment(newHomeFragment, "Home");
+            for (int i = 0; i < homeList.size(); i++) {
+                homeList.get(i).setSelect(false);
+            }
+            homeList.get(0).setSelect(true);
+            tabAdapter.notifyDataSetChanged();
+        } else if (myWalletFragment.isAdded()) {
+            addFragment(newHomeFragment, "Home");
+            for (int i = 0; i < homeList.size(); i++) {
+                homeList.get(i).setSelect(false);
+            }
+            homeList.get(0).setSelect(true);
+            tabAdapter.notifyDataSetChanged();
+        } else if (moreFragment.isAdded()) {
+            addFragment(newHomeFragment, "Home");
+            for (int i = 0; i < homeList.size(); i++) {
+                homeList.get(i).setSelect(false);
+            }
+            homeList.get(0).setSelect(true);
+            tabAdapter.notifyDataSetChanged();
+        } else {
+            super.onBackPressed();
         }
     }
 
