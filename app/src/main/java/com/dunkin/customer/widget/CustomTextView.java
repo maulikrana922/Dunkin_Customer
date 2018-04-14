@@ -43,7 +43,5 @@ public class CustomTextView extends TextView {
             setTextSize(16);
             a.recycle();
         }
-
-
     }
 }
