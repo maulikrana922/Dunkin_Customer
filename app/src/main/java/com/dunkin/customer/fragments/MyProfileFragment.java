@@ -229,8 +229,8 @@ public class MyProfileFragment extends Fragment {
         if (resultCode == Activity.RESULT_OK && requestCode == 101) {
             try {
                 getUserProfileData();
-                TextView tv = (TextView) getActivity().findViewById(R.id.FirstName);
-                tv.setText(getString(R.string.txt_hello, myPrefs.getString(AppConstants.USER_FIRST_NAME, "")));
+//                TextView tv = (TextView) getActivity().findViewById(R.id.FirstName);
+//                tv.setText(getString(R.string.txt_hello, myPrefs.getString(AppConstants.USER_FIRST_NAME, "")));
             } catch (UnsupportedEncodingException | JSONException e) {
                 e.printStackTrace();
             }
