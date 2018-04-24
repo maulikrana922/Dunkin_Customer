@@ -34,9 +34,10 @@
             android:layout_marginEnd="@dimen/ten_dp"
             android:layout_gravity="center"
             android:gravity="center"
+            android:ellipsize="end"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            tools:text="hdjhasd gada jg gf ghfs nghs s" />
+            android:maxLines="2"/>
     </LinearLayout>
 
     <LinearLayout
