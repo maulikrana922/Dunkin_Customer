@@ -63,6 +63,10 @@ android {
         }
     }
 
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
     /*aaptOptions {
         cruncherEnabled false
     }*/
@@ -102,4 +106,9 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-databind:2.9.2'
     compile 'com.squareup.okhttp3:okhttp:3.9.1'
     compile 'com.mikhaellopez:circularimageview:3.0.2'
+
+    compile files('src/main/java/Vuforia.jar')
+    compile 'com.jme3:jme3-android:3.0.+'
+    compile 'com.jme3:jme3-terrain:3.0.+'
+
 }

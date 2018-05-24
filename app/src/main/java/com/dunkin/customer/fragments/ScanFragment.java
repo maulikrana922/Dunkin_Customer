@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.dunkin.customer.AddPromocodeActivity;
 import com.dunkin.customer.NewHomeActivity;
@@ -39,6 +40,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import sampleApplication.imageTargets.ImageTargets;
+
 import static com.dunkin.customer.NewHomeActivity.isOfferEnable;
 import static com.dunkin.customer.constants.AppConstants.context;
 import static com.facebook.FacebookSdk.getApplicationContext;
@@ -52,6 +55,7 @@ public class ScanFragment extends Fragment implements Animation.AnimationListene
     private Context mContext;
     private View rootView;
     private ImageView txtScan, txtPlay, txtPromo;
+    TextView txtLogo;
     private String playImage, scanImage, promoImage, promoStatus;
     private List<PromoModel> playModelList = new ArrayList<>();
     private static final int SCANNER_PROMOTION_REQUEST_CODE = 0x111;
@@ -91,6 +95,8 @@ public class ScanFragment extends Fragment implements Animation.AnimationListene
         txtScan = (ImageView) rootView.findViewById(R.id.txtScan);
         txtPlay = (ImageView) rootView.findViewById(R.id.txtPlay);
         txtPromo = (ImageView) rootView.findViewById(R.id.txtPromo);
+        txtLogo=(TextView)rootView.findViewById(R.id.txtLogo);
+
         learMain = (LinearLayout) rootView.findViewById(R.id.learMain);
 
         viewScan = (View) rootView.findViewById(R.id.viewScan);
@@ -122,6 +128,14 @@ public class ScanFragment extends Fragment implements Animation.AnimationListene
                 {
                     chooseOption();
                 }
+            }
+        });
+
+        txtLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, ImageTargets.class);
+                    startActivity(i);
             }
         });
 
@@ -248,6 +262,7 @@ public class ScanFragment extends Fragment implements Animation.AnimationListene
             @Override
             public void onClick(DialogInterface dialog, int item) {
                 if (items[item].equals("Scan Promo Code")) {
+
                     ((Activity) mContext).startActivityForResult(new Intent(context, SimpleScannerPromotionActivity.class), SCANNER_PROMOTION_REQUEST_CODE);
                 } else if (items[item].equals("Enter Promo Code")) {
                     ((Activity) mContext).startActivity(new Intent(context, AddPromocodeActivity.class));

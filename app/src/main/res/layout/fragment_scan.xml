@@ -26,6 +26,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fillViewport="true"
         android:visibility="visible">
 
         <LinearLayout
@@ -67,6 +68,21 @@
 
             <View
                 android:id="@+id/viewPromo"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/home_content_text"/>
+            <TextView
+                android:id="@+id/txtLogo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Scan Logo"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                />
+
+            <View
+                android:id="@+id/viewLogo"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@color/home_content_text"/>
