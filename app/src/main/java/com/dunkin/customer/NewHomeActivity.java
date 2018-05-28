@@ -64,7 +64,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.dunkin.customer.constants.AppConstants.context;
 
 public class NewHomeActivity extends AppCompatActivity implements OnTabClick, View.OnClickListener {
     private static final int SCANNER_REQUEST_CODE = 0x11;
@@ -373,24 +372,24 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
         String version = "";
         PackageInfo pInfo;
         try {
-            pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            pInfo = mContext.getPackageManager().getPackageInfo(mContext.getPackageName(), 0);
             version = String.valueOf(pInfo.versionCode);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
 
         try {
-            jsonRequest.put("email", AppUtils.getAppPreference(context)
+            jsonRequest.put("email", AppUtils.getAppPreference(mContext)
                     .getString(AppConstants.USER_EMAIL_ADDRESS, ""));
 
-            jsonRequest.put("country_id", AppUtils.getAppPreference(context)
+            jsonRequest.put("country_id", AppUtils.getAppPreference(mContext)
                     .getInt(AppConstants.USER_COUNTRY, -1));
-            jsonRequest.put("lang_flag", AppUtils.getAppPreference(context)
+            jsonRequest.put("lang_flag", AppUtils.getAppPreference(mContext)
                     .getString(AppConstants.USER_LANGUAGE, "en"));
             jsonRequest.put("loginUser", "1");
             jsonRequest.put("settingType", "2");
 
-            AppController.getDashbordPageData(context, jsonRequest, new Callback() {
+            AppController.getDashbordPageData(mContext, jsonRequest, new Callback() {
                 @Override
                 public void run(Object result) throws JSONException, IOException {
 
@@ -420,15 +419,15 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                         if (NewHomeActivity.isScanWinEnable.equalsIgnoreCase("1")) {
                             //all setting api
 
-                            if (!AppUtils.getAppPreference(context).getBoolean(AppConstants.USER_SCAN_RESULT, false)) {
+                            if (!AppUtils.getAppPreference(mContext).getBoolean(AppConstants.USER_SCAN_RESULT, false)) {
                                 if (NewHomeActivity.isScanWinEnable.equalsIgnoreCase("1"))
-                                    ImageDialog.newInstance(context, NewHomeActivity.strUrl, false).show();
+                                    ImageDialog.newInstance(mContext, NewHomeActivity.strUrl, false).show();
 
                             }
                         }
                     } else if (jsonResponse.getInt("success") == 100) {
 
-                        AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                        AppUtils.showToastMessage(mContext, jsonResponse.getString("message"));
                     }
 
                 }
@@ -684,7 +683,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                  * If app is open and user already get scan result then don't display intro screen
                  */
 
-                if (!AppUtils.getAppPreference(context).getBoolean(AppConstants.USER_SCAN_RESULT, false)) {
+                if (!AppUtils.getAppPreference(mContext).getBoolean(AppConstants.USER_SCAN_RESULT, false)) {
                     if (isScanWinEnable.equalsIgnoreCase("1") && (getSupportFragmentManager().findFragmentById(R.id.content) instanceof NewHomeFragment))
                         ScanAndWinDialog.newInstance(NewHomeActivity.this, path, false).show();
                 } else {

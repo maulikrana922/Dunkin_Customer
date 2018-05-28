@@ -43,7 +43,6 @@ import java.util.List;
 import sampleApplication.imageTargets.ImageTargets;
 
 import static com.dunkin.customer.NewHomeActivity.isOfferEnable;
-import static com.dunkin.customer.constants.AppConstants.context;
 import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
@@ -134,7 +133,7 @@ public class ScanFragment extends Fragment implements Animation.AnimationListene
         txtLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(context, ImageTargets.class);
+                Intent i = new Intent(mContext, ImageTargets.class);
                     startActivity(i);
             }
         });
@@ -171,7 +170,7 @@ public class ScanFragment extends Fragment implements Animation.AnimationListene
                         });
 
                         if(promoDataList.size()>0) {
-                            promoAdapter = new PromoAdapter(context, promoDataList);
+                            promoAdapter = new PromoAdapter(mContext, promoDataList);
                             lvLoadList1.setAdapter(promoAdapter);
 //                            lvLoadList1.setEmptyView(rootView.findViewById(R.id.emptyElement));
                             for(int i=0; i<promoDataList.size(); i++) {
@@ -263,9 +262,9 @@ public class ScanFragment extends Fragment implements Animation.AnimationListene
             public void onClick(DialogInterface dialog, int item) {
                 if (items[item].equals("Scan Promo Code")) {
 
-                    ((Activity) mContext).startActivityForResult(new Intent(context, SimpleScannerPromotionActivity.class), SCANNER_PROMOTION_REQUEST_CODE);
+                    ((Activity) mContext).startActivityForResult(new Intent(mContext, SimpleScannerPromotionActivity.class), SCANNER_PROMOTION_REQUEST_CODE);
                 } else if (items[item].equals("Enter Promo Code")) {
-                    ((Activity) mContext).startActivity(new Intent(context, AddPromocodeActivity.class));
+                    ((Activity) mContext).startActivity(new Intent(mContext, AddPromocodeActivity.class));
                 } else if (items[item].equals("Cancel")) {
                     dialog.dismiss();
                 }

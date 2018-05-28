@@ -80,8 +80,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-import static com.dunkin.customer.constants.AppConstants.context;
-
 public class HomeActivity extends AppCompatActivity {
     private static final String NAV_ITEM_ID = "navItemId";
     private static Context mContext;
@@ -143,7 +141,7 @@ public class HomeActivity extends AppCompatActivity {
         dbAdapter = new DBAdapter(HomeActivity.this);
         setSupportActionBar(toolbar);
 
-        SharedPreferences.Editor editor = AppUtils.getAppPreference(context).edit();
+        SharedPreferences.Editor editor = AppUtils.getAppPreference(mContext).edit();
         editor.putBoolean(AppConstants.USER_SCAN_RESULT, false);
         editor.apply();
 
@@ -1137,7 +1135,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 boolean cameraAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
                 if (cameraAccepted) {
-                    ((Activity) mContext).startActivityForResult(new Intent(AppConstants.context, SimpleScannerActivity.class), SCANNER_REQUEST_CODE);
+                    ((Activity) mContext).startActivityForResult(new Intent(HomeActivity.this, SimpleScannerActivity.class), SCANNER_REQUEST_CODE);
                 }
                 break;
         }
@@ -1158,7 +1156,7 @@ public class HomeActivity extends AppCompatActivity {
                  * If app is open and user already get scan result then don't display intro screen
                  */
 
-                if (!AppUtils.getAppPreference(context).getBoolean(AppConstants.USER_SCAN_RESULT, false)) {
+                if (!AppUtils.getAppPreference(mContext).getBoolean(AppConstants.USER_SCAN_RESULT, false)) {
                     if (isScanWinEnable.equalsIgnoreCase("1") && (getSupportFragmentManager().findFragmentById(R.id.content) instanceof HomeFragment))
                         ScanAndWinDialog.newInstance(HomeActivity.this, path, false).show();
                 } else {

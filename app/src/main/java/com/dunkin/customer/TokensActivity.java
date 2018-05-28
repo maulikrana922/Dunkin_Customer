@@ -14,7 +14,6 @@ import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.models.TokenModel;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,8 +21,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
-
-import static com.dunkin.customer.constants.AppConstants.context;
 
 /**
  * Created by qtm-c-android on 2/6/17.
@@ -65,7 +62,7 @@ public class TokensActivity extends BaseActivity {
     }
 
     private void getDataFromAPI() throws UnsupportedEncodingException {
-        AppController.fetchMyPromoTicket(context, promo_id, new Callback() {
+        AppController.fetchMyPromoTicket(TokensActivity.this, promo_id, new Callback() {
             @Override
             public void run(Object result) throws JSONException, IOException {
                 String apiResponse = (String) result;
@@ -87,7 +84,7 @@ public class TokensActivity extends BaseActivity {
                         winnerImage = jsonResponse.getString("winnerImage");
 
                         tokenAdapter = new TokenAdapter(TokensActivity.this,
-                                ((AppCompatActivity) context).getSupportFragmentManager(),
+                                ((AppCompatActivity) TokensActivity.this).getSupportFragmentManager(),
                                 tokenModelList, winnerImage);
                         viewPager.setAdapter(tokenAdapter);
                         viewPager.setOffscreenPageLimit(tokenModelList.size());
@@ -108,7 +105,7 @@ public class TokensActivity extends BaseActivity {
                         winnerImage = jsonResponse.getString("winnerImage");
 
                         tokenAdapter = new TokenAdapter(TokensActivity.this,
-                                ((AppCompatActivity) context).getSupportFragmentManager(),
+                                ((AppCompatActivity) TokensActivity.this).getSupportFragmentManager(),
                                 tokenModelList, winnerImage);
                         viewPager.setAdapter(tokenAdapter);
                         viewPager.setOffscreenPageLimit(tokenModelList.size());
@@ -116,7 +113,7 @@ public class TokensActivity extends BaseActivity {
                         tabs.setupWithViewPager(viewPager);
 //                        tabs.setViewPager(viewPager);
                     } else if (jsonResponse.getInt("success") == 100) {
-                        AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                        AppUtils.showToastMessage(TokensActivity.this, jsonResponse.getString("message"));
                     } else {
                     }
                 }

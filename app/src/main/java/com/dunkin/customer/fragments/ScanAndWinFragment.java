@@ -127,7 +127,7 @@ public class ScanAndWinFragment extends Fragment {
 
                         requestPermissions(permsCamera, CAMERA_PERMISSION_REQUEST);
                     } else {
-                        ((Activity) mContext).startActivityForResult(new Intent(AppConstants.context, SimpleScannerActivity.class), SCANNER_REQUEST_CODE);
+                        ((Activity) mContext).startActivityForResult(new Intent(mContext, SimpleScannerActivity.class), SCANNER_REQUEST_CODE);
                     }
                 }
             }
@@ -142,7 +142,7 @@ public class ScanAndWinFragment extends Fragment {
 
                     requestPermissions(permsCamera, CAMERA_PERMISSION_REQUEST);
                 } else {
-                    ((Activity) mContext).startActivityForResult(new Intent(AppConstants.context, SimpleScannerActivity.class), SCANNER_REQUEST_CODE);
+                    ((Activity) mContext).startActivityForResult(new Intent(mContext, SimpleScannerActivity.class), SCANNER_REQUEST_CODE);
                 }
             }
         });

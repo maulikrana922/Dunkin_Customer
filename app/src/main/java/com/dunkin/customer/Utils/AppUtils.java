@@ -389,11 +389,11 @@ public class AppUtils {
     private static void checkCaseIdEr(String res) {
         try {
             JSONObject objRes = new JSONObject(res);
-            if (objRes.getString(AppConstants.context.getString(R.string.success))
-                    .equals(AppConstants.context.getString(R.string.case_er))) {
+            if (objRes.getString(mContext.getString(R.string.success))
+                    .equals(mContext.getString(R.string.case_er))) {
                 Intent intent = new Intent(getApplicationContext(), LogoutService.class);
                 intent.putExtra("isDirectExit", 1);
-                AppConstants.context.startService(intent);
+                mContext.startService(intent);
             }
         } catch (Exception e) {
             e.printStackTrace();

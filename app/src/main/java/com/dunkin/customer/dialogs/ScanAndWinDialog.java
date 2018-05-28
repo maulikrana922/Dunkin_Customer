@@ -26,8 +26,6 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
-import static com.dunkin.customer.constants.AppConstants.context;
-
 /**
  * Created by qtm-android on 25/1/17.
  */
@@ -100,7 +98,7 @@ public class ScanAndWinDialog extends Dialog {
 
                         ActivityCompat.requestPermissions((NewHomeActivity) mContext, permsCamera, CAMERA_PERMISSION_REQUEST);
                     } else {
-                        ((Activity) mContext).startActivityForResult(new Intent(AppConstants.context, SimpleScannerActivity.class), SCANNER_REQUEST_CODE);
+                        ((Activity) mContext).startActivityForResult(new Intent(mContext, SimpleScannerActivity.class), SCANNER_REQUEST_CODE);
                     }
                 }
                 ScanAndWinDialog.this.dismiss();
@@ -118,7 +116,8 @@ public class ScanAndWinDialog extends Dialog {
             @Override
             public void onClick(View v) {
                 if (!isForScan) {
-                    SharedPreferences.Editor editor = AppUtils.getAppPreference(context).edit();
+                    SharedPreferences.Editor editor = AppUtils.getAppPreference
+                            (mContext).edit();
                     editor.putBoolean(AppConstants.USER_SCAN_RESULT, true);
                     editor.apply();
 //                    if (mContext instanceof HomeActivity1) {
@@ -130,7 +129,7 @@ public class ScanAndWinDialog extends Dialog {
 
                         ActivityCompat.requestPermissions((NewHomeActivity) mContext, permsCamera, CAMERA_PERMISSION_REQUEST);
                     } else {
-                        ((Activity) mContext).startActivityForResult(new Intent(AppConstants.context, SimpleScannerActivity.class), SCANNER_REQUEST_CODE);
+                        ((Activity) mContext).startActivityForResult(new Intent(mContext, SimpleScannerActivity.class), SCANNER_REQUEST_CODE);
                     }
                 }
                 ScanAndWinDialog.this.dismiss();
@@ -242,7 +241,7 @@ public class ScanAndWinDialog extends Dialog {
     public void dismiss() {
         // TODO Auto-generated method stub
         f = null;
-        SharedPreferences.Editor editor = AppUtils.getAppPreference(context).edit();
+        SharedPreferences.Editor editor = AppUtils.getAppPreference(mContext).edit();
         editor.putBoolean(AppConstants.USER_SCAN_RESULT, true);
         editor.apply();
         if (mContext instanceof NewHomeActivity) {
