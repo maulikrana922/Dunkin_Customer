@@ -57,3 +57,5 @@
 -keep class com.fasterxml.jackson.databind.ObjectWriter {
     public ** writeValueAsString(**);
 }
+
+-ignorewarnings

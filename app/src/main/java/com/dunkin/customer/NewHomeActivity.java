@@ -406,9 +406,17 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                         dbAdapter.close();
 
                         homeList.addAll(dashbordModel.landingpage);
-                        homeList.get(0).setSelect(true);
+                        if(isFromGCM)
+                        {
+                            homeList.get(4).setSelect(true);
+                            addFragment(moreFragment, homeList.get(4).getTitle());
+                        }
+                        else {
+                            homeList.get(0).setSelect(true);
+                            addFragment(newHomeFragment, homeList.get(0).getTitle());
+                        }
                         tabAdapter.notifyDataSetChanged();
-                        addFragment(newHomeFragment, homeList.get(0).getTitle());
+//                        addFragment(newHomeFragment, homeList.get(0).getTitle());
 
                         NewHomeActivity.strUrl = dashbordModel.scanwinImage;
                         NewHomeActivity.strOfferUrl = dashbordModel.offerImage;

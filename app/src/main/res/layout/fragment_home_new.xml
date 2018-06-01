@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:local="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
     android:orientation="vertical">
 
@@ -25,97 +25,109 @@
 
         <com.dunkin.customer.widget.CustomTextView
             android:id="@+id/tvWelcome"
-            local:fontName="dd_bold.ttf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/ten_dp"
-            android:layout_marginStart="@dimen/ten_dp"
-            android:layout_marginRight="@dimen/ten_dp"
-            android:layout_marginEnd="@dimen/ten_dp"
             android:layout_gravity="center"
-            android:gravity="center"
+            android:layout_marginEnd="@dimen/ten_dp"
+            android:layout_marginLeft="@dimen/ten_dp"
+            android:layout_marginRight="@dimen/ten_dp"
+            android:layout_marginStart="@dimen/ten_dp"
             android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            android:maxLines="2"/>
+            local:fontName="dd_bold.ttf" />
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:orientation="vertical">
 
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/inside_image"
-                android:layout_width="@dimen/home_bg_image"
-                android:layout_height="@dimen/home_bg_image"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="@dimen/seventy_dp"
-                android:contentDescription="@string/app_name"
-                app:civ_shadow="true"
-                app:civ_shadow_color="@color/home_title_text"
-                app:civ_shadow_radius="25"
-                app:civ_border="false"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imgProfileQR"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:layout_gravity="center_horizontal|bottom"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/app_name" />
-        </FrameLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
 
-        <com.dunkin.customer.widget.CustomHeadTextView
-            android:id="@+id/txtLandingPageTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center_horizontal"
-            android:textAllCaps="true"
-            android:textColor="@color/home_welcome_text"
-            app:fontName="dd_bold.ttf"
-            tools:targetApi="ice_cream_sandwich" />
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/inside_image"
+                        android:layout_width="@dimen/home_bg_image"
+                        android:layout_height="@dimen/home_bg_image"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/seventy_dp"
+                        android:contentDescription="@string/app_name"
+                        app:civ_border="false"
+                        app:civ_shadow="true"
+                        app:civ_shadow_color="@color/home_title_text"
+                        app:civ_shadow_radius="25" />
 
-        <com.dunkin.customer.widget.CustomTextView
-            android:id="@+id/txtLandingPageDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:paddingEnd="4dp"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
-            android:paddingStart="4dp"
-            android:textColor="@color/home_content_text"
-            app:fontName="dd_light.ttf" />
+                    <ImageView
+                        android:id="@+id/imgProfileQR"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name" />
+                </FrameLayout>
 
-    </LinearLayout>
+                <com.dunkin.customer.widget.CustomHeadTextView
+                    android:id="@+id/txtLandingPageTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_horizontal"
+                    android:textAllCaps="true"
+                    android:textColor="@color/home_welcome_text"
+                    app:fontName="dd_bold.ttf"
+                    tools:targetApi="ice_cream_sandwich" />
 
-    <LinearLayout
-        android:id="@+id/llScan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:gravity="left"
-        android:visibility="gone">
+                <com.dunkin.customer.widget.CustomTextView
+                    android:id="@+id/txtLandingPageDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:paddingEnd="4dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:paddingStart="4dp"
+                    android:textColor="@color/home_content_text"
+                    app:fontName="dd_light.ttf" />
 
-        <ImageView
-            android:id="@+id/ivScan"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:padding="10dp"
-            android:scaleType="centerCrop" />
+            </LinearLayout>
 
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llScan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="left">
+
+                <ImageView
+                    android:id="@+id/ivScan"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:padding="10dp"
+                    android:scaleType="centerCrop" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
