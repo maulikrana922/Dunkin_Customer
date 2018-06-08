@@ -52,6 +52,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginBottom="20dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -61,12 +62,29 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center">
 
+                    <LinearLayout
+                        android:id="@+id/llScan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="left">
+
+                        <ImageView
+                            android:id="@+id/ivScan"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:padding="10dp"
+                            android:scaleType="centerCrop" />
+
+                    </LinearLayout>
+
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:id="@+id/inside_image"
                         android:layout_width="@dimen/home_bg_image"
                         android:layout_height="@dimen/home_bg_image"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginBottom="@dimen/seventy_dp"
+                        android:layout_marginTop="35dp"
                         android:contentDescription="@string/app_name"
                         app:civ_border="false"
                         app:civ_shadow="true"
@@ -80,6 +98,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:adjustViewBounds="true"
                         android:contentDescription="@string/app_name" />
+
                 </FrameLayout>
 
                 <com.dunkin.customer.widget.CustomHeadTextView
@@ -110,21 +129,21 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llScan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:gravity="left">
+            <!--<LinearLayout-->
+            <!--android:id="@+id/llScan"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="right"-->
+            <!--android:gravity="left">-->
 
-                <ImageView
-                    android:id="@+id/ivScan"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:padding="10dp"
-                    android:scaleType="centerCrop" />
+            <!--<ImageView-->
+            <!--android:id="@+id/ivScan"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:padding="10dp"-->
+            <!--android:scaleType="centerCrop" />-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
         </LinearLayout>
 

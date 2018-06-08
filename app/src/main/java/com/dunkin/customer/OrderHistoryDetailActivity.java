@@ -1,7 +1,9 @@
 package com.dunkin.customer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -28,11 +30,14 @@ public class OrderHistoryDetailActivity extends BaseActivity {
     private TextView txtOrderDate, txtOrderStatus, txtShippingAddress, txtBillingAddress, txtOrderAmount, txtOrderPoint, txtOrderPaymentType;
     private ProgressBar progressLoading;
     private ScrollView scrollContainer;
+    private Boolean isBackHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         inflateView(R.layout.activity_order_history_detail, getString(R.string.lbl_order_detail));
+
+        isBackHome=getIntent().getBooleanExtra("isBackHome",false);
 
         String orderId = getIntent().getStringExtra("orderId");
 
@@ -122,6 +127,33 @@ public class OrderHistoryDetailActivity extends BaseActivity {
             });
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            if(isBackHome){// if app not in foreground then
+                Intent intent=new Intent(this,NewHomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }else{// if app in foreground then
+                finish();
+            }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(isBackHome){
+            Intent intent=new Intent(this,NewHomeActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }else{
+            finish();
         }
     }
 }

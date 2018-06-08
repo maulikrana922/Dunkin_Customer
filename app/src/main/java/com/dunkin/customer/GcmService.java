@@ -39,7 +39,8 @@ public class GcmService extends GcmListenerService {
 
     private void sendNotification(Bundle data, int counter) {
 
-        Intent intent=null;
+        Intent intent = null;
+        String packageName = "com.dunkin.customer";
 
         if (data.getString("msgtype") != null && data.getString("msgtype").equals("1")) {
             Dunkin_Log.i("MsgType", data.getString("msgtype"));
@@ -47,25 +48,50 @@ public class GcmService extends GcmListenerService {
             intent.putExtra("order_id", data.getString("orderId"));
             intent.putExtra("table_id", data.getString("table_id"));
             intent.putExtra("restaurant_id", data.getString("restaurant_id"));
+            if (isForeground(packageName)) {
+                intent.putExtra("isBackHome", false);
+            } else {
+                intent.putExtra("isBackHome", true);
+            }
         } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("3")) {
             Dunkin_Log.i("MsgType", data.getString("msgtype"));
             intent = new Intent(this, OrderHistoryDetailActivity.class);
             intent.putExtra("orderId", data.getString("orderId"));
+            if (isForeground(packageName)) {
+                intent.putExtra("isBackHome", false);
+            } else {
+                intent.putExtra("isBackHome", true);
+            }
         } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("4")) {
             Dunkin_Log.i("MsgType", data.getString("msgtype"));
             intent = new Intent(this, CounterOrderPaymentActivity.class);
             intent.putExtra("orderId", data.getString("orderId"));
             intent.putExtra("restaurant_name", data.getString("restaurant_name"));
+            if (isForeground(packageName)) {
+                intent.putExtra("isBackHome", false);
+            } else {
+                intent.putExtra("isBackHome", true);
+            }
         } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("5")) {
             Dunkin_Log.i("MsgType", data.getString("msgtype"));
             intent = new Intent(this, OfferPaymentActivity.class);
             intent.putExtra("offerId", data.getString("offerId"));
             intent.putExtra("country_id", data.getString("country_id"));
             intent.putExtra("reference_id", data.getString("reference_id"));
+            if (isForeground(packageName)) {
+                intent.putExtra("isBackHome", false);
+            } else {
+                intent.putExtra("isBackHome", true);
+            }
         } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("6")) {
             Dunkin_Log.i("MsgType", data.getString("msgtype"));
             intent = new Intent(this, OfferDetailActivity.class);
             intent.putExtra("offerId", data.getString("offerId"));
+            if (isForeground(packageName)) {
+                intent.putExtra("isBackHome", false);
+            } else {
+                intent.putExtra("isBackHome", true);
+            }
         } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("8")) {
             ActivityManager am = (ActivityManager) this.getSystemService(ACTIVITY_SERVICE);
             List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
@@ -83,6 +109,11 @@ public class GcmService extends GcmListenerService {
             Dunkin_Log.i("MsgType", data.getString("msgtype"));
             intent = new Intent(this, GiftDetailActivity.class);
             intent.putExtra("giftOrderId", data.getString("purchaseId"));
+            if (isForeground(packageName)) {
+                intent.putExtra("isBackHome", false);
+            } else {
+                intent.putExtra("isBackHome", true);
+            }
         } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("11")) {
             startService(new Intent(getApplicationContext(), LogoutService.class));
             Dunkin_Log.i("MsgType", data.getString("msgtype"));
@@ -104,6 +135,11 @@ public class GcmService extends GcmListenerService {
         } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("13")) {
             intent = new Intent(this, PromoCodeDetailActivity.class);
             intent.putExtra("promoId", data.getString("promoId"));
+            if (isForeground(packageName)) {
+                intent.putExtra("isBackHome", false);
+            } else {
+                intent.putExtra("isBackHome", true);
+            }
         } else if (data.getString("msgtype") != null && data.getString("msgtype").equals("14")) {
             ActivityManager am = (ActivityManager) this.getSystemService(ACTIVITY_SERVICE);
             List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
@@ -111,18 +147,26 @@ public class GcmService extends GcmListenerService {
             if (taskInfo.get(0).topActivity.getClassName().contains("HomeActivity")) {
                 ((NewHomeActivity) NewHomeActivity.getCustomContext()).opendisalogofSharePointReceive(data.getString("message"));
             } else {
-
                 intent = new Intent(this, SplashActivity.class);
                 intent.putExtra("FromGCM", true);
                 intent.putExtra("MsgType", 14);
             }
             //}
-        }else {
-            intent = new Intent(this, SplashActivity.class);
-            intent.putExtra("FromGCM", true);
+        } else {
+            if (isForeground(packageName)) {
+                intent = new Intent(this, NewHomeActivity.class);
+                intent.putExtra("FromGCM", true);
+                intent.putExtra("isForeground", true);
+                intent.putExtra("isNotMsgType", 1);
+            } else {
+                intent = new Intent(this, NewHomeActivity.class);
+                intent.putExtra("FromGCM", true);
+                intent.putExtra("isForeground", false);
+                intent.putExtra("isNotMsgType", 1);
+            }
         }
 
-        if(intent!=null) {
+        if (intent != null) {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent, PendingIntent.FLAG_ONE_SHOT);
 
@@ -182,12 +226,12 @@ public class GcmService extends GcmListenerService {
         }
     }
 
-    public boolean isForeground(String PackageName){
+    public boolean isForeground(String PackageName) {
 
         ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-        List< ActivityManager.RunningTaskInfo > task = manager.getRunningTasks(1);
+        List<ActivityManager.RunningTaskInfo> task = manager.getRunningTasks(1);
         ComponentName componentInfo = task.get(0).topActivity;
-        if(componentInfo.getPackageName().equals(PackageName)) return true;
+        if (componentInfo.getPackageName().equals(PackageName)) return true;
         return false;
     }
 

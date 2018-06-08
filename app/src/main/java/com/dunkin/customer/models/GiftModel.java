@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Android2 on 8/20/2015.
@@ -21,6 +22,7 @@ public class GiftModel implements Serializable {
     @JsonFormat(pattern = AppConstants.MM_DD_YYYY_SERVER)
     private Date collectDate;
     private int giftType;
+    public List<RestaurantModel> restaurantList;
 
     public Date getOrderDate() {
         return orderDate;

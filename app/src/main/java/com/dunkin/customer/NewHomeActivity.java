@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
@@ -35,6 +36,7 @@ import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.dialogs.ImageDialog;
 import com.dunkin.customer.dialogs.ScanAndWinDialog;
 import com.dunkin.customer.dialogs.WinStatusDialog;
+import com.dunkin.customer.fragments.FeedbackFragment;
 import com.dunkin.customer.fragments.MoreFragment;
 import com.dunkin.customer.fragments.MyWalletFragment;
 import com.dunkin.customer.fragments.NewHomeFragment;
@@ -63,6 +65,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 public class NewHomeActivity extends AppCompatActivity implements OnTabClick, View.OnClickListener {
@@ -89,10 +92,10 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
     public ImageView ivDone, ivClose;
     public GPSTracker gps;
     public double latitude, longitude;
+    public TabAdapter tabAdapter;
     CallbackManager callbackManager;
     private ImageView ivWeather;
     private List<HomeCatModel> homeList = new ArrayList<>();
-    public TabAdapter tabAdapter;
     private GridView rvTabs;
     private OnGetTabTextColor onGetTabTextColor;
     private String lat, log;
@@ -103,6 +106,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
     private File mFileTemp;
     private Animation animHyperSpace, animRotate, animZoomIn, animZoomOut, animFlip,
             animFadeOut;
+    private Boolean isForeground;
 
     public static Context getCustomContext() {
         return mContext;
@@ -158,6 +162,12 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
             isFromGCM = getIntent().getBooleanExtra("FromGCM", false);
         } else {
             isFromGCM = false;
+        }
+
+        if (getIntent().hasExtra("isForeground")) {
+            isForeground = getIntent().getBooleanExtra("isForeground", true);
+        } else {
+            isForeground = getIntent().getBooleanExtra("isForeground", false);
         }
 
         if (getIntent().hasExtra("MsgType")) {
@@ -406,12 +416,39 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                         dbAdapter.close();
 
                         homeList.addAll(dashbordModel.landingpage);
-                        if(isFromGCM)
-                        {
-                            homeList.get(4).setSelect(true);
-                            addFragment(moreFragment, homeList.get(4).getTitle());
-                        }
-                        else {
+                        if (isFromGCM) {
+                            int isNotMsgType = 0;
+                            if (getIntent().hasExtra("isNotMsgType")) {
+                                isNotMsgType = getIntent().getIntExtra("isNotMsgType", 0);
+                            }
+                            if (isNotMsgType == 1) {
+                                if (isForeground) {//if app is foreground and msgType is null
+                                    homeList.get(4).setSelect(true);
+                                    addFragment(moreFragment, homeList.get(4).getTitle());
+                                    addFragment(new NotificationFragment(), "Notification");
+                                } else {////if app is not in foreground and msgType is null
+                                    homeList.get(0).setSelect(true);
+                                    addFragment(newHomeFragment, homeList.get(0).getTitle());
+                                    addFragment(new NotificationFragment(), "Notification");
+                                }
+                            } else {//if app msgType is not null
+                                if (msgType == 8 || msgType == 14) {// for giftappiness
+                                    homeList.get(3).setSelect(true);
+                                    addFragment(myWalletFragment, homeList.get(3).getTitle());
+                                } else if (msgType == AppConstants.MENU_FEEDBACK) {
+                                    homeList.get(4).setSelect(true);
+                                    addFragment(moreFragment, homeList.get(4).getTitle());
+                                    addFragment(new FeedbackFragment(), "FeedBack");
+                                } else if (msgType == 12) {
+                                    homeList.get(4).setSelect(true);
+                                    addFragment(moreFragment, homeList.get(4).getTitle());
+                                    addFragment(new NotificationFragment(), "Notification");
+                                } else {
+                                    homeList.get(4).setSelect(true);
+                                    addFragment(moreFragment, homeList.get(4).getTitle());
+                                }
+                            }
+                        } else {
                             homeList.get(0).setSelect(true);
                             addFragment(newHomeFragment, homeList.get(0).getTitle());
                         }
@@ -433,6 +470,16 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
 
                             }
                         }
+                    } else if (jsonResponse.getInt("success") == 99) {
+                        AppUtils.showToastMessage(getApplicationContext(), getString(R.string.system_error));
+                        SharedPreferences.Editor editor = AppUtils.getAppPreference(NewHomeActivity.this).edit();
+                        String gcm = AppUtils.getAppPreference(NewHomeActivity.this).getString(AppConstants.GCM_TOKEN_ID, "");
+                        editor.clear();
+                        editor.putString(AppConstants.GCM_TOKEN_ID, gcm);
+                        editor.apply();
+                        CustomerApplication.setLocale(new Locale(AppConstants.LANG_EN));
+                        NewHomeActivity.this.finish();
+                        startActivity(new Intent(NewHomeActivity.this, com.dunkin.customer.RegisterActivity.class));
                     } else if (jsonResponse.getInt("success") == 100) {
 
                         AppUtils.showToastMessage(mContext, jsonResponse.getString("message"));

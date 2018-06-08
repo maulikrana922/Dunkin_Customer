@@ -77,8 +77,8 @@ public class URLConstant {
     public static final String EDIT_CARD_DETAIL =  "improveCardInfo";
     public static final String MAKE_ONLINE_ORDER =  "putOrder";
     public static final String GET_SCRATCH_CARD =  "pickGame";
-    public static final String GET_MENU_LIST_URL =  "catalogMenuTest";
-//    public static final String GET_MENU_LIST_URL =  "catalogNewMenu";
+//    public static final String GET_MENU_LIST_URL =  "catalogMenuTest";
+    public static final String GET_MENU_LIST_URL =  "catalogNewMenu";
     public static final String COUNTER_ORDER_DETAIL =  "specificOrderCounter";
     public static final String MAKE_PAYMENT_FOR_COUNTER_ORDER =  "orderCounterClearance";
     public static final String HOME_PAGE_URL =  "gainDashboard";
@@ -102,4 +102,5 @@ public class URLConstant {
     public static final String GET_KNOW_LIST =  "catalogKnowUs";
     public static final String PUT_STAFF_ASSESSMENT =  "putStaffAssessment";
     public static final String GET_CATALOG_QUESTION_LIST =  "catalogQuestion";
+    public static final String GAIN_POINT_SHIFT="gainPointShift";
 }

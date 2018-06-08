@@ -4,7 +4,9 @@ package com.dunkin.customer.fragments;
  * Created by kinal on 20/2/18.
  */
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,6 +25,7 @@ import android.widget.TextView;
 import com.dunkin.customer.CustomerApplication;
 import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
+import com.dunkin.customer.RegisterActivity;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
 import com.dunkin.customer.Utils.Dunkin_Log;
@@ -51,11 +54,18 @@ public class MoreFragment extends Fragment {
     private NavDrawerAdapter navDrawerAdapter;
     private ListView navigationView;
     private int mNavItemId;
+    private Context context;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         homeActivity = (NewHomeActivity) getActivity();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.context = context;
     }
 
     @Nullable
@@ -378,15 +388,16 @@ public class MoreFragment extends Fragment {
 
                         if (homeActivity.isFromGCM) {
                             Dunkin_Log.e("msgtype", "" + homeActivity.msgType);
-                            if (homeActivity.msgType == 8 || homeActivity.msgType == 14) {
-                                navigateAndCheckItem(AppConstants.MENU_WALLET);
-                            } else if (homeActivity.msgType == AppConstants.MENU_FEEDBACK) {
-                                navigateAndCheckItem(AppConstants.MENU_FEEDBACK);
+//                            if (homeActivity.msgType == 8 || homeActivity.msgType == 14) {
+//                                navigateAndCheckItem(AppConstants.MENU_WALLET);
+//                            } else if (homeActivity.msgType == AppConstants.MENU_FEEDBACK) {
+//                                navigateAndCheckItem(AppConstants.MENU_FEEDBACK);
 //                            } else if (msgType == 12)
 //                            {
 //                                getSupportFragmentManager().beginTransaction().replace(R.id.content, new NotificationFragment()).commitAllowingStateLoss();
-                            } else
-                                navigateAndCheckItem(AppConstants.MENU_NOTIFICATIONS);
+//                            }
+//                            else
+//                                navigateAndCheckItem(AppConstants.MENU_NOTIFICATIONS);
                         } else
                             navigateAndCheckItem(switchPosition);
                     } else if (jsonResponse.getInt("success") == 100) {
@@ -440,11 +451,14 @@ public class MoreFragment extends Fragment {
 //                        AppConstants.MENU_NOTIFICATIONS,
 //                        navigationView.getAdapter().getItemId(AppConstants.MENU_NOTIFICATIONS));
 
-                if (homeActivity.msgType == 12) {
-                    position = position;
-                } else {
-                    position = position + 1;
-                }
+//                if (homeActivity.msgType == 12) {
+//                    position = position;
+//                } else {
+//                    position = position + 1;
+//                    if(homeActivity.msgType==0){
+//                        position = position + 1;
+//                    }
+//                }
 
                 NavDrawerModel navModel = (NavDrawerModel) navigationView.getAdapter().getItem(position);
 
@@ -510,7 +524,8 @@ public class MoreFragment extends Fragment {
                 homeActivity.addFragment(homeActivity.newHomeFragment, "Home");
                 break;
             case AppConstants.MENU_GIFT_APPINESS:
-                homeActivity.addFragment(new GiftAppinessFragment(), "Gift");
+                CallGainApi();
+//                homeActivity.addFragment(new GiftAppinessFragment(), "Gift");
                 break;
             case AppConstants.MENU_OFFER:
                 homeActivity.addFragment(homeActivity.offerFragment, "Offer");
@@ -603,6 +618,64 @@ public class MoreFragment extends Fragment {
             default:
                 break;
         }
+    }
+
+    private void CallGainApi() {
+
+
+        try {
+
+            AppController.gainsharepoint(context, AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, "")
+                    ,String.valueOf(AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1))
+                    , new Callback() {
+                        @Override
+                        public void run(Object result) throws JSONException, IOException {
+                            JSONObject jsonResponse = new JSONObject((String) result);
+
+                            if (jsonResponse != null) {
+                                if (jsonResponse.getInt("success") == 1) {
+                                    homeActivity.addFragment(new GiftAppinessFragment(), "Gift");
+                                }
+
+                                else if (jsonResponse.getInt("success") == 99) {
+                                    //AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+
+                                    displayDialog(jsonResponse.getString("message"));
+
+                                } else {
+                                    AppUtils.showToastMessage(context, getString(R.string.system_error));
+                                }
+
+                            }
+                        }
+                    });
+        } catch (JSONException | UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void displayDialog(String message) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        SharedPreferences.Editor editor = AppUtils.getAppPreference(context).edit();
+                        String gcm = AppUtils.getAppPreference(context).getString(AppConstants.GCM_TOKEN_ID, "");
+                        editor.clear();
+                        editor.putString(AppConstants.GCM_TOKEN_ID, gcm);
+                        editor.apply();
+                        CustomerApplication.setLocale(new Locale(AppConstants.LANG_EN));
+                        ((Activity) context).finish();
+                        startActivity(new Intent(context, com.dunkin.customer.RegisterActivity.class));
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.setTitle(getResources().getString(R.string.app_name));
+        alert.show();
     }
 
     private void showDialogBox(String message, String title) {

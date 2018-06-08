@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -118,8 +117,7 @@ public class NotificationFragment extends Fragment {
                                                 lvList.setAdapter(notificationAdapter);
                                                 lvList.setEmptyView(rootView.findViewById(R.id.emptyElement));
                                                 removeFromList(list);
-                                            }
-                                            else if (jsonResponse.getInt("success") == 100) {
+                                            } else if (jsonResponse.getInt("success") == 100) {
                                                 AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                                             }
                                         }
@@ -179,8 +177,7 @@ public class NotificationFragment extends Fragment {
 
                                             if (jsonResponse.getInt("success") == 1) {
                                                 removeFromList(list);
-                                            }
-                                            else if (jsonResponse.getInt("success") == 100) {
+                                            } else if (jsonResponse.getInt("success") == 100) {
                                                 AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                                             }
                                         }
@@ -247,8 +244,7 @@ public class NotificationFragment extends Fragment {
                 if (jsonResponse.getInt("success") == 1) {
                     notificationList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("notificationList").toString(), new TypeReference<List<NotificationModel>>() {
                     });
-                }
-                else if (jsonResponse.getInt("success") == 100) {
+                } else if (jsonResponse.getInt("success") == 100) {
                     AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                 }
                 progressLoading.setVisibility(View.GONE);
@@ -278,8 +274,7 @@ public class NotificationFragment extends Fragment {
 
                         if (jsonResponse.getInt("success") == 1) {
                             redirectToSpecificActivity(parent, position, true);
-                        }
-                        else if (jsonResponse.getInt("success") == 100) {
+                        } else if (jsonResponse.getInt("success") == 100) {
                             AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                         }
                     }
@@ -353,9 +348,9 @@ public class NotificationFragment extends Fragment {
 
             //((HomeActivity) getActivity()).navigateAndCheckItem(AppConstants.MENU_WALLET);
 
-            ((AppCompatActivity) context).getSupportFragmentManager()
+            getActivity().getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.content, new MyWalletFragment())
+                    .replace(R.id.frFragmentContainer, new MyWalletFragment())
                     //.addToBackStack(null)
                     .commit();
 
@@ -375,43 +370,40 @@ public class NotificationFragment extends Fragment {
             intent.putExtra("promoId", nmResponse.getPromoId());
 
             startActivity(intent);
-        }else if (nmResponse.getMsgtype() == 14) {
+        } else if (nmResponse.getMsgtype() == 14) {
 
-            if(nmResponse.getPromoType()!=null && nmResponse.getPromoType().equals("1"))
-            {
+            if (nmResponse.getPromoType() != null && nmResponse.getPromoType().equals("1")) {
                 Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
                 //((HomeActivity) getActivity()).navigateAndCheckItem(AppConstants.MENU_WALLET);
 
-                ((AppCompatActivity) context).getSupportFragmentManager()
+                getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.content, new MyWalletFragment())
+                        .replace(R.id.frFragmentContainer, new MyWalletFragment())
                         //.addToBackStack(null)
                         .commit();
-            }else if(nmResponse.getPromoType()!=null && nmResponse.getPromoType().equals("2"))
-            {
+            } else if (nmResponse.getPromoType() != null && nmResponse.getPromoType().equals("2")) {
                 Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
                 intent = new Intent(context, OfferDetailActivity.class);
                 intent.putExtra("offerId", nmResponse.getOfferId());
 
                 startActivity(intent);
-            }else if(nmResponse.getPromoType()!=null && nmResponse.getPromoType().equals("3"))
-            {
+            } else if (nmResponse.getPromoType() != null && nmResponse.getPromoType().equals("3")) {
                 Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
                 intent = new Intent(context, OfferDetailActivity.class);
                 intent.putExtra("offerId", nmResponse.getOfferId());
 
                 startActivity(intent);
-            }else {
+            } else {
                 Dunkin_Log.i("MSG Type", "" + nmResponse.getMsgtype());
 
                 //((HomeActivity) getActivity()).navigateAndCheckItem(AppConstants.MENU_WALLET);
 
-                ((AppCompatActivity) context).getSupportFragmentManager()
+                getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.content, new MyWalletFragment())
+                        .replace(R.id.frFragmentContainer, new MyWalletFragment())
                         //.addToBackStack(null)
                         .commit();
             }

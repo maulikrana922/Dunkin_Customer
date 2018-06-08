@@ -727,7 +727,7 @@ public class AppController {
             jsonRequest.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1));
             jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
             jsonRequest.put("email", AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, ""));
-            jsonRequest.put("userid", "34772");
+//            jsonRequest.put("userid", "34772");
             // Dunkin_Log.e("DataRequest", jsonRequest.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
             AppUtils.requestCallAsyncTask(context, URLConstant.GET_MENU_LIST_URL, se, true, callback);
@@ -1021,5 +1021,18 @@ public class AppController {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    // SHARE POINT
+    public static void gainsharepoint(Context context, String email, String country_id, Callback callback) throws JSONException, UnsupportedEncodingException {
+        ApiParamloginUser apiParamloginUser =new ApiParamloginUser();
+        JSONObject jsonRequest = new JSONObject();
+        jsonRequest.put(apiParamloginUser.getEmail(), email);
+        jsonRequest.put("country_id", country_id);
+        jsonRequest.put("email", email);
+
+        // Dunkin_Log.e("DataRequest", jsonRequest.toString());
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GAIN_POINT_SHIFT, se, true, callback);
     }
 }

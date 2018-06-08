@@ -1,6 +1,8 @@
 package com.dunkin.customer;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -33,6 +35,7 @@ public class CounterOrderPaymentActivity extends BaseActivity {
     private LinearLayout lvShopName;
     private String payOption;
     private String restautrantName;
+    private Boolean isBackHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,8 @@ public class CounterOrderPaymentActivity extends BaseActivity {
             restautrantName = getIntent().getStringExtra("restaurant_name");
 
         inflateView(R.layout.activity_counter_order_payment, getString(R.string.nav_payment));
+
+        isBackHome=getIntent().getBooleanExtra("isBackHome",false);
 
         txtOrderId = (TextView) findViewById(R.id.tvOrderId);
         tvShopName = (TextView) findViewById(R.id.tvShopName);
@@ -198,6 +203,34 @@ public class CounterOrderPaymentActivity extends BaseActivity {
             });
         } catch (JSONException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            if(isBackHome){// if app not in foreground then
+                Intent intent=new Intent(this,NewHomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }else{// if app in foreground then
+                finish();
+            }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(isBackHome){
+            Intent intent=new Intent(this,NewHomeActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }else{
+            finish();
         }
     }
 }

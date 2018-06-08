@@ -315,8 +315,7 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                             }
                         }).create().show();
             }
-        } else if (v.getId() == R.id.ivClose)
-        {
+        } else if (v.getId() == R.id.ivClose) {
             spSelectRestaurant.setText(context.getString(R.string.txt_chose_location));
         }
     }
@@ -466,30 +465,34 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
     public void onGiftConfirm(GiftModel gift) {
         this.gift = gift;
         try {
-            AppController.getRestaurantList(context, true, new Callback() {
-                @Override
-                public void run(Object result) throws JSONException, IOException {
+//            AppController.getRestaurantList(context, true, new Callback() {
+//                @Override
+//                public void run(Object result) throws JSONException, IOException {
+//
+//                    JSONObject jsonResponse = new JSONObject((String) result);
+//                    //Dunkin_Log.i("DataResponse", jsonResponse.toString());
+//                    if (jsonResponse.getInt("success") == 1) {
+//
+//                        restaurantList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("restaurantList").toString(), new TypeReference<List<RestaurantModel>>() {
+//                        });
 
-                    JSONObject jsonResponse = new JSONObject((String) result);
-                    //Dunkin_Log.i("DataResponse", jsonResponse.toString());
-                    if (jsonResponse.getInt("success") == 1) {
+            restaurantList = new ArrayList<>();
+            if (gift.restaurantList != null) {
+                restaurantList.addAll(gift.restaurantList);
+            }
+            restaurantAdapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, restaurantList);
 
-                        restaurantList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("restaurantList").toString(), new TypeReference<List<RestaurantModel>>() {
-                        });
-
-                        restaurantAdapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, restaurantList);
-
-                        openDialog(getString(R.string.txt_select_restaurant));
-                    } else if (jsonResponse.getInt("success") == 100) {
-                        AppUtils.showToastMessage(context, jsonResponse.getString("message"));
-                    } else {
-                        if (jsonResponse.getInt("success") != 99) {
-                            AppUtils.showToastMessage(context, getString(R.string.system_error));
-                        }
-                    }
-                }
-            });
-        } catch (JSONException | UnsupportedEncodingException e) {
+            openDialog(getString(R.string.txt_select_restaurant));
+//                    } else if (jsonResponse.getInt("success") == 100) {
+//                        AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+//                    } else {
+//                        if (jsonResponse.getInt("success") != 99) {
+//                            AppUtils.showToastMessage(context, getString(R.string.system_error));
+//                        }
+//                    }
+//                }
+//            });
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

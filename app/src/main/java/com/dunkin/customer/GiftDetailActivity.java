@@ -1,7 +1,9 @@
 package com.dunkin.customer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -25,12 +27,15 @@ public class GiftDetailActivity extends BaseActivity {
     private ImageView imgGiftLogo;
     private ScrollView scrollContainer;
     private ProgressBar progressLoading;
+    private Boolean isBackHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         inflateView(R.layout.activity_gift_detail, getString(R.string.lbl_gift_detail));
+
+        isBackHome=getIntent().getBooleanExtra("isBackHome",false);
 
         int giftOrderId = Integer.parseInt(getIntent().getStringExtra("giftOrderId"));
 
@@ -88,5 +93,32 @@ public class GiftDetailActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            if(isBackHome){// if app not in foreground then
+                Intent intent=new Intent(this,NewHomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }else{// if app in foreground then
+                finish();
+            }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(isBackHome){
+            Intent intent=new Intent(this,NewHomeActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }else{
+            finish();
+        }
     }
 }

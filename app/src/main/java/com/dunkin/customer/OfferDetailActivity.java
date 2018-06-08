@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -38,12 +39,15 @@ public class OfferDetailActivity extends BaseActivity implements View.OnClickLis
     private int country_id;
     private ScrollView scrollContainer;
     private ProgressBar progressLoading;
+    private Boolean isBackHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         inflateView(R.layout.activity_offer_detail, getString(R.string.nav_offer2));
+
+        isBackHome=getIntent().getBooleanExtra("isBackHome",false);
 
         int offerId = Integer.parseInt(getIntent().getStringExtra("offerId"));
         if (getIntent().hasExtra("country_id"))
@@ -191,6 +195,33 @@ public class OfferDetailActivity extends BaseActivity implements View.OnClickLis
         if (v == imgPlayVideo) {
             if (AppUtils.isNotNull(of.getOffer_video_url()))
                 startActivity(new Intent(OfferDetailActivity.this, AppWebViewActivity.class).putExtra("url", of.getOffer_video_url()));
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            if(isBackHome){// if app not in foreground then
+                Intent intent=new Intent(this,NewHomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }else{// if app in foreground then
+                finish();
+            }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(isBackHome){
+            Intent intent=new Intent(this,NewHomeActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }else{
+            finish();
         }
     }
 }

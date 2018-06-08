@@ -120,6 +120,7 @@ public class NewHomeFragment extends Fragment {
         } else {
             txtLandingPageDescription.setText("Pamper yourself in a full table service setting with premium cuisine. Savor our food and vibrant surroundings while enjoying your friends and family.".trim());
         }
+        checkScanAndWin();
 
         homeActivity.tabAdapter.notifyDataSetChanged();
     }
@@ -220,13 +221,13 @@ public class NewHomeFragment extends Fragment {
         if (!TextUtils.isEmpty(str)) {
 
             if (str.contains(".gif")) {
-                llScan.setVisibility(View.VISIBLE);
+//                llScan.setVisibility(View.VISIBLE);
                 Glide.with(this).load(str).into(ivScan);
             } else {
                 Glide.with(this).load(str).into(ivScan);
 //                ivScan.setImageBitmap(BitmapFactory.decodeFile(str));
-                if (llScan.getVisibility() != View.VISIBLE) {
-                    llScan.setVisibility(View.VISIBLE);
+//                if (llScan.getVisibility() != View.VISIBLE) {
+//                    llScan.setVisibility(View.VISIBLE);
 
 //        TranslateAnimation animation = new TranslateAnimation(0.0f, 200.0f,
 //                0.0f, 0.0f);
@@ -295,7 +296,7 @@ public class NewHomeFragment extends Fragment {
                     loading_first.setTarget(imgBag);
                     loading_first.start();
                 }
-            }
+//            }
         }
     }
 

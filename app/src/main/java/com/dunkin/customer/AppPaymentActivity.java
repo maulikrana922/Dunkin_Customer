@@ -1,5 +1,6 @@
 package com.dunkin.customer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,6 +35,7 @@ public class AppPaymentActivity extends BaseActivity {
     private TextView tvCustOrderId;
     private LinearLayout llHeader;
     private Menu mMenu;
+    private Boolean isBackHome;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,7 +56,13 @@ public class AppPaymentActivity extends BaseActivity {
             return true;
         }
         if (item.getItemId() == android.R.id.home) {
-            finish();
+            if(isBackHome){// if app not in foreground then
+                Intent intent=new Intent(this,NewHomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }else{// if app in foreground then
+                finish();
+            }
             return true;
         }
         return false;
@@ -74,6 +82,8 @@ public class AppPaymentActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         inflateView(R.layout.activity_pay, getString(R.string.lbl_activity_pay));
+
+        isBackHome=getIntent().getBooleanExtra("isBackHome",false);
 
         lvProductDetails = (ListView) findViewById(R.id.lvProductDetails);
 
@@ -235,4 +245,16 @@ public class AppPaymentActivity extends BaseActivity {
         });
         alert.create().show();
     }*/
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(isBackHome){
+            Intent intent=new Intent(this,NewHomeActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }else{
+            finish();
+        }
+    }
 }

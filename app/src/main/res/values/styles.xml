@@ -92,7 +92,7 @@
         <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
     </style>
 
-    <style name="LoadingDialog" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+    <style name="LoadingDialog" parent="@android:style/Theme.Translucent.NoTitleBar">
         <!--<item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:backgroundDimEnabled">false</item>-->
         <item name="android:backgroundDimEnabled">true</item>
