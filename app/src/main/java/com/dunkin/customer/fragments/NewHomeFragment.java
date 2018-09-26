@@ -59,9 +59,11 @@ public class NewHomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
         homeActivity = (NewHomeActivity) getActivity();
         dashbordModel = homeActivity.dashbordModel;
-        homeActivity.latitude = homeActivity.gps.getLatitude();
-        homeActivity.longitude = homeActivity.gps.getLongitude();
-        getCityNCountry();
+        if(homeActivity.getAppPermissions()) {
+            homeActivity.latitude = homeActivity.gps.getLatitude();
+            homeActivity.longitude = homeActivity.gps.getLongitude();
+            getCityNCountry();
+        }
     }
 
     @Override

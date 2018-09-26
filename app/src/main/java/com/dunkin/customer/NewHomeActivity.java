@@ -1,5 +1,7 @@
 package com.dunkin.customer;
 
+import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -8,6 +10,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
@@ -107,6 +110,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
     private Animation animHyperSpace, animRotate, animZoomIn, animZoomOut, animFlip,
             animFadeOut;
     private Boolean isForeground;
+    String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION};
 
     public static Context getCustomContext() {
         return mContext;
@@ -551,6 +555,30 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
             getSupportFragmentManager().beginTransaction().addToBackStack(fragmentTag).replace(R.id.frFragmentContainer, fragment, fragmentTag).commit();
         }
     }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    public boolean getAppPermissions() {
+        if (ActivityCompat.checkSelfPermission(NewHomeActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                || ActivityCompat.checkSelfPermission(NewHomeActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(NewHomeActivity.this, PERMISSIONS, 101);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == 101 && AppUtils.verifyPermissions(grantResults)) {
+
+        } else {
+            getAppPermissions();
+        }
+    }
+
 
     @Override
     public void onBackPressed() {

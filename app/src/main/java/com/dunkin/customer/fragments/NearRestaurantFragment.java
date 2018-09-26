@@ -13,7 +13,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.text.Html;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
@@ -79,6 +79,7 @@ public class NearRestaurantFragment extends Fragment implements OnMapReadyCallba
     private TextView infoSnippet;
     private List<RestaurantsModel> restaurantsModelList;
     private OnInfoWindowElemTouchListener infoButtonListener, emailListener, shareListener;
+    private NewHomeActivity homeActivity;
 
     public static int getPixelsFromDp(Context context, float dp) {
         final float scale = context.getResources().getDisplayMetrics().density;
@@ -89,6 +90,7 @@ public class NearRestaurantFragment extends Fragment implements OnMapReadyCallba
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        homeActivity = (NewHomeActivity) getActivity();
     }
 
     @Override
@@ -100,34 +102,35 @@ public class NearRestaurantFragment extends Fragment implements OnMapReadyCallba
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_restaurent_on_map, container, false);
+        if(homeActivity.getAppPermissions()) {
+            callbackManager = CallbackManager.Factory.create();
+            fragment = this;
+            gps = new GPSTracker(context);
 
-        callbackManager = CallbackManager.Factory.create();
-        fragment = this;
-        gps = new GPSTracker(context);
+            SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapFragment);
+            mapWrapperLayout = (MapWrapperLayout) rootView.findViewById(R.id.map_relative_layout);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapFragment);
-        mapWrapperLayout = (MapWrapperLayout) rootView.findViewById(R.id.map_relative_layout);
+            mapFragment.getMapAsync(this);
 
-        mapFragment.getMapAsync(this);
+            LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+                @Override
+                public void onSuccess(LoginResult loginResult) {
+                    Dunkin_Log.d("Success", "Login");
+                    Dunkin_Log.d("ACCESS TOKEN", loginResult.getAccessToken().getToken());
+                    postOnFacebook(loginResult.getAccessToken());
+                }
 
-        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                Dunkin_Log.d("Success", "Login");
-                Dunkin_Log.d("ACCESS TOKEN", loginResult.getAccessToken().getToken());
-                postOnFacebook(loginResult.getAccessToken());
-            }
+                @Override
+                public void onCancel() {
 
-            @Override
-            public void onCancel() {
+                }
 
-            }
+                @Override
+                public void onError(FacebookException error) {
 
-            @Override
-            public void onError(FacebookException error) {
-
-            }
-        });
+                }
+            });
+        }
         return rootView;
     }
 
