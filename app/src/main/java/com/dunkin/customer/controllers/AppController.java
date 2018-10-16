@@ -42,28 +42,28 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         //  Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_BANNERS, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_BANNERS, jsonRequest.toString(), false, callback);
     }
 
     //POST CUSTOMER DATA
     public static void RegisterCustomer(Context context, String requestString, Callback callback) throws UnsupportedEncodingException {
         //  Dunkin_Log.e("DataRequest", requestString);
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(requestString, AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.REGISTER_CUSTOMER_URL, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.REGISTER_CUSTOMER_URL, requestString, true, callback);
     }
 
     //UPDATE UDUD FOR USER
     public static void updateUDIDForUser(String requestString, Callback callback) throws UnsupportedEncodingException {
         // Dunkin_Log.e("DataRequest", requestString);
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(requestString, AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(URLConstant.UPDATE_UDID_URL, se, callback);
+        AppUtils.requestCallAsyncTask(URLConstant.UPDATE_UDID_URL, requestString, callback);
     }
 
     //NEAR RESTAURANTS ON MAP
     public static void nearByRestaurantsOnMap(Context context, String requestString, Callback callback) throws UnsupportedEncodingException {
         // Dunkin_Log.e("DataRequest", requestString);
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(requestString, AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.NEAR_BY_RESTAURANTS, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.NEAR_BY_RESTAURANTS, requestString, false, callback);
     }
 
     //CHECK SCAN AND WIN
@@ -72,7 +72,7 @@ public class AppController {
 //        JSONObject jsonRequest = new JSONObject();
 //        jsonRequest.put("user_id", "34772");
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity("", AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.SCAN_AND_WIN, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.SCAN_AND_WIN, "", false, callback);
     }
 
     //NEAR RESTAURANTS ON MAP
@@ -84,7 +84,7 @@ public class AppController {
         jsonRequest.put("email", email);
         jsonRequest.put("qrscan", requestString);
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.CHECK_AND_WIN, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.CHECK_AND_WIN, jsonRequest.toString(), false, callback);
     }
 
     // LOGIN CUSTOMER
@@ -99,7 +99,7 @@ public class AppController {
         jsonRequest.put(apiParamloginUser.udid, AppUtils.getAppPreference(context).getString(AppConstants.GCM_TOKEN_ID, ""));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, new URLConstant().getLOGIN(), se, true, callback);
+        AppUtils.requestCallAsyncTask(context, new URLConstant().getLOGIN(), jsonRequest.toString(), true, callback);
     }
 
     // SHARE POINT
@@ -115,7 +115,7 @@ public class AppController {
 
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.POINT_SHARE, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.POINT_SHARE, jsonRequest.toString(), true, callback);
     }
 
     // FORGOT PASSWORD
@@ -125,7 +125,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.FORGOT_PASSWORD_URL, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.FORGOT_PASSWORD_URL, jsonRequest.toString(), true, callback);
     }
 
     //GET USER PROFILE
@@ -136,7 +136,7 @@ public class AppController {
             jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
             //Dunkin_Log.e("DataRequest", jsonRequest.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.GET_USER_PROFILE, se, isLoading, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_USER_PROFILE, jsonRequest.toString(), isLoading, callback);
         } else {
             DBAdapter dbAdapter = new DBAdapter(context);
             dbAdapter.open();
@@ -157,7 +157,7 @@ public class AppController {
             jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
             //Dunkin_Log.e("DataRequest", jsonRequest.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(AppConstants.OF_PROFILE, context, URLConstant.GET_USER_PROFILE, se, isLoading, callback);
+            AppUtils.requestCallAsyncTask(AppConstants.OF_PROFILE, context, URLConstant.GET_USER_PROFILE, jsonRequest.toString(), isLoading, callback);
         } else {
             DBAdapter dbAdapter = new DBAdapter(context);
             dbAdapter.open();
@@ -179,7 +179,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.LOGOUT_USER_URL, se, isLoading, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.LOGOUT_USER_URL, jsonRequest.toString(), isLoading, callback);
     }
 
     // LOGOUT USER PROFILE
@@ -192,14 +192,14 @@ public class AppController {
         jsonRequest.put("isDirectExit", isDirectExit);
         //  Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(URLConstant.LOGOUT_USER_URL, se, callback);
+        AppUtils.requestCallAsyncTask(URLConstant.LOGOUT_USER_URL, jsonRequest.toString(), callback);
     }
 
     //POST UPDATED USER PROFILE
     public static void postUpdatedData(Context context, String requestString, Callback callback) throws UnsupportedEncodingException {
         //  Dunkin_Log.e("DataRequest", requestString);
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(requestString, AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.UPDATE_USER_PROFILE, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.UPDATE_USER_PROFILE, requestString, true, callback);
     }
 
     //GET EVENTS LIST
@@ -209,7 +209,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_EVENTS_LIST, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_EVENTS_LIST, jsonRequest.toString(), false, callback);
     }
 
     //GET EVENT DETAIL
@@ -220,7 +220,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_EVENT_DETAIL, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_EVENT_DETAIL, jsonRequest.toString(), false, callback);
     }
 
     //GET GIFTS LIST
@@ -232,7 +232,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_GIFTS_LIST, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_GIFTS_LIST, jsonRequest.toString(), true, callback);
     }
 
     //GET ALL GIFTS LIST
@@ -243,12 +243,12 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_ALL_GIFTS_LIST, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_ALL_GIFTS_LIST, jsonRequest.toString(), true, callback);
     }
 
     public static void getWeatherInfo(Context context, Callback callback) throws UnsupportedEncodingException, JSONException {
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity("", AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.SCAN_AND_WIN, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.SCAN_AND_WIN, "", false, callback);
     }
 
     //GET OFFERS LIST
@@ -259,7 +259,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_OFFER_LIST, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_OFFER_LIST, jsonRequest.toString(), false, callback);
     }
 
     //GET OFFER DETAIL
@@ -271,7 +271,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         //Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_OFFER_DETAIL, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_OFFER_DETAIL, jsonRequest.toString(), false, callback);
     }
 
     //GET RATING LIST
@@ -282,7 +282,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         //Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_RATING_LIST, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_RATING_LIST, jsonRequest.toString(), false, callback);
     }
 
     //GET RATING LIST
@@ -293,26 +293,26 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         //Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_CATALOG_QUESTION_LIST, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_CATALOG_QUESTION_LIST, jsonRequest.toString(), false, callback);
     }
 
     public static void postComments(Context context, String requestString, Callback callback) throws JSONException, UnsupportedEncodingException {
         // Dunkin_Log.e("DataRequest", requestString);
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(requestString, AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.POST_COMMENTS, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.POST_COMMENTS, requestString, true, callback);
     }
 
     public static void putStaffAssessment(Context context, String requestString, Callback callback) throws JSONException, UnsupportedEncodingException {
         // Dunkin_Log.e("DataRequest", requestString);
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(requestString, AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.PUT_STAFF_ASSESSMENT, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.PUT_STAFF_ASSESSMENT, requestString, true, callback);
     }
 
     //POST RESERVE DATA TO SERVER
     public static void postGiftData(Context context, String requestString, Callback callback) throws UnsupportedEncodingException {
         //Dunkin_Log.e("DataRequest", requestString);
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(requestString, AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.POST_RESERVATION, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.POST_RESERVATION, requestString, true, callback);
     }
 
     //GET RESTAURENT LIST
@@ -322,7 +322,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         //Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_RESTAURANT_LIST, se, isLoading, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_RESTAURANT_LIST, jsonRequest.toString(), isLoading, callback);
     }
 
     //GET RESTAURENT LIST
@@ -332,7 +332,7 @@ public class AppController {
         jsonRequest.put("lang_flag", langFlag);
         //Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_RESTAURANT_LIST, se, isLoading, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_RESTAURANT_LIST, jsonRequest.toString(), isLoading, callback);
     }
 
     //GET NEWS LIST
@@ -342,7 +342,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_NEWS_LIST, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_NEWS_LIST, jsonRequest.toString(), false, callback);
     }
 
     //GET NEWS DETAIL
@@ -353,7 +353,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_NEWS_DETAIL, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_NEWS_DETAIL, jsonRequest.toString(), false, callback);
     }
 
     //GET BILL
@@ -364,14 +364,14 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         //   Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_BILL, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_BILL, jsonRequest.toString(), false, callback);
     }
 
     //PAY AMOUNT BY CUSTOMER
     public static void payAmountByCustomer(Context context, JSONObject jsonRequest, Callback callback) throws UnsupportedEncodingException {
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.PAY_AMOUNT_BT_CUSTOMER, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.PAY_AMOUNT_BT_CUSTOMER, jsonRequest.toString(), true, callback);
     }
 
     // GET CELEBRATION LIST
@@ -381,7 +381,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_CELEBRATION_LIST, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_CELEBRATION_LIST, jsonRequest.toString(), false, callback);
     }
 
     //GET CELEBRATION DETAIL
@@ -393,7 +393,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         //  Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_CELEBRATION_DETAIL, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_CELEBRATION_DETAIL, jsonRequest.toString(), false, callback);
     }
 
     //GET CATAGORY LIST
@@ -404,7 +404,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_CATEGORY_LIST, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_CATEGORY_LIST, jsonRequest.toString(), false, callback);
     }
 
     //GET PRODUCTS FROM CATAGORYID
@@ -416,7 +416,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_PRODUCT_FROM_CATEGORY, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_PRODUCT_FROM_CATEGORY, jsonRequest.toString(), false, callback);
     }
 
     //GET PRODUCT DETAIL
@@ -427,7 +427,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_PRODUCT_DETAIL, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_PRODUCT_DETAIL, jsonRequest.toString(), false, callback);
     }
 
     //GET REEDEEM POINTS
@@ -439,7 +439,7 @@ public class AppController {
             jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
             // Dunkin_Log.e("DataRequest", jsonRequest.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.GET_REDEEM_PONTS, se, false, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_REDEEM_PONTS, jsonRequest.toString(), false, callback);
         } else {
             DBAdapter dbAdapter = new DBAdapter(context);
             dbAdapter.open();
@@ -465,7 +465,7 @@ public class AppController {
             jsonObject.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
             // Dunkin_Log.e("DataRequest", jsonObject.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.CONTACT_US, se, true, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.CONTACT_US, jsonObject.toString(), true, callback);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -483,7 +483,7 @@ public class AppController {
             jsonObject.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
             //  Dunkin_Log.e("DataRequest", jsonObject.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.REGISTER_NEW_CARD, se, true, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.REGISTER_NEW_CARD, jsonObject.toString(), true, callback);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -498,7 +498,7 @@ public class AppController {
             jsonObject.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
             //  Dunkin_Log.e("DataRequest", jsonObject.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.GET_CARD_LIST, se, false, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_CARD_LIST, jsonObject.toString(), false, callback);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -514,7 +514,7 @@ public class AppController {
                 jsonObject.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
                 //   Dunkin_Log.e("DataRequest", jsonObject.toString());
                 org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
-                AppUtils.requestCallAsyncTask(context, URLConstant.GET_MY_WALLET, se, false, callback);
+                AppUtils.requestCallAsyncTask(context, URLConstant.GET_MY_WALLET, jsonObject.toString(), false, callback);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -539,7 +539,7 @@ public class AppController {
             jsonObject.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, 0));
             //Dunkin_Log.e("DataRequest", jsonObject.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.GET_ORDER_HISTORY, se, false, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_ORDER_HISTORY, jsonObject.toString(), false, callback);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -553,7 +553,7 @@ public class AppController {
             jsonObject.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
             //  Dunkin_Log.e("DataRequest", jsonObject.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.GET_ORDER_DETAIL, se, false, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_ORDER_DETAIL, jsonObject.toString(), false, callback);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -568,7 +568,7 @@ public class AppController {
             jsonObject.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, 0));
             // Dunkin_Log.e("DataRequest", jsonObject.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.GET_RECURRENT_ORDER_DETAIL_URL, se, false, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_RECURRENT_ORDER_DETAIL_URL, jsonObject.toString(), false, callback);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -581,7 +581,7 @@ public class AppController {
             jsonObject.put("reference_id", recurrentOrderId);
             // Dunkin_Log.e("DataRequest", jsonObject.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.CANCEL_RECURRENT_ORDER_URL, se, true, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.CANCEL_RECURRENT_ORDER_URL, jsonObject.toString(), true, callback);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -599,7 +599,7 @@ public class AppController {
             jsonObject.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
             //  Dunkin_Log.e("DataRequest", jsonObject.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.EDIT_CARD_DETAIL, se, true, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.EDIT_CARD_DETAIL, jsonObject.toString(), true, callback);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -615,7 +615,7 @@ public class AppController {
             jsonObject.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
             //  Dunkin_Log.e("DataRequest", jsonObject.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.REMOVE_CREDIT_CARD, se, true, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.REMOVE_CREDIT_CARD, jsonObject.toString(), true, callback);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -623,7 +623,7 @@ public class AppController {
 
     //INSERT COUNTRY
     public static void getCountryList(Context context, Callback callback) throws UnsupportedEncodingException {
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_COUNTRY_LIST, null, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_COUNTRY_LIST, "", false, callback);
     }
 
     // POST ORDER
@@ -680,7 +680,7 @@ public class AppController {
             jsonRequest.put("orderItems", jArray);
             //  Dunkin_Log.e("DataRequest", jsonRequest.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.MAKE_ONLINE_ORDER, se, true, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.MAKE_ONLINE_ORDER, jsonRequest.toString(), true, callback);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -694,7 +694,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_SCRATCH_CARD, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_SCRATCH_CARD, jsonRequest.toString(), false, callback);
     }
 
     // ADD REDEEMING POINT IN CUSTOMER ACCOUNT.
@@ -706,7 +706,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, new URLConstant().getConsume(), se, true, callback);
+        AppUtils.requestCallAsyncTask(context, new URLConstant().getConsume(), jsonRequest.toString(), true, callback);
     }
 
     // GET SCRATCH FIRST CHANCE
@@ -717,7 +717,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_FIRST_SCRATCH_CARD, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_FIRST_SCRATCH_CARD, jsonRequest.toString(), false, callback);
     }
 
     // GET MENU LIST
@@ -730,7 +730,7 @@ public class AppController {
 //            jsonRequest.put("userid", "34772");
             // Dunkin_Log.e("DataRequest", jsonRequest.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.GET_MENU_LIST_URL, se, true, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_MENU_LIST_URL, jsonRequest.toString(), true, callback);
         } else {
             DBAdapter dbAdapter = new DBAdapter(context);
             dbAdapter.open();
@@ -751,7 +751,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.ABOUT_US_URL, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.ABOUT_US_URL, jsonRequest.toString(), true, callback);
     }
 
     //SOCIAL URLS
@@ -761,7 +761,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         //Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.SOCIAL_URLS, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.SOCIAL_URLS, jsonRequest.toString(), true, callback);
     }
 
     // GET COUNTER ORDER
@@ -772,14 +772,14 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         //Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.COUNTER_ORDER_DETAIL, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.COUNTER_ORDER_DETAIL, jsonRequest.toString(), false, callback);
     }
 
     // MAKE PAYMENT FOR COUNTER ORDER
     public static void makePaymentForCounterOrder(Context context, JSONObject jsonRequest, Callback callback) throws UnsupportedEncodingException {
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.MAKE_PAYMENT_FOR_COUNTER_ORDER, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.MAKE_PAYMENT_FOR_COUNTER_ORDER, jsonRequest.toString(), true, callback);
     }
 
     // GET Dashbord PAGE DATA
@@ -789,7 +789,7 @@ public class AppController {
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
 
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.DASHBORD_PAGE_URL, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.DASHBORD_PAGE_URL, jsonRequest.toString(), true, callback);
 
 //        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
 //        AppUtils.requestCallAsyncTask(context, URLConstant.DASHBORD_PAGE_URL, se, true, callback);
@@ -802,7 +802,7 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.HOME_PAGE_URL, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.HOME_PAGE_URL, jsonRequest.toString(), true, callback);
     }
 
     // OFFER PURCHASE DETAIL
@@ -810,7 +810,7 @@ public class AppController {
         try {
             //   Dunkin_Log.e("DataRequest", jsonRequest.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.OFFER_PURCHASE_DETAIL_URL, se, true, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.OFFER_PURCHASE_DETAIL_URL, jsonRequest.toString(), true, callback);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -821,7 +821,7 @@ public class AppController {
         try {
             // Dunkin_Log.e("DataRequest", jsonRequest.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.MAKE_OFFER_PAYMENT_URL, se, true, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.MAKE_OFFER_PAYMENT_URL, jsonRequest.toString(), true, callback);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -835,7 +835,7 @@ public class AppController {
             jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
             // Dunkin_Log.e("DataRequest", jsonRequest.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.OFFER_HISTORY_URL, se, false, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.OFFER_HISTORY_URL, jsonRequest.toString(), false, callback);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -848,7 +848,7 @@ public class AppController {
             jsonRequest.put("email", AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, ""));
             // Dunkin_Log.e("DataRequest", jsonRequest.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.GET_NOTIFICATION_URL, se, false, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_NOTIFICATION_URL, jsonRequest.toString(), false, callback);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -859,7 +859,7 @@ public class AppController {
         try {
             // Dunkin_Log.e("DataRequest", jsonObject.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.REMOVE_ALL_NOTIFICATION_URL, se, true, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.REMOVE_ALL_NOTIFICATION_URL, jsonObject.toString(), true, callback);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -871,7 +871,7 @@ public class AppController {
         jsonRequest.put("notification_id", notificationId);
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.UPDATE_IS_NOTIFICATION_READ_URL, se, false, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.UPDATE_IS_NOTIFICATION_READ_URL, jsonRequest.toString(), false, callback);
     }
 
     // GET REDEEM POINT HISTORY
@@ -881,7 +881,7 @@ public class AppController {
             jsonRequest.put("email", AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, ""));
             //  Dunkin_Log.e("DataRequest", jsonRequest.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.GET_REDEEM_POINTS_HISTORY_URL, se, false, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_REDEEM_POINTS_HISTORY_URL, jsonRequest.toString(), false, callback);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -895,7 +895,7 @@ public class AppController {
             jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
             // Dunkin_Log.e("DataRequest", jsonRequest.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.GET_GIFT_DETAIL_URL, se, false, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_GIFT_DETAIL_URL, jsonRequest.toString(), false, callback);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -909,7 +909,7 @@ public class AppController {
             jsonRequest.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1));
             // Dunkin_Log.e("DataRequest", jsonRequest.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.GET_RECURRENT_ORDER_LIST_URL, se, false, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_RECURRENT_ORDER_LIST_URL, jsonRequest.toString(), false, callback);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -924,7 +924,7 @@ public class AppController {
 //            jsonObject.put("page", "1");
             //  Dunkin_Log.e("DataRequest", jsonObject.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.GET_PLAY_LIST, se, true, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_PLAY_LIST, jsonObject.toString(), true, callback);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -939,7 +939,7 @@ public class AppController {
         jsonRequest.put("qty", qty);
         //Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_PROMO_TICKET, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_PROMO_TICKET, jsonRequest.toString(), true, callback);
     }
 
 
@@ -952,7 +952,7 @@ public class AppController {
             jsonObject.put("promo_id", promo_id);
             //   Dunkin_Log.e("DataRequest", jsonObject.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.GET_MY_PROMO_TICKET, se, true, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_MY_PROMO_TICKET, jsonObject.toString(), true, callback);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -964,7 +964,7 @@ public class AppController {
         jsonRequest.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, 0));
         jsonRequest.put("email", AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, null));
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.FETCH_PROMO_IMAGE, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.FETCH_PROMO_IMAGE, jsonRequest.toString(), true, callback);
     }
 
     public static void redeemPromoCode(Context context, String promo_id, int country_id,
@@ -978,7 +978,7 @@ public class AppController {
         jsonRequest.put("latitude", latitude);
         jsonRequest.put("longitude", longitude);
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.REDEEM_PROMO, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.REDEEM_PROMO, jsonRequest.toString(), true, callback);
     }
 
     //GET OFFER DETAIL
@@ -989,13 +989,13 @@ public class AppController {
         jsonRequest.put("country_id", country_id);
         //Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_PROMO_DETAIL, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_PROMO_DETAIL, jsonRequest.toString(), true, callback);
     }
 
     public static void fetchAllSetting(Context context, String requestString, Callback callback) throws UnsupportedEncodingException {
         //  Dunkin_Log.e("DataRequest", requestString);
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(requestString, AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_SETTING, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_SETTING, requestString, true, callback);
     }
 
     public static void getAboutUsDetail(Context context, String listId, Callback callback) throws JSONException, UnsupportedEncodingException {
@@ -1005,7 +1005,7 @@ public class AppController {
         jsonRequest.put("country_id", AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1));
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GET_KNOW_LIST, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_KNOW_LIST, jsonRequest.toString(), true, callback);
     }
 
     public static void aboutUSNew(Context context, Callback callback) throws UnsupportedEncodingException {
@@ -1017,7 +1017,7 @@ public class AppController {
 //            jsonObject.put("page", "1");
             //  Dunkin_Log.e("DataRequest", jsonObject.toString());
             org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonObject.toString(), AppConstants.encodeType);
-            AppUtils.requestCallAsyncTask(context, URLConstant.GET_KNOW_LIST, se, true, callback);
+            AppUtils.requestCallAsyncTask(context, URLConstant.GET_KNOW_LIST, jsonObject.toString(), true, callback);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -1033,6 +1033,6 @@ public class AppController {
 
         // Dunkin_Log.e("DataRequest", jsonRequest.toString());
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
-        AppUtils.requestCallAsyncTask(context, URLConstant.GAIN_POINT_SHIFT, se, true, callback);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GAIN_POINT_SHIFT, jsonRequest.toString(), true, callback);
     }
 }

@@ -44,6 +44,7 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.google.gson.JsonObject;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
@@ -85,8 +86,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -355,25 +363,44 @@ public class AppUtils {
         }
     }*/
 
+
     @SuppressWarnings("deprecation")
-    private static String makeRequest(String URL, org.apache.http.entity.StringEntity se) {
+    private static String makeRequest(String URL, String jsonObject) {
         try {
             // Setup a custom SSL Factory object which simply ignore the certificates validation and accept all type of self signed certificates
             SSLSocketFactory sslFactory = new SimpleSSLSocketFactory(null);
             sslFactory.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
 
+            OkHttpClient client = new OkHttpClient.Builder()
+                    .connectTimeout(50000, TimeUnit.MILLISECONDS)
+                    .writeTimeout(50000, TimeUnit.MILLISECONDS)
+                    .readTimeout(50000, TimeUnit.MILLISECONDS)
+                    .build();
+
             //url with the post data
             AppBase appBase=new AppBase();
-            HttpPost httpPost = new HttpPost(appBase.getHeartApp() + URL);
 
-            httpPost.setEntity(se);
+//            HttpPost httpPost = new HttpPost(appBase.getHeartApp() + URL);
+//
+//            httpPost.setEntity(jsonObject);
 
             //sets a request header so the page receiving the request
             //will know what to do with it
-            httpPost.setHeader("Accept", "application/json");
-            httpPost.setHeader("Content-type", "application/json");
+//            httpPost.setHeader("Accept", "application/json");
+//            httpPost.setHeader("Content-type", "application/json");
             String authorizationToken = AppUtils.getAppPreference(AppConstants.context).getString(AppConstants.USER_CASEID, "");
-            httpPost.setHeader(appBase.getHeartCase(), appBase.gethead(authorizationToken));
+//            httpPost.setHeader(appBase.getHeartCase(), appBase.gethead(authorizationToken));
+
+            MediaType jsonMT = MediaType.parse("application/json; charset=utf-8");
+            RequestBody requestBody = RequestBody.create(jsonMT, jsonObject);
+
+            Request request = new Request.Builder()
+                    .url(appBase.getHeartApp() + URL)
+                    .addHeader("Accept", "application/json")
+                    .addHeader("Content-type", "application/json")
+                    .addHeader(appBase.getHeartCase(), appBase.gethead(authorizationToken))
+                    .post(requestBody)
+                    .build();
 
             // Enable HTTP parameters
             HttpParams httpParameters = new BasicHttpParams();
@@ -400,9 +427,13 @@ public class AppUtils {
             DefaultHttpClient httpClient = new DefaultHttpClient(ccm, httpParameters);
 
             //Handles what is returned from the page
-            HttpResponse httpResponse = httpClient.execute(httpPost);
-            if (httpResponse.getStatusLine().getStatusCode() == 200) {
-                return EntityUtils.toString(httpResponse.getEntity());
+//            HttpResponse httpResponse = httpClient.execute(httpPost);
+//            if (httpResponse.getStatusLine().getStatusCode() == 200) {
+//                return EntityUtils.toString(httpResponse.getEntity());
+//            }
+            Response response = client.newCall(request).execute();
+            if (response.message().equalsIgnoreCase("OK")) {
+                return response.body().string();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -426,7 +457,7 @@ public class AppUtils {
 
 
     //MAKE REQUEST CALL
-    public static void requestCallAsyncTask(final Context context, final String URL, @SuppressWarnings("deprecation") final org.apache.http.entity.StringEntity se, final boolean isLoading, final Callback callback) {
+    public static void requestCallAsyncTask(final Context context, final String URL, @SuppressWarnings("deprecation") final String jsonObject, final boolean isLoading, final Callback callback) {
 
         final LoadingDialog pDialog;
         final boolean[] isTimeOut = {false};
@@ -448,7 +479,7 @@ public class AppUtils {
                 @Override
                 protected String doInBackground(Void... params) {
                     try {
-                        strResponse[0] = makeRequest(URL, se);
+                        strResponse[0] = makeRequest(URL, jsonObject);
                         if (TextUtils.isEmpty(strResponse[0])) {
                             isTimeOut[0] = true;
                         }
@@ -556,7 +587,7 @@ public class AppUtils {
                                 if ((dialog != null) && !((Activity) context).isFinishing() && alert.create().isShowing()) {
                                     dialog.dismiss();
                                 }
-                                requestCallAsyncTask(context, URL, se, isLoading, callback);
+                                requestCallAsyncTask(context, URL, jsonObject, isLoading, callback);
                             }
                         });
                         if (!((Activity) context).isFinishing()) {
@@ -618,7 +649,7 @@ public class AppUtils {
                                     if ((dialog != null) && !((Activity) context).isFinishing() && alert.isShowing()) {
                                         dialog.dismiss();
                                     }
-                                    requestCallAsyncTask(context, URL, se, isLoading, callback);
+                                    requestCallAsyncTask(context, URL, jsonObject, isLoading, callback);
                                 }
                             }).create();
 
@@ -642,7 +673,7 @@ public class AppUtils {
     }
 
     //MAKE REQUEST CALL
-    public static void requestCallAsyncTask(final String URL, @SuppressWarnings("deprecation") final org.apache.http.entity.StringEntity se, final Callback callback) {
+    public static void requestCallAsyncTask(final String URL, @SuppressWarnings("deprecation") final String jsonObject, final Callback callback) {
         final String[] strResponse = {""};
         new AsyncTask<Void, Void, String>() {
 
@@ -655,7 +686,7 @@ public class AppUtils {
             protected String doInBackground(Void... params) {
 
                 try {
-                    strResponse[0] = makeRequest(URL, se);
+                    strResponse[0] = makeRequest(URL, jsonObject);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -686,7 +717,7 @@ public class AppUtils {
     }
 
     //MAKE REQUEST CALL
-    public static void requestCallAsyncTask(final int id, final Context context, final String URL, @SuppressWarnings("deprecation") final org.apache.http.entity.StringEntity se, final boolean isLoading, final Callback callback) {
+    public static void requestCallAsyncTask(final int id, final Context context, final String URL, @SuppressWarnings("deprecation") final String jsonObject, final boolean isLoading, final Callback callback) {
 
         final LoadingDialog pDialog;
         final String[] strResponse = {""};
@@ -708,7 +739,7 @@ public class AppUtils {
                 @Override
                 protected String doInBackground(Void... params) {
                     try {
-                        strResponse[0] = AppUtils.makeRequest(URL, se);
+                        strResponse[0] = AppUtils.makeRequest(URL, jsonObject);
                         if (TextUtils.isEmpty(strResponse[0])) {
                             if (id == AppConstants.OF_PROFILE) {
                                 DBAdapter dbAdapter = new DBAdapter(context);
