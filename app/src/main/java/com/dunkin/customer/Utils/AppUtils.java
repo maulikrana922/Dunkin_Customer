@@ -50,12 +50,23 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpVersion;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ClientConnectionManager;
+import org.apache.http.conn.scheme.PlainSocketFactory;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
+import org.apache.http.params.HttpProtocolParams;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -347,6 +358,10 @@ public class AppUtils {
     @SuppressWarnings("deprecation")
     private static String makeRequest(String URL, org.apache.http.entity.StringEntity se) {
         try {
+            // Setup a custom SSL Factory object which simply ignore the certificates validation and accept all type of self signed certificates
+            SSLSocketFactory sslFactory = new SimpleSSLSocketFactory(null);
+            sslFactory.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+
             //url with the post data
             AppBase appBase=new AppBase();
             HttpPost httpPost = new HttpPost(appBase.getHeartApp() + URL);
@@ -360,7 +375,15 @@ public class AppUtils {
             String authorizationToken = AppUtils.getAppPreference(AppConstants.context).getString(AppConstants.USER_CASEID, "");
             httpPost.setHeader(appBase.getHeartCase(), appBase.gethead(authorizationToken));
 
+            // Enable HTTP parameters
             HttpParams httpParameters = new BasicHttpParams();
+            HttpProtocolParams.setVersion(httpParameters, HttpVersion.HTTP_1_1);
+            HttpProtocolParams.setContentCharset(httpParameters, HTTP.UTF_8);
+
+            // Register the HTTP and HTTPS Protocols. For HTTPS, register our custom SSL Factory object.
+            SchemeRegistry registry = new SchemeRegistry();
+            registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
+            registry.register(new Scheme("https", sslFactory, 443));
 
             // Set the timeout in milliseconds until a connection is established.
             // The default value is zero, that means the timeout is not used.
@@ -372,14 +395,15 @@ public class AppUtils {
             int timeoutSocket = 50000;
             HttpConnectionParams.setSoTimeout(httpParameters, timeoutSocket);
 
-            DefaultHttpClient httpClient = new DefaultHttpClient(httpParameters);
+            // Create a new connection manager using the newly created registry and then create a new HTTP client using this connection manager
+            ClientConnectionManager ccm = new ThreadSafeClientConnManager(httpParameters, registry);
+            DefaultHttpClient httpClient = new DefaultHttpClient(ccm, httpParameters);
 
             //Handles what is returned from the page
-            String res = httpClient.execute(httpPost, new BasicResponseHandler());
-            Dunkin_Log.e("URL", URL);
-            Dunkin_Log.e("responce", res);
-            checkCaseIdEr(res);
-            return res;
+            HttpResponse httpResponse = httpClient.execute(httpPost);
+            if (httpResponse.getStatusLine().getStatusCode() == 200) {
+                return EntityUtils.toString(httpResponse.getEntity());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
