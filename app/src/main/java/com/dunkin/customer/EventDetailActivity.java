@@ -99,7 +99,9 @@ public class EventDetailActivity extends BaseActivity {
                 } else if (jsonResponse.getInt("success") == 100) {
                     AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
                 }else {
-                    if(jsonResponse.getInt("success") != 99) {
+                    if(jsonResponse.getInt("success") == 99) {
+                       displayDialog(jsonResponse.getString("message"));
+                    }else{
                         AppUtils.showToastMessage(EventDetailActivity.this, getString(R.string.system_error));
                         finish();
                     }

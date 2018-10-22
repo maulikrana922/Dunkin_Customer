@@ -96,7 +96,9 @@ public class RecurrentOrderDetailActivity extends BaseActivity {
                         recurrentOrderItemList.setAdapter(recurrentOrderItemAdapter);
                     }else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
-                    } else {
+                    } else if (jsonResponse.getInt("success") == 99) {
+                        displayDialog(jsonResponse.getString("message"));
+                    }else {
                         emptyElement.setVisibility(View.VISIBLE);
                         scrollContainer.setVisibility(View.VISIBLE);
                     }
@@ -134,7 +136,9 @@ public class RecurrentOrderDetailActivity extends BaseActivity {
                                 AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
                             }
                             else {
-                                if(jsonResponse.getInt("success") != 99) {
+                                if(jsonResponse.getInt("success") == 99) {
+                                    displayDialog(jsonResponse.getString("message"));
+                                }else{
                                     AppUtils.showToastMessage(RecurrentOrderDetailActivity.this, getString(R.string.system_error));
                                 }
                             }

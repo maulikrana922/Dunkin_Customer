@@ -1,6 +1,9 @@
 package com.dunkin.customer.fragments;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -16,6 +19,7 @@ import android.widget.LinearLayout;
 
 import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
+import com.dunkin.customer.RegisterActivity;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
 import com.dunkin.customer.constants.AppConstants;
@@ -93,6 +97,8 @@ public class ContactUsFragment extends Fragment implements View.OnClickListener 
                         }
                     }else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                    }else if(jsonResponse.getInt("success") == 99) {
+                        displayDialog(jsonResponse.getString("message"));
                     }
                 }
             });
@@ -182,6 +188,8 @@ public class ContactUsFragment extends Fragment implements View.OnClickListener 
                                     ((NewHomeActivity) getActivity()).addHomeFragment();
                                 } else if (jsonResponse.getInt("success") == 100) {
                                     AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                                }else if (jsonResponse.getInt("success") == 99) {
+                                    displayDialog(jsonResponse.getString("message"));
                                 }else {
                                     AppUtils.showToastMessage(context, getString(R.string.txt_contact_failure));
                                 }
@@ -189,5 +197,22 @@ public class ContactUsFragment extends Fragment implements View.OnClickListener 
                         });
             }
         }
+    }
+
+    private void displayDialog(String message) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        startActivity(new Intent(context, RegisterActivity.class));
+                        ((Activity) context).finish();
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.setTitle(getResources().getString(R.string.app_name));
+        alert.show();
     }
 }

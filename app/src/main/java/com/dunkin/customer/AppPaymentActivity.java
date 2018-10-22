@@ -170,6 +170,8 @@ public class AppPaymentActivity extends BaseActivity {
                         emptyElement.setVisibility(View.VISIBLE);
                     }else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
+                    }else if (jsonResponse.getInt("success") == 99) {
+                        displayDialog(jsonResponse.getString("message"));
                     }
                 }
             });
@@ -219,6 +221,9 @@ public class AppPaymentActivity extends BaseActivity {
                      if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
                     }
+                     if (jsonResponse.getInt("success") == 99) {
+                         displayDialog(jsonResponse.getString("message"));
+                     }
                 }
             });
         } catch (JSONException e) {

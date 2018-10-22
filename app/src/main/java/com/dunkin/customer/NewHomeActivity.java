@@ -2,6 +2,7 @@ package com.dunkin.customer;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -355,6 +356,8 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                                 dbAdapter.close();
                             } else if (jsonResponse.getInt("success") == 100) {
                                 AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
+                            } else if (jsonResponse.getInt("success") == 100) {
+                                displayDialog(jsonResponse.getString("message"));
                             } else {
                                 AppUtils.showToastMessage(NewHomeActivity.this, getString(R.string.system_error));
                             }
@@ -364,6 +367,23 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void displayDialog(String message) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        startActivity(new Intent(NewHomeActivity.this, RegisterActivity.class));
+                        finish();
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.setTitle(getResources().getString(R.string.app_name));
+        alert.show();
     }
 
     public void loadBanner() {

@@ -96,6 +96,8 @@ public class PromoListActivity extends BaseActivity {
                         AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
                     }else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
+                    }else if(jsonResponse.getInt("success") == 99) {
+                        displayDialog(jsonResponse.getString("message"));
                     }
                 }
             });

@@ -19,9 +19,11 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.dunkin.customer.AddPromocodeActivity;
+import com.dunkin.customer.BaseActivity;
 import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.PromoListActivity;
 import com.dunkin.customer.R;
+import com.dunkin.customer.RegisterActivity;
 import com.dunkin.customer.SimpleScannerPromotionActivity;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
@@ -226,6 +228,8 @@ public class ScanFragment extends Fragment implements Animation.AnimationListene
                         AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
                     }else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
+                    }else if(jsonResponse.getInt("success") == 99) {
+                        displayDialog(jsonResponse.getString("message"));
                     }
                     if(playModelList.size()>0) {
                         Intent i = new Intent(mContext, PromoListActivity.class);
@@ -236,6 +240,23 @@ public class ScanFragment extends Fragment implements Animation.AnimationListene
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void displayDialog(String message) {
+
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(mContext);
+        builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        startActivity(new Intent(mContext, RegisterActivity.class));
+                        ((Activity)mContext).finish();
+                    }
+                });
+
+        android.app.AlertDialog alert = builder.create();
+        alert.setTitle(getResources().getString(R.string.app_name));
+        alert.show();
     }
 
     private void chooseOption() {

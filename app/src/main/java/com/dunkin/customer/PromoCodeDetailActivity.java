@@ -108,6 +108,8 @@ public class PromoCodeDetailActivity extends BaseActivity {
                     }
                 } else if (jsonResponse.getInt("success") == 100) {
                     AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
+                }else if(jsonResponse.getInt("success") == 99) {
+                    displayDialog(jsonResponse.getString("message"));
                 }else {
                     AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
                 }

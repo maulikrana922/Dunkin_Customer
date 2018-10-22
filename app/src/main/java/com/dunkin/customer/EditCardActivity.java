@@ -157,6 +157,8 @@ public class EditCardActivity extends BaseActivity implements View.OnClickListen
                         finish();
                     } else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
+                    }else if(jsonResponse.getInt("success") == 99) {
+                        displayDialog(jsonResponse.getString("message"));
                     }else {
                         AppUtils.showToastMessage(EditCardActivity.this, getString(R.string.msg_card_added_failed));
                     }

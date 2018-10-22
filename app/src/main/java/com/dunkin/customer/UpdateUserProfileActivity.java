@@ -193,7 +193,9 @@ public class UpdateUserProfileActivity extends BaseActivity implements View.OnCl
                         } else if (jsonResponse.getInt("success") == 100) {
                             AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
                         } else {
-                            if(jsonResponse.getInt("success") != 99) {
+                            if(jsonResponse.getInt("success") == 99) {
+                                displayDialog(jsonResponse.getString("message"));
+                            }else{
                                 AppUtils.showToastMessage(UpdateUserProfileActivity.this, getString(R.string.system_error));
                             }
                         }
@@ -221,8 +223,10 @@ public class UpdateUserProfileActivity extends BaseActivity implements View.OnCl
                                 } else if (jsonResponse.getInt("success") == 100) {
                                     AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                                 } else {
-                                    if(jsonResponse.getInt("success") != 99) {
-                                        AppUtils.showToastMessage(context, getString(R.string.system_error));
+                                    if(jsonResponse.getInt("success") == 99) {
+                                        displayDialog(jsonResponse.getString("message"));
+                                    }else{
+                                        AppUtils.showToastMessage(UpdateUserProfileActivity.this, getString(R.string.system_error));
                                     }
                                 }
                             }
@@ -526,7 +530,9 @@ public class UpdateUserProfileActivity extends BaseActivity implements View.OnCl
                                 AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                             } else if (jsonResponse.getInt("success") == 100) {
                                 AppUtils.showToastMessage(context, jsonResponse.getString("message"));
-                            } else if (jsonResponse.getInt("success") == 0) {
+                            }else if (jsonResponse.getInt("success") == 99) {
+                                displayDialog(jsonResponse.getString("message"));
+                            }  else if (jsonResponse.getInt("success") == 0) {
                                 AppUtils.showToastMessage(context, getString(R.string.msg_profile_edit_failed));
                             }
                         }

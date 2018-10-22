@@ -117,12 +117,13 @@ public class NewCardActivity extends BaseActivity implements OnClickListener {
                     AppUtils.showToastMessage(NewCardActivity.this, jsonResponse.getString("message"));
                     if (jsonResponse.getInt("success") == 1) {
                         AppUtils.showToastMessage(NewCardActivity.this, getString(R.string.msg_card_added_success));
-
                         setResult(RESULT_OK, new Intent());
                         finish();
                     } else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
-                    }else {
+                    } else if (jsonResponse.getInt("success") == 99) {
+                        displayDialog(jsonResponse.getString("message"));
+                    } else {
                         AppUtils.showToastMessage(NewCardActivity.this, getString(R.string.msg_card_added_failed));
                     }
                 }

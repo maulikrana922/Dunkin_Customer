@@ -20,30 +20,38 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        llLoginSignUp= (LinearLayout) findViewById(R.id.llLoginSignUp);
+        llLoginSignUp = (LinearLayout) findViewById(R.id.llLoginSignUp);
 
         llLoginSignUp.setVisibility(View.VISIBLE);
-        ((FrameLayout)findViewById(R.id.frame)).setVisibility(View.GONE);
+        ((FrameLayout) findViewById(R.id.frame)).setVisibility(View.GONE);
 
-        ((TextView)findViewById(R.id.txtLogin)).setOnClickListener(new View.OnClickListener() {
+        ((TextView) findViewById(R.id.txtLogin)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 llLoginSignUp.setVisibility(View.GONE);
-                ((FrameLayout)findViewById(R.id.frame)).setVisibility(View.VISIBLE);
+                ((FrameLayout) findViewById(R.id.frame)).setVisibility(View.VISIBLE);
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame, new LoginFragment()).commit();
             }
         });
 
-        ((TextView)findViewById(R.id.txtSignUp)).setOnClickListener(new View.OnClickListener() {
+        ((TextView) findViewById(R.id.txtSignUp)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 llLoginSignUp.setVisibility(View.GONE);
-                ((FrameLayout)findViewById(R.id.frame)).setVisibility(View.VISIBLE);
+                ((FrameLayout) findViewById(R.id.frame)).setVisibility(View.VISIBLE);
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame, new RegisterFragment()).commit();
             }
         });
+
+        if (getIntent() != null && getIntent().hasExtra("isRegister")) {
+            if (getIntent().getBooleanExtra("isRegister", false)){
+                llLoginSignUp.setVisibility(View.GONE);
+                ((FrameLayout) findViewById(R.id.frame)).setVisibility(View.VISIBLE);
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame, new LoginFragment()).commit();
+            }
+        }
 
 //        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new LoginFragment()).commit();
     }

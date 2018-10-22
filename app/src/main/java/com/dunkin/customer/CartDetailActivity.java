@@ -298,6 +298,8 @@ public class CartDetailActivity extends BaseActivity {
                     finish();
                 }else if (jsonResponse.getInt("success") == 100) {
                     AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                }else if(jsonResponse.getInt("success") == 99) {
+                    displayDialog(jsonResponse.getString("message"));
                 }
             }
         });
@@ -594,7 +596,9 @@ public class CartDetailActivity extends BaseActivity {
                                 }else if (jsonResponse.getInt("success") == 100) {
                                     AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                                 } else {
-                                    if(jsonResponse.getInt("success") != 99) {
+                                    if(jsonResponse.getInt("success") == 99) {
+                                        displayDialog(jsonResponse.getString("message"));
+                                    }else{
                                         AppUtils.showToastMessage(context, getString(R.string.system_error));
                                     }
                                 }

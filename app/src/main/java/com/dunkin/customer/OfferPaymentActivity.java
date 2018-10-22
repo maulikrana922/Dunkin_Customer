@@ -149,6 +149,8 @@ public class OfferPaymentActivity extends BaseActivity {
                     }
                     else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
+                    }else if(jsonResponse.getInt("success") == 99) {
+                        displayDialog(jsonResponse.getString("message"));
                     }
                 }
             });
@@ -247,6 +249,9 @@ public class OfferPaymentActivity extends BaseActivity {
                      if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
                     }
+                     if(jsonResponse.getInt("success") == 99) {
+                         displayDialog(jsonResponse.getString("message"));
+                     }
                 }
             });
         } catch (JSONException e) {

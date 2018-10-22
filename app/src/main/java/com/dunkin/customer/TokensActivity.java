@@ -114,7 +114,10 @@ public class TokensActivity extends BaseActivity {
 //                        tabs.setViewPager(viewPager);
                     } else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(TokensActivity.this, jsonResponse.getString("message"));
-                    } else {
+                    } else if(jsonResponse.getInt("success") == 99) {
+                        displayDialog(jsonResponse.getString("message"));
+                    }else {
+
                     }
                 }
             }

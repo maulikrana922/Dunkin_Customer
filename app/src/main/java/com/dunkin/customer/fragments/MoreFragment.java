@@ -402,6 +402,8 @@ public class MoreFragment extends Fragment {
                             navigateAndCheckItem(switchPosition);
                     } else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(homeActivity, jsonResponse.getString("message"));
+                    }else if(jsonResponse.getInt("success") == 99) {
+                        displayDialog(jsonResponse.getString("message"));
                     }
                 }
             });
@@ -422,6 +424,8 @@ public class MoreFragment extends Fragment {
                                 homeActivity.dbAdapter.close();
                             } else if (jsonResponse.getInt("success") == 100) {
                                 AppUtils.showToastMessage(homeActivity, jsonResponse.getString("message"));
+                            }else if (jsonResponse.getInt("success") == 99) {
+                                displayDialog(jsonResponse.getString("message"));
                             } else {
                                 AppUtils.showToastMessage(homeActivity, getString(R.string.system_error));
                             }

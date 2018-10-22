@@ -168,7 +168,9 @@ public class GiftAppinessFragment extends Fragment {
                                     if (jsonResponse.getInt("success") == 100) {
                                         AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                                     }
-
+                                    if (jsonResponse.getInt("success") == 99) {
+                                        displayDialog(jsonResponse.getString("message"));
+                                    }
                                     b.dismiss();
                                 }
                             }

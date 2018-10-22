@@ -397,7 +397,6 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                     try {
                         JSONObject jsonResponse = new JSONObject((String) result);
 
-
                         if (jsonResponse.getInt("success") == 1) {
                             AppUtils.showToastMessage(context, getString(R.string.msg_register_success));
                             JSONObject jsonUser = jsonResponse.getJSONObject("userDetail");
@@ -423,7 +422,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                                             try {
                                                 PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                                                 String version = String.valueOf(pInfo.versionCode);
-                                                fetchAllSetting(version);
+                                                fetchAllSetting(version,edEmail.getText().toString().trim());
                                             } catch (UnsupportedEncodingException | JSONException | ParseException e) {
                                                 e.printStackTrace();
                                             } catch(Exception e)
@@ -444,14 +443,12 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                         } else if (jsonResponse.getInt("success") == 0) {
                             AppUtils.showToastMessage(context, getString(R.string.msg_register_exist));
                         } else if (jsonResponse.getInt("success") == 3) {
-                            AppUtils.showToastMessage(context, getString(R.string.msg_register_error));
+                            AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                         } else if (jsonResponse.getInt("success") == 100) {
                             AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                         } else if (jsonResponse.getInt("success") == 99) {
                             //AppUtils.showToastMessage(context, jsonResponse.getString("message"));
-
                             displayDialog(jsonResponse.getString("message"));
-
                         } else {
                             AppUtils.showToastMessage(context, getString(R.string.system_error));
                         }
@@ -464,12 +461,12 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    private void fetchAllSetting(String version) throws UnsupportedEncodingException, JSONException, ParseException {
+    private void fetchAllSetting(String version,String email) throws UnsupportedEncodingException, JSONException, ParseException {
 
         JSONObject jsonRequest = new JSONObject();
 
         jsonRequest.put("email", AppUtils.getAppPreference(context)
-                .getString(AppConstants.USER_EMAIL_ADDRESS, ""));
+                .getString(AppConstants.USER_EMAIL_ADDRESS, email));
         jsonRequest.put("country_id", AppUtils.getAppPreference(context)
                 .getInt(AppConstants.USER_COUNTRY, -1));
         jsonRequest.put("type", "1");
@@ -480,7 +477,6 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
             public void run(Object result) throws JSONException, IOException {
                 try {
                     JSONObject jsonResponse = new JSONObject((String) result);
-
 
                     if (jsonResponse.getString("success").equals("1")) {
                         JSONObject jsonObject = jsonResponse.getJSONObject("data");

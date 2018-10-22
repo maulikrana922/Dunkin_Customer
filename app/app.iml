@@ -114,6 +114,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/pre-dexed" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/proguard-rules" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
@@ -125,10 +126,10 @@
     <orderEntry type="library" exported="" name="Gradle: com.jme3:jme3-android:3.0.10@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:appcompat-v7-25.4.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-fragment-25.4.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: __local_jars__:/home/vidhi/Vidhi/Dunkin/Dunkin_Customer/Dunkin_Customer_SRC/app/libs/org.apache.http.legacy.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.http-client:google-http-client:1.19.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.http-client:google-http-client-gson:1.19.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.zxing:core:3.3.0@jar" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: __local_jars__:/home/latitude/Project/Dunkin/SRC_Customer/app/libs/sun.misc.BASE64Decoder.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:multidex-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:animated-vector-drawable-25.4.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: commons-lang:commons-lang:2.6@jar" level="project" />
@@ -140,7 +141,7 @@
     <orderEntry type="library" exported="" name="Gradle: me.dm7.barcodescanner:zbar-1.9.8" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.9.2@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.9.0@jar" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: __local_jars__:/home/latitude/Project/Dunkin/SRC_Customer/app/src/main/java/Vuforia.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: __local_jars__:/home/vidhi/Vidhi/Dunkin/Dunkin_Customer/Dunkin_Customer_SRC/app/libs/sun.misc.BASE64Decoder.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="Gradle: com.android.support:multidex-instrumentation-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.ogaclejapan.smarttablayout:library-1.4.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.parse.bolts:bolts-android:1.2.0@jar" level="project" />
@@ -151,13 +152,13 @@
     <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-basement-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.code.gson:gson:2.1@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.facebook.android:facebook-android-sdk-4.4.0" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: __local_jars__:/home/latitude/Project/Dunkin/SRC_Customer/app/libs/org.apache.http.legacy.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-media-compat-25.4.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.code.findbugs:jsr305:1.3.9@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.squareup.okio:okio:1.13.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: me.dm7.barcodescanner:zxing-1.9.8" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.nostra13.universalimageloader:universal-image-loader:1.9.4@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-location-10.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: __local_jars__:/home/vidhi/Vidhi/Dunkin/Dunkin_Customer/Dunkin_Customer_SRC/app/src/main/java/Vuforia.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.squareup.okhttp3:okhttp:3.9.1@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.jsoup:jsoup:1.10.3@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-v4-25.4.0" level="project" />

@@ -124,6 +124,8 @@ public class CounterOrderPaymentActivity extends BaseActivity {
                         emptyElement.setText(R.string.msg_no_order_found);
                     }else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
+                    }else if(jsonResponse.getInt("success") == 99) {
+                        displayDialog(jsonResponse.getString("message"));
                     }
                 }
             });
@@ -198,7 +200,9 @@ public class CounterOrderPaymentActivity extends BaseActivity {
                     }
                      if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
-                    }
+                    }else if(jsonResponse.getInt("success") == 99) {
+                         displayDialog(jsonResponse.getString("message"));
+                     }
                 }
             });
         } catch (JSONException e) {

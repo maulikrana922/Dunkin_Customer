@@ -1,5 +1,9 @@
 package com.dunkin.customer;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -74,6 +78,8 @@ public class BaseActivity extends AppCompatActivity {
                             getSupportFragmentManager().beginTransaction().replace(R.id.advertisement_banner, RotatingBannerFragment.newInstance()).commit();
                         } else if (jsonResponse.getInt("success") == 100) {
                             AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
+                        } else if (jsonResponse.getInt("success") == 99) {
+                            displayDialog(jsonResponse.getString("message"));
                         } else {
                             advertisement_banner.setVisibility(View.GONE);
                         }
@@ -83,6 +89,23 @@ public class BaseActivity extends AppCompatActivity {
         } catch (JSONException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+    }
+
+    public void displayDialog(String message) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        startActivity(new Intent(BaseActivity.this, RegisterActivity.class));
+                        finish();
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.setTitle(getResources().getString(R.string.app_name));
+        alert.show();
     }
 
     @Override

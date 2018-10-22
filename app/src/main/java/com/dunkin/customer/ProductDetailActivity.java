@@ -222,6 +222,8 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
                     }
                 }else if (jsonResponse.getInt("success") == 100) {
                     AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                }else if (jsonResponse.getInt("success") == 99) {
+                    displayDialog(jsonResponse.getString("message"));
                 }
             }
         });

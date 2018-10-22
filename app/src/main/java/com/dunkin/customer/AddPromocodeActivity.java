@@ -122,7 +122,9 @@ public class AddPromocodeActivity extends BaseActivity implements View.OnClickLi
                                    // Showing Alert Message
                                    alertDialog.show();
                                } else {
-                                   if(jsonResponse.getInt("success") != 99) {
+                                   if(jsonResponse.getInt("success") == 99) {
+                                       displayDialog(jsonResponse.getString("message"));
+                                   }else{
                                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(AddPromocodeActivity.this);
 
                                        // Setting Dialog Message

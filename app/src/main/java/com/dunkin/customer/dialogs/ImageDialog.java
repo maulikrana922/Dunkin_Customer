@@ -14,6 +14,7 @@ import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.RegisterActivity;
 import com.dunkin.customer.Utils.AppUtils;
+import com.dunkin.customer.fragments.LoginFragment;
 import com.dunkin.customer.fragments.NewHomeFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
@@ -133,7 +134,10 @@ public class ImageDialog extends Dialog {
                         ((NewHomeFragment)  ((NewHomeActivity) mContext).getSupportFragmentManager().findFragmentById(R.id.content)).checkScanAndWin();
                     }
                 } else if (FromWhere) {
-                    ((Activity) mContext).startActivity(new Intent(mContext, RegisterActivity.class));
+                    Intent intent=new Intent(mContext, RegisterActivity.class);
+                    intent.putExtra("isRegister",true);
+                    ((Activity) mContext).startActivity(intent);
+//                    ((Activity) mContext).startActivity(new Intent(mContext, RegisterActivity.class));
                 }
                 ImageDialog.this.dismiss();
             }

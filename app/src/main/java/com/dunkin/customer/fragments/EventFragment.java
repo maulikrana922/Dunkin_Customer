@@ -1,5 +1,6 @@
 package com.dunkin.customer.fragments;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,9 +17,11 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.dunkin.customer.BaseActivity;
 import com.dunkin.customer.DBAdaters.DBAdapter;
 import com.dunkin.customer.EventDetailActivity;
 import com.dunkin.customer.R;
+import com.dunkin.customer.RegisterActivity;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
 import com.dunkin.customer.adapters.EventAdapter;
@@ -110,6 +113,8 @@ public class EventFragment extends Fragment implements View.OnClickListener {
                         });
                     }else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                    }else if (jsonResponse.getInt("success") == 99){
+                        displayDialog(jsonResponse.getString("message"));
                     }
                     progressLoading.setVisibility(View.GONE);
                     eventAdapter = new EventAdapter(context, eventList);
@@ -118,6 +123,23 @@ public class EventFragment extends Fragment implements View.OnClickListener {
                 }
             });
         }
+    }
+
+    public void displayDialog(String message) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        startActivity(new Intent(context, RegisterActivity.class));
+                        ((Activity)context).finish();
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.setTitle(getResources().getString(R.string.app_name));
+        alert.show();
     }
 
     @Override
