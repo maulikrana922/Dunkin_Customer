@@ -22,6 +22,7 @@ public class DashbordModel {
     public UpdateApp updateApp;
     public AppMessage appMessage;
     public UserDetail userDetail;
+    public Version version;
 //    public UserDetail userDetail;
 //    public UpdateApp updateApp;
     

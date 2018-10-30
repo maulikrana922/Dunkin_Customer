@@ -234,7 +234,8 @@
                         android:layout_height="@dimen/ed_textbox_height"
                         android:layout_marginTop="@dimen/spacing_xsmall"
                         android:background="@drawable/textbox_bg"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <ImageView
                             android:layout_width="35dp"

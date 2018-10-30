@@ -2,7 +2,6 @@ package com.dunkin.customer;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -38,6 +37,7 @@ import com.dunkin.customer.adapters.TabAdapter;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.dialogs.ImageDialog;
+import com.dunkin.customer.dialogs.ImageUpdateAppDialog;
 import com.dunkin.customer.dialogs.ScanAndWinDialog;
 import com.dunkin.customer.dialogs.WinStatusDialog;
 import com.dunkin.customer.fragments.FeedbackFragment;
@@ -98,6 +98,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
     public double latitude, longitude;
     public TabAdapter tabAdapter;
     CallbackManager callbackManager;
+    String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION};
     private ImageView ivWeather;
     private List<HomeCatModel> homeList = new ArrayList<>();
     private GridView rvTabs;
@@ -111,7 +112,6 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
     private Animation animHyperSpace, animRotate, animZoomIn, animZoomOut, animFlip,
             animFadeOut;
     private Boolean isForeground;
-    String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION};
 
     public static Context getCustomContext() {
         return mContext;
@@ -487,13 +487,18 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
 
                         if (NewHomeActivity.isScanWinEnable.equalsIgnoreCase("1")) {
                             //all setting api
-
                             if (!AppUtils.getAppPreference(mContext).getBoolean(AppConstants.USER_SCAN_RESULT, false)) {
                                 if (NewHomeActivity.isScanWinEnable.equalsIgnoreCase("1"))
                                     ImageDialog.newInstance(mContext, NewHomeActivity.strUrl, false).show();
-
                             }
                         }
+
+                        if (!dashbordModel.version.tValue.equals(BuildConfig.VERSION_NAME)) {
+                            if (!TextUtils.isEmpty(dashbordModel.updateApp.getImage())) {
+                                ImageUpdateAppDialog.newInstance(mContext, dashbordModel.updateApp.getImage(),false).show();
+                            }
+                        }
+
                     } else if (jsonResponse.getInt("success") == 99) {
                         AppUtils.showToastMessage(getApplicationContext(), getString(R.string.system_error));
                         SharedPreferences.Editor editor = AppUtils.getAppPreference(NewHomeActivity.this).edit();
@@ -518,6 +523,17 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
             e.printStackTrace();
         }
     }
+
+//    public void initializeFirebase() {
+//        if (FirebaseApp.getApps(mContext).isEmpty()) {
+//            FirebaseApp.initializeApp(mContext, FirebaseOptions.fromResource(mContext));
+//        }
+//        final FirebaseRemoteConfig config = FirebaseRemoteConfig.getInstance();
+//        FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
+//                .setDeveloperModeEnabled(BuildConfig.DEBUG)
+//                .build();
+//        config.setConfigSettings(configSettings);
+//    }
 
     @Override
     public void onTabClick(final int position, String title) {

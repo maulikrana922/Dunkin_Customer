@@ -118,7 +118,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         edEmail = (EditText) rootView.findViewById(R.id.edEmail);
         edPassword = (EditText) rootView.findViewById(R.id.edPassword);
         edConfirmPassword = (EditText) rootView.findViewById(R.id.edConfirmPassword);
-        edPhoneNumber = (EditText) rootView.findViewById(R.id.edPhoneNumber);
+//        edPhoneNumber = (EditText) rootView.findViewById(R.id.edPhoneNumber);
         edAddress = (EditText) rootView.findViewById(R.id.edAddress);
         edShippingAddress = (EditText) rootView.findViewById(R.id.edShippingAddress);
         cbAddress = (CheckBox) rootView.findViewById(R.id.cbAddress);
@@ -364,10 +364,10 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
             AppUtils.showError(edConfirmPassword, getString(R.string.min_length_password));
         } else if (!edConfirmPassword.getText().toString().equals(edPassword.getText().toString())) {
             AppUtils.showError(edConfirmPassword, getString(R.string.password_is_not_match));
-        } else if (edPhoneNumber.getText().length() == 0) {
-            AppUtils.showError(edPhoneNumber, getString(R.string.empty_phone_number));
-        } else if (edPhoneNumber.getText().length() < 8) {
-            AppUtils.showError(edPhoneNumber, getString(R.string.min_length_phone_number));
+//        } else if (edPhoneNumber.getText().length() == 0) {
+//            AppUtils.showError(edPhoneNumber, getString(R.string.empty_phone_number));
+//        } else if (edPhoneNumber.getText().length() < 8) {
+//            AppUtils.showError(edPhoneNumber, getString(R.string.min_length_phone_number));
         } else if (edAddress.getText().length() == 0) {
             AppUtils.showError(edAddress, getString(R.string.empty_address));
         } else if (edShippingAddress.getText().length() == 0) {
@@ -382,7 +382,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
             jsonRequest.put("email", edEmail.getText().toString());
             jsonRequest.put("dob", edDateOfBirth.getText().toString());
             jsonRequest.put("password", edPassword.getText().toString());
-            jsonRequest.put("phoneNumber", edPhoneNumber.getText().toString());
+            jsonRequest.put("phoneNumber","");
             jsonRequest.put("address", edAddress.getText().toString());
             jsonRequest.put("shippingAddress", edShippingAddress.getText().toString());
             jsonRequest.put("restaurant_id", jsonArray);
@@ -406,7 +406,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                             editor.putInt(AppConstants.USER_COUNTRY, countryModel.getCountry_id());
                             editor.putString(AppConstants.USER_ADDRESS, edAddress.getText().toString());
                             editor.putString(AppConstants.USER_SHIPPING_ADDRESS, edShippingAddress.getText().toString());
-                            editor.putString(AppConstants.USER_PHONE, edPhoneNumber.getText().toString());
+                            editor.putString(AppConstants.USER_PHONE, "");
 
                             editor.putString(AppConstants.USER_NAME, edFirstName.getText().toString() + " " + edLastName.getText().toString());
                             editor.putString(AppConstants.USER_FIRST_NAME, edFirstName.getText().toString());
