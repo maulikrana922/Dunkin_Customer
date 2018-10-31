@@ -43,8 +43,8 @@ android {
         applicationId "com.dunkin.customer"
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 21
-        versionName "4.0.221018"
+        versionCode 22
+        versionName "4.0.31102018"
         multiDexEnabled true
     }
 
