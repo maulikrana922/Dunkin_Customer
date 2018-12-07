@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_medium">
 
     <LinearLayout
         android:id="@+id/linear2"
@@ -14,71 +16,158 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/fifteen_dp"
+            android:paddingLeft="@dimen/fifteen_dp"
+            android:paddingEnd="@dimen/fifteen_dp"
+            android:paddingRight="@dimen/fifteen_dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <FrameLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spacing_medium"
-                android:layout_weight="0.50"
-                android:background="@drawable/point_bg"
-                android:orientation="vertical">
+                android:layout_weight="1">
 
-                <com.dunkin.customer.widget.CustomTextView
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/point_bg"
-                    android:gravity="center"
-                    android:padding="@dimen/spacing_medium"
-                    android:text="@string/lbl_total_point"
-                    android:textColor="@android:color/white"
-                    app:fontName="dd_bold.ttf" />
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/circle1" />
 
-                <com.dunkin.customer.widget.CustomTextView
-                    android:id="@+id/txtMyPoint"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="@dimen/spacing_medium"
-                    android:text="0"
-                    android:textColor="@color/colorPrimary"
-                    android:textStyle="bold"
-                    app:fontName="dd_light.ttf" />
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/fifteen_dp">
 
+                    <com.dunkin.customer.widget.CustomTextView2
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_total_point"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"
+                        app:fontName="dd_light.ttf" />
 
-            </LinearLayout>
+                    <com.dunkin.customer.widget.CustomTextView2
+                        android:id="@+id/txtMyPoint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="@string/lbl_total_point"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"
+                        app:fontName="dd_bold.ttf" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spacing_medium"
-                android:layout_weight="0.50"
-                android:background="@drawable/point_bg"
-                android:orientation="vertical">
+                android:layout_weight="1">
 
-                <com.dunkin.customer.widget.CustomTextView
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/point_bg"
-                    android:gravity="center"
-                    android:padding="@dimen/spacing_medium"
-                    android:text="@string/lbl_used_point"
-                    android:textColor="@android:color/white"
-                    app:fontName="dd_bold.ttf" />
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/app_name"
+                    android:paddingTop="30dp"
+                    android:src="@drawable/circle2" />
 
-                <com.dunkin.customer.widget.CustomTextView
-                    android:id="@+id/txtUsedPoint"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="@dimen/spacing_medium"
-                    android:text="0"
-                    android:textColor="@color/colorPrimary"
-                    android:textStyle="bold"
-                    app:fontName="dd_light.ttf" />
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/fourty_dp">
+
+                    <com.dunkin.customer.widget.CustomTextView2
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_used_point"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"
+                        app:fontName="dd_light.ttf" />
+
+                    <com.dunkin.customer.widget.CustomTextView2
+                        android:id="@+id/txtUsedPoint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="@string/lbl_used_point"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"
+                        app:fontName="dd_bold.ttf" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="@dimen/spacing_medium"-->
+                <!--android:layout_weight="0.50"-->
+                <!--android:background="@drawable/point_bg"-->
+                <!--android:orientation="vertical"-->
+                <!--android:visibility="gone">-->
+
+                <!--<com.dunkin.customer.widget.CustomTextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@color/point_bg"-->
+                    <!--android:gravity="center"-->
+                    <!--android:padding="@dimen/spacing_medium"-->
+                    <!--android:text="@string/lbl_total_point"-->
+                    <!--android:textColor="@android:color/white"-->
+                    <!--app:fontName="dd_bold.ttf" />-->
+
+                <!--<com.dunkin.customer.widget.CustomTextView-->
+                    <!--android:id="@+id/txtMyPoint"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center"-->
+                    <!--android:padding="@dimen/spacing_medium"-->
+                    <!--android:text="0"-->
+                    <!--android:textColor="@color/colorPrimary"-->
+                    <!--android:textStyle="bold"-->
+                    <!--app:fontName="dd_light.ttf" />-->
 
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="@dimen/spacing_medium"-->
+                <!--android:layout_weight="0.50"-->
+                <!--android:background="@drawable/point_bg"-->
+                <!--android:orientation="vertical"-->
+                <!--android:visibility="gone">-->
+
+                <!--<com.dunkin.customer.widget.CustomTextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@color/point_bg"-->
+                    <!--android:gravity="center"-->
+                    <!--android:padding="@dimen/spacing_medium"-->
+                    <!--android:text="@string/lbl_used_point"-->
+                    <!--android:textColor="@android:color/white"-->
+                    <!--app:fontName="dd_bold.ttf" />-->
+
+                <!--<com.dunkin.customer.widget.CustomTextView-->
+                    <!--android:id="@+id/txtUsedPoint"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center"-->
+                    <!--android:padding="@dimen/spacing_medium"-->
+                    <!--android:text="0"-->
+                    <!--android:textColor="@color/colorPrimary"-->
+                    <!--android:textStyle="bold"-->
+                    <!--app:fontName="dd_light.ttf" />-->
+
+
+            <!--</LinearLayout>-->
 
         </LinearLayout>
     </LinearLayout>

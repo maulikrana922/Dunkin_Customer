@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/progressLoad"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminateDrawable="@drawable/progress_circle"
+        android:progressDrawable="@drawable/progress_circle"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/scrollContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <!--<android.support.design.widget.TabLayout-->
+            <!--android:id="@+id/tabs"-->
+            <!--style="@style/customTabLayout1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:visibility="gone" />-->
+
+        <LinearLayout
+            android:id="@+id/llTabs"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginStart="@dimen/twentyTwo_dp"
+            android:layout_marginLeft="@dimen/twentyTwo_dp"
+            android:layout_marginEnd="@dimen/twentyTwo_dp"
+            android:layout_marginRight="@dimen/twentyTwo_dp"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/tvTabHistory"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:background="@drawable/pay_left_selector"
+                android:gravity="center"
+                android:text="@string/lbl_tab_wallet_history"
+                android:textColor="@color/white"
+                app:fontName="dd_bold.ttf" />
+
+            <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/tvTabPointHistory"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:background="@drawable/pay_right_selector"
+                android:gravity="center"
+                android:text="@string/lbl_tab_wallet_point_history"
+                android:textColor="@color/white"
+                app:fontName="dd_bold.ttf" />
+
+        </LinearLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white" />
+    </LinearLayout>
+
+    <com.dunkin.customer.widget.CustomTextView
+        android:id="@+id/emptyElement"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/no_data_error"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:fontName="dd_bold.ttf" />
+</FrameLayout>

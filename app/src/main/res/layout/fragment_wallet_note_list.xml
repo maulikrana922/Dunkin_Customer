@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@android:color/white"
     android:orientation="vertical"
     android:padding="@dimen/spacing_medium">
@@ -17,22 +18,179 @@
         android:progressDrawable="@drawable/progress_circle"
         android:visibility="visible" />
 
-    <com.dunkin.customer.widget.CustomTextView
-        android:id="@+id/txtWalletAmount"
+    <LinearLayout
+        android:id="@+id/llWalletAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:gravity="start|left"
-        android:padding="@dimen/spacing_medium"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/profile_font"
-        app:fontName="dd_bold.ttf" />
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/fifteen_dp"
+        android:paddingLeft="@dimen/fifteen_dp"
+        android:paddingEnd="@dimen/fifteen_dp"
+        android:paddingRight="@dimen/fifteen_dp">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/circle1" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fifteen_dp">
+
+                <com.dunkin.customer.widget.CustomTextView2
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_total_amount"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    app:fontName="dd_light.ttf" />
+
+                <com.dunkin.customer.widget.CustomTextView2
+                    android:id="@+id/txtWalletAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/lbl_total_amount"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    app:fontName="dd_bold.ttf" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:paddingTop="30dp"
+                android:src="@drawable/circle2" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fourty_dp">
+
+                <com.dunkin.customer.widget.CustomTextView2
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_remaining_point"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    app:fontName="dd_light.ttf" />
+
+                <com.dunkin.customer.widget.CustomTextView2
+                    android:id="@+id/txtWalletAmountPoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/lbl_remaining_point"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    app:fontName="dd_bold.ttf" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+    </LinearLayout>
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="@dimen/spacing_medium"-->
+        <!--android:layout_weight="0.50"-->
+        <!--android:background="@drawable/point_bg"-->
+        <!--android:orientation="vertical"-->
+        <!--android:visibility="gone">-->
+
+        <!--<com.dunkin.customer.widget.CustomTextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/point_bg"-->
+        <!--android:gravity="center"-->
+        <!--android:padding="@dimen/spacing_medium"-->
+        <!--android:text="@string/lbl_total_point"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--app:fontName="dd_bold.ttf" />-->
+
+        <!--<com.dunkin.customer.widget.CustomTextView-->
+        <!--android:id="@+id/txtMyPoint"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:padding="@dimen/spacing_medium"-->
+        <!--android:text="0"-->
+        <!--android:textColor="@color/colorPrimary"-->
+        <!--android:textStyle="bold"-->
+        <!--app:fontName="dd_light.ttf" />-->
+
+
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="@dimen/spacing_medium"-->
+        <!--android:layout_weight="0.50"-->
+        <!--android:background="@drawable/point_bg"-->
+        <!--android:orientation="vertical"-->
+        <!--android:visibility="gone">-->
+
+        <!--<com.dunkin.customer.widget.CustomTextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/point_bg"-->
+        <!--android:gravity="center"-->
+        <!--android:padding="@dimen/spacing_medium"-->
+        <!--android:text="@string/lbl_used_point"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--app:fontName="dd_bold.ttf" />-->
+
+        <!--<com.dunkin.customer.widget.CustomTextView-->
+        <!--android:id="@+id/txtUsedPoint"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:padding="@dimen/spacing_medium"-->
+        <!--android:text="0"-->
+        <!--android:textColor="@color/colorPrimary"-->
+        <!--android:textStyle="bold"-->
+        <!--app:fontName="dd_light.ttf" />-->
+
+
+        <!--</LinearLayout>-->
+
+    <!--<com.dunkin.customer.widget.CustomTextView-->
+        <!--android:id="@+id/txtWalletAmount"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:gravity="start|left"-->
+        <!--android:padding="@dimen/spacing_medium"-->
+        <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+        <!--android:textColor="@color/profile_font"-->
+        <!--app:fontName="dd_bold.ttf" />-->
 
     <ListView
         android:id="@+id/walletNoteList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtWalletAmount"
+        android:layout_below="@id/llWalletAmount"
         android:layout_marginTop="@dimen/spacing_medium"
         android:divider="@android:color/transparent"
         android:dividerHeight="10dp"

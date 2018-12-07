@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -39,14 +40,17 @@ public class WalletNoteListFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_wallet_note_list, container, false);
 
         TextView txtTotalAmount = (TextView) rootView.findViewById(R.id.txtWalletAmount);
+        TextView txtWalletAmountPoint = (TextView) rootView.findViewById(R.id.txtWalletAmountPoint);
         TextView emptyElement = (TextView) rootView.findViewById(R.id.emptyElement);
         ListView lvWalletNoteList = (ListView) rootView.findViewById(R.id.walletNoteList);
 
-        String amount = getString(R.string.txt_my_wallet_amount, AppUtils.CurrencyFormat(Double.parseDouble(wallet.getTotal())) + " " + wallet.getCurrency()) + "\n" +
-                getString(R.string.txt_my_wallet_remaining_amount) + " " + AppUtils.CurrencyFormat(Double.parseDouble(remainingPoints));
+//        String amount = getString(R.string.txt_my_wallet_amount, AppUtils.CurrencyFormat(Double.parseDouble(wallet.getTotal())) + " " + wallet.getCurrency()) + "\n" +
+//                getString(R.string.txt_my_wallet_remaining_amount) + " " + AppUtils.CurrencyFormat(Double.parseDouble(remainingPoints));
 
+        String amount=AppUtils.CurrencyFormat(Double.parseDouble(wallet.getTotal())) + " " + wallet.getCurrency();
+        String points=AppUtils.CurrencyFormat(Double.parseDouble(remainingPoints));
         txtTotalAmount.setText(amount);
-
+        txtWalletAmountPoint.setText(points);
         rootView.findViewById(R.id.progressLoad).setVisibility(View.GONE);
 
         if (wallet.getNotes() != null && wallet.getNotes().size() > 0) {

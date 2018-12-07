@@ -30,6 +30,7 @@ public class AppConstants {
     public static final String USER_SCAN_RESULT = "scan_result";
 
     public static final String USER_PROFILE_QR = "profileqr";
+    public static final String USER_BANNER = "payBannerImage";
     public static final String USER_SHIPPING_ADDRESS = "shippingaddress";
     public static final String USER_NAME_VALIDATION = "^([a-zA-Z]+(?:\\.)?(?:(?:'| )[a-zA-Z]+(?:\\.)?)*)$";
 

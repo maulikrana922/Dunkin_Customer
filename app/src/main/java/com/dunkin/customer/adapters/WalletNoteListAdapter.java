@@ -51,7 +51,7 @@ public class WalletNoteListAdapter extends BaseAdapter {
         ViewHolder viewHolder;
         if (convertView == null) {
             viewHolder = new ViewHolder();
-            convertView = inflater.inflate(R.layout.item_column_layout, null);
+            convertView = inflater.inflate(R.layout.item_column_layout_new, null);
             viewHolder.tvNoteId = (TextView) convertView.findViewById(R.id.tvNoteId);
             viewHolder.tvNoteAmount = (TextView) convertView.findViewById(R.id.tvNoteAmount);
             viewHolder.tvDateTime = (TextView) convertView.findViewById(R.id.tvDateTime);
@@ -62,14 +62,14 @@ public class WalletNoteListAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.tvNoteId.setText(String.format("%s%s", context.getResources().getString(R.string.str_note_id), walletNoteModel.getNoteId()));
-        viewHolder.tvNoteAmount.setText(String.format("%s%s", context.getResources().getString(R.string.str_note_amount), AppUtils.CurrencyFormat(Double.parseDouble(walletNoteModel.getNoteAmount()))));
-        viewHolder.tvRechargeBy.setText(String.format("%s%s", context.getResources().getString(R.string.str_note_recharge_by), walletNoteModel.getRechargeBy()));
+        viewHolder.tvNoteId.setText(walletNoteModel.getNoteId());
+        viewHolder.tvNoteAmount.setText(AppUtils.CurrencyFormat(Double.parseDouble(walletNoteModel.getNoteAmount())));
+        viewHolder.tvRechargeBy.setText( walletNoteModel.getRechargeBy());
 
         if (walletNoteModel.getEarnType() == 1)
-            viewHolder.tvDateTime.setText(String.format("%s%s", context.getResources().getString(R.string.str_note_amount_added_on), AppUtils.getFormattedDateTime(walletNoteModel.getRechargeDate())));
+            viewHolder.tvDateTime.setText(AppUtils.getFormattedDateTime(walletNoteModel.getRechargeDate()));
         else
-            viewHolder.tvDateTime.setText(String.format("%s%s", context.getResources().getString(R.string.str_note_amount_deducted_on), AppUtils.getFormattedDateTime(walletNoteModel.getRechargeDate())));
+            viewHolder.tvDateTime.setText(AppUtils.getFormattedDateTime(walletNoteModel.getRechargeDate()));
 
         return convertView;
     }

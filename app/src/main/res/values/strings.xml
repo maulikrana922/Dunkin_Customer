@@ -508,5 +508,6 @@
     <string name="INIT_OBJECT_DATASET_NOT_FOUND_TITLE">Database not found</string>
     <string name="INIT_OBJECT_DATASET_NOT_FOUND">Please scan an object and load a database</string>
     <string name="button_OK">OK</string>
+    <string name="lbl_remaining_point">Remaining Points</string>
 
 </resources>

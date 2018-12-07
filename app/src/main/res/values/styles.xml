@@ -123,8 +123,8 @@
         <item name="android:capitalize">sentences</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="tabSelectedTextColor">@android:color/white</item>
-        <item name="tabBackground">@drawable/tab_selector</item>
-        <item name="tabIndicatorColor">@android:color/white</item>
+        <!--<item name="tabBackground">@drawable/tab_selector_new</item>-->
+        <item name="tabIndicatorColor">@android:color/transparent</item>
         <item name="tabIndicatorHeight">2dp</item>
         <item name="tabGravity">fill</item>
         <item name="tabTextAppearance">@style/MyCustomTextAppearance</item>

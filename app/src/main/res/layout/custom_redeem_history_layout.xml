@@ -16,17 +16,17 @@
         android:textStyle="bold"
         app:fontName="dd_bold.ttf" />
 
-    <com.dunkin.customer.widget.CustomTextView
+    <com.dunkin.customer.widget.CustomTextView2
         android:id="@+id/txtDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_calc_news"
+        android:drawableLeft="@drawable/clock"
         android:drawablePadding="@dimen/spacing_medium"
-        android:drawableStart="@drawable/ic_calc_news"
+        android:drawableStart="@drawable/clock"
         android:gravity="start|left"
         android:singleLine="true"
+        android:textColor="@color/gray"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/home_welcome_text"
         app:fontName="dd_light.ttf" />
 
 </LinearLayout>

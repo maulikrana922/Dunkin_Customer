@@ -1,6 +1,7 @@
 package com.dunkin.customer.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,11 +59,12 @@ public class RedeemPointHistoryAdapter extends BaseAdapter {
             viewHolder.txtTitle = (TextView) convertView.findViewById(R.id.txtTitle);
             viewHolder.txtDate = (TextView) convertView.findViewById(R.id.txtDate);
 
+            viewHolder.txtTitle.setTextColor(position % 2 == 0 ? context.getResources().getColor(R.color.colorPrimary1) : context.getResources().getColor(R.color.colorPrimary));
+
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-
 
         /*if(position%2 == 0){
             viewHolder.itemLayout.setBackgroundColor(context.getResources().getColor(android.R.color.transparent));
