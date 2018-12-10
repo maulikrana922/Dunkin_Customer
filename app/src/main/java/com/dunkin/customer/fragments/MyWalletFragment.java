@@ -83,11 +83,10 @@ public class MyWalletFragment extends Fragment {
 
         progressLoading = (ProgressBar) rootView.findViewById(R.id.progressLoad);
         scrollContainer = (LinearLayout) rootView.findViewById(R.id.scrollContainer);
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.mainLayout);
+//        mainLayout = (RelativeLayout) rootView.findViewById(R.id.mainLayout);
         tvTabHistory = (TextView) rootView.findViewById(R.id.tvTabHistory);
         tvTabPointHistory = (TextView) rootView.findViewById(R.id.tvTabPointHistory);
         llTabs=(LinearLayout)rootView.findViewById(R.id.llTabs);
-
 //        tabs = (SmartTabLayout) rootView.findViewById(R.id.tabs);
 //        tabs = (TabLayout) rootView.findViewById(R.id.tabs);
 //        tabs.setDistributeEvenly(true);
@@ -97,6 +96,20 @@ public class MyWalletFragment extends Fragment {
                 R.anim.fade_in);
 
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
+
+        tvTabHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewPager.setCurrentItem(0);
+            }
+        });
+
+        tvTabPointHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewPager.setCurrentItem(1);
+            }
+        });
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -137,7 +150,7 @@ public class MyWalletFragment extends Fragment {
         AppController.getMyWallet(context, new Callback() {
             @Override
             public void run(Object result) throws JSONException, IOException {
-                mainLayout.startAnimation(animFadein);
+//                mainLayout.startAnimation(animFadein);
                 imgQR.setVisibility(View.VISIBLE);
                 llTabs.setVisibility(View.VISIBLE);
                 String apiResponse = (String) result;

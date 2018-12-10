@@ -23,6 +23,7 @@
             android:paddingRight="@dimen/fifteen_dp">
 
             <FrameLayout
+                android:id="@+id/flMyPoints"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
@@ -63,6 +64,7 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/flUsedPoints"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
@@ -182,7 +184,15 @@
         android:progressDrawable="@drawable/progress_circle"
         android:visibility="visible" />
 
-    <ListView
+    <!--<ListView-->
+        <!--android:id="@+id/lvLoadList"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:divider="@color/list_divider_dialog"-->
+        <!--android:dividerHeight="2dp"-->
+        <!--android:scrollbars="none" />-->
+
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/lvLoadList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

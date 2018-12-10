@@ -1,5 +1,8 @@
 package com.dunkin.customer.fragments;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -7,11 +10,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import android.widget.ListView;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -19,7 +23,7 @@ import com.dunkin.customer.R;
 import com.dunkin.customer.RegisterActivity;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
-import com.dunkin.customer.adapters.RedeemPointHistoryAdapter;
+import com.dunkin.customer.adapters.NewRedeemPointHistoryAdapter;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.models.RedeemHistoryModel;
@@ -36,13 +40,14 @@ import java.util.List;
 public class PayPointHistoryFragment extends Fragment {
 
     private Context context;
-    private ListView lvList;
-    private TextView txtMyPoint, txtUsedPoint;
+    private RecyclerView lvList;
+    private TextView txtMyPoint, txtUsedPoint, emptyElement;
     private List<RedeemHistoryModel> redeemList;
-    private RedeemPointHistoryAdapter redeemPointHistoryAdapter;
+    private NewRedeemPointHistoryAdapter redeemPointHistoryAdapter;
     private View rootView;
     private ProgressBar progressLoading;
     private String usedPoints, totalPoints;
+    private FrameLayout flMyPoints, flUsedPoints;
 
     @Override
     public void onAttach(Context context) {
@@ -54,9 +59,12 @@ public class PayPointHistoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.loadlistview2, container, false);
         progressLoading = (ProgressBar) rootView.findViewById(R.id.progressLoad);
-        lvList = (ListView) rootView.findViewById(R.id.lvLoadList);
+        lvList = (RecyclerView) rootView.findViewById(R.id.lvLoadList);
         txtMyPoint = (TextView) rootView.findViewById(R.id.txtMyPoint);
         txtUsedPoint = (TextView) rootView.findViewById(R.id.txtUsedPoint);
+        emptyElement = (TextView) rootView.findViewById(R.id.emptyElement);
+        flMyPoints = (FrameLayout) rootView.findViewById(R.id.flMyPoints);
+        flUsedPoints = (FrameLayout) rootView.findViewById(R.id.flUsedPoints);
         redeemList = new ArrayList<>();
 
         try {
@@ -128,14 +136,27 @@ public class PayPointHistoryFragment extends Fragment {
                     if (jsonResponse.getInt("success") == 1) {
                         redeemList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("redeem_history").toString(), new TypeReference<List<RedeemHistoryModel>>() {
                         });
-                    }else if (jsonResponse.getInt("success") == 100) {
+                    } else if (jsonResponse.getInt("success") == 100) {
                         AppUtils.showToastMessage(context, jsonResponse.getString("message"));
-                    }else if (jsonResponse.getInt("success") == 99) {
+                    } else if (jsonResponse.getInt("success") == 99) {
                         displayDialog(jsonResponse.getString("message"));
                     }
-                    redeemPointHistoryAdapter = new RedeemPointHistoryAdapter(context, redeemList);
-                    lvList.setAdapter(redeemPointHistoryAdapter);
-                    lvList.setEmptyView(rootView.findViewById(R.id.emptyElement));
+//                    redeemPointHistoryAdapter = new RedeemPointHistoryAdapter(context, redeemList);
+//                    lvList.setAdapter(redeemPointHistoryAdapter);
+//                    lvList.setEmptyView(rootView.findViewById(R.id.emptyElement));
+                    if (redeemList != null && redeemList.size() > 0) {
+                        emptyElement.setVisibility(View.GONE);
+                        lvList.setVisibility(View.VISIBLE);
+                        redeemPointHistoryAdapter = new NewRedeemPointHistoryAdapter(context, redeemList);
+                        lvList.setAdapter(redeemPointHistoryAdapter);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+                        lvList.setLayoutManager(layoutManager);
+                        loadAnimation(flMyPoints);
+                        loadAnimation(flUsedPoints);
+                    } else {
+                        emptyElement.setVisibility(View.VISIBLE);
+                        lvList.setVisibility(View.GONE);
+                    }
                 }
             });
         } catch (Exception e) {
@@ -158,5 +179,30 @@ public class PayPointHistoryFragment extends Fragment {
         AlertDialog alert = builder.create();
         alert.setTitle(getResources().getString(R.string.app_name));
         alert.show();
+    }
+
+    public void loadAnimation(View view) {
+        final AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(getContext(), R.animator.flip_animation);
+        animatorSet.setTarget(view);
+        animatorSet.setStartDelay(1500);
+        animatorSet.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                animator.start();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+            }
+        });
+        animatorSet.start();
     }
 }
