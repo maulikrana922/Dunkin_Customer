@@ -49,7 +49,6 @@ public class WalletAdapter extends FragmentStatePagerAdapter {
                 fragment.setArguments(b);
                 return fragment;
             }
-
         } else if (position == 1) {
             return new PayPointHistoryFragment();
         }

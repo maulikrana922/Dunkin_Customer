@@ -1,20 +1,21 @@
 buildscript {
     repositories {
         mavenCentral()
-//        maven { url 'https://maven.fabric.io/public' }
+        maven {
+            url 'https://maven.fabric.io/public'
+        }
     }
 
     dependencies {
-//        classpath 'io.fabric.tools:gradle:1.+'
-
+        classpath 'io.fabric.tools:gradle:1.+'
     }
 }
 apply plugin: 'com.android.application'
-//apply plugin: 'io.fabric'
+apply plugin: 'io.fabric'
 
 repositories {
     mavenCentral()
-//    maven { url 'https://maven.fabric.io/public' }
+    maven { url 'https://maven.fabric.io/public' }
 }
 
 android {
@@ -76,6 +77,9 @@ android {
 
 //        javaMaxHeapSize "4g"
     }
+    ext {
+        enableCrashlytics = true
+    }
 }
 
 dependencies {
@@ -110,5 +114,8 @@ dependencies {
     compile files('src/main/java/Vuforia.jar')
     compile 'com.jme3:jme3-android:3.0.+'
     compile 'com.jme3:jme3-terrain:3.0.+'
+    compile('com.crashlytics.sdk.android:crashlytics:2.9.7@aar') {
+        transitive = true;
+    }
 
 }

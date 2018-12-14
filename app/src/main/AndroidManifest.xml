@@ -215,7 +215,7 @@
 
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="1d55cf9a0795d0d1cf4d740b343ce55a76ecb2bb" />
+            android:value="14ed76b6198dbc5736b64b9c7b838ed8b3336f60" />
 
         <activity
             android:name=".SimpleScannerActivity"

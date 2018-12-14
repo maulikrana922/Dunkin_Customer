@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 
+import com.crashlytics.android.Crashlytics;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.constants.AppConstants;
 import com.facebook.FacebookSdk;
@@ -18,6 +19,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
 import com.nostra13.universalimageloader.utils.StorageUtils;
+import io.fabric.sdk.android.Fabric;
 import java.io.File;
 import java.util.Locale;
 
@@ -43,10 +45,12 @@ public class CustomerApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
 //        Fabric.with(this, new Crashlytics());
 
         context = getApplicationContext();
-
+//Mint.initAndStartSession(this.getApplication(), "3f18423f");
+//        Mint.initAndStartSession(context, "3f18423f");
 //        Mint.initAndStartSession(context, "30f479ec");
         FacebookSdk.sdkInitialize(context);
 
