@@ -171,6 +171,7 @@ public class MyWalletFragment extends Fragment {
                         walletAdapter = new WalletAdapter(context, ((AppCompatActivity) context).getSupportFragmentManager(), walletModelList, remainingPoints);
                         viewPager.setAdapter(walletAdapter);
                         viewPager.setOffscreenPageLimit(walletModelList.size());
+                        viewPager.setCurrentItem(1);
                         AppUtils.setImage(imgQR, jsonResponse.getString(AppConstants.USER_BANNER));
 //                        tabs.setupWithViewPager(viewPager);
 //                        tabs.setViewPager(viewPager);
@@ -198,6 +199,7 @@ public class MyWalletFragment extends Fragment {
 
                         walletAdapter = new WalletAdapter(context, ((AppCompatActivity) context).getSupportFragmentManager(), walletModelList, remainingPoints);
                         viewPager.setAdapter(walletAdapter);
+                        viewPager.setCurrentItem(1);
                         viewPager.setOffscreenPageLimit(walletModelList.size());
 //                        tabs.setupWithViewPager(viewPager);
 //                        tabs.setViewPager(viewPager);

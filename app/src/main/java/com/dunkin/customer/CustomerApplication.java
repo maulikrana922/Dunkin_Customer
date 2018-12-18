@@ -11,6 +11,7 @@ import com.crashlytics.android.Crashlytics;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.constants.AppConstants;
 import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache;
@@ -46,13 +47,12 @@ public class CustomerApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Fabric.with(this, new Crashlytics());
-//        Fabric.with(this, new Crashlytics());
-
         context = getApplicationContext();
 //Mint.initAndStartSession(this.getApplication(), "3f18423f");
 //        Mint.initAndStartSession(context, "3f18423f");
 //        Mint.initAndStartSession(context, "30f479ec");
         FacebookSdk.sdkInitialize(context);
+        AppEventsLogger.activateApp(this);
 
         SharedPreferences myPrefs = AppUtils.getAppPreference(context);
         SharedPreferences.Editor editor = myPrefs.edit();

@@ -1,7 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!--<string name="app_name">Dunkin Lebanon</string>-->
     <string name="app_name" translatable="false">Dunkin Leb</string>
-    <string name="facebook_app_id" translatable="false">673553769448453</string>
+    <!--<string name="facebook_app_id" translatable="false">673553769448453</string>-->
+    <string name="facebook_app_id">1970560159903967</string>
+    <string name="fb_login_protocol_scheme">fb1970560159903967</string>
     <string name="google_app_id" translatable="false">AIzaSyAHzEEEadS4uCmVkeLS8mazKMIHfnt62-I</string>
     <string name="lbl_app_version" translatable="false">V4.0.31102018</string>
     <!--<string name="lbl_consulting_website" translatable="false">www.MindSource-Consulting.com - All Rights Reserved - Copyright © 2016</string>-->
@@ -390,7 +392,8 @@
     </string-array>
 
     <!-- ALL JSON MESSAGES -->
-    <string name="msg_register_success">You are successfully registered.</string>
+    <string name="msg_register_success">You are successfully registered. Please check your email to active your account.</string>
+    <string name="msg_register_successfully">You are successfully registered. We sent you email verification to %s. Check your inbox or the spam/junk folder to activate your account.</string>
     <string name="msg_register_exist">You are already registered try to login.</string>
     <string name="msg_register_error">Error occurred during registration.</string>
     <string name="msg_login_user_not_exist">User does not exist with entered email address</string>
@@ -450,7 +453,6 @@
     <string name="talk_to_us_msg">Please allow 24 hours for our team to reply.\nOur working hours are 09:00 to 17:00 Monday to Friday</string>
 
 
-
     <string name="getProductbyCategory" translatable="false">getProductbyCategory</string>
     <string name="success">success</string>
     <string name="case_er">99</string>
@@ -472,7 +474,7 @@
     <string name="enter_phone_number">Enter Phone Number</string>
     <string name="enter_message">Enter Message</string>
     <string name="btn_share_point">Share</string>
-    <string name="password_share" >Are you ready to send Appiness to %s ? Please enter your account number password.</string>
+    <string name="password_share">Are you ready to send Appiness to %s ? Please enter your account number password.</string>
     <string name="empty_point">Please Enter Point</string>
     <string name="hurray">Hurrayyyyy</string>
     <string name="view">View</string>

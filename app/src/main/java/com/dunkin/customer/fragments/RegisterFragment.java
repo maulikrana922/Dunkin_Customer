@@ -12,7 +12,9 @@ import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
+import android.text.SpannableString;
 import android.text.TextWatcher;
+import android.text.style.UnderlineSpan;
 import android.util.Patterns;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -208,7 +210,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                                 } else if (jsonResponse.getInt("success") == 100) {
                                     AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                                 } else {
-                                    if(jsonResponse.getInt("success") != 99) {
+                                    if (jsonResponse.getInt("success") != 99) {
                                         AppUtils.showToastMessage(context, getString(R.string.system_error));
                                     }
                                 }
@@ -382,7 +384,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
             jsonRequest.put("email", edEmail.getText().toString());
             jsonRequest.put("dob", edDateOfBirth.getText().toString());
             jsonRequest.put("password", edPassword.getText().toString());
-            jsonRequest.put("phoneNumber","");
+            jsonRequest.put("phoneNumber", "");
             jsonRequest.put("address", edAddress.getText().toString());
             jsonRequest.put("shippingAddress", edShippingAddress.getText().toString());
             jsonRequest.put("restaurant_id", jsonArray);
@@ -413,20 +415,18 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                             editor.putString(AppConstants.USER_PROFILE_QR, jsonUser.getString("qrCode"));
                             editor.apply();
 
-
                             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                            builder.setMessage("You are successfully registered. Please check your email to activate your account.")
+                            builder.setMessage(String.format(context.getString(R.string.msg_register_successfully), edEmail.getText().toString().trim()))
                                     .setCancelable(false)
                                     .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
                                             try {
                                                 PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                                                 String version = String.valueOf(pInfo.versionCode);
-                                                fetchAllSetting(version,edEmail.getText().toString().trim());
+                                                fetchAllSetting(version, edEmail.getText().toString().trim());
                                             } catch (UnsupportedEncodingException | JSONException | ParseException e) {
                                                 e.printStackTrace();
-                                            } catch(Exception e)
-                                            {
+                                            } catch (Exception e) {
                                                 e.printStackTrace();
                                             }
 //                                            startActivity(new Intent(context, HomeActivity.class));
@@ -438,7 +438,8 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                             AlertDialog alert = builder.create();
                             alert.setTitle(getResources().getString(R.string.app_name));
                             alert.show();
-
+                            TextView messageView = (TextView) alert.findViewById(android.R.id.message);
+                            messageView.setGravity(Gravity.CENTER);
 
                         } else if (jsonResponse.getInt("success") == 0) {
                             AppUtils.showToastMessage(context, getString(R.string.msg_register_exist));
@@ -461,7 +462,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    private void fetchAllSetting(String version,String email) throws UnsupportedEncodingException, JSONException, ParseException {
+    private void fetchAllSetting(String version, String email) throws UnsupportedEncodingException, JSONException, ParseException {
 
         JSONObject jsonRequest = new JSONObject();
 
@@ -488,7 +489,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                         ((Activity) context).finish();
 //                        AppUtils.showToastMessage(context, jsonResponse.getString("message"));
                     } else {
-                        if(jsonResponse.getInt("success") != 99) {
+                        if (jsonResponse.getInt("success") != 99) {
                             AppUtils.showToastMessage(context, getString(R.string.system_error));
                         }
                     }
