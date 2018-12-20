@@ -4,27 +4,19 @@ import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.RotateAnimation;
 import android.widget.FrameLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.dunkin.customer.R;
-import com.dunkin.customer.Utils.AnimationHelper;
 import com.dunkin.customer.Utils.AppUtils;
-import com.dunkin.customer.Utils.Techniques;
 import com.dunkin.customer.adapters.NewWalletNoteListAdapter;
-import com.dunkin.customer.adapters.WalletNoteListAdapter;
 import com.dunkin.customer.models.WalletModel;
 
 /**
@@ -34,7 +26,7 @@ public class WalletNoteListFragment extends Fragment {
 
     private WalletModel wallet;
     private String tempRemainingPoints, remainingPoints;
-    private FrameLayout flTotalAmount,flRemainingPoints;
+    private FrameLayout flTotalAmount, flRemainingPoints;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,16 +49,18 @@ public class WalletNoteListFragment extends Fragment {
         TextView txtWalletAmountPoint = (TextView) rootView.findViewById(R.id.txtWalletAmountPoint);
         TextView emptyElement = (TextView) rootView.findViewById(R.id.emptyElement);
 //        ListView lvWalletNoteList = (ListView) rootView.findViewById(R.id.walletNoteList);
-        RecyclerView lvWalletNoteList= (RecyclerView) rootView.findViewById(R.id.walletNoteList);
-        flTotalAmount= (FrameLayout) rootView.findViewById(R.id.flTotalAmount);
-        flRemainingPoints= (FrameLayout) rootView.findViewById(R.id.flRemainingPoints);
+        RecyclerView lvWalletNoteList = (RecyclerView) rootView.findViewById(R.id.walletNoteList);
+        flTotalAmount = (FrameLayout) rootView.findViewById(R.id.flTotalAmount);
+        flRemainingPoints = (FrameLayout) rootView.findViewById(R.id.flRemainingPoints);
 //        String amount = getString(R.string.txt_my_wallet_amount, AppUtils.CurrencyFormat(Double.parseDouble(wallet.getTotal())) + " " + wallet.getCurrency()) + "\n" +
 //                getString(R.string.txt_my_wallet_remaining_amount) + " " + AppUtils.CurrencyFormat(Double.parseDouble(remainingPoints));
 
-        String amount=AppUtils.CurrencyFormat(Double.parseDouble(wallet.getTotal())) + " " + wallet.getCurrency();
-        String points=AppUtils.CurrencyFormat(Double.parseDouble(remainingPoints));
+        String amount = AppUtils.CurrencyFormat(Double.parseDouble(wallet.getTotal())) + " " + wallet.getCurrency();
+        String points = AppUtils.CurrencyFormat(Double.parseDouble(remainingPoints));
         txtTotalAmount.setText(amount);
         txtWalletAmountPoint.setText(points);
+        loadAnimation(flTotalAmount);
+        loadAnimation(flRemainingPoints);
         rootView.findViewById(R.id.progressLoad).setVisibility(View.GONE);
         lvWalletNoteList.setNestedScrollingEnabled(true);
         if (wallet.getNotes() != null && wallet.getNotes().size() > 0) {
@@ -80,8 +74,6 @@ public class WalletNoteListFragment extends Fragment {
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
             lvWalletNoteList.setLayoutManager(layoutManager);
             lvWalletNoteList.setAdapter(walletNoteListAdapter);
-            loadAnimation(flTotalAmount);
-            loadAnimation(flRemainingPoints);
 //            lvWalletNoteList.setEmptyView(rootView.findViewById(R.id.emptyElement));
         } else {
             emptyElement.setVisibility(View.VISIBLE);
@@ -90,18 +82,22 @@ public class WalletNoteListFragment extends Fragment {
         return rootView;
     }
 
-    public void loadAnimation(View view){
+    public void loadAnimation(View view) {
         final AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(getContext(), R.animator.flip_animation);
         animatorSet.setTarget(view);
-        animatorSet.setStartDelay(1500);
         animatorSet.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animator) {
             }
 
             @Override
-            public void onAnimationEnd(Animator animator) {
-                animator.start();
+            public void onAnimationEnd(final Animator animator) {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        animator.start();
+                    }
+                }, 2500);
             }
 
             @Override

@@ -43,9 +43,9 @@ android {
     defaultConfig {
         applicationId "com.dunkin.customer"
         minSdkVersion 14
-        targetSdkVersion 25
-        versionCode 23
-        versionName "4.0.19122018"
+        targetSdkVersion 26
+        versionCode 24
+        versionName "4.0.20122018"
         multiDexEnabled true
     }
 

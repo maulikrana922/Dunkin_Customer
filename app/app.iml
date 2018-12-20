@@ -32,6 +32,7 @@
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/fabric/res/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/debug" isTestSource="true" generated="true" />
@@ -93,6 +94,10 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/25.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/transition/25.4.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.crashlytics.sdk.android/answers/1.4.5/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.crashlytics.sdk.android/beta/1.2.10/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.crashlytics.sdk.android/crashlytics-core/2.6.6/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.crashlytics.sdk.android/crashlytics/2.9.7/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars" />
@@ -103,6 +108,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.mikhaellopez/circularimageview/3.0.2/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.ogaclejapan.smarttablayout/library/1.4.2/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/io.fabric.sdk.android/fabric/1.4.6/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/me.dm7.barcodescanner/core/1.9.8/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/me.dm7.barcodescanner/zbar/1.9.8/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/me.dm7.barcodescanner/zxing/1.9.8/jars" />
@@ -112,7 +118,9 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/multi-dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/pre-dexed" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/proguard-rules" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
@@ -126,6 +134,7 @@
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-fragment-25.4.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: __local_jars__:/home/vidhi/Vidhi/Dunkin/Dunkin_Customer/Dunkin_Customer_SRC/app/libs/org.apache.http.legacy.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.http-client:google-http-client:1.19.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.crashlytics.sdk.android:crashlytics-core-2.6.6" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.http-client:google-http-client-gson:1.19.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.zxing:core:3.3.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:multidex-1.0.1" level="project" />
@@ -140,10 +149,12 @@
     <orderEntry type="library" exported="" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.9.2@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.9.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: __local_jars__:/home/vidhi/Vidhi/Dunkin/Dunkin_Customer/Dunkin_Customer_SRC/app/libs/sun.misc.BASE64Decoder.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.crashlytics.sdk.android:beta-1.2.10" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="Gradle: com.android.support:multidex-instrumentation-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.ogaclejapan.smarttablayout:library-1.4.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.parse.bolts:bolts-android:1.2.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-iid-10.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: io.fabric.sdk.android:fabric-1.4.6" level="project" />
     <orderEntry type="library" exported="" name="Gradle: me.dm7.barcodescanner:core-1.9.8" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.github.bumptech.glide:glide:3.7.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.jme3:jme3-core:3.0.10@jar" level="project" />
@@ -167,8 +178,10 @@
     <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-tasks-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.9.2@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.jme3:jme3-terrain:3.0.10@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.crashlytics.sdk.android:answers-1.4.5" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:recyclerview-v7-25.4.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:design-25.4.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.crashlytics.sdk.android:crashlytics-2.9.7" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-vector-drawable-25.4.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-core-utils-25.4.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.apache.http.legacy-android-25" level="project" />

@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -121,6 +122,9 @@ public class PayPointHistoryFragment extends Fragment {
                         txtUsedPoint.setText(AppUtils.CurrencyFormat(Double.parseDouble(tempUsedPoint)));
                     else
                         txtUsedPoint.setText("0");
+
+                    loadAnimation(flMyPoints);
+                    loadAnimation(flUsedPoints);
                 }
             });
         } catch (JSONException | UnsupportedEncodingException e) {
@@ -151,8 +155,6 @@ public class PayPointHistoryFragment extends Fragment {
                         lvList.setAdapter(redeemPointHistoryAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
                         lvList.setLayoutManager(layoutManager);
-                        loadAnimation(flMyPoints);
-                        loadAnimation(flUsedPoints);
                     } else {
                         emptyElement.setVisibility(View.VISIBLE);
                         lvList.setVisibility(View.GONE);
@@ -184,15 +186,19 @@ public class PayPointHistoryFragment extends Fragment {
     public void loadAnimation(View view) {
         final AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(getContext(), R.animator.flip_animation);
         animatorSet.setTarget(view);
-        animatorSet.setStartDelay(1500);
         animatorSet.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animator) {
             }
 
             @Override
-            public void onAnimationEnd(Animator animator) {
-                animator.start();
+            public void onAnimationEnd(final Animator animator) {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        animator.start();
+                    }
+                }, 2500);
             }
 
             @Override

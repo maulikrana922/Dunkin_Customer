@@ -5,7 +5,7 @@
     <string name="facebook_app_id">1970560159903967</string>
     <string name="fb_login_protocol_scheme">fb1970560159903967</string>
     <string name="google_app_id" translatable="false">AIzaSyAHzEEEadS4uCmVkeLS8mazKMIHfnt62-I</string>
-    <string name="lbl_app_version" translatable="false">V4.0.19122018</string>
+    <string name="lbl_app_version" translatable="false">V4.0.20122018</string>
     <!--<string name="lbl_consulting_website" translatable="false">www.MindSource-Consulting.com - All Rights Reserved - Copyright © 2016</string>-->
     <string name="lbl_consulting_website" translatable="false">Meeting Point &amp; MindSource Consulting Copyright © 2018</string>
     <string name="strp">Mind#S@urce#@201</string>
