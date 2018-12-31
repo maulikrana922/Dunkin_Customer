@@ -382,7 +382,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                 });
 
         AlertDialog alert = builder.create();
-        alert.setTitle(getResources().getString(R.string.app_name));
+        alert.setTitle(getString(R.string.app_name));
         alert.show();
     }
 
@@ -848,7 +848,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                         });
 
                 AlertDialog alert = builder.create();
-                alert.setTitle(getResources().getString(R.string.app_name));
+                alert.setTitle(getString(R.string.app_name));
                 alert.show();
             }
         });
@@ -877,7 +877,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                         });
 
                 AlertDialog alert = builder.create();
-                alert.setTitle(getResources().getString(R.string.app_name));
+                alert.setTitle(getString(R.string.app_name));
                 alert.show();
             }
         });

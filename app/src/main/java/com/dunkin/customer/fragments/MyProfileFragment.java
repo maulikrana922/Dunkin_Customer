@@ -236,7 +236,7 @@ public class MyProfileFragment extends Fragment {
                             AppUtils.showToastMessage(ctx, jsonResponse.getString("message"));
                         } else
                             tvFavoriteRestaurant.setText(ctx.getString(R.string.txt_your_favorite_restaurant));
-                    } if (jsonResponse.getInt("success") == 99) {
+                    } else if (jsonResponse.getInt("success") == 99) {
                         displayDialog(jsonResponse.getString("message"));
                     }else {
                         AppUtils.showToastMessage(ctx, getString(R.string.system_error));

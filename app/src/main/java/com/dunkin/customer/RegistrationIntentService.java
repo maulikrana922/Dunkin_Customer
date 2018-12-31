@@ -3,7 +3,6 @@ package com.dunkin.customer;
 import android.app.IntentService;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
@@ -12,6 +11,7 @@ import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,10 +30,13 @@ public class RegistrationIntentService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
 
+//        myPrefs = AppUtils.getAppPreference(this);
         InstanceID instanceID = InstanceID.getInstance(this);
         try {
             String token = instanceID.getToken(AppConstants.GCM_SENDER_ID,
                     GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+//            String token = FirebaseInstanceId.getInstance().getToken();
+//            myPrefs.edit().putString(AppConstants.GCM_TOKEN_ID, token).apply();
 
             Dunkin_Log.d("GCMToken Id : ", token);
 
