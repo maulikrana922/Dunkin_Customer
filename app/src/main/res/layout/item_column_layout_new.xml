@@ -23,12 +23,13 @@
             android:orientation="horizontal">
 
             <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/lblNoteId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_xsmall"
                 android:text="@string/str_note_id"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_bold.ttf" />
 
             <com.dunkin.customer.widget.CustomTextView
                 android:id="@+id/tvNoteId"
@@ -36,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_xsmall"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                app:fontName="dd_bold.ttf"
+                app:fontName="dd_light.ttf"
                 tools:text="@string/str_note_id" />
 
         </LinearLayout>
@@ -49,12 +50,13 @@
             android:orientation="horizontal">
 
             <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/lblAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_xsmall"
                 android:text="@string/str_note_amount"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_bold.ttf" />
 
             <com.dunkin.customer.widget.CustomTextView
                 android:id="@+id/tvNoteAmount"
@@ -62,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_xsmall"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                app:fontName="dd_bold.ttf"
+                app:fontName="dd_light.ttf"
                 tools:text="@string/str_note_amount" />
 
         </LinearLayout>
@@ -75,12 +77,13 @@
             android:orientation="horizontal">
 
             <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/lblAmountAdded"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_xsmall"
                 android:text="@string/str_note_amount_added_on"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_bold.ttf" />
 
             <com.dunkin.customer.widget.CustomTextView
                 android:id="@+id/tvDateTime"
@@ -88,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_xsmall"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                app:fontName="dd_bold.ttf"
+                app:fontName="dd_light.ttf"
                 tools:text="@string/str_note_amount_added_on" />
 
         </LinearLayout>
@@ -100,12 +103,13 @@
             android:orientation="horizontal">
 
             <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/lblPerformedBy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_xsmall"
                 android:text="@string/str_note_recharge_by"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_bold.ttf" />
 
             <com.dunkin.customer.widget.CustomTextView
                 android:id="@+id/tvRechargeBy"
@@ -113,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_xsmall"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                app:fontName="dd_bold.ttf"
+                app:fontName="dd_light.ttf"
                 tools:text="@string/str_note_recharge_by" />
 
         </LinearLayout>

@@ -25,9 +25,9 @@ import com.dunkin.customer.RegisterActivity;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
 import com.dunkin.customer.adapters.NewRedeemPointHistoryAdapter;
-import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.models.RedeemHistoryModel;
+import com.dunkin.customer.models.WalletRedeemPoint;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import org.json.JSONException;
@@ -49,6 +49,7 @@ public class PayPointHistoryFragment extends Fragment {
     private ProgressBar progressLoading;
     private String usedPoints, totalPoints;
     private FrameLayout flMyPoints, flUsedPoints;
+    private WalletRedeemPoint walletRedeemPoint;
 
     @Override
     public void onAttach(Context context) {
@@ -68,6 +69,21 @@ public class PayPointHistoryFragment extends Fragment {
         flUsedPoints = (FrameLayout) rootView.findViewById(R.id.flUsedPoints);
         redeemList = new ArrayList<>();
 
+        Bundle bundle = getArguments();
+        walletRedeemPoint=bundle.getParcelable("walletredeempoints");
+
+        txtMyPoint.setVisibility(View.VISIBLE);
+        txtUsedPoint.setVisibility(View.VISIBLE);
+        if (AppUtils.isNotNull(walletRedeemPoint.redeemPoint.totalUsedPoint))
+            txtMyPoint.setText(walletRedeemPoint.redeemPoint.totalUsedPoint);
+        else
+            txtMyPoint.setText("0");
+        if (AppUtils.isNotNull(walletRedeemPoint.redeemPoint.remainRedeemPoint))
+            txtUsedPoint.setText(walletRedeemPoint.redeemPoint.remainRedeemPoint);
+        else
+            txtUsedPoint.setText("0");
+        loadAnimation(flMyPoints);
+        loadAnimation(flUsedPoints);
         try {
             getDataFromAPI();
         } catch (UnsupportedEncodingException | JSONException e) {
@@ -79,57 +95,56 @@ public class PayPointHistoryFragment extends Fragment {
 
     private void getDataFromAPI() throws UnsupportedEncodingException, JSONException {
 
-        try {
-            AppController.getRedeemPoints(context, AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, ""), new Callback() {
-                @Override
-                public void run(Object result) throws JSONException, IOException {
-
-                    txtMyPoint.setVisibility(View.VISIBLE);
-                    txtUsedPoint.setVisibility(View.VISIBLE);
-
-                    JSONObject jsonResponse = new JSONObject((String) result);
-
-                    JSONObject json = jsonResponse.getJSONObject("points");
-                    usedPoints = json.getString("usedPoints");
-                    totalPoints = json.getString("totalPoints");
-
-                    // My Point
-                    String tempMyPoint;
-                    if (AppUtils.isNotNull(totalPoints)) {
-                        if (totalPoints.contains(","))
-                            tempMyPoint = totalPoints.replaceAll(",", "");
-                        else
-                            tempMyPoint = totalPoints;
-                    } else
-                        tempMyPoint = "0";
-
-                    if (AppUtils.isNotNull(tempMyPoint))
-                        txtMyPoint.setText(AppUtils.CurrencyFormat(Double.parseDouble(tempMyPoint)));
-                    else
-                        txtMyPoint.setText("0");
-
-                    // Used Point
-                    String tempUsedPoint;
-                    if (AppUtils.isNotNull(usedPoints)) {
-                        if (usedPoints.contains(","))
-                            tempUsedPoint = usedPoints.replaceAll(",", "");
-                        else
-                            tempUsedPoint = usedPoints;
-                    } else
-                        tempUsedPoint = "0";
-
-                    if (AppUtils.isNotNull(usedPoints))
-                        txtUsedPoint.setText(AppUtils.CurrencyFormat(Double.parseDouble(tempUsedPoint)));
-                    else
-                        txtUsedPoint.setText("0");
-
-                    loadAnimation(flMyPoints);
-                    loadAnimation(flUsedPoints);
-                }
-            });
-        } catch (JSONException | UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            AppController.getRedeemPoints(context, AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, ""), new Callback() {
+//                @Override
+//                public void run(Object result) throws JSONException, IOException {
+//
+//                    txtMyPoint.setVisibility(View.VISIBLE);
+//                    txtUsedPoint.setVisibility(View.VISIBLE);
+//
+//                    JSONObject jsonResponse = new JSONObject((String) result);
+//
+//                    JSONObject json = jsonResponse.getJSONObject("points");
+//                    usedPoints = json.getString("usedPoints");
+//                    totalPoints = json.getString("totalPoints");
+//
+//                    // My Point
+//                    String tempMyPoint;
+//                    if (AppUtils.isNotNull(totalPoints)) {
+//                        if (totalPoints.contains(","))
+//                            tempMyPoint = totalPoints.replaceAll(",", "");
+//                        else
+//                            tempMyPoint = totalPoints;
+//                    } else
+//                        tempMyPoint = "0";
+//
+//                    if (AppUtils.isNotNull(tempMyPoint))
+//                        txtMyPoint.setText(AppUtils.CurrencyFormat(Double.parseDouble(tempMyPoint)));
+//                    else
+//                        txtMyPoint.setText("0");
+//
+//                    // Used Point
+//                    String tempUsedPoint;
+//                    if (AppUtils.isNotNull(usedPoints)) {
+//                        if (usedPoints.contains(","))
+//                            tempUsedPoint = usedPoints.replaceAll(",", "");
+//                        else
+//                            tempUsedPoint = usedPoints;
+//                    } else
+//                        tempUsedPoint = "0";
+//
+//                    if (AppUtils.isNotNull(usedPoints))
+//                        txtUsedPoint.setText(AppUtils.CurrencyFormat(Double.parseDouble(tempUsedPoint)));
+//                    else
+//                        txtUsedPoint.setText("0");
+//
+//
+//                }
+//            });
+//        } catch (JSONException | UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
 
         try {
             AppController.getRedeemPointHistory(context, new Callback() {

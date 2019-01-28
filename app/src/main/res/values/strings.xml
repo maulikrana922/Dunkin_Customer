@@ -511,5 +511,8 @@
     <string name="INIT_OBJECT_DATASET_NOT_FOUND">Please scan an object and load a database</string>
     <string name="button_OK">OK</string>
     <string name="lbl_remaining_point">Remaining Points</string>
+    <string name="lbl_updated_shortly">Points and Wallet will be updated shortly.</string>
+    <string name="lbl_amount_used">Amount Used</string>
+    <string name="lbl_amount_remaining">Amount Remaining</string>
 
 </resources>

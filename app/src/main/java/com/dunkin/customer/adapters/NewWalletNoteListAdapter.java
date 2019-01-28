@@ -36,6 +36,11 @@ public class NewWalletNoteListAdapter extends RecyclerView.Adapter<NewWalletNote
         viewHolder.tvNoteAmount.setText(AppUtils.CurrencyFormat(Double.parseDouble(walletNoteModel.getNoteAmount())));
         viewHolder.tvRechargeBy.setText(walletNoteModel.getRechargeBy());
 
+        viewHolder.lblNoteId.setTextColor(position % 2 == 0 ? context.getResources().getColor(R.color.colorPrimary1) : context.getResources().getColor(R.color.colorPrimary));
+        viewHolder.lblAmount.setTextColor(position % 2 == 0 ? context.getResources().getColor(R.color.colorPrimary1) : context.getResources().getColor(R.color.colorPrimary));
+        viewHolder.lblAmountAdded.setTextColor(position % 2 == 0 ? context.getResources().getColor(R.color.colorPrimary1) : context.getResources().getColor(R.color.colorPrimary));
+        viewHolder.lblPerformedBy.setTextColor(position % 2 == 0 ? context.getResources().getColor(R.color.colorPrimary1) : context.getResources().getColor(R.color.colorPrimary));
+
         if (walletNoteModel.getEarnType() == 1)
             viewHolder.tvDateTime.setText(AppUtils.getFormattedDateTime(walletNoteModel.getRechargeDate()));
         else
@@ -68,6 +73,7 @@ public class NewWalletNoteListAdapter extends RecyclerView.Adapter<NewWalletNote
     class ItemHolder extends RecyclerView.ViewHolder {
 
         TextView tvNoteId, tvNoteAmount, tvDateTime, tvRechargeBy;
+        TextView lblNoteId,lblAmount,lblAmountAdded,lblPerformedBy;
 
         ItemHolder(View itemView) {
             super(itemView);
@@ -75,6 +81,10 @@ public class NewWalletNoteListAdapter extends RecyclerView.Adapter<NewWalletNote
             tvNoteAmount = (TextView) itemView.findViewById(R.id.tvNoteAmount);
             tvDateTime = (TextView) itemView.findViewById(R.id.tvDateTime);
             tvRechargeBy = (TextView) itemView.findViewById(R.id.tvRechargeBy);
+            lblNoteId = itemView.findViewById(R.id.lblNoteId);
+            lblAmount = itemView.findViewById(R.id.lblAmount);
+            lblAmountAdded= itemView.findViewById(R.id.lblAmountAdded);
+            lblPerformedBy= itemView.findViewById(R.id.lblPerformedBy);
         }
 
     }

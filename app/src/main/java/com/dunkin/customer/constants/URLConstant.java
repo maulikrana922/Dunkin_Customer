@@ -103,4 +103,5 @@ public class URLConstant {
     public static final String PUT_STAFF_ASSESSMENT =  "putStaffAssessment";
     public static final String GET_CATALOG_QUESTION_LIST =  "catalogQuestion";
     public static final String GAIN_POINT_SHIFT="gainPointShift";
+    public static final String GET_WALLET_REDEEM_POINT = "getWalletRedeemPoint";
 }

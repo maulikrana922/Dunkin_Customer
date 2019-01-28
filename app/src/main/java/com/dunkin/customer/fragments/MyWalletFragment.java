@@ -1,12 +1,18 @@
 package com.dunkin.customer.fragments;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,11 +33,14 @@ import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Callback;
+import com.dunkin.customer.adapters.NewWalletNoteListAdapter;
 import com.dunkin.customer.adapters.WalletAdapter;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.models.WalletModel;
+import com.dunkin.customer.models.WalletRedeemPoint;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,6 +65,7 @@ public class MyWalletFragment extends Fragment {
     private DBAdapter dbAdapter;
     private RelativeLayout mainLayout;
     private ImageView imgQR;
+    private WalletRedeemPoint walletRedeemPoint;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -154,62 +164,133 @@ public class MyWalletFragment extends Fragment {
                 imgQR.setVisibility(View.VISIBLE);
                 llTabs.setVisibility(View.VISIBLE);
                 String apiResponse = (String) result;
-                if (!apiResponse.equalsIgnoreCase(AppConstants.TIME_OUT)) {
-                    JSONObject jsonResponse = new JSONObject((String) result);
-                    progressLoading.setVisibility(View.GONE);
-                    scrollContainer.setVisibility(View.VISIBLE);
-
-                    dbAdapter.open();
-                    dbAdapter.addOfflineData(AppConstants.OF_WALLET, (String) result);
-                    dbAdapter.close();
-
-                    if (jsonResponse.getInt("success") == 1) {
-                        List<WalletModel> walletModelList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("wallet").toString(), new TypeReference<List<WalletModel>>() {
-                        });
-
-                        String remainingPoints = jsonResponse.getString("points");
-                        walletAdapter = new WalletAdapter(context, ((AppCompatActivity) context).getSupportFragmentManager(), walletModelList, remainingPoints);
-                        viewPager.setAdapter(walletAdapter);
-                        viewPager.setOffscreenPageLimit(walletModelList.size());
-                        viewPager.setCurrentItem(1);
-                        AppUtils.setImage(imgQR, jsonResponse.getString(AppConstants.USER_BANNER));
-//                        tabs.setupWithViewPager(viewPager);
-//                        tabs.setViewPager(viewPager);
-                    } else if (jsonResponse.getInt("success") == 100) {
-                        AppUtils.showToastMessage(context, jsonResponse.getString("message"));
-                    } else {
-                        scrollContainer.setVisibility(View.VISIBLE);
-                        emptyView.setVisibility(View.VISIBLE);
-                        emptyView.setText(getString(R.string.no_data_error));
-                    }
-                } else {
-                    progressLoading.setVisibility(View.GONE);
-                    scrollContainer.setVisibility(View.VISIBLE);
-
-                    dbAdapter.open();
-                    String resultDB = dbAdapter.getOfflineData(AppConstants.OF_WALLET);
-                    dbAdapter.close();
-                    JSONObject jsonResponse = new JSONObject(resultDB);
-
-                    if (jsonResponse.getInt("success") == 1) {
-                        List<WalletModel> walletModelList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("wallet").toString(), new TypeReference<List<WalletModel>>() {
-                        });
-
-                        String remainingPoints = jsonResponse.getString("points");
-
-                        walletAdapter = new WalletAdapter(context, ((AppCompatActivity) context).getSupportFragmentManager(), walletModelList, remainingPoints);
-                        viewPager.setAdapter(walletAdapter);
-                        viewPager.setCurrentItem(1);
-                        viewPager.setOffscreenPageLimit(walletModelList.size());
-//                        tabs.setupWithViewPager(viewPager);
-//                        tabs.setViewPager(viewPager);
-                    } else {
-                        scrollContainer.setVisibility(View.VISIBLE);
-                        emptyView.setVisibility(View.VISIBLE);
-                        emptyView.setText(getString(R.string.no_data_error));
-                    }
+                try {
+                    walletRedeemPoint=getDataFromAPIWalletRedeem(apiResponse);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
         });
+    }
+
+    private WalletRedeemPoint getDataFromAPIWalletRedeem(final String apiResponse) throws UnsupportedEncodingException, JSONException {
+        AppController.getWalletRedeempoint(context, AppUtils.getAppPreference(context).getString(AppConstants.USER_EMAIL_ADDRESS, "")
+                , String.valueOf(AppUtils.getAppPreference(context).getInt(AppConstants.USER_COUNTRY, -1)), new Callback() {
+                    @Override
+                    public void run(Object result) throws JSONException, IOException {
+                        JSONObject jsonResponse = new JSONObject((String) result);
+                        progressLoading.setVisibility(View.GONE);
+                        if (jsonResponse.getInt("success") == 1) {
+                            walletRedeemPoint = new Gson().fromJson(jsonResponse.toString(), WalletRedeemPoint.class);
+                            getwalletApiResponse(apiResponse);
+//                            String amount = walletRedeemPoint.wallet.total+ " " + walletRedeemPoint.wallet.currency;
+//                            String points = walletRedeemPoint.wallet.usedWalletPoint;
+//                            txtTotalAmount.setText(amount);
+//                            txtWalletAmountPoint.setText(points);
+////                            loadAnimation(flTotalAmount);
+////                            loadAnimation(flRemainingPoints);
+//                            progressLoading.setVisibility(View.GONE);
+//                            lvWalletNoteList.setNestedScrollingEnabled(true);
+//                            if (wallet.getNotes() != null && wallet.getNotes().size() > 0) {
+//                                emptyElement.setVisibility(View.GONE);
+//                                lvWalletNoteList.setVisibility(View.VISIBLE);
+//
+////            WalletNoteListAdapter walletNoteListAdapter = new WalletNoteListAdapter(getActivity(), wallet.getNotes());
+////            lvWalletNoteList.setAdapter(walletNoteListAdapter);
+////            lvWalletNoteList.setEmptyView(rootView.findViewById(R.id.emptyElement));
+//                                NewWalletNoteListAdapter walletNoteListAdapter = new NewWalletNoteListAdapter(getActivity(), wallet.getNotes());
+//                                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+//                                lvWalletNoteList.setLayoutManager(layoutManager);
+//                                lvWalletNoteList.setAdapter(walletNoteListAdapter);
+////            lvWalletNoteList.setEmptyView(rootView.findViewById(R.id.emptyElement));
+//                            } else {
+//                                emptyElement.setVisibility(View.VISIBLE);
+//                                lvWalletNoteList.setVisibility(View.GONE);
+//                            }
+                        } else if (jsonResponse.getInt("success") == 100) {
+                            AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                        } else if (jsonResponse.getInt("success") == 99) {
+                            displayDialog(jsonResponse.getString("message"));
+                        } else {
+
+                        }
+                    }
+                });
+        return walletRedeemPoint;
+    }
+
+    private void displayDialog(String message) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        startActivity(new Intent(context, WalletNoteListFragment.class));
+                        ((Activity) context).finish();
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.setTitle(getResources().getString(R.string.app_name));
+        alert.show();
+    }
+
+    public void getwalletApiResponse(String apiResponse) throws JSONException, IOException {
+        if (!apiResponse.equalsIgnoreCase(AppConstants.TIME_OUT)) {
+            JSONObject jsonResponse = new JSONObject(apiResponse);
+            progressLoading.setVisibility(View.GONE);
+            scrollContainer.setVisibility(View.VISIBLE);
+
+            dbAdapter.open();
+            dbAdapter.addOfflineData(AppConstants.OF_WALLET, apiResponse);
+            dbAdapter.close();
+
+            if (jsonResponse.getInt("success") == 1) {
+                List<WalletModel> walletModelList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("wallet").toString(), new TypeReference<List<WalletModel>>() {
+                });
+
+                String remainingPoints = jsonResponse.getString("points");
+                walletAdapter = new WalletAdapter(context, ((AppCompatActivity) context).getSupportFragmentManager(), walletModelList, remainingPoints,walletRedeemPoint);
+                viewPager.setAdapter(walletAdapter);
+                viewPager.setOffscreenPageLimit(walletModelList.size());
+                viewPager.setCurrentItem(1);
+                AppUtils.setImage(imgQR, jsonResponse.getString(AppConstants.USER_BANNER));
+//                        tabs.setupWithViewPager(viewPager);
+//                        tabs.setViewPager(viewPager);
+            } else if (jsonResponse.getInt("success") == 100) {
+                AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+            } else {
+                scrollContainer.setVisibility(View.VISIBLE);
+                emptyView.setVisibility(View.VISIBLE);
+                emptyView.setText(getString(R.string.no_data_error));
+            }
+        } else {
+            progressLoading.setVisibility(View.GONE);
+            scrollContainer.setVisibility(View.VISIBLE);
+
+            dbAdapter.open();
+            String resultDB = dbAdapter.getOfflineData(AppConstants.OF_WALLET);
+            dbAdapter.close();
+            JSONObject jsonResponse = new JSONObject(resultDB);
+
+            if (jsonResponse.getInt("success") == 1) {
+                List<WalletModel> walletModelList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("wallet").toString(), new TypeReference<List<WalletModel>>() {
+                });
+
+                String remainingPoints = jsonResponse.getString("points");
+
+                walletAdapter = new WalletAdapter(context, ((AppCompatActivity) context).getSupportFragmentManager(), walletModelList, remainingPoints,walletRedeemPoint);
+                viewPager.setAdapter(walletAdapter);
+                viewPager.setCurrentItem(1);
+                viewPager.setOffscreenPageLimit(walletModelList.size());
+//                        tabs.setupWithViewPager(viewPager);
+//                        tabs.setViewPager(viewPager);
+            } else {
+                scrollContainer.setVisibility(View.VISIBLE);
+                emptyView.setVisibility(View.VISIBLE);
+                emptyView.setText(getString(R.string.no_data_error));
+            }
+        }
     }
 }

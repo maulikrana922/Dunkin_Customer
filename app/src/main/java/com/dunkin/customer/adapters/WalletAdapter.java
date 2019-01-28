@@ -12,6 +12,7 @@ import com.dunkin.customer.fragments.PayPointHistoryFragment;
 import com.dunkin.customer.fragments.WalletNoteListDummyFragment;
 import com.dunkin.customer.fragments.WalletNoteListFragment;
 import com.dunkin.customer.models.WalletModel;
+import com.dunkin.customer.models.WalletRedeemPoint;
 
 import java.util.List;
 
@@ -20,12 +21,14 @@ public class WalletAdapter extends FragmentStatePagerAdapter {
     private String remainingPoints;
     private String[] pagerTitle;
     private Context context;
+    private WalletRedeemPoint walletRedeemPoint;
 
-    public WalletAdapter(Context c, FragmentManager fm, List<WalletModel> walletList, String point) {
+    public WalletAdapter(Context c, FragmentManager fm, List<WalletModel> walletList, String point, WalletRedeemPoint walletRedeemPoint) {
         super(fm);
         this.context = c;
         this.walletList = walletList;
         this.remainingPoints = point;
+        this.walletRedeemPoint=walletRedeemPoint;
         //pagerTitle = new String[]{context.getString(R.string.tab_point_1), context.getString(R.string.tab_point_2)};
         pagerTitle = new String[]{c.getString(R.string.lbl_tab_wallet_history), c.getString(R.string.lbl_tab_wallet_point_history)};
     }
@@ -39,6 +42,7 @@ public class WalletAdapter extends FragmentStatePagerAdapter {
                 Bundle b = new Bundle();
                 b.putSerializable("notes", walletList.get(position));
                 b.putString("points", remainingPoints);
+                b.putParcelable("walletredeempoints",walletRedeemPoint);
                 fragment.setArguments(b);
                 return fragment;
             } else {
@@ -50,7 +54,11 @@ public class WalletAdapter extends FragmentStatePagerAdapter {
                 return fragment;
             }
         } else if (position == 1) {
-            return new PayPointHistoryFragment();
+            PayPointHistoryFragment payPointHistoryFragment=new PayPointHistoryFragment();
+            Bundle b = new Bundle();
+            b.putParcelable("walletredeempoints",walletRedeemPoint);
+            payPointHistoryFragment.setArguments(b);
+            return payPointHistoryFragment;
         }
         return null;
     }

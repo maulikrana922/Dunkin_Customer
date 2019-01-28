@@ -1035,4 +1035,14 @@ public class AppController {
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
         AppUtils.requestCallAsyncTask(context, URLConstant.GAIN_POINT_SHIFT, jsonRequest.toString(), true, callback);
     }
+
+    // GET WALLET REDEEM POINT
+    public static void getWalletRedeempoint(Context context, String email, String country_id, Callback callback) throws JSONException, UnsupportedEncodingException {
+        ApiParamloginUser apiParamloginUser =new ApiParamloginUser();
+        JSONObject jsonRequest = new JSONObject();
+        jsonRequest.put("country_id", country_id);
+        jsonRequest.put("email", email);
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, URLConstant.GET_WALLET_REDEEM_POINT, jsonRequest.toString(), true, callback);
+    }
 }
