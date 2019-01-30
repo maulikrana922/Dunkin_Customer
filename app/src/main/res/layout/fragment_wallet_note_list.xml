@@ -69,7 +69,7 @@
                     android:layout_gravity="center"
                     android:text="@string/lbl_amount_used"
                     android:textColor="@color/white"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_bold.ttf" />
 
                 <com.dunkin.customer.widget.CustomTextView2
                     android:id="@+id/txtWalletAmount"
@@ -111,7 +111,7 @@
                     android:layout_gravity="center"
                     android:text="@string/lbl_amount_remaining"
                     android:textColor="@color/white"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_bold.ttf" />
 
                 <com.dunkin.customer.widget.CustomTextView2
                     android:id="@+id/txtWalletAmountPoint"

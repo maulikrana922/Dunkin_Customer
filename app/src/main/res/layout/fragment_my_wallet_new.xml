@@ -28,7 +28,7 @@
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
-                android:src="@drawable/pay_banner"
+                android:src="@drawable/ic_loading"
                 android:visibility="gone" />
 
         </android.support.design.widget.CollapsingToolbarLayout>

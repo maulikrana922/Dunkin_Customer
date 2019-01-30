@@ -52,6 +52,7 @@
                 android:gravity="center"
                 android:text="@string/lbl_tab_wallet_history"
                 android:textColor="@color/white"
+                android:textAllCaps="true"
                 app:fontName="dd_bold.ttf" />
 
             <com.dunkin.customer.widget.CustomTextView
@@ -63,6 +64,7 @@
                 android:gravity="center"
                 android:text="@string/lbl_tab_wallet_point_history"
                 android:textColor="@color/white"
+                android:textAllCaps="true"
                 app:fontName="dd_bold.ttf" />
 
         </LinearLayout>

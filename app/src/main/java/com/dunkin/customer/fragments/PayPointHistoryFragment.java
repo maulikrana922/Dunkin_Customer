@@ -75,13 +75,15 @@ public class PayPointHistoryFragment extends Fragment {
         txtMyPoint.setVisibility(View.VISIBLE);
         txtUsedPoint.setVisibility(View.VISIBLE);
         if (AppUtils.isNotNull(walletRedeemPoint.redeemPoint.totalUsedPoint))
-            txtMyPoint.setText(walletRedeemPoint.redeemPoint.totalUsedPoint);
-        else
-            txtMyPoint.setText("0");
-        if (AppUtils.isNotNull(walletRedeemPoint.redeemPoint.remainRedeemPoint))
-            txtUsedPoint.setText(walletRedeemPoint.redeemPoint.remainRedeemPoint);
+            txtUsedPoint.setText(walletRedeemPoint.redeemPoint.totalUsedPoint);
         else
             txtUsedPoint.setText("0");
+        if (AppUtils.isNotNull(walletRedeemPoint.redeemPoint.remainRedeemPoint))
+            txtMyPoint.setText(walletRedeemPoint.redeemPoint.remainRedeemPoint);
+        else
+            txtMyPoint.setText("0");
+        txtUsedPoint.setTextSize(10);
+        txtMyPoint.setTextSize(10);
         loadAnimation(flMyPoints);
         loadAnimation(flUsedPoints);
         try {

@@ -51,6 +51,8 @@ public class WalletNoteListDummyFragment extends Fragment {
         String points = AppUtils.CurrencyFormat(Double.parseDouble("0.0"));
         txtTotalAmount.setText(amount);
         txtWalletAmountPoint.setText(points);
+        txtTotalAmount.setTextSize(10);
+        txtWalletAmountPoint.setTextSize(10);
         loadAnimation(flTotalAmount);
         loadAnimation(flRemainingPoints);
         rootView.findViewById(R.id.progressLoad).setVisibility(View.GONE);

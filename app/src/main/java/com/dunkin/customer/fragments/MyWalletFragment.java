@@ -102,6 +102,7 @@ public class MyWalletFragment extends Fragment {
 //        tabs.setDistributeEvenly(true);
         tvTabHistory.setSelected(true);
         tvTabPointHistory.setSelected(false);
+        
         animFadein = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.fade_in);
 

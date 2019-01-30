@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -87,10 +88,12 @@ public class WalletNoteListFragment extends Fragment {
         loadAnimation(flTotalAmount);
         loadAnimation(flRemainingPoints);
 
-        String amount = walletRedeemPoint.wallet.total+ " " + walletRedeemPoint.wallet.currency;
-        String points = walletRedeemPoint.wallet.usedWalletPoint;
+        String amount = walletRedeemPoint.wallet.usedWalletPoint+ " " + walletRedeemPoint.wallet.currency;
+        String points = walletRedeemPoint.wallet.total+ " " + walletRedeemPoint.wallet.currency;
         txtTotalAmount.setText(amount);
         txtWalletAmountPoint.setText(points);
+        txtTotalAmount.setTextSize(10);
+        txtWalletAmountPoint.setTextSize(10);
 //                            loadAnimation(flTotalAmount);
 //                            loadAnimation(flRemainingPoints);
         progressLoading.setVisibility(View.GONE);

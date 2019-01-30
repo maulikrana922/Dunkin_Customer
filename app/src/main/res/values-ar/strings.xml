@@ -307,7 +307,7 @@
     <string name="msg_remove_all_notification">هل أنت متأكد أنك تريد مسح جميع الإخطارات؟</string>
     <string name="txt_remaining_times_redeem3">تبقى السلعة:</string>
     <string name="lbl_tab_wallet_history">العروضات</string>
-    <string name="lbl_tab_wallet_point_history">تخليص التاريخ</string>
+    <string name="lbl_tab_wallet_point_history">نقاط</string>
     <string name="txt_availed_product">الحرة نفع: %1$s</string>
     <string name="txt_free_product_available">الحرة المتاحة: %1$s</string>
     <string name="txt_availed_product_not">غير حرة نفع</string>
