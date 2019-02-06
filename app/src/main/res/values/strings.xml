@@ -129,8 +129,8 @@
     <string name="nav_get_bill">Get Bill</string>
     <string name="nav_scratch_card">Fun n Games</string>
     <string name="nav_contact_us">Talk to us </string>
-    <string name="nav_about_us">Get to know us</string>
-    <string name="nav_rating">Give us 5 Stars</string>
+    <string name="nav_about_us">About Dunkin Leb</string>
+    <string name="nav_rating">Your Feedback Counts</string>
     <string name="nav_staff_rating">Rate Staff</string>
     <string name="nav_exit">Log out</string>
 
@@ -227,7 +227,7 @@
     <string name="al_cancel_recurrent_order_confirmation">Do you want to cancel this Recurrent Order ?</string>
 
     <!-- GIFT STORE SCREEN-->
-    <string name="txt_redeem_for_point">Exchange for %1$s points.</string>
+    <string name="txt_redeem_for_point">%1$s points.</string>
     <string name="txt_remaining_point">Current Points: %1$s</string>
     <string name="txt_chose_location">Choose pick up location</string>
     <string name="txt_gift_reserve_success_0">User does not exist.</string>
@@ -514,5 +514,10 @@
     <string name="lbl_updated_shortly">Points and Wallet will be updated shortly.</string>
     <string name="lbl_amount_used">Amount Used</string>
     <string name="lbl_amount_remaining">Amount Remaining</string>
+    <string name="add_any_comment">Add any comment</string>
+    <string name="txt_continue">Continue</string>
+    <string name="txt_cancel">Cancel</string>
+    <string name="val_enter_comment">Please enter comment</string>
+    <string name="enter_comment">Enter comment</string>
 
 </resources>

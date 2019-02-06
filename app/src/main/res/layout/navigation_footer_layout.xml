@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="start|left"
     android:layout_weight="1"
-    android:background="@color/drawer_bg"
+    android:background="@color/white"
     android:orientation="vertical"
     android:paddingBottom="@dimen/spacing_medium">
 
@@ -28,7 +28,7 @@
         android:layout_marginTop="@dimen/spacing_medium"
         android:gravity="center"
         android:text="@string/lbl_app_version"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorPrimary1"
         android:textStyle="bold"
         android:visibility="visible"
         local:fontName="dd_bold.ttf" />
@@ -45,7 +45,7 @@
         android:layout_marginTop="@dimen/spacing_medium"
         android:gravity="center"
         android:text="@string/lbl_consulting_website"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorPrimary1"
         android:textStyle="bold"
         android:visibility="visible"
         local:fontName="dd_bold.ttf" />

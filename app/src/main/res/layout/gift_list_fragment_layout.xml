@@ -42,7 +42,7 @@
             android:paddingEnd="@dimen/spacing_xsmall"
             android:paddingBottom="@dimen/spacing_xsmall"
             android:paddingTop="@dimen/spacing_xsmall"
-            android:background="@drawable/bottom_line"
+            android:background="@color/colorPrimary1"
             android:textColor="@android:color/white"
             app:fontName="dd_bold.ttf" />
     </LinearLayout>

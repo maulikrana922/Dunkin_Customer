@@ -2,24 +2,30 @@ package com.dunkin.customer.fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.text.Html;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.dunkin.customer.BaseActivity;
 import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.RegisterActivity;
@@ -125,7 +131,7 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                     AppUtils.showErrorDialog(context, context.getResources().getString(R.string.msg_no_gift_available2));
                 } else if (jsonResponse.getInt("success") == 100) {
                     AppUtils.showToastMessage(context, jsonResponse.getString("message"));
-                }else if (jsonResponse.getInt("success") == 99) {
+                } else if (jsonResponse.getInt("success") == 99) {
                     displayDialog(jsonResponse.getString("message"));
                 }
 
@@ -156,12 +162,12 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                 Map<String, List<GiftModel>> data = new HashMap<>();
 
                 data.put(getString(R.string.tab_wait_for_me), giftReservedList);
-                data.put(getString(R.string.tab_on_the_go), giftList);
+//                data.put(getString(R.string.tab_on_the_go), giftList);
 
                 List<String> titles = new ArrayList<>();
-                titles.add(getString(R.string.tab_wait_for_me));
-                titles.add(getString(R.string.tab_on_the_go));
-                tabs.setBackgroundColor(ContextCompat.getColor(context, R.color.home_welcome_text));
+//                titles.add(getString(R.string.tab_wait_for_me));
+//                titles.add(getString(R.string.tab_on_the_go));
+//                tabs.setBackgroundColor(ContextCompat.getColor(context, R.color.home_welcome_text));
 
                 pagerAdapter = new GiftPagerAdapter(getChildFragmentManager(), context, titles, data);
                 viewPager.setAdapter(pagerAdapter);
@@ -178,7 +184,7 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                 .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         startActivity(new Intent(context, RegisterActivity.class));
-                        ((Activity)context).finish();
+                        ((Activity) context).finish();
                     }
                 });
 
@@ -208,7 +214,7 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                     AppUtils.showErrorDialog(context, context.getResources().getString(R.string.msg_no_gift_available2));
                 } else if (jsonResponse.getInt("success") == 100) {
                     AppUtils.showToastMessage(context, jsonResponse.getString("message"));
-                }else if (jsonResponse.getInt("success") == 99) {
+                } else if (jsonResponse.getInt("success") == 99) {
                     displayDialog(jsonResponse.getString("message"));
                 }
 
@@ -239,16 +245,16 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                 Map<String, List<GiftModel>> data = new HashMap<>();
 
                 data.put(getString(R.string.tab_wait_for_me), giftReservedList);
-                data.put(getString(R.string.tab_on_the_go), giftList);
+//                data.put(getString(R.string.tab_on_the_go), giftList);
 
                 List<String> titles = new ArrayList<>();
                 titles.add(getString(R.string.tab_wait_for_me));
-                titles.add(getString(R.string.tab_on_the_go));
-                tabs.setBackgroundColor(ContextCompat.getColor(context, R.color.home_welcome_text));
-
+//                titles.add(getString(R.string.tab_on_the_go));
+//                tabs.setBackgroundColor(ContextCompat.getColor(context, R.color.home_welcome_text));
                 pagerAdapter = new GiftPagerAdapter(getChildFragmentManager(), context, titles, data);
                 viewPager.setAdapter(pagerAdapter);
                 tabs.setupWithViewPager(viewPager);
+                tabs.setVisibility(View.GONE);
             }
         });
     }
@@ -306,7 +312,7 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                             } else {
                                 if (jsonResponse.getInt("success") == 99) {
                                     displayDialog(jsonResponse.getString("message"));
-                                }else{
+                                } else {
                                     AppUtils.showToastMessage(context, getString(R.string.system_error));
                                 }
                             }
@@ -319,7 +325,7 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
         } else if (v.getId() == R.id.ivDone) {
             if (gift != null) {
                 if (restid > 0) {
-                    addGift(gift);
+                    addGift(gift,"");
                 } else {
                     new AlertDialog.Builder(context)
                             .setTitle(context.getString(R.string.app_name))
@@ -348,7 +354,7 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
     }
 
     private void openDialog(String title) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        final AlertDialog.Builder alert = new AlertDialog.Builder(context);
         alert.setTitle(title);
 
         alert.setAdapter(restaurantAdapter, new DialogInterface.OnClickListener() {
@@ -358,69 +364,145 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                 restid = restaurantModel.getRestaurantId();
                 strBranchName = restaurantModel.getRestaurantName();
                 spSelectRestaurant.setText(restaurantModel.getRestaurantName());
-                AlertDialog.Builder alert1 = new AlertDialog.Builder(context);
-                alert1.setTitle(context.getString(R.string.al_warning_redeem));
-
-                Spanned strGiftMessage;
-
-                if (gift.getGiftType() == 1) {
-                    strGiftMessage = Html.fromHtml("<b>" + context.getString(R.string.lbl_redeem_popup_title2) + "</b> " + gift.getTitle() + "<br>" +
-                            "<b>" + context.getString(R.string.lbl_redeem_popup_point2) + "</b> " + AppUtils.CurrencyFormat(Double.parseDouble(gift.getPoints())) + "<br>" +
-                            "<b>" + context.getString(R.string.lbl_redeem_popup_desc) + "</b> " + gift.getGiftDesc() + "<br><br>" +
-                            context.getString(R.string.msg_confirm_redeem));
-
-                    alert1.setMessage(strGiftMessage);
-                } else {
-                    strGiftMessage = Html.fromHtml("<b>" + context.getString(R.string.lbl_redeem_popup_title2) + "</b> " + gift.getTitle() + "<br>" +
-                            "<b>" + context.getString(R.string.lbl_redeem_popup_point2) + "</b> " + AppUtils.CurrencyFormat(Double.parseDouble(gift.getPoints())) + "<br>" +
-                            "<b>" + context.getString(R.string.lbl_redeem_popup_desc) + "</b> " + gift.getGiftDesc() + "<br><br>" +
-                            context.getString(R.string.msg_confirm_redeem_wait_for_me2));
-
-                    alert1.setMessage(strGiftMessage);
-                }
-                alert1.setPositiveButton(context.getString(R.string.al_yes), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (gift != null) {
-                            if (restid > 0) {
-                                addGift(gift);
-                            } else {
-                                new AlertDialog.Builder(context)
-                                        .setTitle(context.getString(R.string.app_name))
-                                        .setMessage(context.getString(R.string.select_branch))
-                                        .setPositiveButton(context.getString(R.string.txt_ok), new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialogInterface, int i) {
-                                                dialogInterface.dismiss();
-                                            }
-                                        }).create().show();
+                if (gift != null) {
+                    if (restid > 0) {
+                        final Dialog alertDialog = new Dialog(context);
+                        alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                        alertDialog.setContentView(R.layout.dialog_comment);
+                        TextView txtAddAnyComment=alertDialog.findViewById(R.id.txtAddAnyComment);
+                        txtAddAnyComment.setTextSize(18);
+                        final EditText etComment=alertDialog.findViewById(R.id.etComment);
+                        Button btnContinue = alertDialog.findViewById(R.id.btnContinue);
+                        Button btnCancel = alertDialog.findViewById(R.id.btnCancel);
+                        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                        alertDialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+                        btnContinue.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (TextUtils.isEmpty(etComment.getText().toString().trim())){
+                                    Toast.makeText(context,getString(R.string.val_enter_comment),Toast.LENGTH_SHORT).show();
+                                }else {
+                                    alertDialog.dismiss();
+                                    addGift(gift,etComment.getText().toString().trim());
+                                }
                             }
-                        } else {
-                            new AlertDialog.Builder(context)
-                                    .setTitle(context.getString(R.string.app_name))
-                                    .setMessage(context.getString(R.string.select_gift))
-                                    .setPositiveButton(context.getString(R.string.txt_ok), new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            dialogInterface.dismiss();
-                                        }
-                                    }).create().show();
-                        }
+                        });
+                        btnCancel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                alertDialog.dismiss();
+                            }
+                        });
+                        alertDialog.show();
+
+//                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+//                        alertDialog.setMessage(context.getString(R.string.add_any_comment));
+//                        final EditText etComment = new EditText(context);
+//                        alertDialog.setView(etComment);
+//                        alertDialog.setPositiveButton(context.getString(R.string.txt_continue), new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                if (TextUtils.isEmpty(etComment.getText().toString().trim())){
+//                                    Toast.makeText(context,getString(R.string.val_enter_comment),Toast.LENGTH_SHORT).show();
+//                                }else{
+//                                    dialogInterface.dismiss();
+//                                    addGift(gift);
+//                                }
+//                            }
+//                        });
+//                        alertDialog.setNegativeButton(context.getString(R.string.txt_cancel), new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                dialogInterface.dismiss();
+//                            }
+//                        });
+//                        alertDialog.create().show();
+                    } else {
+                        new AlertDialog.Builder(context)
+                                .setTitle(context.getString(R.string.app_name))
+                                .setMessage(context.getString(R.string.select_branch))
+                                .setPositiveButton(context.getString(R.string.txt_ok), new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                    }
+                                }).create().show();
                     }
-                });
-                alert1.setNegativeButton(context.getString(R.string.al_no), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                alert1.create().show();
+                } else {
+                    new AlertDialog.Builder(context)
+                            .setTitle(context.getString(R.string.app_name))
+                            .setMessage(context.getString(R.string.select_gift))
+                            .setPositiveButton(context.getString(R.string.txt_ok), new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            }).create().show();
+                }
+
+//                AlertDialog.Builder alert1 = new AlertDialog.Builder(context);
+//                alert1.setTitle(context.getString(R.string.al_warning_redeem));
+//
+//                Spanned strGiftMessage;
+//
+//                if (gift.getGiftType() == 1) {
+//                    strGiftMessage = Html.fromHtml("<b>" + context.getString(R.string.lbl_redeem_popup_title2) + "</b> " + gift.getTitle() + "<br>" +
+//                            "<b>" + context.getString(R.string.lbl_redeem_popup_point2) + "</b> " + AppUtils.CurrencyFormat(Double.parseDouble(gift.getPoints())) + "<br>" +
+//                            "<b>" + context.getString(R.string.lbl_redeem_popup_desc) + "</b> " + gift.getGiftDesc() + "<br><br>" +
+//                            context.getString(R.string.msg_confirm_redeem));
+//
+//                    alert1.setMessage(strGiftMessage);
+//                } else {
+//                    strGiftMessage = Html.fromHtml("<b>" + context.getString(R.string.lbl_redeem_popup_title2) + "</b> " + gift.getTitle() + "<br>" +
+//                            "<b>" + context.getString(R.string.lbl_redeem_popup_point2) + "</b> " + AppUtils.CurrencyFormat(Double.parseDouble(gift.getPoints())) + "<br>" +
+//                            "<b>" + context.getString(R.string.lbl_redeem_popup_desc) + "</b> " + gift.getGiftDesc() + "<br><br>" +
+//                            context.getString(R.string.msg_confirm_redeem_wait_for_me2));
+//
+//                    alert1.setMessage(strGiftMessage);
+//                }
+//                alert1.setPositiveButton(context.getString(R.string.al_yes), new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        if (gift != null) {
+//                            if (restid > 0) {
+//                                addGift(gift);
+//                            } else {
+//                                new AlertDialog.Builder(context)
+//                                        .setTitle(context.getString(R.string.app_name))
+//                                        .setMessage(context.getString(R.string.select_branch))
+//                                        .setPositiveButton(context.getString(R.string.txt_ok), new DialogInterface.OnClickListener() {
+//                                            @Override
+//                                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                                dialogInterface.dismiss();
+//                                            }
+//                                        }).create().show();
+//                            }
+//                        } else {
+//                            new AlertDialog.Builder(context)
+//                                    .setTitle(context.getString(R.string.app_name))
+//                                    .setMessage(context.getString(R.string.select_gift))
+//                                    .setPositiveButton(context.getString(R.string.txt_ok), new DialogInterface.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(DialogInterface dialogInterface, int i) {
+//                                            dialogInterface.dismiss();
+//                                        }
+//                                    }).create().show();
+//                        }
+//                    }
+//                });
+//                alert1.setNegativeButton(context.getString(R.string.al_no), new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss();
+//                    }
+//                });
+//                alert1.create().show();
             }
         });
         alert.create().show();
     }
 
-    private void addGift(final GiftModel gift) {
+    private void addGift(final GiftModel gift,String comment) {
         String tempString1, tempString2;
         if (gift.getPoints().contains(","))
             tempString1 = gift.getPoints().replaceAll(",", "");
@@ -444,6 +526,7 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
                 jsonRequest.put("gift_type", gift.getGiftType());
                 jsonRequest.put("restaurant_id", GiftFragment.restid);
                 jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
+                jsonRequest.put("comment",comment);
 
                 try {
                     AppController.postGiftData(context, jsonRequest.toString(), new Callback() {
@@ -492,7 +575,7 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
     }
 
     @Override
-    public void onGiftConfirm(GiftModel gift) {
+    public void onGiftConfirm(final GiftModel gift, int position) {
         this.gift = gift;
         try {
 //            AppController.getRestaurantList(context, true, new Callback() {
@@ -506,13 +589,50 @@ public class GiftFragment extends Fragment implements View.OnClickListener, OnGi
 //                        restaurantList = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONArray("restaurantList").toString(), new TypeReference<List<RestaurantModel>>() {
 //                        });
 
-            restaurantList = new ArrayList<>();
-            if (gift.restaurantList != null) {
-                restaurantList.addAll(gift.restaurantList);
-            }
-            restaurantAdapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, restaurantList);
+//            restaurantModel = restaurantAdapter.getItem(position);
+//            restid = restaurantModel.getRestaurantId();
+//            strBranchName = restaurantModel.getRestaurantName();
+//            spSelectRestaurant.setText(restaurantModel.getRestaurantName());
+            AlertDialog.Builder alert1 = new AlertDialog.Builder(context);
+            alert1.setTitle(context.getString(R.string.al_warning_redeem));
 
-            openDialog(getString(R.string.txt_select_restaurant));
+            Spanned strGiftMessage;
+
+            if (gift.getGiftType() == 1) {
+                strGiftMessage = Html.fromHtml("<b>" + context.getString(R.string.lbl_redeem_popup_title2) + "</b> " + gift.getTitle() + "<br>" +
+                        "<b>" + context.getString(R.string.lbl_redeem_popup_point2) + "</b> " + AppUtils.CurrencyFormat(Double.parseDouble(gift.getPoints())) + "<br>" +
+                        "<b>" + context.getString(R.string.lbl_redeem_popup_desc) + "</b> " + gift.getGiftDesc() + "<br><br>" +
+                        context.getString(R.string.msg_confirm_redeem));
+
+                alert1.setMessage(strGiftMessage);
+            } else {
+                strGiftMessage = Html.fromHtml("<b>" + context.getString(R.string.lbl_redeem_popup_title2) + "</b> " + gift.getTitle() + "<br>" +
+                        "<b>" + context.getString(R.string.lbl_redeem_popup_point2) + "</b> " + AppUtils.CurrencyFormat(Double.parseDouble(gift.getPoints())) + "<br>" +
+                        "<b>" + context.getString(R.string.lbl_redeem_popup_desc) + "</b> " + gift.getGiftDesc() + "<br><br>" +
+                        context.getString(R.string.msg_confirm_redeem_wait_for_me2));
+
+                alert1.setMessage(strGiftMessage);
+            }
+            alert1.setPositiveButton(context.getString(R.string.al_yes), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    restaurantList = new ArrayList<>();
+                    if (gift.restaurantList != null) {
+                        restaurantList.addAll(gift.restaurantList);
+                    }
+                    restaurantAdapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, restaurantList);
+
+                    openDialog(getString(R.string.txt_select_restaurant));
+                }
+            });
+            alert1.setNegativeButton(context.getString(R.string.al_no), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            alert1.create().show();
+
 //                    } else if (jsonResponse.getInt("success") == 100) {
 //                        AppUtils.showToastMessage(context, jsonResponse.getString("message"));
 //                    } else {

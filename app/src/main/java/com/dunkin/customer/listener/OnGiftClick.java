@@ -8,5 +8,5 @@ import com.dunkin.customer.models.GiftModel;
 
 public interface OnGiftClick {
 
-    void onGiftConfirm(GiftModel gift);
+    void onGiftConfirm(GiftModel gift,int position);
 }

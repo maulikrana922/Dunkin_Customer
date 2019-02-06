@@ -41,13 +41,13 @@ public class GiftPagerAdapter extends FragmentStatePagerAdapter {
             return reservedGiftFragment;
         }
 
-        if (titles.get(position).equals(context.getString(R.string.tab_on_the_go))) {
-            NonReservedGiftFragment nonReservedGiftFragment = new NonReservedGiftFragment();
-            Bundle b = new Bundle();
-            b.putSerializable("rewards", (Serializable) data.get(titles.get(position)));
-            nonReservedGiftFragment.setArguments(b);
-            return nonReservedGiftFragment;
-        }
+//        if (titles.get(position).equals(context.getString(R.string.tab_on_the_go))) {
+//            NonReservedGiftFragment nonReservedGiftFragment = new NonReservedGiftFragment();
+//            Bundle b = new Bundle();
+//            b.putSerializable("rewards", (Serializable) data.get(titles.get(position)));
+//            nonReservedGiftFragment.setArguments(b);
+//            return nonReservedGiftFragment;
+//        }
         return null;
     }
 

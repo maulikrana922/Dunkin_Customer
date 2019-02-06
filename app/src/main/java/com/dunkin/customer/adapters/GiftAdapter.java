@@ -61,7 +61,7 @@ public class GiftAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         final GiftModel gift = (GiftModel) getItem(position);
 
@@ -117,7 +117,7 @@ public class GiftAdapter extends BaseAdapter {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if(onGiftClick != null){
-                            onGiftClick.onGiftConfirm(gift);
+                            onGiftClick.onGiftConfirm(gift,which);
                         }
                     }
                 });
@@ -128,7 +128,7 @@ public class GiftAdapter extends BaseAdapter {
                     }
                 });
 //                alert.create().show();
-                onGiftClick.onGiftConfirm(gift);
+                onGiftClick.onGiftConfirm(gift,position);
             }
         });
         return convertView;
