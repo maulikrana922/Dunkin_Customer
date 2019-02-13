@@ -16,7 +16,7 @@
         />
 
     <com.dunkin.customer.widget.CustomTextView
-        app:fontName="dd_light.ttf"
+        app:fontName="dd_light.otf"
         android:layout_toRightOf="@+id/imgIcon"
         android:layout_toEndOf="@+id/imgIcon"
         android:id="@+id/btnText"

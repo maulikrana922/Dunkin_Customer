@@ -5,9 +5,9 @@
     <string name="facebook_app_id">1970560159903967</string>
     <string name="fb_login_protocol_scheme">fb1970560159903967</string>
     <string name="google_id" translatable="false">AIzaSyAHzEEEadS4uCmVkeLS8mazKMIHfnt62-I</string>
-    <string name="lbl_app_version" translatable="false">V4.0.30012019</string>
+    <string name="lbl_app_version" translatable="false">V4.0.13022019</string>
     <!--<string name="lbl_consulting_website" translatable="false">www.MindSource-Consulting.com - All Rights Reserved - Copyright © 2016</string>-->
-    <string name="lbl_consulting_website" translatable="false">Meeting Point &amp; MindSource Consulting Copyright © 2018</string>
+    <string name="lbl_consulting_website" translatable="false">Meeting Point &amp; MindSource Consulting Copyright © 2019</string>
     <string name="strp">Mind#S@urce#@201</string>
     <string name="stral">AES</string>
     <string name="network_error">No internet connectivity.</string>
@@ -113,7 +113,7 @@
     <string name="nav_scanner">Scanner</string>
     <string name="nav_near_restaurant">Find us</string>
     <!--<string name="nav_my_profile">It\'s me!</string>-->
-    <string name="nav_my_profile">Profile</string>
+    <string name="nav_my_profile">My Profile</string>
     <string name="nav_my_point">My Points</string>
     <string name="nav_notification">My Notifications </string>
     <string name="txt_points">Points</string>
@@ -122,14 +122,14 @@
     <string name="nav_recurrent_order">Recurrent Order</string>
     <string name="nav_wallet">Pay</string>
     <string name="nav_manage_card">Refill</string>
-    <string name="nav_scan_and_win">Promotion</string>
+    <string name="nav_scan_and_win">Rewards</string>
     <string name="nav_order_history">My Favorites</string>
     <string name="nav_order_history2">Order History</string>
     <string name="nav_payment">Payment</string>
     <string name="nav_get_bill">Get Bill</string>
     <string name="nav_scratch_card">Fun n Games</string>
     <string name="nav_contact_us">Talk to us </string>
-    <string name="nav_about_us">About Dunkin Leb</string>
+    <string name="nav_about_us">FAQ</string>
     <string name="nav_rating">Your Feedback Counts</string>
     <string name="nav_staff_rating">Rate Staff</string>
     <string name="nav_exit">Log out</string>
@@ -519,5 +519,9 @@
     <string name="txt_cancel">Cancel</string>
     <string name="val_enter_comment">Please enter comment</string>
     <string name="enter_comment">Enter comment</string>
+    <string name="btn_fb_signin">Facebook Login</string>
+    <string name="btn_fb_signup">Facebook Registration</string>
+    <string name="scan_qr_code">Scan QR Code</string>
+    <string name="or_scan_qr_code">Or Scan QR Code</string>
 
 </resources>

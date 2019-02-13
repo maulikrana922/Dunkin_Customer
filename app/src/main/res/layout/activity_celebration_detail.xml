@@ -65,7 +65,7 @@
                 android:padding="@dimen/spacing_medium">
 
                 <com.dunkin.customer.widget.CustomTextView
-                    app:fontName="dd_bold.ttf"
+                    app:fontName="dd_bold.otf"
                     android:gravity="left|start"
                     android:id="@+id/txtName"
                     android:layout_width="match_parent"
@@ -73,7 +73,7 @@
                     android:textColor="@android:color/white" />
 
                 <com.dunkin.customer.widget.CustomTextView
-                    app:fontName="dd_light.ttf"
+                    app:fontName="dd_light.otf"
                     android:id="@+id/txtCelebrationDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
                     android:textColor="@android:color/white"
                     />
                 <com.dunkin.customer.widget.CustomTextView
-                    app:fontName="dd_light.ttf"
+                    app:fontName="dd_light.otf"
                     android:id="@+id/txtPlace"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
             </LinearLayout>
 
             <com.dunkin.customer.widget.CustomTextView
-                app:fontName="dd_light.ttf"
+                app:fontName="dd_light.otf"
                 android:id="@+id/txtCelebrationDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

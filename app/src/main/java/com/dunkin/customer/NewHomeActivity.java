@@ -2,6 +2,7 @@ package com.dunkin.customer;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -15,6 +16,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -39,6 +41,7 @@ import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.dialogs.ImageDialog;
 import com.dunkin.customer.dialogs.ImageUpdateAppDialog;
 import com.dunkin.customer.dialogs.ScanAndWinDialog;
+import com.dunkin.customer.dialogs.ScanAndWinPromocodeDialog;
 import com.dunkin.customer.dialogs.WinStatusDialog;
 import com.dunkin.customer.fragments.FeedbackFragment;
 import com.dunkin.customer.fragments.MoreFragment;
@@ -200,139 +203,139 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                     }
                 }
                 if (position == 0) {
-                    view.startAnimation(animHyperSpace);
+//                    view.startAnimation(animHyperSpace);
                     if (!newHomeFragment.isVisible()) {
                         newHomeFragment = new NewHomeFragment();
                         addFragment(newHomeFragment, homeList.get(position).getTitle());
                     }
-                    animHyperSpace.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationStart(Animation animation) {
-                        }
-
-                        @Override
-                        public void onAnimationEnd(Animation animation) {
-                            view.clearAnimation();
-                            tabAdapter.notifyDataSetChanged();
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
-                            view.clearAnimation();
-                            tabAdapter.notifyDataSetChanged();
-                        }
-                    });
+//                    animHyperSpace.setAnimationListener(new Animation.AnimationListener() {
+//                        @Override
+//                        public void onAnimationStart(Animation animation) {
+//                        }
+//
+//                        @Override
+//                        public void onAnimationEnd(Animation animation) {
+//                            view.clearAnimation();
+//                            tabAdapter.notifyDataSetChanged();
+//                        }
+//
+//                        @Override
+//                        public void onAnimationRepeat(Animation animation) {
+//                            view.clearAnimation();
+//                            tabAdapter.notifyDataSetChanged();
+//                        }
+//                    });
                 }
                 if (position == 1) {
-                    view.startAnimation(animZoomIn);
+//                    view.startAnimation(animZoomIn);
                     if (!redeemFragment.isVisible()) {
                         redeemFragment = new RedeemFragment();
                         addFragment(redeemFragment, homeList.get(position).getTitle());
                     }
-                    animZoomIn.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationStart(Animation animation) {
-                        }
-
-                        @Override
-                        public void onAnimationEnd(Animation animation) {
-                            view.clearAnimation();
-                            view.startAnimation(animZoomOut);
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
-                            view.clearAnimation();
-                        }
-                    });
-                    animZoomOut.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationStart(Animation animation) {
-                        }
-
-                        @Override
-                        public void onAnimationEnd(Animation animation) {
-                            view.clearAnimation();
-                            tabAdapter.notifyDataSetChanged();
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
-                            view.clearAnimation();
-                            tabAdapter.notifyDataSetChanged();
-                        }
-                    });
+//                    animZoomIn.setAnimationListener(new Animation.AnimationListener() {
+//                        @Override
+//                        public void onAnimationStart(Animation animation) {
+//                        }
+//
+//                        @Override
+//                        public void onAnimationEnd(Animation animation) {
+//                            view.clearAnimation();
+//                            view.startAnimation(animZoomOut);
+//                        }
+//
+//                        @Override
+//                        public void onAnimationRepeat(Animation animation) {
+//                            view.clearAnimation();
+//                        }
+//                    });
+//                    animZoomOut.setAnimationListener(new Animation.AnimationListener() {
+//                        @Override
+//                        public void onAnimationStart(Animation animation) {
+//                        }
+//
+//                        @Override
+//                        public void onAnimationEnd(Animation animation) {
+//                            view.clearAnimation();
+//                            tabAdapter.notifyDataSetChanged();
+//                        }
+//
+//                        @Override
+//                        public void onAnimationRepeat(Animation animation) {
+//                            view.clearAnimation();
+//                            tabAdapter.notifyDataSetChanged();
+//                        }
+//                    });
                 }
                 if (position == 2) {
-                    view.startAnimation(animRotate);
+//                    view.startAnimation(animRotate);
                     if (!offerFragment.isVisible()) {
                         offerFragment = new OfferFragment();
                         addFragment(offerFragment, homeList.get(position).getTitle());
                     }
-                    animRotate.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationStart(Animation animation) {
-                        }
-
-                        @Override
-                        public void onAnimationEnd(Animation animation) {
-                            view.clearAnimation();
-                            tabAdapter.notifyDataSetChanged();
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
-                            view.clearAnimation();
-                            tabAdapter.notifyDataSetChanged();
-                        }
-                    });
+//                    animRotate.setAnimationListener(new Animation.AnimationListener() {
+//                        @Override
+//                        public void onAnimationStart(Animation animation) {
+//                        }
+//
+//                        @Override
+//                        public void onAnimationEnd(Animation animation) {
+//                            view.clearAnimation();
+//                            tabAdapter.notifyDataSetChanged();
+//                        }
+//
+//                        @Override
+//                        public void onAnimationRepeat(Animation animation) {
+//                            view.clearAnimation();
+//                            tabAdapter.notifyDataSetChanged();
+//                        }
+//                    });
                 }
                 if (position == 3) {
-                    view.startAnimation(animFlip);
+//                    view.startAnimation(animFlip);
                     if (!myWalletFragment.isVisible()) {
                         myWalletFragment = new MyWalletFragment();
                         addFragment(myWalletFragment, homeList.get(position).getTitle());
                     }
-                    animFlip.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationStart(Animation animation) {
-                        }
-
-                        @Override
-                        public void onAnimationEnd(Animation animation) {
-                            view.clearAnimation();
-                            tabAdapter.notifyDataSetChanged();
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
-                            view.clearAnimation();
-                            tabAdapter.notifyDataSetChanged();
-                        }
-                    });
+//                    animFlip.setAnimationListener(new Animation.AnimationListener() {
+//                        @Override
+//                        public void onAnimationStart(Animation animation) {
+//                        }
+//
+//                        @Override
+//                        public void onAnimationEnd(Animation animation) {
+//                            view.clearAnimation();
+//                            tabAdapter.notifyDataSetChanged();
+//                        }
+//
+//                        @Override
+//                        public void onAnimationRepeat(Animation animation) {
+//                            view.clearAnimation();
+//                            tabAdapter.notifyDataSetChanged();
+//                        }
+//                    });
                 }
                 if (position == 4) {
                     if (!moreFragment.isVisible()) {
                         addFragment(moreFragment, homeList.get(position).getTitle());
                     }
-                    view.startAnimation(animFadeOut);
-                    animFadeOut.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationStart(Animation animation) {
-                        }
-
-                        @Override
-                        public void onAnimationEnd(Animation animation) {
-                            view.clearAnimation();
-                            tabAdapter.notifyDataSetChanged();
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
-                            view.clearAnimation();
-                            tabAdapter.notifyDataSetChanged();
-                        }
-                    });
+//                    view.startAnimation(animFadeOut);
+//                    animFadeOut.setAnimationListener(new Animation.AnimationListener() {
+//                        @Override
+//                        public void onAnimationStart(Animation animation) {
+//                        }
+//
+//                        @Override
+//                        public void onAnimationEnd(Animation animation) {
+//                            view.clearAnimation();
+//                            tabAdapter.notifyDataSetChanged();
+//                        }
+//
+//                        @Override
+//                        public void onAnimationRepeat(Animation animation) {
+//                            view.clearAnimation();
+//                            tabAdapter.notifyDataSetChanged();
+//                        }
+//                    });
                 }
             }
         });
@@ -608,7 +611,10 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if (requestCode == 101 && AppUtils.verifyPermissions(grantResults)) {
+        if (requestCode == ScanAndWinPromocodeDialog.CAMERA_PERMISSION_REQUEST  && AppUtils.verifyPermissions(grantResults)){
+            if (isOfferEnable.equalsIgnoreCase("1"))
+                startActivityForResult(new Intent(this, SimpleScannerActivity.class), SCANNER_REQUEST_CODE);
+        } else if (requestCode == 101 && AppUtils.verifyPermissions(grantResults)) {
 
         } else {
             getAppPermissions();
@@ -738,6 +744,11 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
     public void addHomeFragment() {
         if (!newHomeFragment.isAdded()) {
             addFragment(newHomeFragment, "Home");
+            for (int i = 0; i < homeList.size(); i++) {
+                homeList.get(i).setSelect(false);
+            }
+            homeList.get(0).setSelect(true);
+            tabAdapter.notifyDataSetChanged();
         }
     }
 
@@ -1033,6 +1044,13 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                 e.printStackTrace();
             }
             return null;
+        }
+    }
+
+    public void removeBackStackFragment(){
+        FragmentManager fm = getSupportFragmentManager();
+        for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
+            fm.popBackStack();
         }
     }
 }

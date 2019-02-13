@@ -46,6 +46,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
@@ -185,7 +186,7 @@ public class NearRestaurantFragment extends Fragment implements OnMapReadyCallba
 
                     LatLng loc = new LatLng(Double.parseDouble(vm.getLatitude()), Double.parseDouble(vm.getLongitude()));
                     Marker data = gMap.addMarker(new MarkerOptions().title(vm.getResturantName())
-                            .position(loc));
+                            .position(loc).icon(BitmapDescriptorFactory.fromResource(R.drawable.map_marker)));
                     markers.put(data, vm);
                 }
             }

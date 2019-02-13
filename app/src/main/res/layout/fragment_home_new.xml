@@ -37,7 +37,7 @@
             android:maxLines="2"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            local:fontName="dd_bold.ttf" />
+            local:fontName="dd_bold.otf" />
     </LinearLayout>
 
     <ScrollView
@@ -109,7 +109,7 @@
                     android:gravity="center_horizontal"
                     android:textAllCaps="true"
                     android:textColor="@color/home_welcome_text"
-                    app:fontName="dd_bold.ttf"
+                    app:fontName="dd_bold.otf"
                     tools:targetApi="ice_cream_sandwich" />
 
                 <com.dunkin.customer.widget.CustomTextView
@@ -125,7 +125,7 @@
                     android:paddingRight="4dp"
                     android:paddingStart="4dp"
                     android:textColor="@color/home_content_text"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
 
             </LinearLayout>
 

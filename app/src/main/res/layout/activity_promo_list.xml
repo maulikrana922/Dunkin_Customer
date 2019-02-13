@@ -8,7 +8,7 @@
 
     <com.dunkin.customer.widget.CustomTextView
         android:id="@+id/txtScan"
-        app:fontName="dd_bold.ttf"
+        app:fontName="dd_bold.otf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"

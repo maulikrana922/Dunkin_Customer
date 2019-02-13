@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="left|start"
                     android:textColor="@android:color/white"
-                    app:fontName="dd_bold.ttf" />
+                    app:fontName="dd_bold.otf" />
 
                 <com.dunkin.customer.widget.CustomTextView
                     android:id="@+id/txtDesc"
@@ -52,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_medium"
                     android:textColor="@android:color/white"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
 
                 <com.dunkin.customer.widget.CustomTextView
                     android:id="@+id/txtPoint"
@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_medium"
                     android:textColor="@android:color/white"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
 
             </LinearLayout>
 
@@ -91,7 +91,7 @@
                     android:gravity="center"
                     android:inputType="number"
                     android:text="1"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
 
                 <ImageView
                     android:id="@+id/btnAddQty"
@@ -111,7 +111,7 @@
                     android:paddingRight="5dp"
                     android:layout_gravity="center|top"
                     android:textColor="@android:color/black"
-                    app:fontName="dd_bold.ttf" />
+                    app:fontName="dd_bold.otf" />
 
             </LinearLayout>
 
@@ -126,7 +126,7 @@
                 android:text="Purchase"
                 android:textColor="@color/white"
                 android:visibility="gone"
-                app:fontName="dd_bold.ttf" />
+                app:fontName="dd_bold.otf" />
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -149,7 +149,7 @@
                     android:text="My Tokens"
                     android:gravity="center"
                     android:textColor="@color/white"
-                    app:fontName="dd_bold.ttf" />
+                    app:fontName="dd_bold.otf" />
 
             </FrameLayout>
 

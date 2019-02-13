@@ -1045,4 +1045,27 @@ public class AppController {
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
         AppUtils.requestCallAsyncTask(context, URLConstant.GET_WALLET_REDEEM_POINT, jsonRequest.toString(), true, callback);
     }
+
+    //POST CUSTOMER DATA WITH FACEBOOK
+    public static void RegisterCustomerWithFB(Context context, String requestString, Callback callback) throws UnsupportedEncodingException {
+        //  Dunkin_Log.e("DataRequest", requestString);
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(requestString, AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, URLConstant.REGISTER_WITH_FACEBOOK, requestString, true, callback);
+    }
+
+    // LOGIN CUSTOMER WITH FACEBOOK
+    public static void loginUserWithFB(Context context, String email, String password, String facebook_id, Callback callback) throws JSONException, UnsupportedEncodingException {
+
+        ApiParamloginUser apiParamloginUser =new ApiParamloginUser();
+        JSONObject jsonRequest = new JSONObject();
+        jsonRequest.put(apiParamloginUser.getEmail(), email);
+        jsonRequest.put(apiParamloginUser.getPassword(), password);
+        jsonRequest.put(apiParamloginUser.getFacebook_id(),facebook_id);
+        jsonRequest.put(apiParamloginUser.is_device_android, 1);
+        jsonRequest.put(apiParamloginUser.lang_flag, AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
+        jsonRequest.put(apiParamloginUser.udid, AppUtils.getAppPreference(context).getString(AppConstants.GCM_TOKEN_ID, ""));
+        // Dunkin_Log.e("DataRequest", jsonRequest.toString());
+        org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
+        AppUtils.requestCallAsyncTask(context, new URLConstant().getLOGINFB(), jsonRequest.toString(), true, callback);
+    }
 }

@@ -29,6 +29,6 @@
         android:marqueeRepeatLimit="marquee_forever"
         android:ellipsize="marquee"
         android:textColor="@android:color/white"
-        app:fontName="dd_bold.ttf" />
+        app:fontName="dd_bold.otf" />
 
 </FrameLayout>

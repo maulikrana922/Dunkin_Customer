@@ -42,7 +42,7 @@
             android:text="@string/offers"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            app:fontName="dd_bold.ttf" />
+            app:fontName="dd_bold.otf" />
 
         <!--<com.ogaclejapan.smarttablayout.SmartTabLayout-->
             <!--android:id="@+id/tabs"-->
@@ -90,5 +90,5 @@
         android:textColor="@android:color/darker_gray"
         android:textStyle="bold"
         android:visibility="gone"
-        app:fontName="dd_bold.ttf" />
+        app:fontName="dd_bold.otf" />
 </RelativeLayout>

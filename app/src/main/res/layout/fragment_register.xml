@@ -70,7 +70,7 @@
                             android:paddingStart="@dimen/spacing_large"
                             android:textColor="@color/textbox_font"
                             android:textColorHint="@color/textbox_font"
-                            app:fontName="dd_light.ttf" />
+                            app:fontName="dd_light.otf" />
 
                     </LinearLayout>
 
@@ -102,7 +102,7 @@
                             android:paddingStart="@dimen/spacing_large"
                             android:textColor="@color/textbox_font"
                             android:textColorHint="@color/textbox_font"
-                            app:fontName="dd_light.ttf" />
+                            app:fontName="dd_light.otf" />
 
                     </LinearLayout>
 
@@ -133,7 +133,7 @@
                             android:paddingStart="@dimen/spacing_large"
                             android:textColor="@color/textbox_font"
                             android:textColorHint="@color/textbox_font"
-                            app:fontName="dd_light.ttf" />
+                            app:fontName="dd_light.otf" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -164,7 +164,7 @@
                             android:paddingStart="@dimen/spacing_large"
                             android:textColor="@color/textbox_font"
                             android:textColorHint="@color/textbox_font"
-                            app:fontName="dd_light.ttf" />
+                            app:fontName="dd_light.otf" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -195,7 +195,7 @@
                             android:paddingStart="@dimen/spacing_large"
                             android:textColor="@color/textbox_font"
                             android:textColorHint="@color/textbox_font"
-                            app:fontName="dd_light.ttf" />
+                            app:fontName="dd_light.otf" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -226,7 +226,7 @@
                             android:paddingStart="@dimen/spacing_large"
                             android:textColor="@color/textbox_font"
                             android:textColorHint="@color/textbox_font"
-                            app:fontName="dd_light.ttf" />
+                            app:fontName="dd_light.otf" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -258,7 +258,7 @@
                             android:paddingStart="@dimen/spacing_large"
                             android:textColor="@color/textbox_font"
                             android:textColorHint="@color/textbox_font"
-                            app:fontName="dd_light.ttf" />
+                            app:fontName="dd_light.otf" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -289,7 +289,7 @@
                             android:paddingStart="@dimen/spacing_large"
                             android:textColor="@color/textbox_font"
                             android:textColorHint="@color/textbox_font"
-                            app:fontName="dd_light.ttf" />
+                            app:fontName="dd_light.otf" />
                     </LinearLayout>
 
                     <com.dunkin.customer.widget.CustomCheckBox
@@ -302,7 +302,7 @@
                         android:paddingStart="@dimen/spacing_medium"
                         android:text="@string/lbl_shipping_address_same"
                         android:textColor="#A0245E"
-                        app:fontName="dd_light.ttf"
+                        app:fontName="dd_light.otf"
                         android:layout_marginLeft="7dp"/>
 
                     <LinearLayout
@@ -333,7 +333,7 @@
                             android:paddingStart="@dimen/spacing_large"
                             android:textColor="@color/textbox_font"
                             android:textColorHint="@color/textbox_font"
-                            app:fontName="dd_light.ttf" />
+                            app:fontName="dd_light.otf" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -363,7 +363,7 @@
                             android:text="@string/txt_select_country"
                             android:textColor="@color/textbox_font"
                             android:textColorHint="@color/textbox_font"
-                            app:fontName="dd_light.ttf" />
+                            app:fontName="dd_light.otf" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -399,7 +399,7 @@
                             android:text="@string/txt_set_fav_restaurant"
                             android:textColor="@color/textbox_font"
                             android:textColorHint="@color/textbox_font"
-                            app:fontName="dd_light.ttf" />
+                            app:fontName="dd_light.otf" />
 
                     </LinearLayout>
 
@@ -429,6 +429,17 @@
                             android:layout_alignParentRight="true"/>
 
                     </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/btnFBRegister"
+                        android:background="@drawable/fill1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textbox_font"
+                        android:text="@string/btn_fb_signup"
+                        android:textAllCaps="false"
+                        android:layout_marginTop="@dimen/ten_dp"/>
+
                 </LinearLayout>
 
             </ScrollView>
@@ -493,7 +504,7 @@
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/textbox_font"
                     android:textColorHint="@color/textbox_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -524,7 +535,7 @@
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/textbox_font"
                     android:textColorHint="@color/textbox_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
                 &lt;!&ndash;android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"&ndash;&gt;
             </LinearLayout>
 
@@ -555,7 +566,7 @@
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/textbox_font"
                     android:textColorHint="@color/textbox_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -586,7 +597,7 @@
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/textbox_font"
                     android:textColorHint="@color/textbox_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -617,7 +628,7 @@
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/textbox_font"
                     android:textColorHint="@color/textbox_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -648,7 +659,7 @@
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/textbox_font"
                     android:textColorHint="@color/textbox_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -679,7 +690,7 @@
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/textbox_font"
                     android:textColorHint="@color/textbox_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -710,7 +721,7 @@
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/textbox_font"
                     android:textColorHint="@color/textbox_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             &lt;!&ndash; CHECK BOX &ndash;&gt;
@@ -724,7 +735,7 @@
                 android:paddingStart="@dimen/spacing_medium"
                 android:text="@string/lbl_shipping_address_same"
                 android:textColor="@color/textbox_font"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_light.otf" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -754,7 +765,7 @@
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/textbox_font"
                     android:textColorHint="@color/textbox_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -784,7 +795,7 @@
                     android:text="@string/txt_select_country"
                     android:textColor="@color/textbox_font"
                     android:textColorHint="@color/textbox_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -821,7 +832,7 @@
                     android:text="@string/txt_set_fav_restaurant"
                     android:textColor="@color/textbox_font"
                     android:textColorHint="@color/textbox_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <RelativeLayout

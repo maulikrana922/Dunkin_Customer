@@ -19,6 +19,15 @@ public class NotificationResponseModel implements Serializable {
     private String restaurant_name;
     private String promoId;
     private String promoType;
+    private String pic_url;
+
+    public String getPic_url() {
+        return pic_url;
+    }
+
+    public void setPic_url(String pic_url) {
+        this.pic_url = pic_url;
+    }
 
     public String getRestaurant_name() {
         return restaurant_name;

@@ -32,7 +32,7 @@
                 android:layout_marginLeft="@dimen/spacing_medium"
                 android:layout_marginTop="@dimen/spacing_medium"
                 android:textColor="@android:color/black"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_light.otf" />
 
         </LinearLayout>
     </ScrollView>

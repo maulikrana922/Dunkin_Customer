@@ -21,7 +21,7 @@
             android:layout_alignParentTop="true"
             android:layout_margin="@dimen/spacing_xsmall"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            app:fontName="dd_light.ttf" />
+            app:fontName="dd_light.otf" />
 
         <com.dunkin.customer.widget.CustomTextView
             android:id="@+id/tvNoteAmount"
@@ -30,7 +30,7 @@
             android:layout_below="@id/tvNoteId"
             android:layout_margin="@dimen/spacing_xsmall"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            app:fontName="dd_light.ttf" />
+            app:fontName="dd_light.otf" />
 
         <com.dunkin.customer.widget.CustomTextView
             android:id="@+id/tvDateTime"
@@ -39,7 +39,7 @@
             android:layout_below="@id/tvNoteAmount"
             android:layout_margin="@dimen/spacing_xsmall"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            app:fontName="dd_light.ttf" />
+            app:fontName="dd_light.otf" />
 
         <com.dunkin.customer.widget.CustomTextView
             android:id="@+id/tvRechargeBy"
@@ -48,7 +48,7 @@
             android:layout_below="@id/tvDateTime"
             android:layout_margin="@dimen/spacing_xsmall"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            app:fontName="dd_light.ttf" />
+            app:fontName="dd_light.otf" />
 
     </RelativeLayout>
 </LinearLayout>

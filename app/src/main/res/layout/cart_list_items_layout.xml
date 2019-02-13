@@ -29,7 +29,7 @@
             android:textColor="@android:color/darker_gray"
             android:textStyle="bold"
             android:visibility="gone"
-            app:fontName="dd_bold.ttf" />
+            app:fontName="dd_bold.otf" />
 
         <com.dunkin.customer.widget.CustomHeadTextView
             android:layout_width="match_parent"
@@ -39,7 +39,7 @@
             android:padding="@dimen/spacing_medium"
             android:text="@string/hint_cart_shipping_address"
             android:textColor="@android:color/white"
-            app:fontName="dd_bold.ttf" />
+            app:fontName="dd_bold.otf" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                 android:minLines="6"
                 android:padding="@dimen/spacing_medium"
                 android:textColor="@color/profile_font"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_light.otf" />
 
             <ImageView
                 android:id="@+id/imgEnableShipAddress"
@@ -80,7 +80,7 @@
             android:padding="@dimen/spacing_medium"
             android:text="@string/hint_cart_billing_address"
             android:textColor="@android:color/white"
-            app:fontName="dd_bold.ttf" />
+            app:fontName="dd_bold.otf" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -96,7 +96,7 @@
                 android:minLines="6"
                 android:padding="@dimen/spacing_medium"
                 android:textColor="@color/profile_font"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_light.otf" />
 
             <ImageView
                 android:id="@+id/imgEnableBillAddress"
@@ -127,7 +127,7 @@
                 android:padding="@dimen/spacing_large"
                 android:text="@string/lbl_total_amount"
                 android:textColor="@android:color/white"
-                app:fontName="dd_bold.ttf" />
+                app:fontName="dd_bold.otf" />
 
             <com.dunkin.customer.widget.CustomTextView
                 android:id="@+id/tvTotalAmount"
@@ -138,7 +138,7 @@
                 android:padding="@dimen/spacing_large"
                 android:text="2500 LIRA"
                 android:textColor="@android:color/white"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_light.otf" />
         </LinearLayout>
 
         <com.dunkin.customer.widget.CustomCheckBox
@@ -150,7 +150,7 @@
             android:padding="@dimen/spacing_medium"
             android:text="@string/lbl_order_delivery"
             android:textColor="@color/colorPrimary"
-            app:fontName="dd_bold.ttf" />
+            app:fontName="dd_bold.otf" />
 
         <com.dunkin.customer.widget.CustomCheckBox
             android:id="@+id/cbReccuring"
@@ -161,6 +161,6 @@
             android:padding="@dimen/spacing_medium"
             android:text="@string/lbl_order_recuring"
             android:textColor="@color/colorPrimary"
-            app:fontName="dd_bold.ttf" />
+            app:fontName="dd_bold.otf" />
     </LinearLayout>
 </ScrollView>

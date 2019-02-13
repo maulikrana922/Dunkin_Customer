@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="left|start"
                     android:textColor="@android:color/white"
-                    app:fontName="dd_bold.ttf" />
+                    app:fontName="dd_bold.otf" />
 
                 <com.dunkin.customer.widget.CustomTextView
                     android:id="@+id/txtProductPrice"
@@ -65,7 +65,7 @@
                     android:layout_marginTop="@dimen/spacing_medium"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/white"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
 
                 <com.dunkin.customer.widget.CustomTextView
                     android:id="@+id/txtItemPoint"
@@ -75,7 +75,7 @@
                     android:layout_marginTop="@dimen/spacing_medium"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/white"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </RelativeLayout>
 
             <LinearLayout
@@ -105,7 +105,7 @@
                     android:gravity="center"
                     android:inputType="number"
                     android:text="1"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
 
                 <ImageView
                     android:id="@+id/btnAddQty"
@@ -143,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_medium"
                 android:textColor="@color/home_content_text"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_light.otf" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

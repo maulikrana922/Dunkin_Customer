@@ -22,7 +22,7 @@
             android:gravity="start|left"
             android:text="@string/lbl_language"
             android:textColor="@color/home_welcome_text"
-            app:fontName="dd_bold.ttf" />
+            app:fontName="dd_bold.otf" />
 
         <com.dunkin.customer.widget.CustomTextView
             android:id="@+id/smalltxt2"
@@ -35,7 +35,7 @@
             android:gravity="start|left"
             android:text="@string/lbl_small_language"
             android:textColor="@color/setting_small_title"
-            app:fontName="dd_light.ttf" />
+            app:fontName="dd_light.otf" />
 
         <CheckBox
             android:id="@+id/cbLanguage"

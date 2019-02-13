@@ -68,7 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/white"
-                    app:fontName="dd_bold.ttf" />
+                    app:fontName="dd_bold.otf" />
 
                 <com.dunkin.customer.widget.CustomTextView
                     android:id="@+id/txtDate"
@@ -81,7 +81,7 @@
                     android:drawableStart="@drawable/ic_date"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/white"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
 
                 <com.dunkin.customer.widget.CustomTextView
                     android:id="@+id/txtPlace"
@@ -94,7 +94,7 @@
                     android:drawableStart="@drawable/ic_place"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/white"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </RelativeLayout>
 
             <com.dunkin.customer.widget.CustomTextView
@@ -105,7 +105,7 @@
                 android:autoLink="all"
                 android:padding="@dimen/spacing_medium"
                 android:textColor="@color/home_content_text"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_light.otf" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

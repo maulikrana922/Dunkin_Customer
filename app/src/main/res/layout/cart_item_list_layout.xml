@@ -35,7 +35,7 @@
         android:textColor="@android:color/darker_gray"
         android:textStyle="bold"
         android:visibility="gone"
-        app:fontName="dd_bold.ttf" />
+        app:fontName="dd_bold.otf" />
 
     <include
         android:id="@+id/btnCheckout"

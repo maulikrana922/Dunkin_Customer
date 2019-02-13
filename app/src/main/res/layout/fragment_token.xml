@@ -24,6 +24,6 @@
         android:text="@string/no_data_error"
         android:textColor="@android:color/darker_gray"
         android:textStyle="bold"
-        app:fontName="dd_bold.ttf" />
+        app:fontName="dd_bold.otf" />
 
 </RelativeLayout>

@@ -25,7 +25,7 @@
                 android:orientation="horizontal">
 
             <com.dunkin.customer.widget.CustomTextView
-                app:fontName="dd_bold.ttf"
+                app:fontName="dd_bold.otf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -38,7 +38,7 @@
 
 
                 <com.dunkin.customer.widget.CustomTextView
-                    app:fontName="dd_bold.ttf"
+                    app:fontName="dd_bold.otf"
                     android:id="@+id/tvTotalCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                 android:padding="@dimen/spacing_medium"
                 android:text="@string/txt_select_restaurant"
                 android:textColor="@android:color/white"
-                app:fontName="dd_bold.ttf" />
+                app:fontName="dd_bold.otf" />
 
             <com.dunkin.customer.widget.CustomTextView
                 android:id="@+id/spSelectRestaurent"
@@ -71,7 +71,7 @@
                 android:drawableRight="@drawable/ic_dd_arrow"
                 android:padding="@dimen/spacing_large"
                 android:textColor="@color/dropdown_text"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_light.otf" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -117,7 +117,7 @@
 
                     android:textColor="@color/profile_font"
                     android:textColorHint="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </RelativeLayout>
 
 
@@ -163,7 +163,7 @@
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/profile_font"
                     android:textColorHint="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
 
@@ -214,7 +214,7 @@ android:scrollbars="none"
         android:weightSum="1">
 
         <com.dunkin.customer.widget.CustomTextView
-            app:fontName="dd_bold.ttf"
+            app:fontName="dd_bold.otf"
             android:background="@color/home_welcome_text"
             android:id="@+id/tvText"
             android:layout_width="match_parent"
@@ -224,7 +224,7 @@ android:scrollbars="none"
             android:text="@string/txt_select_restaurant"/>
 
         <com.dunkin.customer.widget.CustomTextView
-            app:fontName="dd_light.ttf"
+            app:fontName="dd_light.otf"
             android:id="@+id/spSelectRestaurent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -257,7 +257,7 @@ android:scrollbars="none"
 
 
             <com.dunkin.customer.widget.CustomEditText
-                app:fontName="dd_light.ttf"
+                app:fontName="dd_light.otf"
                 android:hint="@string/txt_hint_feedback_message"
                 android:layout_toRightOf="@+id/linear1"
                 android:layout_toEndOf="@+id/linear1"

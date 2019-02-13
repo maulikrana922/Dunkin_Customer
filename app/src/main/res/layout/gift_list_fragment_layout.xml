@@ -27,7 +27,7 @@
             android:visibility="gone"
             android:text="@string/txt_chose_location"
             android:textColor="@color/dropdown_text"
-            app:fontName="dd_light.ttf" />
+            app:fontName="dd_light.otf" />
 
         <com.dunkin.customer.widget.CustomTextView
             android:id="@+id/tvRemainingPoint"
@@ -44,7 +44,7 @@
             android:paddingTop="@dimen/spacing_xsmall"
             android:background="@color/colorPrimary1"
             android:textColor="@android:color/white"
-            app:fontName="dd_bold.ttf" />
+            app:fontName="dd_bold.otf" />
     </LinearLayout>
 
     <ImageView

@@ -18,7 +18,7 @@
         android:visibility="visible" />
 
     <com.dunkin.customer.widget.CustomTextView
-        app:fontName="dd_bold.ttf"
+        app:fontName="dd_bold.otf"
         android:id="@+id/emptyElement"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -67,7 +67,7 @@
                     android:paddingRight="@dimen/spacing_medium"
                     android:paddingStart="@dimen/spacing_medium"
                     android:textColor="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -96,7 +96,7 @@
                     android:paddingRight="@dimen/spacing_medium"
                     android:paddingStart="@dimen/spacing_medium"
                     android:textColor="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -124,7 +124,7 @@
                     android:paddingRight="@dimen/spacing_medium"
                     android:paddingStart="@dimen/spacing_medium"
                     android:textColor="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -152,7 +152,7 @@
                     android:paddingRight="@dimen/spacing_medium"
                     android:paddingStart="@dimen/spacing_medium"
                     android:textColor="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -180,7 +180,7 @@
                     android:paddingRight="@dimen/spacing_medium"
                     android:paddingStart="@dimen/spacing_medium"
                     android:textColor="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -208,7 +208,7 @@
                     android:paddingRight="@dimen/spacing_medium"
                     android:paddingStart="@dimen/spacing_medium"
                     android:textColor="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <include

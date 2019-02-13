@@ -9,7 +9,7 @@
 
 
     <com.dunkin.customer.widget.CustomTextView
-        app:fontName="dd_bold.ttf"
+        app:fontName="dd_bold.otf"
         android:id="@+id/tvQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

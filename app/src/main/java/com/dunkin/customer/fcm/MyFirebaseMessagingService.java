@@ -9,6 +9,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
@@ -17,6 +19,8 @@ import android.support.v4.content.ContextCompat;
 import android.text.Html;
 import android.widget.RemoteViews;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.Target;
 import com.dunkin.customer.AppPaymentActivity;
 import com.dunkin.customer.CounterOrderPaymentActivity;
 import com.dunkin.customer.GiftDetailActivity;
@@ -37,6 +41,7 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
@@ -56,7 +61,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel("408", getString(R.string.app_name), NotificationManager.IMPORTANCE_HIGH);
-            channel.setDescription( getString(R.string.app_name));
+            channel.setDescription(getString(R.string.app_name));
             channel.setShowBadge(false);
             assert notificationManager != null;
             notificationManager.createNotificationChannel(channel);
@@ -190,11 +195,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
 
         if (intent != null) {
+
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent, PendingIntent.FLAG_ONE_SHOT);
 
             Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this,"408");
+            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, "408");
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
                 notificationBuilder.setSmallIcon(R.mipmap.ic_launcher);
@@ -205,11 +211,56 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 notificationBuilder.setContentTitle(getApplication().getString(R.string.app_name));
             }
 
+            Bitmap bitmap = null;
+            if (data.containsKey("pic_url")) {
+                try {
+                    bitmap = Glide.with(getApplicationContext())
+                            .load(data.get("pic_url"))
+                            .asBitmap()
+                            .centerCrop()
+                            .into(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+                            .get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+            }
+
             RemoteViews contentView = new RemoteViews(getPackageName(), R.layout.custom_notification);
             contentView.setImageViewResource(R.id.notification_image, R.mipmap.ic_launcher);
             contentView.setTextViewText(R.id.notification_title, getApplication().getString(R.string.app_name));
             contentView.setTextViewText(R.id.notification_text, Html.fromHtml(data.get("message").toString()));
-            notificationBuilder.setContent(contentView);
+            if (bitmap != null)
+                contentView.setImageViewBitmap(R.id.ivNotiBigPic, bitmap);
+//            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+//                notificationBuilder.setCustomContentView(contentView);
+//            } else {
+//                notificationBuilder.setContent(contentView);
+//            }
+
+            RemoteViews contentViewExpanded = new RemoteViews(getPackageName(), R.layout.custom_notification_expaned_big_picture);
+            contentViewExpanded.setImageViewResource(R.id.notification_image, R.mipmap.ic_launcher);
+            contentViewExpanded.setTextViewText(R.id.notification_title, getApplication().getString(R.string.app_name));
+            contentViewExpanded.setTextViewText(R.id.notification_text, Html.fromHtml(data.get("message").toString()));
+            if (bitmap != null) {
+                contentViewExpanded.setImageViewBitmap(R.id.ivBigPicture, bitmap);
+//                notificationBuilder.setCustomBigContentView(contentViewExpanded);
+//                notificationBuilder.setStyle(new NotificationCompat.DecoratedCustomViewStyle());
+            }
+//            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+//                if (bitmap != null) {
+//                    contentViewExpanded.setImageViewBitmap(R.id.ivBigPicture, bitmap);
+//                    notificationBuilder.setCustomBigContentView(contentViewExpanded);
+//                    notificationBuilder.setStyle(new NotificationCompat.DecoratedCustomViewStyle());
+//                }
+//            }else {
+//                notificationBuilder.setStyle(new NotificationCompat.BigPictureStyle()
+//                        .bigLargeIcon(BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher))
+//                        .bigPicture(bitmap)
+//                        .setSummaryText(Html.fromHtml(data.get("message").toString()))
+//                        .setBigContentTitle(getApplication().getString(R.string.app_name)));
+//            }
 
             notificationBuilder.setAutoCancel(true);
             notificationBuilder.setPriority(NotificationCompat.PRIORITY_HIGH);
@@ -218,8 +269,52 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
             //if(!data.getString("msgtype").equals("11"))
             notificationBuilder.setContentIntent(pendingIntent);
+            //"pic_url":"https://mobile.ilovedd.info/uploads/notification/20190208-1549629504.png"
 
-            Notification notification = notificationBuilder.build();
+            Notification notification = notificationBuilder
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setCustomContentView(contentView)
+                    .setCustomBigContentView(contentViewExpanded).build();
+
+//            notificationBuilder.setSmallIcon(R.mipmap.ic_launcher);
+//            notificationBuilder.setContentTitle(getString(R.string.app_name));
+//            int smallIconViewId = getResources().getIdentifier("right_icon", "id", android.R.class.getPackage().getName());
+//
+//            if (smallIconViewId != 0) {
+//                if (notification.contentIntent != null)
+//                    notification.contentView.setViewVisibility(smallIconViewId, View.INVISIBLE);
+//
+////                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+////                    if (notification.headsUpContentView != null)
+////                        notification.headsUpContentView.setViewVisibility(smallIconViewId, View.INVISIBLE);
+////                }
+////
+////                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+////                    if (notification.bigContentView != null)
+////                        notification.bigContentView.setViewVisibility(smallIconViewId, View.INVISIBLE);
+////                }
+//            }
+
+//            if (data.containsKey("pic_url")) {
+//                Bitmap bitmap = null;
+//                try {
+//                    bitmap = Glide.with(getApplicationContext())
+//                            .load(data.get("pic_url"))
+//                            .asBitmap()
+//                            .centerCrop()
+//                            .into(Target.SIZE_ORIGINAL,Target.SIZE_ORIGINAL)
+//                            .get();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                } catch (ExecutionException e) {
+//                    e.printStackTrace();
+//                }
+////                Bitmap bitmap = BitmapFactory.decodeFile(data.get("pic_url").toString());
+//                notificationBuilder.setStyle(new NotificationCompat.BigPictureStyle()
+//                        .bigPicture(bitmap));
+////                NotificationTarget notificationTarget = new NotificationTarget(getApplicationContext(), contentView, R.id.ivNotiBigPic, notification, counter);
+////                Glide.with(getApplicationContext()).load(data.get("pic_url")).asBitmap().into(notificationTarget);
+//            }
 
             if (data.containsKey("orderStatus")) {
                 if (data.get("orderStatus") != null && data.get("orderStatus").toString().equalsIgnoreCase("Order Complete")) {

@@ -24,7 +24,7 @@
 
             />
         <com.dunkin.customer.widget.CustomEditText
-            app:fontName="dd_light.ttf"
+            app:fontName="dd_light.otf"
             android:id="@+id/edCardHolderName"
             android:layout_width="match_parent"
             android:layout_height="@dimen/ed_textbox_height"
@@ -59,7 +59,7 @@
 
             />
         <com.dunkin.customer.widget.CustomEditText
-            app:fontName="dd_light.ttf"
+            app:fontName="dd_light.otf"
             android:id="@+id/edCardNumber"
             android:layout_width="match_parent"
             android:layout_height="@dimen/ed_textbox_height"
@@ -103,7 +103,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
     <com.dunkin.customer.widget.CustomEditText
-        app:fontName="dd_light.ttf"
+        app:fontName="dd_light.otf"
         android:id="@+id/spExpiryMonth"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/ed_textbox_height"
@@ -128,7 +128,7 @@
     android:background="@android:color/darker_gray"
     />
     <com.dunkin.customer.widget.CustomEditText
-        app:fontName="dd_light.ttf"
+        app:fontName="dd_light.otf"
         android:id="@+id/spExpiryYears"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/ed_textbox_height"

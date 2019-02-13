@@ -28,6 +28,6 @@
         android:singleLine="true"
         android:text="@string/txt_cart_btn_select"
         android:textColor="@android:color/white"
-        app:fontName="dd_light.ttf" />
+        app:fontName="dd_light.otf" />
 
 </com.dunkin.customer.widget.RelativeLayoutButton>

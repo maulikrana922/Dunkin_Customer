@@ -15,7 +15,7 @@
         >
 
         <com.dunkin.customer.widget.CustomTextView
-            app:fontName="dd_bold.ttf"
+            app:fontName="dd_bold.otf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/lbl_card_holder_name"
@@ -24,7 +24,7 @@
 
 
         <com.dunkin.customer.widget.CustomTextView
-            app:fontName="dd_bold.ttf"
+            app:fontName="dd_bold.otf"
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         >
         <com.dunkin.customer.widget.CustomTextView
-            app:fontName="dd_light.ttf"
+            app:fontName="dd_light.otf"
             android:id="@+id/txtCardHolderName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
             />
 
         <com.dunkin.customer.widget.CustomTextView
-            app:fontName="dd_light.ttf"
+            app:fontName="dd_light.otf"
             android:id="@+id/txtExpiryDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
             >
 
             <com.dunkin.customer.widget.CustomTextView
-                app:fontName="dd_bold.ttf"
+                app:fontName="dd_bold.otf"
                 android:gravity="start|left"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                 />
 
             <com.dunkin.customer.widget.CustomTextView
-                app:fontName="dd_light.ttf"
+                app:fontName="dd_light.otf"
                 android:gravity="start|left"
                 android:id="@+id/txtCardNumber"
                 android:layout_width="match_parent"

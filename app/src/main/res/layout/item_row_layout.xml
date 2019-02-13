@@ -31,7 +31,7 @@
         >
 
         <com.dunkin.customer.widget.CustomTextView
-            app:fontName="dd_bold.ttf"
+            app:fontName="dd_bold.otf"
             android:id="@+id/txtTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
             />
 
         <com.dunkin.customer.widget.CustomTextView
-            app:fontName="dd_light.ttf"
+            app:fontName="dd_light.otf"
             android:id="@+id/txtDesc"
             android:gravity="start|left"
             android:layout_width="match_parent"
@@ -55,7 +55,7 @@
 
 
         <com.dunkin.customer.widget.CustomTextView
-            app:fontName="dd_light.ttf"
+            app:fontName="dd_light.otf"
             android:id="@+id/txtDate"
             android:gravity="start|left"
             android:layout_width="match_parent"

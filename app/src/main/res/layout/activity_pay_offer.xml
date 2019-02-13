@@ -15,7 +15,7 @@
         android:textColor="@android:color/darker_gray"
         android:textStyle="bold"
         android:visibility="gone"
-        app:fontName="dd_bold.ttf" />
+        app:fontName="dd_bold.otf" />
 
     <TableLayout
         android:id="@+id/tlHeader"
@@ -35,7 +35,7 @@
                 android:layout_weight="1"
                 android:text="@string/lbl_offer_name"
                 android:textColor="@color/colorPrimary"
-                app:fontName="dd_bold.ttf" />
+                app:fontName="dd_bold.otf" />
 
             <com.dunkin.customer.widget.CustomTextView
                 android:id="@+id/txtOfferTitle"
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/dropdown_text"
-                app:fontName="dd_bold.ttf" />
+                app:fontName="dd_bold.otf" />
         </TableRow>
 
         <TableRow
@@ -57,7 +57,7 @@
                 android:layout_weight="1"
                 android:text="@string/lbl_offer_points"
                 android:textColor="@color/colorPrimary"
-                app:fontName="dd_bold.ttf" />
+                app:fontName="dd_bold.otf" />
 
             <com.dunkin.customer.widget.CustomTextView
                 android:id="@+id/txtOfferPoints"
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/dropdown_text"
-                app:fontName="dd_bold.ttf" />
+                app:fontName="dd_bold.otf" />
         </TableRow>
 
         <TableRow
@@ -80,7 +80,7 @@
                 android:layout_weight="1"
                 android:text="@string/lbl_offer_total_points"
                 android:textColor="@color/colorPrimary"
-                app:fontName="dd_bold.ttf" />
+                app:fontName="dd_bold.otf" />
 
             <com.dunkin.customer.widget.CustomTextView
                 android:id="@+id/txtOfferTotalPoints"
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/dropdown_text"
-                app:fontName="dd_bold.ttf" />
+                app:fontName="dd_bold.otf" />
         </TableRow>
 
         <TableRow
@@ -103,7 +103,7 @@
                 android:layout_weight="1"
                 android:text="@string/txt_payment_type2"
                 android:textColor="@color/colorPrimary"
-                app:fontName="dd_bold.ttf" />
+                app:fontName="dd_bold.otf" />
 
             <com.dunkin.customer.widget.CustomTextView
                 android:id="@+id/txtPaymentType"
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/dropdown_text"
-                app:fontName="dd_bold.ttf" />
+                app:fontName="dd_bold.otf" />
         </TableRow>
 
         <TableRow
@@ -125,7 +125,7 @@
                 android:layout_weight="1"
                 android:text="@string/lbl_total_amount"
                 android:textColor="@color/colorPrimary"
-                app:fontName="dd_bold.ttf" />
+                app:fontName="dd_bold.otf" />
 
             <com.dunkin.customer.widget.CustomTextView
                 android:id="@+id/txtTotalAmount"
@@ -133,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/dropdown_text"
-                app:fontName="dd_bold.ttf" />
+                app:fontName="dd_bold.otf" />
         </TableRow>
     </TableLayout>
 

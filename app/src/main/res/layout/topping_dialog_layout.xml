@@ -14,7 +14,7 @@
         android:singleLine="true"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        app:fontName="dd_bold.ttf" />
+        app:fontName="dd_bold.otf" />
 
     <com.dunkin.customer.widget.CustomTextView
         android:id="@+id/txt1"
@@ -26,7 +26,7 @@
         android:padding="@dimen/spacing_medium"
         android:text="@string/lbl_choose_toppings2"
         android:textColor="@android:color/white"
-        app:fontName="dd_bold.ttf"
+        app:fontName="dd_bold.otf"
 
         />
 
@@ -38,7 +38,7 @@
         android:background="@color/done_btn_dialog"
         android:text="@string/btn_done"
         android:textColor="@android:color/white"
-        app:fontName="dd_light.ttf" />
+        app:fontName="dd_light.otf" />
 
     <ListView
         android:id="@+id/toppingList"

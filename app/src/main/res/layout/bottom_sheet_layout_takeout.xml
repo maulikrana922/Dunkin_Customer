@@ -40,7 +40,7 @@
                 android:paddingStart="@dimen/spacing_medium"
                 android:textColor="@color/profile_font"
                 android:textColorHint="@color/profile_font"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_light.otf" />
         </LinearLayout>
 
         <LinearLayout
@@ -72,7 +72,7 @@
                 android:paddingStart="@dimen/spacing_medium"
                 android:textColor="@color/profile_font"
                 android:textColorHint="@color/profile_font"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_light.otf" />
         </LinearLayout>
 
         <com.dunkin.customer.widget.CustomTextView
@@ -87,7 +87,7 @@
             android:padding="@dimen/spacing_medium"
             android:text="@string/txt_select_restaurant"
             android:textColor="@color/dropdown_text"
-            app:fontName="dd_light.ttf" />
+            app:fontName="dd_light.otf" />
     </LinearLayout>
 
     <LinearLayout

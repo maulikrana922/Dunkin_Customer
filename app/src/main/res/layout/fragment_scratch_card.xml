@@ -33,7 +33,7 @@
     </GridView>
 
     <com.dunkin.customer.widget.CustomTextView
-        app:fontName="dd_bold.ttf"
+        app:fontName="dd_bold.otf"
         android:id="@+id/emptyElement"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

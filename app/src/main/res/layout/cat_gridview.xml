@@ -22,7 +22,7 @@
             android:drawableRight="@drawable/ic_dd_arrow"
             android:padding="@dimen/spacing_large"
             android:textColor="@color/dropdown_text"
-            app:fontName="dd_bold.ttf" />
+            app:fontName="dd_bold.otf" />
     </LinearLayout>
 
     <ProgressBar
@@ -54,5 +54,5 @@
         android:textColor="@android:color/darker_gray"
         android:textStyle="bold"
         android:visibility="gone"
-        app:fontName="dd_bold.ttf" />
+        app:fontName="dd_bold.otf" />
 </LinearLayout>

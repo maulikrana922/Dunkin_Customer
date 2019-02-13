@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="left|start"
                     android:textColor="@android:color/white"
-                    app:fontName="dd_bold.ttf" />
+                    app:fontName="dd_bold.otf" />
 
                 <com.dunkin.customer.widget.CustomTextView
                     android:id="@+id/txtStartDate"
@@ -89,7 +89,7 @@
                     android:drawablePadding="@dimen/spacing_medium"
                     android:drawableStart="@drawable/ic_date"
                     android:textColor="@android:color/white"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -115,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:text="@string/txt_offer_code"
-                        app:fontName="dd_bold.ttf" />
+                        app:fontName="dd_bold.otf" />
 
                     <ImageView
                         android:id="@+id/imgProductQrCode"
@@ -131,7 +131,7 @@
                         android:gravity="center"
                         android:visibility="gone"
                         android:textColor="@color/home_welcome_text"
-                        app:fontName="dd_light.ttf" />
+                        app:fontName="dd_light.otf" />
 
                 </LinearLayout>
 
@@ -153,7 +153,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:text="@string/txt_offre_validat_days"
-                        app:fontName="dd_bold.ttf" />
+                        app:fontName="dd_bold.otf" />
 
                     <com.dunkin.customer.widget.CustomTextView
                         android:id="@+id/txtOfferValidateDays"
@@ -161,7 +161,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/home_welcome_text"
-                        app:fontName="dd_light.ttf" />
+                        app:fontName="dd_light.otf" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -187,7 +187,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:text="@string/txt_offre_per_days"
-                        app:fontName="dd_bold.ttf" />
+                        app:fontName="dd_bold.otf" />
 
                     <com.dunkin.customer.widget.CustomTextView
                         android:id="@+id/txtOfferItemPerDays"
@@ -195,7 +195,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/home_welcome_text"
-                        app:fontName="dd_light.ttf" />
+                        app:fontName="dd_light.otf" />
                 </LinearLayout>
 
                 <View
@@ -216,7 +216,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:text="@string/txt_offre_free_type"
-                        app:fontName="dd_bold.ttf" />
+                        app:fontName="dd_bold.otf" />
 
                     <com.dunkin.customer.widget.CustomTextView
                         android:id="@+id/txtOfferFreeType"
@@ -224,7 +224,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/home_welcome_text"
-                        app:fontName="dd_light.ttf" />
+                        app:fontName="dd_light.otf" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -250,7 +250,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:text="@string/txt_times_redeem2"
-                        app:fontName="dd_bold.ttf" />
+                        app:fontName="dd_bold.otf" />
 
                     <com.dunkin.customer.widget.CustomTextView
                         android:id="@+id/txtTimesRedeem"
@@ -258,7 +258,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/home_welcome_text"
-                        app:fontName="dd_light.ttf" />
+                        app:fontName="dd_light.otf" />
 
                 </LinearLayout>
 
@@ -280,7 +280,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:text="@string/txt_remaining_times_redeem4"
-                        app:fontName="dd_bold.ttf" />
+                        app:fontName="dd_bold.otf" />
 
                     <com.dunkin.customer.widget.CustomTextView
                         android:id="@+id/txtRemainingTimeRedeem"
@@ -288,7 +288,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/home_welcome_text"
-                        app:fontName="dd_light.ttf" />
+                        app:fontName="dd_light.otf" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -315,7 +315,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:text="@string/txt_total_times_redeem2"
-                        app:fontName="dd_bold.ttf" />
+                        app:fontName="dd_bold.otf" />
 
                     <com.dunkin.customer.widget.CustomTextView
                         android:id="@+id/txtTotalTimesRedeem"
@@ -323,7 +323,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/home_welcome_text"
-                        app:fontName="dd_light.ttf" />
+                        app:fontName="dd_light.otf" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -335,7 +335,7 @@
                 android:layout_margin="@dimen/spacing_medium"
                 android:layout_marginTop="@dimen/spacing_medium"
                 android:textColor="@color/home_content_text"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_light.otf" />
 
             <com.dunkin.customer.widget.CustomTextView
                 android:id="@+id/productInfo"
@@ -349,7 +349,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
-                app:fontName="dd_bold.ttf" />
+                app:fontName="dd_bold.otf" />
 
             <com.dunkin.customer.widget.MyListView
                 android:id="@+id/lvOfferProductsDetail"

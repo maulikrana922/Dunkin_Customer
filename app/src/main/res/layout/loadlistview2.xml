@@ -23,6 +23,7 @@
             android:paddingRight="@dimen/fifteen_dp">
 
             <com.dunkin.customer.widget.CustomTextView
+                android:id="@+id/tvNotePoints"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -30,7 +31,7 @@
                 android:textColor="@color/colorPrimary1"
                 android:paddingTop="@dimen/ten_dp"
                 android:paddingBottom="@dimen/ten_dp"
-                app:fontName="dd_bold.ttf"/>
+                app:fontName="dd_bold.otf"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -58,12 +59,13 @@
                     android:layout_marginTop="@dimen/fifteen_dp">
 
                     <com.dunkin.customer.widget.CustomTextView2
+                        android:id="@+id/txtMyPoints"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/lbl_total_point"
                         android:textColor="@color/white"
                         android:layout_gravity="center"
-                        app:fontName="dd_bold.ttf" />
+                        app:fontName="dd_bold.otf" />
 
                     <com.dunkin.customer.widget.CustomTextView2
                         android:id="@+id/txtMyPoint"
@@ -72,7 +74,7 @@
                         tools:text="@string/lbl_total_point"
                         android:textColor="@color/white"
                         android:layout_gravity="center"
-                        app:fontName="dd_bold.ttf" />
+                        app:fontName="dd_bold.otf" />
 
                 </LinearLayout>
 
@@ -100,12 +102,13 @@
                     android:layout_marginTop="@dimen/fourty_dp">
 
                     <com.dunkin.customer.widget.CustomTextView2
+                        android:id="@+id/txtUsedPoints"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/lbl_used_point"
                         android:textColor="@color/white"
                         android:layout_gravity="center"
-                        app:fontName="dd_bold.ttf" />
+                        app:fontName="dd_bold.otf" />
 
                     <com.dunkin.customer.widget.CustomTextView2
                         android:id="@+id/txtUsedPoint"
@@ -114,7 +117,7 @@
                         tools:text="@string/lbl_used_point"
                         android:textColor="@color/white"
                         android:layout_gravity="center"
-                        app:fontName="dd_bold.ttf" />
+                        app:fontName="dd_bold.otf" />
 
                 </LinearLayout>
 
@@ -138,7 +141,7 @@
                     <!--android:padding="@dimen/spacing_medium"-->
                     <!--android:text="@string/lbl_total_point"-->
                     <!--android:textColor="@android:color/white"-->
-                    <!--app:fontName="dd_bold.ttf" />-->
+                    <!--app:fontName="dd_bold.otf" />-->
 
                 <!--<com.dunkin.customer.widget.CustomTextView-->
                     <!--android:id="@+id/txtMyPoint"-->
@@ -149,7 +152,7 @@
                     <!--android:text="0"-->
                     <!--android:textColor="@color/colorPrimary"-->
                     <!--android:textStyle="bold"-->
-                    <!--app:fontName="dd_light.ttf" />-->
+                    <!--app:fontName="dd_light.otf" />-->
 
 
             <!--</LinearLayout>-->
@@ -171,7 +174,7 @@
                     <!--android:padding="@dimen/spacing_medium"-->
                     <!--android:text="@string/lbl_used_point"-->
                     <!--android:textColor="@android:color/white"-->
-                    <!--app:fontName="dd_bold.ttf" />-->
+                    <!--app:fontName="dd_bold.otf" />-->
 
                 <!--<com.dunkin.customer.widget.CustomTextView-->
                     <!--android:id="@+id/txtUsedPoint"-->
@@ -182,7 +185,7 @@
                     <!--android:text="0"-->
                     <!--android:textColor="@color/colorPrimary"-->
                     <!--android:textStyle="bold"-->
-                    <!--app:fontName="dd_light.ttf" />-->
+                    <!--app:fontName="dd_light.otf" />-->
 
 
             <!--</LinearLayout>-->
@@ -226,5 +229,5 @@
         android:textColor="@android:color/darker_gray"
         android:textStyle="bold"
         android:visibility="gone"
-        app:fontName="dd_bold.ttf" />
+        app:fontName="dd_bold.otf" />
 </LinearLayout>

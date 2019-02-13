@@ -7,10 +7,10 @@
     android:gravity="center"
     android:orientation="vertical"
     android:paddingBottom="@dimen/five_dp"
-    android:paddingEnd="@dimen/fifteen_dp"
+    android:paddingEnd="@dimen/five_dp"
     android:paddingLeft="@dimen/five_dp"
     android:paddingRight="@dimen/five_dp"
-    android:paddingStart="@dimen/fifteen_dp"
+    android:paddingStart="@dimen/five_dp"
     android:paddingTop="@dimen/five_dp">
 
     <ImageView
@@ -25,5 +25,5 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:gravity="center"
-        app:fontName="dd_light.ttf" />
+        app:fontName="dd_light.otf" />
 </LinearLayout>

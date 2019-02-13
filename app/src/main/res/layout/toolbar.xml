@@ -42,8 +42,7 @@
         android:adjustViewBounds="true"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        android:layout_marginBottom="10dp"
-        android:src="@drawable/ic_top_logo" />
+        android:src="@drawable/ic_top_toolbar_logo" />
 
     <ImageView
         android:id="@+id/ivDone"
@@ -67,7 +66,7 @@
         android:textColor="@android:color/white"
         android:textStyle="bold"
         android:visibility="gone"
-        local:fontName="dd_bold.ttf" />
+        local:fontName="dd_bold.otf" />
 
 </android.support.v7.widget.Toolbar>
 

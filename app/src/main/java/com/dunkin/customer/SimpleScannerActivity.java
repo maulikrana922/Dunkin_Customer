@@ -41,6 +41,7 @@ public class SimpleScannerActivity extends BaseActivity implements ZXingScannerV
             setSupportActionBar(toolBar);
             if (title != null && title.length() > 0) {
                 toolBar.findViewById(R.id.brandLogo).setVisibility(View.GONE);
+                toolBar.findViewById(R.id.ivBack).setVisibility(View.VISIBLE);
                 TextView tv = (TextView) toolBar.findViewById(R.id.toolbar_title);
                 tv.setText(title);
                 tv.setVisibility(View.VISIBLE);
@@ -51,9 +52,9 @@ public class SimpleScannerActivity extends BaseActivity implements ZXingScannerV
         }
 
         //noinspection ConstantConditions
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(ContextCompat.getDrawable(SimpleScannerActivity.this, R.drawable.ic_nav_back));
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setHomeAsUpIndicator(ContextCompat.getDrawable(SimpleScannerActivity.this, R.drawable.ic_nav_back));
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 

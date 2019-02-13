@@ -4,16 +4,20 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.text.Html;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.dunkin.customer.R;
+import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.models.NotificationModel;
 
 import java.util.List;
@@ -60,7 +64,7 @@ public class NotificationAdapter extends BaseAdapter {
             viewHolder.itemLayout = (RelativeLayout) view.findViewById(R.id.itemLayout);
             viewHolder.txtView = (TextView) view.findViewById(R.id.txtNotification);
             viewHolder.cbCheckNotification = (CheckBox) view.findViewById(R.id.cbCheckNotification);
-
+            viewHolder.ivNotiBigPic = view.findViewById(R.id.ivNotiBigPic);
             view.setTag(viewHolder);
             viewHolder.cbCheckNotification.setTag(notificationList.get(position));
         } else {
@@ -76,7 +80,12 @@ public class NotificationAdapter extends BaseAdapter {
             h.itemLayout.setBackgroundColor(context.getResources().getColor(R.color.alternate_listing_bg));
         }*/
         h.itemLayout.setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent));
-
+        if (!TextUtils.isEmpty(nm.getResponse().getPic_url())) {
+            h.ivNotiBigPic.setVisibility(View.VISIBLE);
+            Glide.with(context).load(nm.getResponse().getPic_url()).placeholder(R.drawable.ic_loading).into(h.ivNotiBigPic);
+        }else{
+            h.ivNotiBigPic.setVisibility(View.GONE);
+        }
         if (nm.getIs_read() == 0)
             h.txtView.setTypeface(null, Typeface.BOLD);
         else
@@ -102,13 +111,14 @@ public class NotificationAdapter extends BaseAdapter {
         return view;
     }
 
+    public String getEmojiByUnicode() {
+        return new String(Character.toChars(0x1F60A));
+    }
+
     static class ViewHolder {
         TextView txtView;
         CheckBox cbCheckNotification;
         RelativeLayout itemLayout;
-    }
-
-    public String getEmojiByUnicode(){
-        return new String(Character.toChars(0x1F60A));
+        ImageView ivNotiBigPic;
     }
 }

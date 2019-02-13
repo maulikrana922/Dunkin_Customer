@@ -31,7 +31,7 @@
         android:textColor="@color/colorPrimary1"
         android:textStyle="bold"
         android:visibility="visible"
-        local:fontName="dd_bold.ttf" />
+        local:fontName="dd_bold.otf" />
 
     <com.dunkin.customer.widget.CustomTextView2
         android:id="@+id/tvConsultingSite"
@@ -48,5 +48,5 @@
         android:textColor="@color/colorPrimary1"
         android:textStyle="bold"
         android:visibility="visible"
-        local:fontName="dd_bold.ttf" />
+        local:fontName="dd_bold.otf" />
 </LinearLayout>

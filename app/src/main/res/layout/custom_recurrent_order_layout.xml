@@ -17,7 +17,7 @@
         android:src="@drawable/ic_home_cat_arrow" />
 
     <com.dunkin.customer.widget.CustomTextView
-        app:fontName="dd_bold.ttf"
+        app:fontName="dd_bold.otf"
         android:id="@+id/txtOrderNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
         android:layout_toStartOf="@+id/imgrightarrow"/>
 
     <com.dunkin.customer.widget.CustomTextView
-        app:fontName="dd_light.ttf"
+        app:fontName="dd_light.otf"
         android:id="@+id/txtOrderAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <com.dunkin.customer.widget.CustomTextView
-        app:fontName="dd_light.ttf"
+        app:fontName="dd_light.otf"
         android:id="@+id/txtOrderDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

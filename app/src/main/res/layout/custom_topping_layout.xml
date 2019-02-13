@@ -8,7 +8,7 @@
     >
 
     <com.dunkin.customer.widget.CustomTextView
-        app:fontName="dd_bold.ttf"
+        app:fontName="dd_bold.otf"
         android:id="@+id/toppingName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         />
 
     <com.dunkin.customer.widget.CustomTextView
-        app:fontName="dd_light.ttf"
+        app:fontName="dd_light.otf"
         android:id="@+id/toppingPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

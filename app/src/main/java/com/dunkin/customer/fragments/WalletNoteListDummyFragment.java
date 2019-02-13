@@ -22,6 +22,7 @@ public class WalletNoteListDummyFragment extends Fragment {
 
     private String tempRemainingPoints, remainingPoints;
     private FrameLayout flTotalAmount, flRemainingPoints;
+    private TextView  tvNotePoints,txtAmountRemaining, txtAmountUsed;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,12 @@ public class WalletNoteListDummyFragment extends Fragment {
         txtWalletAmountPoint.setText(points);
         txtTotalAmount.setTextSize(10);
         txtWalletAmountPoint.setTextSize(10);
+        tvNotePoints = rootView.findViewById(R.id.tvNotePoints);
+        tvNotePoints.setTextSize(14);
+        txtAmountRemaining = rootView.findViewById(R.id.txtAmountRemaining);
+        txtAmountRemaining.setTextSize(10);
+        txtAmountUsed = rootView.findViewById(R.id.txtAmountUsed);
+        txtAmountUsed.setTextSize(10);
         loadAnimation(flTotalAmount);
         loadAnimation(flRemainingPoints);
         rootView.findViewById(R.id.progressLoad).setVisibility(View.GONE);

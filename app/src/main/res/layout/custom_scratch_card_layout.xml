@@ -17,7 +17,7 @@
         android:src="@drawable/ic_loading" />
 
     <com.dunkin.customer.widget.CustomTextView
-        app:fontName="dd_bold.ttf"
+        app:fontName="dd_bold.otf"
         android:id="@+id/txtView"
         android:layout_width="70dp"
         android:layout_height="70dp"

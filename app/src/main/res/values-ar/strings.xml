@@ -99,7 +99,7 @@
     <string name="txt_free_type2">مجاناً%1$s</string>
     <string name="home_welcome_text">اهلاً بكم في سمسم</string>
     <string name="txt_to">من  %1$s إلى %2$s</string>
-    <string name="nav_about_us">من نحن</string>
+    <string name="nav_about_us">التعليمات</string>
     <string name="nav_cart">سلة مشترياتي</string>
     <string name="nav_celebration">الاحتفالات</string>
     <string name="nav_coupons">متجر الهدايا</string>
@@ -107,9 +107,9 @@
     <string name="nav_exit">تسجيل الخروج</string>
     <string name="nav_get_bill">إحصل على الفاتورة</string>
     <string name="nav_manage_card">بطاقاتي الائتمانية</string>
-    <string name="nav_scan_and_win">مسح والفوز</string>
+    <string name="nav_scan_and_win">المكافآت</string>
     <string name="nav_my_point">نقاطي</string>
-    <string name="nav_my_profile">الملف الشخصي</string>
+    <string name="nav_my_profile">ملفي</string>
     <string name="nav_news">الاخبار</string>
     <string name="nav_news_event">أخبار  &amp;  أحداث</string>
     <string name="nav_payment">دفع</string>
@@ -269,7 +269,7 @@
     <string name="nav_offer">العروضات</string>
     <string name="nav_order_history">الطلبيات السابقة</string>
     <string name="nav_products">المنتجات</string>
-    <string name="nav_rating">التعليقات</string>
+    <string name="nav_rating">ملاحظاتك التهم</string>
     <string name="txt_set_fav_restaurant">اختيار المكان المفضل لديك</string>
     <string name="txt_your_favorite_restaurant">المكان المفضل لديك</string>
     <string name="str_note_amount_added_on">كمية أضيف في:</string>
@@ -334,4 +334,8 @@
     <string name="offers">Offers</string>
     <string name="pay">Pay</string>
     <string name="more">More</string>
+    <string name="val_enter_comment">يرجى إدخال تعليق</string>
+    <string name="enter_comment">أدخل تعليق</string>
+    <string name="btn_fb_signin">تسجيل الدخول</string>
+    <string name="btn_fb_signup">الاشتراك في الفيسبوك</string>
 </resources>

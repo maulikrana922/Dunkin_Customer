@@ -33,6 +33,6 @@
         android:layout_toRightOf="@+id/imgNavIcon"
         android:padding="@dimen/spacing_medium"
         android:textColor="@color/colorPrimary1"
-        app:fontName="dd_bold.ttf" />
+        app:fontName="dd_bold.otf" />
 
 </RelativeLayout>

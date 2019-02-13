@@ -45,7 +45,7 @@
                 android:gravity="center"
                 android:textSize="40dp"
                 android:background="@drawable/login_btn"
-                app:fontName="dd_bold.ttf"
+                app:fontName="dd_bold.otf"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="20dp"/>
 
@@ -60,7 +60,7 @@
                 android:textAllCaps="true"
                 android:gravity="center"
                 android:textSize="40dp"
-                app:fontName="dd_bold.ttf"
+                app:fontName="dd_bold.otf"
                 android:layout_marginBottom="20dp"/>
 
         </LinearLayout>

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 import android.view.InflateException;
 import android.view.LayoutInflater;
@@ -83,6 +84,7 @@ public class WinStatusDialog extends DialogFragment {
             @Override
             public void onClick(View v) {
                 WinStatusDialog.this.dismiss();
+                ((NewHomeActivity) mContext).removeBackStackFragment();
                 ((NewHomeActivity) mContext).addHomeFragment();
             }
         });
@@ -91,6 +93,7 @@ public class WinStatusDialog extends DialogFragment {
             @Override
             public void onClick(View v) {
                 WinStatusDialog.this.dismiss();
+                ((NewHomeActivity) mContext).removeBackStackFragment();
                 ((NewHomeActivity) mContext).addHomeFragment();
             }
         });
@@ -110,6 +113,7 @@ public class WinStatusDialog extends DialogFragment {
 
     @Override
     public void onDetach() {
+        ((NewHomeActivity) mContext).removeBackStackFragment();
         ((NewHomeActivity) mContext).addHomeFragment();
         super.onDetach();
     }
@@ -166,6 +170,7 @@ public class WinStatusDialog extends DialogFragment {
     @Override
     public void dismiss() {
         // TODO Auto-generated method stub
+        ((NewHomeActivity) mContext).removeBackStackFragment();
         ((NewHomeActivity) mContext).addHomeFragment();
         super.dismiss();
         System.gc();

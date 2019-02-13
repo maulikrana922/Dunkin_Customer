@@ -29,6 +29,7 @@
         android:paddingRight="@dimen/fifteen_dp">
 
         <com.dunkin.customer.widget.CustomTextView
+            android:id="@+id/tvNotePoints"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -36,7 +37,7 @@
             android:textColor="@color/colorPrimary1"
             android:paddingTop="@dimen/ten_dp"
             android:paddingBottom="@dimen/ten_dp"
-            app:fontName="dd_bold.ttf"/>
+            app:fontName="dd_bold.otf"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,12 +65,13 @@
                 android:orientation="vertical">
 
                 <com.dunkin.customer.widget.CustomTextView2
+                    android:id="@+id/txtAmountUsed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/lbl_amount_used"
                     android:textColor="@color/white"
-                    app:fontName="dd_bold.ttf" />
+                    app:fontName="dd_bold.otf" />
 
                 <com.dunkin.customer.widget.CustomTextView2
                     android:id="@+id/txtWalletAmount"
@@ -77,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textColor="@color/white"
-                    app:fontName="dd_bold.ttf"
+                    app:fontName="dd_bold.otf"
                     tools:text="@string/lbl_amount_used" />
 
             </LinearLayout>
@@ -106,12 +108,13 @@
                 android:orientation="vertical">
 
                 <com.dunkin.customer.widget.CustomTextView2
+                    android:id="@+id/txtAmountRemaining"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/lbl_amount_remaining"
                     android:textColor="@color/white"
-                    app:fontName="dd_bold.ttf" />
+                    app:fontName="dd_bold.otf" />
 
                 <com.dunkin.customer.widget.CustomTextView2
                     android:id="@+id/txtWalletAmountPoint"
@@ -119,7 +122,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textColor="@color/white"
-                    app:fontName="dd_bold.ttf"
+                    app:fontName="dd_bold.otf"
                     tools:text="@string/lbl_amount_remaining" />
 
             </LinearLayout>
@@ -146,7 +149,7 @@
     <!--android:padding="@dimen/spacing_medium"-->
     <!--android:text="@string/lbl_total_point"-->
     <!--android:textColor="@android:color/white"-->
-    <!--app:fontName="dd_bold.ttf" />-->
+    <!--app:fontName="dd_bold.otf" />-->
 
     <!--<com.dunkin.customer.widget.CustomTextView-->
     <!--android:id="@+id/txtMyPoint"-->
@@ -157,7 +160,7 @@
     <!--android:text="0"-->
     <!--android:textColor="@color/colorPrimary"-->
     <!--android:textStyle="bold"-->
-    <!--app:fontName="dd_light.ttf" />-->
+    <!--app:fontName="dd_light.otf" />-->
 
 
     <!--</LinearLayout>-->
@@ -179,7 +182,7 @@
     <!--android:padding="@dimen/spacing_medium"-->
     <!--android:text="@string/lbl_used_point"-->
     <!--android:textColor="@android:color/white"-->
-    <!--app:fontName="dd_bold.ttf" />-->
+    <!--app:fontName="dd_bold.otf" />-->
 
     <!--<com.dunkin.customer.widget.CustomTextView-->
     <!--android:id="@+id/txtUsedPoint"-->
@@ -190,7 +193,7 @@
     <!--android:text="0"-->
     <!--android:textColor="@color/colorPrimary"-->
     <!--android:textStyle="bold"-->
-    <!--app:fontName="dd_light.ttf" />-->
+    <!--app:fontName="dd_light.otf" />-->
 
 
     <!--</LinearLayout>-->
@@ -204,7 +207,7 @@
     <!--android:padding="@dimen/spacing_medium"-->
     <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
     <!--android:textColor="@color/profile_font"-->
-    <!--app:fontName="dd_bold.ttf" />-->
+    <!--app:fontName="dd_bold.otf" />-->
 
     <!--<ListView-->
     <!--android:id="@+id/walletNoteList"-->
@@ -236,5 +239,6 @@
         android:textColor="@android:color/darker_gray"
         android:textStyle="bold"
         android:visibility="gone"
-        app:fontName="dd_bold.ttf" />
+        android:layout_below="@id/llWalletAmount"
+        app:fontName="dd_bold.otf" />
 </RelativeLayout>

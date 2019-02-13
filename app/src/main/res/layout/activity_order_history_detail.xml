@@ -62,7 +62,7 @@
                     android:drawablePadding="@dimen/spacing_medium"
                     android:drawableStart="@drawable/ic_order_amount"
                     android:textColor="@color/price_desc_font"
-                    app:fontName="dd_bold.ttf" />
+                    app:fontName="dd_bold.otf" />
 
                 <com.dunkin.customer.widget.CustomTextView
                     android:id="@+id/txtOrderPoint"
@@ -79,7 +79,7 @@
                     android:drawablePadding="@dimen/spacing_medium"
                     android:drawableStart="@drawable/ic_order_amount"
                     android:textColor="@color/price_desc_font"
-                    app:fontName="dd_bold.ttf" />
+                    app:fontName="dd_bold.otf" />
 
                 <com.dunkin.customer.widget.CustomTextView
                     android:id="@+id/txtOrderPaymentType"
@@ -96,7 +96,7 @@
                     android:drawablePadding="@dimen/spacing_medium"
                     android:drawableStart="@drawable/ic_order_amount"
                     android:textColor="@color/price_desc_font"
-                    app:fontName="dd_bold.ttf" />
+                    app:fontName="dd_bold.otf" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -118,7 +118,7 @@
                         android:drawablePadding="@dimen/spacing_medium"
                         android:drawableStart="@drawable/ic_order_date"
                         android:textColor="@color/price_desc_font"
-                        app:fontName="dd_bold.ttf" />
+                        app:fontName="dd_bold.otf" />
 
                     <com.dunkin.customer.widget.CustomTextView
                         android:id="@+id/textView2"
@@ -132,7 +132,7 @@
                         android:drawableStart="@drawable/ic_truck"
                         android:text="@string/txt_order_status"
                         android:textColor="@color/price_desc_font"
-                        app:fontName="dd_bold.ttf" />
+                        app:fontName="dd_bold.otf" />
 
                     <com.dunkin.customer.widget.CustomTextView
                         android:id="@+id/txtOrderStatus"
@@ -149,7 +149,7 @@
                         android:background="@drawable/rounded_corner"
                         android:drawablePadding="@dimen/spacing_medium"
                         android:textColor="@android:color/white"
-                        app:fontName="dd_bold.ttf" />
+                        app:fontName="dd_bold.otf" />
 
                 </RelativeLayout>
 
@@ -164,7 +164,7 @@
                     android:text="@string/txt_order_shipping_address"
                     android:textColor="@color/home_welcome_text"
                     android:textStyle="bold"
-                    app:fontName="dd_bold.ttf" />
+                    app:fontName="dd_bold.otf" />
 
                 <View
                     android:layout_width="match_parent"
@@ -181,7 +181,7 @@
                     android:layout_marginRight="@dimen/spacing_medium"
                     android:layout_marginStart="@dimen/spacing_medium"
                     android:textColor="@color/price_desc_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
 
                 <com.dunkin.customer.widget.CustomHeadTextView
                     android:layout_width="match_parent"
@@ -194,7 +194,7 @@
                     android:text="@string/txt_order_billing_address"
                     android:textColor="@color/home_welcome_text"
                     android:textStyle="bold"
-                    app:fontName="dd_bold.ttf" />
+                    app:fontName="dd_bold.otf" />
 
                 <View
                     android:layout_width="match_parent"
@@ -212,7 +212,7 @@
                     android:layout_marginRight="@dimen/spacing_medium"
                     android:layout_marginStart="@dimen/spacing_medium"
                     android:textColor="@color/price_desc_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </com.dunkin.customer.widget.MyLinearLayout>
         </LinearLayout>
     </ScrollView>

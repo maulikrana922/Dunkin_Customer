@@ -51,7 +51,7 @@
                         android:padding="10dp"
                         android:textColor="@color/textbox_font_pink_new"
                         android:textStyle="bold"
-                        app:fontName="dd_light.ttf"
+                        app:fontName="dd_light.otf"
                         android:gravity="center_horizontal"/>
 
 
@@ -82,7 +82,7 @@
                             android:paddingStart="@dimen/spacing_large"
                             android:textColor="@color/textbox_font"
                             android:textColorHint="@color/textbox_font"
-                            app:fontName="dd_light.ttf" />
+                            app:fontName="dd_light.otf" />
                     </LinearLayout>
 
 
@@ -114,7 +114,7 @@
                             android:paddingStart="@dimen/spacing_large"
                             android:textColor="@color/textbox_font"
                             android:textColorHint="@color/textbox_font"
-                            app:fontName="dd_light.ttf" />
+                            app:fontName="dd_light.otf" />
                     </LinearLayout>
 
                     <com.dunkin.customer.widget.CustomTextView
@@ -125,7 +125,7 @@
                         android:gravity="right|end"
                         android:text="@string/txt_forgot_pass"
                         android:textColor="@color/textbox_font_pink_new"
-                        app:fontName="dd_bold.ttf" />
+                        app:fontName="dd_bold.otf" />
 
 
                     <LinearLayout
@@ -154,7 +154,7 @@
                             android:textStyle="bold"
                             android:textSize="30dp"
                             android:textAllCaps="true"
-                            app:fontName="dd_bold.ttf" />
+                            app:fontName="dd_bold.otf" />
 
                         <Button
                             android:id="@+id/btnLogin"
@@ -165,6 +165,16 @@
                             android:text="@string/btn_signin" />
 
                     </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnFBLogin"
+                        android:background="@drawable/fill1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textbox_font"
+                        android:text="@string/btn_fb_signin"
+                        android:textAllCaps="false"
+                        android:layout_marginTop="@dimen/ten_dp"/>
 
                 </LinearLayout>
 

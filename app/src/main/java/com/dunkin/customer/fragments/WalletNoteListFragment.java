@@ -46,7 +46,7 @@ public class WalletNoteListFragment extends Fragment {
     private FrameLayout flTotalAmount, flRemainingPoints;
     private Context context;
     private ProgressBar progressLoading;
-    private TextView txtTotalAmount, txtWalletAmountPoint, emptyElement;
+    private TextView txtTotalAmount, txtWalletAmountPoint, emptyElement, tvNotePoints,txtAmountRemaining, txtAmountUsed;
     private RecyclerView lvWalletNoteList;
     private WalletRedeemPoint walletRedeemPoint;
 
@@ -84,7 +84,12 @@ public class WalletNoteListFragment extends Fragment {
 //        String amount = getString(R.string.txt_my_wallet_amount, AppUtils.CurrencyFormat(Double.parseDouble(wallet.getTotal())) + " " + wallet.getCurrency()) + "\n" +
 //                getString(R.string.txt_my_wallet_remaining_amount) + " " + AppUtils.CurrencyFormat(Double.parseDouble(remainingPoints));
         progressLoading = (ProgressBar) rootView.findViewById(R.id.progressLoad);
-
+        tvNotePoints = rootView.findViewById(R.id.tvNotePoints);
+        tvNotePoints.setTextSize(14);
+        txtAmountRemaining = rootView.findViewById(R.id.txtAmountRemaining);
+        txtAmountRemaining.setTextSize(10);
+        txtAmountUsed = rootView.findViewById(R.id.txtAmountUsed);
+        txtAmountUsed.setTextSize(10);
         loadAnimation(flTotalAmount);
         loadAnimation(flRemainingPoints);
 

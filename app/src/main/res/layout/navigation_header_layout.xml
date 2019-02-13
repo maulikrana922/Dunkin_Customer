@@ -25,5 +25,5 @@
         android:layout_marginStart="@dimen/spacing_large"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textStyle="bold"
-        app:fontName="dd_bold.ttf" />
+        app:fontName="dd_bold.otf" />
 </RelativeLayout>

@@ -29,5 +29,5 @@
         android:layout_marginTop="@dimen/spacing_xsmall"
         android:button="@drawable/custom_checkbox_bg"
         android:textColor="@color/profile_font"
-        app:fontName="dd_light.ttf" />
+        app:fontName="dd_light.otf" />
 </RelativeLayout>

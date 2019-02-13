@@ -42,7 +42,7 @@
                 android:paddingStart="@dimen/spacing_large"
                 android:textColor="@color/profile_font"
                 android:textColorHint="@color/profile_font"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_light.otf" />
         </LinearLayout>
 
         <LinearLayout
@@ -74,7 +74,7 @@
                 android:paddingStart="@dimen/spacing_large"
                 android:textColor="@color/profile_font"
                 android:textColorHint="@color/profile_font"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_light.otf" />
         </LinearLayout>
 
         <LinearLayout
@@ -106,7 +106,7 @@
                 android:paddingStart="@dimen/spacing_large"
                 android:textColor="@color/profile_font"
                 android:textColorHint="@color/profile_font"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_light.otf" />
         </LinearLayout>
 
         <RelativeLayout
@@ -148,7 +148,7 @@
                 android:paddingStart="@dimen/spacing_large"
                 android:paddingTop="@dimen/spacing_medium"
                 android:textColor="@color/profile_font"
-                app:fontName="dd_light.ttf" />
+                app:fontName="dd_light.otf" />
         </RelativeLayout>
 
         <include
@@ -169,13 +169,14 @@
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:text="@string/talk_to_us_msg"
-            app:fontName="dd_bold.ttf" />
+            app:fontName="dd_bold.otf" />
 
 
         <LinearLayout
             android:id="@+id/socialLinksLayouts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical"
+            android:visibility="gone"/>
     </LinearLayout>
 </ScrollView>

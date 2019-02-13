@@ -12,9 +12,7 @@ import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
-import android.text.SpannableString;
 import android.text.TextWatcher;
-import android.text.style.UnderlineSpan;
 import android.util.Patterns;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -43,6 +41,13 @@ import com.dunkin.customer.dialogs.ImageDialog;
 import com.dunkin.customer.models.CountriesModel;
 import com.dunkin.customer.models.RestaurantModel;
 import com.dunkin.customer.widget.RelativeLayoutButton;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import org.json.JSONArray;
@@ -54,6 +59,7 @@ import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -61,10 +67,11 @@ import java.util.regex.Pattern;
 public class RegisterFragment extends Fragment implements View.OnClickListener {
 
     SharedPreferences myPrefs;
+    /*----------Facebook Login---------------*/
+    CallbackManager callbackManager;
     private View rootView;
     private Context context;
-    private Button btnRegister, btnLogin;
-
+    private Button btnRegister, btnLogin, btnFBRegister;
     private TextView spSelectCountry, edDateOfBirth, spSetFavoriteRestaurant;
     private EditText edFirstName, edLastName, edEmail, edPassword, edConfirmPassword, edPhoneNumber, edAddress, edShippingAddress;
     private CountriesModel countryModel;
@@ -75,6 +82,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     private ListView lvRestaurantList;
     private JSONArray jsonArray;
     private FavoriteRestaurantAdapter restaurantAdapter;
+    private String facebook_id;
 
     private DatePickerDialog.OnDateSetListener datePicker = new DatePickerDialog.OnDateSetListener() {
         @Override
@@ -136,6 +144,8 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         btnLogin = (Button) rootView.findViewById(R.id.btnLogin);
 //        btnLogin.imgIcon.setImageResource(R.drawable.ic_btn_login);
 //        btnLogin.btnText.setText(getString(R.string.btn_back));
+        btnFBRegister = rootView.findViewById(R.id.btnFBRegister);
+        btnFBRegister.setOnClickListener(this);
 
         cbAddress.setEnabled(false);
 
@@ -174,6 +184,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         spSetFavoriteRestaurant.setOnClickListener(this);
         edDateOfBirth.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
+        callbackManager = CallbackManager.Factory.create();
     }
 
     @Override
@@ -228,10 +239,18 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         }
 
         if (v == btnRegister) {
-            try {
-                registerUserInformation();
-            } catch (UnsupportedEncodingException | JSONException | ParseException e) {
-                e.printStackTrace();
+            if (facebook_id!=null){
+                try {
+                    registerUserWithFacebook(facebook_id);
+                } catch (UnsupportedEncodingException | JSONException | ParseException e) {
+                    e.printStackTrace();
+                }
+            }else {
+                try {
+                    registerUserInformation();
+                } catch (UnsupportedEncodingException | JSONException | ParseException e) {
+                    e.printStackTrace();
+                }
             }
         }
         if (v == edDateOfBirth) {
@@ -244,6 +263,9 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                 //e.printStackTrace();
             }
             new DatePickerDialog(context, datePicker, calender.get(Calendar.YEAR), calender.get(Calendar.MONTH), calender.get(Calendar.DAY_OF_MONTH)).show();
+        }
+        if (v == btnFBRegister) {
+            fbLogin();
         }
     }
 
@@ -517,4 +539,170 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         alert.setTitle(getResources().getString(R.string.app_name));
         alert.show();
     }
+
+    public void fbLogin() {
+        LoginManager.getInstance().logOut();
+        callbackManager = CallbackManager.Factory.create();
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                            @Override
+                            public void onCompleted(JSONObject object, GraphResponse response) {
+                                try {
+                                    String fbId = object.getString("id");
+                                    if (object.has("first_name"))
+                                        edFirstName.setText(object.getString("first_name"));
+                                    if (object.has("last_name"))
+                                        edLastName.setText(object.getString("last_name"));
+                                    if (object.has("email"))
+                                        edEmail.setText(object.getString("email"));
+                                    if (object.has("birthday"))
+                                        edDateOfBirth.setText(object.getString("birthday"));
+                                    facebook_id = fbId;
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                        //Here we put the requested fields to be returned from the JSONObject
+                        Bundle parameters = new Bundle();
+                        parameters.putString("fields", "id, first_name, last_name, email, birthday");
+                        request.setParameters(parameters);
+                        request.executeAsync();
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        LoginManager.getInstance().logOut();
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        exception.printStackTrace();
+                    }
+                });
+        LoginManager.getInstance().logInWithReadPermissions(this, Collections.singletonList("email, public_profile"));
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    // MAKE REGISTRATION OF USER WITH FACEBOOK
+    private void registerUserWithFacebook(String facebook_id) throws UnsupportedEncodingException, JSONException, ParseException {
+
+        if (edFirstName.getText().length() == 0) {
+            AppUtils.showError(edFirstName, getString(R.string.empty_first_name));
+        } else if (edLastName.getText().length() == 0) {
+            AppUtils.showError(edLastName, getString(R.string.empty_last_name));
+        } else if (edDateOfBirth.getText().length() == 0) {
+            AppUtils.showError(edDateOfBirth, getString(R.string.empty_date_of_birth));
+        } else if (AppUtils.isValidDate(edDateOfBirth.getText().toString(), AppConstants.DD_MM_YYYY_SLASH) == 1) {
+            AppUtils.showError(edDateOfBirth, getString(R.string.min_val_date_of_birth));
+        } else if (edEmail.getText().length() == 0) {
+            AppUtils.showError(edEmail, getString(R.string.empty_email));
+        } else if (!Pattern.matches(String.valueOf(Patterns.EMAIL_ADDRESS), edEmail.getText().toString())) {
+            AppUtils.showError(edEmail, getString(R.string.invalid_email));
+        } else if (edPassword.getText().length() == 0) {
+            AppUtils.showError(edPassword, getString(R.string.empty_password));
+        } else if (edPassword.getText().length() < 6) {
+            AppUtils.showError(edPassword, getString(R.string.min_length_password));
+        } else if (edConfirmPassword.getText().length() == 0) {
+            AppUtils.showError(edConfirmPassword, getString(R.string.empty_conform_password));
+        } else if (edConfirmPassword.getText().length() < 6) {
+            AppUtils.showError(edConfirmPassword, getString(R.string.min_length_password));
+        } else if (!edConfirmPassword.getText().toString().equals(edPassword.getText().toString())) {
+            AppUtils.showError(edConfirmPassword, getString(R.string.password_is_not_match));
+        } else if (edAddress.getText().length() == 0) {
+            AppUtils.showError(edAddress, getString(R.string.empty_address));
+        } else if (edShippingAddress.getText().length() == 0) {
+            AppUtils.showError(edShippingAddress, getString(R.string.empty_shipping_address));
+        } else if (countryModel == null) {
+            AppUtils.showError(spSelectCountry, getString(R.string.txt_select_country));
+        } else {
+            JSONObject jsonRequest = new JSONObject();
+
+            jsonRequest.put("firstName", edFirstName.getText().toString());
+            jsonRequest.put("lastName", edLastName.getText().toString());
+            jsonRequest.put("email", edEmail.getText().toString());
+            jsonRequest.put("dob", edDateOfBirth.getText().toString());
+            jsonRequest.put("password", edPassword.getText().toString());
+            jsonRequest.put("phoneNumber", "");
+            jsonRequest.put("address", edAddress.getText().toString());
+            jsonRequest.put("shippingAddress", edShippingAddress.getText().toString());
+            jsonRequest.put("restaurant_id", jsonArray);
+            jsonRequest.put("device_id", myPrefs.getString(AppConstants.GCM_TOKEN_ID, ""));
+            jsonRequest.put("is_device_android", 1);
+            jsonRequest.put("country_id", countryModel.getCountry_id());
+            jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
+            jsonRequest.put("facebook_id", facebook_id);
+
+            AppController.RegisterCustomerWithFB(context, jsonRequest.toString(), new Callback() {
+                @Override
+                public void run(Object result) throws JSONException, IOException {
+                    try {
+                        JSONObject jsonResponse = new JSONObject((String) result);
+
+                        if (jsonResponse.getInt("success") == 1) {
+                            AppUtils.showToastMessage(context, getString(R.string.msg_register_success));
+                            JSONObject jsonUser = jsonResponse.getJSONObject("userDetail");
+
+                            SharedPreferences.Editor editor = myPrefs.edit();
+//                            editor.putString(AppConstants.USER_EMAIL_ADDRESS, edEmail.getText().toString());
+                            editor.putInt(AppConstants.USER_COUNTRY, countryModel.getCountry_id());
+                            editor.putString(AppConstants.USER_ADDRESS, edAddress.getText().toString());
+                            editor.putString(AppConstants.USER_SHIPPING_ADDRESS, edShippingAddress.getText().toString());
+                            editor.putString(AppConstants.USER_PHONE, "");
+
+                            editor.putString(AppConstants.USER_NAME, edFirstName.getText().toString() + " " + edLastName.getText().toString());
+                            editor.putString(AppConstants.USER_FIRST_NAME, edFirstName.getText().toString());
+                            editor.putString(AppConstants.USER_PROFILE_QR, jsonUser.getString("qrCode"));
+                            editor.apply();
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            builder.setMessage(String.format(context.getString(R.string.msg_register_successfully), edEmail.getText().toString().trim()))
+                                    .setCancelable(false)
+                                    .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            try {
+                                                PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                                                String version = String.valueOf(pInfo.versionCode);
+                                                fetchAllSetting(version, edEmail.getText().toString().trim());
+                                            } catch (UnsupportedEncodingException | JSONException | ParseException e) {
+                                                e.printStackTrace();
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    });
+
+                            AlertDialog alert = builder.create();
+                            alert.setTitle(getResources().getString(R.string.app_name));
+                            alert.show();
+                            TextView messageView = (TextView) alert.findViewById(android.R.id.message);
+                            messageView.setGravity(Gravity.CENTER);
+
+                        } else if (jsonResponse.getInt("success") == 0) {
+                            AppUtils.showToastMessage(context, getString(R.string.msg_register_exist));
+                        } else if (jsonResponse.getInt("success") == 3) {
+                            AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                        } else if (jsonResponse.getInt("success") == 100) {
+                            AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                        } else if (jsonResponse.getInt("success") == 99) {
+                            displayDialog(jsonResponse.getString("message"));
+                        } else {
+                            AppUtils.showToastMessage(context, getString(R.string.system_error));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+    }
+
 }

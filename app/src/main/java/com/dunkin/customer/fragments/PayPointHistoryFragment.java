@@ -42,7 +42,7 @@ public class PayPointHistoryFragment extends Fragment {
 
     private Context context;
     private RecyclerView lvList;
-    private TextView txtMyPoint, txtUsedPoint, emptyElement;
+    private TextView txtMyPoint, txtUsedPoint, emptyElement,tvNotePoints, txtMyPoints,txtUsedPoints;
     private List<RedeemHistoryModel> redeemList;
     private NewRedeemPointHistoryAdapter redeemPointHistoryAdapter;
     private View rootView;
@@ -67,6 +67,12 @@ public class PayPointHistoryFragment extends Fragment {
         emptyElement = (TextView) rootView.findViewById(R.id.emptyElement);
         flMyPoints = (FrameLayout) rootView.findViewById(R.id.flMyPoints);
         flUsedPoints = (FrameLayout) rootView.findViewById(R.id.flUsedPoints);
+        tvNotePoints = rootView.findViewById(R.id.tvNotePoints);
+        tvNotePoints.setTextSize(14);
+        txtMyPoints = rootView.findViewById(R.id.txtMyPoints);
+        txtMyPoints.setTextSize(10);
+        txtUsedPoints = rootView.findViewById(R.id.txtUsedPoints);
+        txtUsedPoints.setTextSize(10);
         redeemList = new ArrayList<>();
 
         Bundle bundle = getArguments();

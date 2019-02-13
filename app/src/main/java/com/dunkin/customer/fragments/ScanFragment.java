@@ -122,7 +122,11 @@ public class ScanFragment extends Fragment implements Animation.AnimationListene
             public void onClick(View v) {
                 if(promoStatus.equals("1"))
                 {
-                    chooseOption();
+//                    chooseOption();
+                    ((NewHomeActivity)mContext).addFragment(new AddPromocodeActivity(),"PROMOCODE");
+//                    Intent intent=new Intent(mContext,AddPromocodeActivity.class);
+//                    intent.putExtra("scanImage",scanImage);
+//                    ((Activity) mContext).startActivity(intent);
                 }
             }
         });

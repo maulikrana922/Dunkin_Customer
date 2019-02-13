@@ -30,6 +30,6 @@
         android:singleLine="true"
         android:text="@string/lbl_rate_us"
         android:textColor="@android:color/white"
-        app:fontName="dd_light.ttf" />
+        app:fontName="dd_light.otf" />
 
 </com.dunkin.customer.widget.RelativeLayoutButton>

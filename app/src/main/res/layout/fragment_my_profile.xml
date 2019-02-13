@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="@dimen/spacing_medium"
     android:background="@android:color/white"
     android:orientation="vertical">
@@ -43,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/ed_textbox_height"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:background="@drawable/profile_txbox_bg"
+                android:background="@drawable/textbox_border_bg"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -64,14 +65,14 @@
                     android:paddingRight="@dimen/spacing_large"
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/ed_textbox_height"
                 android:layout_marginTop="@dimen/spacing_xsmall"
-                android:background="@drawable/profile_txbox_bg"
+                android:background="@drawable/textbox_border_bg"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -92,14 +93,14 @@
                     android:paddingRight="@dimen/spacing_large"
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/ed_textbox_height"
                 android:layout_marginTop="@dimen/spacing_xsmall"
-                android:background="@drawable/profile_txbox_bg"
+                android:background="@drawable/textbox_border_bg"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -120,14 +121,14 @@
                     android:paddingRight="@dimen/spacing_large"
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/ed_textbox_height"
                 android:layout_marginTop="@dimen/spacing_xsmall"
-                android:background="@drawable/profile_txbox_bg"
+                android:background="@drawable/textbox_border_bg"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -148,14 +149,14 @@
                     android:paddingRight="@dimen/spacing_large"
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/ed_textbox_height"
                 android:layout_marginTop="@dimen/spacing_xsmall"
-                android:background="@drawable/profile_txbox_bg"
+                android:background="@drawable/textbox_border_bg"
                 android:contentDescription="@string/app_name"
                 android:orientation="horizontal">
 
@@ -177,14 +178,14 @@
                     android:paddingRight="@dimen/spacing_large"
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xsmall"
-                android:background="@color/btn_bg"
+                android:background="@drawable/textbox_border_bg"
                 android:orientation="horizontal">
 
                 <RelativeLayout
@@ -207,7 +208,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@+id/linear2"
                     android:layout_toRightOf="@+id/linear2"
-                    android:background="@drawable/profile_txbox_bg"
+                    android:background="@drawable/textbox_border_bg"
                     android:gravity="center_vertical"
                     android:minHeight="@dimen/ed_textbox_height"
                     android:paddingEnd="@dimen/spacing_large"
@@ -215,7 +216,7 @@
                     android:paddingRight="@dimen/spacing_large"
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -245,7 +246,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@+id/linear1"
                     android:layout_toRightOf="@+id/linear1"
-                    android:background="@drawable/profile_txbox_bg"
+                    android:background="@drawable/textbox_border_bg"
                     android:gravity="center_vertical"
                     android:minHeight="@dimen/ed_textbox_height"
                     android:paddingEnd="@dimen/spacing_large"
@@ -253,7 +254,7 @@
                     android:paddingRight="@dimen/spacing_large"
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </RelativeLayout>
 
             <LinearLayout
@@ -274,14 +275,14 @@
                     android:id="@+id/tvCountry"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/ed_textbox_height"
-                    android:background="@android:color/transparent"
+                    android:background="@drawable/textbox_border_bg"
                     android:gravity="center_vertical"
                     android:paddingEnd="@dimen/spacing_large"
                     android:paddingLeft="@dimen/spacing_large"
                     android:paddingRight="@dimen/spacing_large"
                     android:paddingStart="@dimen/spacing_large"
                     android:textColor="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -303,7 +304,7 @@
                     android:id="@+id/tvFavoriteRestaurant"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
+                    android:background="@drawable/textbox_border_bg"
                     android:ellipsize="marquee"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
@@ -318,7 +319,7 @@
                     android:singleLine="true"
                     android:text="@string/txt_your_favorite_restaurant"
                     android:textColor="@color/profile_font"
-                    app:fontName="dd_light.ttf" />
+                    app:fontName="dd_light.otf" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

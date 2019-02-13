@@ -1,19 +1,34 @@
 package com.dunkin.customer.constants;
 
+import android.util.Base64;
+
 import com.dunkin.customer.Utils.CO123QA;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 
 public class URLConstant {
 
     String add =  "H4sIAAAAAAAAACvOTM/zTc1NSi3yzAMAIvewSAwAAAA=";
     String consume =  "H4sIAAAAAAAAACsoLXHOzysuzU0NyM/MKwEAWdlxoQ8AAAA=";
-
+    String loginFB= "H4sIAAAAAAAAACvOTM/zTc1NSi3yzAvPLMlwS0xOTcrPzwYAfrPYSBgAAAA=";
 
 
     public String getLOGIN() {
         try {
             return CO123QA.getData(add);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    public String getLOGINFB() {
+        try {
+            return CO123QA.getData(loginFB);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -104,4 +119,6 @@ public class URLConstant {
     public static final String GET_CATALOG_QUESTION_LIST =  "catalogQuestion";
     public static final String GAIN_POINT_SHIFT="gainPointShift";
     public static final String GET_WALLET_REDEEM_POINT = "getWalletRedeemPoint";
+    public static final String REGISTER_WITH_FACEBOOK = "regMemberWithFacebook";
+    public static final String SIGNIN_WITH_FACEBOOK = "signMemberInWithFacebook";
 }

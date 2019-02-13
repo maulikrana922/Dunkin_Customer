@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dunkin.customer.NewHomeActivity;
 import com.dunkin.customer.R;
@@ -22,13 +23,20 @@ import com.dunkin.customer.Utils.Callback;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppBase;
 import com.dunkin.customer.controllers.AppController;
-import com.dunkin.customer.widget.RelativeLayoutButton;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Collections;
 import java.util.regex.Pattern;
 
 /**
@@ -36,12 +44,14 @@ import java.util.regex.Pattern;
  */
 public class LoginFragment extends Fragment implements View.OnClickListener {
 
+    /*----------Facebook Login---------------*/
+    CallbackManager callbackManager;
     private View rootView;
     private Context context;
-
     private EditText edEmail, edPassword;
     private TextView txtForgotPassword;
-    private Button btnSubmit, btnSignup;
+    private Button btnSubmit, btnSignup, btnFBLogin;
+    private String facebook_id;
 
     @Override
     public void onAttach(Context context) {
@@ -68,6 +78,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         btnSubmit = (Button) rootView.findViewById(R.id.btnLogin);
         btnSignup = (Button) rootView.findViewById(R.id.btnSignup);
+        btnFBLogin = rootView.findViewById(R.id.btnFBLogin);
 
 //        btnSubmit.imgIcon.setImageResource(R.drawable.ic_btn_login);
 //        btnSubmit.btnText.setText(getString(R.string.btn_signin));
@@ -79,7 +90,10 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         btnSubmit.setOnClickListener(this);
         btnSignup.setOnClickListener(this);
+        btnFBLogin.setOnClickListener(this);
         txtForgotPassword.setOnClickListener(this);
+
+        callbackManager = CallbackManager.Factory.create();
     }
 
     @Override
@@ -111,43 +125,142 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                                 if (jsonResponse.getInt("success") == 0)
                                     AppUtils.showToastMessage(context, getString(R.string.msg_login_user_not_exist));
 
-                                if (jsonResponse.getInt("success") == 2)
-                                    AppUtils.showToastMessage(context, getString(R.string.msg_login_not_match));
+                                    if (jsonResponse.getInt("success") == 2)
+                                        AppUtils.showToastMessage(context, getString(R.string.msg_login_not_match));
 
-                                if (jsonResponse.getInt("success") == 3)
-                                    AppUtils.showToastMessage(context, getString(R.string.msg_login_user_inactive));
+                                    if (jsonResponse.getInt("success") == 3)
+                                        AppUtils.showToastMessage(context, getString(R.string.msg_login_user_inactive));
 
-                                if (jsonResponse.getInt("success") == 1) {
-                                    JSONObject jsonUser = jsonResponse.getJSONObject("user");
+                                    if (jsonResponse.getInt("success") == 1) {
+                                        JSONObject jsonUser = jsonResponse.getJSONObject("user");
 
-                                    SharedPreferences.Editor editor = AppUtils.getAppPreference(context).edit();
-                                    editor.putString(AppConstants.USER_EMAIL_ADDRESS, edEmail.getText().toString());
-                                    editor.putInt(AppConstants.USER_COUNTRY, jsonUser.getInt("country_id"));
-                                    editor.putString(AppConstants.USER_ADDRESS, jsonUser.getString("address"));
-                                    editor.putString(AppConstants.USER_SHIPPING_ADDRESS, jsonUser.getString("shippingAddress"));
-                                    editor.putString(AppConstants.USER_FIRST_NAME, jsonUser.getString("firstName"));
-                                    editor.putString(AppConstants.USER_PROFILE_QR, jsonUser.getString("qrCode"));
-                                    editor.putString(AppConstants.USER_PHONE, jsonUser.getString("phone_number"));
-                                    editor.putString(AppConstants.USER_CASEID, jsonUser.getString(new AppBase().getHeartCase()));
-                                    editor.putString(AppConstants.USER_NAME,  jsonUser.getString("firstName") + " " +  jsonUser.getString("lastName"));
-                                    editor.apply();
+                                        SharedPreferences.Editor editor = AppUtils.getAppPreference(context).edit();
+                                        editor.putString(AppConstants.USER_EMAIL_ADDRESS, edEmail.getText().toString());
+                                        editor.putInt(AppConstants.USER_COUNTRY, jsonUser.getInt("country_id"));
+                                        editor.putString(AppConstants.USER_ADDRESS, jsonUser.getString("address"));
+                                        editor.putString(AppConstants.USER_SHIPPING_ADDRESS, jsonUser.getString("shippingAddress"));
+                                        editor.putString(AppConstants.USER_FIRST_NAME, jsonUser.getString("firstName"));
+                                        editor.putString(AppConstants.USER_PROFILE_QR, jsonUser.getString("qrCode"));
+                                        editor.putString(AppConstants.USER_PHONE, jsonUser.getString("phone_number"));
+                                        editor.putString(AppConstants.USER_CASEID, jsonUser.getString(new AppBase().getHeartCase()));
+                                        editor.putString(AppConstants.USER_NAME, jsonUser.getString("firstName") + " " + jsonUser.getString("lastName"));
+                                        editor.apply();
 
-                                    NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                                    notificationManager.cancelAll();
+                                        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                                        notificationManager.cancelAll();
 
-                                    startActivity(new Intent(context, NewHomeActivity.class));
-                                    ((Activity) context).finish();
-                                }
-                                if (jsonResponse.getInt("success") == 100) {
-                                    AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                                        startActivity(new Intent(context, NewHomeActivity.class));
+                                        ((Activity) context).finish();
+                                    }
+                                    if (jsonResponse.getInt("success") == 100) {
+                                        AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                                    }
                                 }
                             }
-                        }
-                    });
-                } catch (JSONException | UnsupportedEncodingException e) {
-                    e.printStackTrace();
+                        });
+                    } catch (JSONException | UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
         }
+        if (v == btnFBLogin) {
+            fbLogin();
+        }
+    }
+
+    public void fbLogin() {
+        LoginManager.getInstance().logOut();
+        callbackManager = CallbackManager.Factory.create();
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                            @Override
+                            public void onCompleted(final JSONObject object, GraphResponse response) {
+                                try {
+                                    String facebook_id = object.getString("id");
+                                    if (object.has("email"))
+                                        object.getString("email");
+
+                                        try {
+                                            AppController.loginUserWithFB(context, object.getString("email"), edPassword.getText().toString(),facebook_id, new Callback() {
+                                                @Override
+                                                public void run(Object result) throws JSONException, IOException {
+                                                    JSONObject jsonResponse = new JSONObject((String) result);
+                                                    if (jsonResponse != null) {
+                                                        if (jsonResponse.getInt("success") == 0)
+                                                            AppUtils.showToastMessage(context, getString(R.string.msg_login_user_not_exist));
+
+                                                        if (jsonResponse.getInt("success") == 2)
+                                                            AppUtils.showToastMessage(context, getString(R.string.msg_login_not_match));
+
+                                                        if (jsonResponse.getInt("success") == 3)
+                                                            AppUtils.showToastMessage(context, getString(R.string.msg_login_user_inactive));
+
+                                                        if (jsonResponse.getInt("success") == 1) {
+                                                            JSONObject jsonUser = jsonResponse.getJSONObject("user");
+
+                                                            SharedPreferences.Editor editor = AppUtils.getAppPreference(context).edit();
+                                                            editor.putString(AppConstants.USER_EMAIL_ADDRESS, object.getString("email"));
+                                                            editor.putInt(AppConstants.USER_COUNTRY, jsonUser.getInt("country_id"));
+                                                            editor.putString(AppConstants.USER_ADDRESS, jsonUser.getString("address"));
+                                                            editor.putString(AppConstants.USER_SHIPPING_ADDRESS, jsonUser.getString("shippingAddress"));
+                                                            editor.putString(AppConstants.USER_FIRST_NAME, jsonUser.getString("firstName"));
+                                                            editor.putString(AppConstants.USER_PROFILE_QR, jsonUser.getString("qrCode"));
+                                                            editor.putString(AppConstants.USER_PHONE, jsonUser.getString("phone_number"));
+                                                            editor.putString(AppConstants.USER_CASEID, jsonUser.getString(new AppBase().getHeartCase()));
+                                                            editor.putString(AppConstants.USER_NAME, jsonUser.getString("firstName") + " " + jsonUser.getString("lastName"));
+                                                            editor.apply();
+
+                                                            NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                                                            notificationManager.cancelAll();
+
+                                                            startActivity(new Intent(context, NewHomeActivity.class));
+                                                            ((Activity) context).finish();
+                                                        }
+                                                        if (jsonResponse.getInt("success") == 55){
+                                                            AppUtils.showToastMessage(context,jsonResponse.getString("message"));
+                                                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame, new RegisterFragment()).commit();
+                                                        }
+                                                        if (jsonResponse.getInt("success") == 100) {
+                                                            AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                                                        }
+                                                    }
+                                                }
+                                            });
+                                        } catch (JSONException | UnsupportedEncodingException e) {
+                                            e.printStackTrace();
+                                        }
+//                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                        //Here we put the requested fields to be returned from the JSONObject
+                        Bundle parameters = new Bundle();
+                        parameters.putString("fields", "id, first_name, last_name, email, birthday");
+                        request.setParameters(parameters);
+                        request.executeAsync();
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        LoginManager.getInstance().logOut();
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        exception.printStackTrace();
+                    }
+                });
+        LoginManager.getInstance().logInWithReadPermissions(this, Collections.singletonList("email, public_profile"));
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 }

@@ -11,6 +11,15 @@ public class ApiParamloginUser {
     String password="password";
     String is_device_android="is_device_android";
     String lang_flag="lang_flag";
+    String facebook_id="facebook_id";
+
+    public String getFacebook_id() {
+        return facebook_id;
+    }
+
+    public void setFacebook_id(String facebook_id) {
+        this.facebook_id = facebook_id;
+    }
 
     public String getUdid() {
         return udid;
