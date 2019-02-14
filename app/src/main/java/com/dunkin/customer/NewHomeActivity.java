@@ -207,6 +207,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                     if (!newHomeFragment.isVisible()) {
                         newHomeFragment = new NewHomeFragment();
                         addFragment(newHomeFragment, homeList.get(position).getTitle());
+                        tabAdapter.notifyDataSetChanged();
                     }
 //                    animHyperSpace.setAnimationListener(new Animation.AnimationListener() {
 //                        @Override
@@ -216,7 +217,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
 //                        @Override
 //                        public void onAnimationEnd(Animation animation) {
 //                            view.clearAnimation();
-                            tabAdapter.notifyDataSetChanged();
+//                            tabAdapter.notifyDataSetChanged();
 //                        }
 //
 //                        @Override
@@ -231,6 +232,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                     if (!redeemFragment.isVisible()) {
                         redeemFragment = new RedeemFragment();
                         addFragment(redeemFragment, homeList.get(position).getTitle());
+                        tabAdapter.notifyDataSetChanged();
                     }
 //                    animZoomIn.setAnimationListener(new Animation.AnimationListener() {
 //                        @Override
@@ -256,7 +258,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
 //                        @Override
 //                        public void onAnimationEnd(Animation animation) {
 //                            view.clearAnimation();
-                            tabAdapter.notifyDataSetChanged();
+//                            tabAdapter.notifyDataSetChanged();
 //                        }
 //
 //                        @Override
@@ -271,6 +273,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                     if (!offerFragment.isVisible()) {
                         offerFragment = new OfferFragment();
                         addFragment(offerFragment, homeList.get(position).getTitle());
+                        tabAdapter.notifyDataSetChanged();
                     }
 //                    animRotate.setAnimationListener(new Animation.AnimationListener() {
 //                        @Override
@@ -280,7 +283,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
 //                        @Override
 //                        public void onAnimationEnd(Animation animation) {
 //                            view.clearAnimation();
-                            tabAdapter.notifyDataSetChanged();
+//                            tabAdapter.notifyDataSetChanged();
 //                        }
 //
 //                        @Override
@@ -295,6 +298,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                     if (!myWalletFragment.isVisible()) {
                         myWalletFragment = new MyWalletFragment();
                         addFragment(myWalletFragment, homeList.get(position).getTitle());
+                        tabAdapter.notifyDataSetChanged();
                     }
 //                    animFlip.setAnimationListener(new Animation.AnimationListener() {
 //                        @Override
@@ -304,7 +308,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
 //                        @Override
 //                        public void onAnimationEnd(Animation animation) {
 //                            view.clearAnimation();
-                            tabAdapter.notifyDataSetChanged();
+//                            tabAdapter.notifyDataSetChanged();
 //                        }
 //
 //                        @Override
@@ -317,6 +321,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                 if (position == 4) {
                     if (!moreFragment.isVisible()) {
                         addFragment(moreFragment, homeList.get(position).getTitle());
+                        tabAdapter.notifyDataSetChanged();
                     }
 //                    view.startAnimation(animFadeOut);
 //                    animFadeOut.setAnimationListener(new Animation.AnimationListener() {
@@ -327,7 +332,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
 //                        @Override
 //                        public void onAnimationEnd(Animation animation) {
 //                            view.clearAnimation();
-                            tabAdapter.notifyDataSetChanged();
+//                            tabAdapter.notifyDataSetChanged();
 //                        }
 //
 //                        @Override

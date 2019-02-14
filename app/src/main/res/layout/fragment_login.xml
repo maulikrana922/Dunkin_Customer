@@ -166,15 +166,15 @@
 
                     </LinearLayout>
 
-                    <Button
-                        android:id="@+id/btnFBLogin"
-                        android:background="@drawable/fill1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/textbox_font"
-                        android:text="@string/btn_fb_signin"
-                        android:textAllCaps="false"
-                        android:layout_marginTop="@dimen/ten_dp"/>
+                    <!--<Button-->
+                        <!--android:id="@+id/btnFBLogin"-->
+                        <!--android:background="@drawable/fill1"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textColor="@color/textbox_font"-->
+                        <!--android:text="@string/btn_fb_signin"-->
+                        <!--android:textAllCaps="false"-->
+                        <!--android:layout_marginTop="@dimen/ten_dp"/>-->
 
                 </LinearLayout>
 

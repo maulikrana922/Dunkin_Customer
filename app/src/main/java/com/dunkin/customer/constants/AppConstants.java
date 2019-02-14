@@ -29,6 +29,10 @@ public class AppConstants {
     public static final String USER_CASEID = "lele";
     public static final String USER_SCAN_RESULT = "scan_result";
 
+    public static final String USER_LAST_NAME = "lastname";
+    public static final String USER_FB_ID = "fb_id";
+    public static final String USER_DOB = "birthday";
+
     public static final String USER_PROFILE_QR = "profileqr";
     public static final String USER_BANNER = "payBannerImage";
     public static final String USER_SHIPPING_ADDRESS = "shippingaddress";

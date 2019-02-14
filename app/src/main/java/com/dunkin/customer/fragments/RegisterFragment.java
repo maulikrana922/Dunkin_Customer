@@ -38,6 +38,7 @@ import com.dunkin.customer.adapters.FavoriteRestaurantAdapter;
 import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.dialogs.ImageDialog;
+import com.dunkin.customer.dialogs.ImageFBDialog;
 import com.dunkin.customer.models.CountriesModel;
 import com.dunkin.customer.models.RestaurantModel;
 import com.dunkin.customer.widget.RelativeLayoutButton;
@@ -71,7 +72,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     CallbackManager callbackManager;
     private View rootView;
     private Context context;
-    private Button btnRegister, btnLogin, btnFBRegister;
+    private Button btnRegister, btnLogin;
     private TextView spSelectCountry, edDateOfBirth, spSetFavoriteRestaurant;
     private EditText edFirstName, edLastName, edEmail, edPassword, edConfirmPassword, edPhoneNumber, edAddress, edShippingAddress;
     private CountriesModel countryModel;
@@ -82,7 +83,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     private ListView lvRestaurantList;
     private JSONArray jsonArray;
     private FavoriteRestaurantAdapter restaurantAdapter;
-    private String facebook_id;
+    private String facebook_id, fb_first_name, fb_last_name, fb_email, fb_birthday;
 
     private DatePickerDialog.OnDateSetListener datePicker = new DatePickerDialog.OnDateSetListener() {
         @Override
@@ -144,8 +145,6 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         btnLogin = (Button) rootView.findViewById(R.id.btnLogin);
 //        btnLogin.imgIcon.setImageResource(R.drawable.ic_btn_login);
 //        btnLogin.btnText.setText(getString(R.string.btn_back));
-        btnFBRegister = rootView.findViewById(R.id.btnFBRegister);
-        btnFBRegister.setOnClickListener(this);
 
         cbAddress.setEnabled(false);
 
@@ -185,6 +184,28 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         edDateOfBirth.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
         callbackManager = CallbackManager.Factory.create();
+
+        getFBData();
+    }
+
+    private void getFBData() {
+        if (getArguments() != null) {
+            if (getArguments().containsKey(AppConstants.USER_FB_ID))
+                facebook_id = getArguments().getString(AppConstants.USER_FB_ID);
+            if (getArguments().containsKey(AppConstants.USER_FIRST_NAME))
+                fb_first_name = getArguments().getString(AppConstants.USER_FIRST_NAME);
+            if (getArguments().containsKey(AppConstants.USER_LAST_NAME))
+                fb_last_name = getArguments().getString(AppConstants.USER_LAST_NAME);
+            if (getArguments().containsKey(AppConstants.USER_EMAIL_ADDRESS))
+                fb_email = getArguments().getString(AppConstants.USER_EMAIL_ADDRESS);
+            if (getArguments().containsKey(AppConstants.USER_DOB))
+                fb_birthday = getArguments().getString(AppConstants.USER_DOB);
+
+            edFirstName.setText(fb_first_name);
+            edLastName.setText(fb_last_name);
+            edEmail.setText(fb_email);
+            edDateOfBirth.setText(fb_birthday);
+        }
     }
 
     @Override
@@ -239,13 +260,13 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         }
 
         if (v == btnRegister) {
-            if (facebook_id!=null){
+            if (facebook_id != null) {
                 try {
                     registerUserWithFacebook(facebook_id);
                 } catch (UnsupportedEncodingException | JSONException | ParseException e) {
                     e.printStackTrace();
                 }
-            }else {
+            } else {
                 try {
                     registerUserInformation();
                 } catch (UnsupportedEncodingException | JSONException | ParseException e) {
@@ -264,9 +285,9 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
             }
             new DatePickerDialog(context, datePicker, calender.get(Calendar.YEAR), calender.get(Calendar.MONTH), calender.get(Calendar.DAY_OF_MONTH)).show();
         }
-        if (v == btnFBRegister) {
-            fbLogin();
-        }
+//        if (v == btnFBRegister) {
+//            fbLogin();
+//        }
     }
 
     private void bottomSheetFavRestaurant(final List<RestaurantModel> list) {
@@ -523,6 +544,46 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         });
     }
 
+    private void fetchAllSettingFB(String version, String email) throws UnsupportedEncodingException, JSONException, ParseException {
+
+        JSONObject jsonRequest = new JSONObject();
+
+        jsonRequest.put("email", AppUtils.getAppPreference(context)
+                .getString(AppConstants.USER_EMAIL_ADDRESS, email));
+        jsonRequest.put("country_id", AppUtils.getAppPreference(context)
+                .getInt(AppConstants.USER_COUNTRY, -1));
+        jsonRequest.put("type", "1");
+        jsonRequest.put("version", version);
+
+        AppController.fetchAllSetting(context, jsonRequest.toString(), new Callback() {
+            @Override
+            public void run(Object result) throws JSONException, IOException {
+                try {
+                    JSONObject jsonResponse = new JSONObject((String) result);
+
+                    if (jsonResponse.getString("success").equals("1")) {
+                        JSONObject jsonObject = jsonResponse.getJSONObject("data");
+                        String image_url = jsonObject.getString("Image");
+                        ImageFBDialog.newInstance(context, image_url, true).show();
+
+                    } else if (jsonResponse.getString("success").equals("0")) {
+                        ((Activity) context).startActivity(new Intent(context, RegisterActivity.class));
+                        ((Activity) context).finish();
+//                        AppUtils.showToastMessage(context, jsonResponse.getString("message"));
+                    } else {
+                        if (jsonResponse.getInt("success") != 99) {
+                            AppUtils.showToastMessage(context, getString(R.string.system_error));
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+//                    AppUtils.showToastMessage(context, getString(R.string.system_error));
+                }
+            }
+        });
+    }
+
+
     private void displayDialog(String message) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -668,10 +729,14 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                                     .setCancelable(false)
                                     .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
+//                                            Intent intent = new Intent(context, RegisterActivity.class);
+//                                            intent.putExtra("isFBRegister", true);
+//                                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                                            ((Activity) context).startActivity(intent);
                                             try {
                                                 PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                                                 String version = String.valueOf(pInfo.versionCode);
-                                                fetchAllSetting(version, edEmail.getText().toString().trim());
+                                                fetchAllSettingFB(version, edEmail.getText().toString().trim());
                                             } catch (UnsupportedEncodingException | JSONException | ParseException e) {
                                                 e.printStackTrace();
                                             } catch (Exception e) {

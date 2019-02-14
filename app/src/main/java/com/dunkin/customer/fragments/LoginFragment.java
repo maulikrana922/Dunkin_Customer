@@ -50,7 +50,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private Context context;
     private EditText edEmail, edPassword;
     private TextView txtForgotPassword;
-    private Button btnSubmit, btnSignup, btnFBLogin;
+    private Button btnSubmit, btnSignup;
     private String facebook_id;
 
     @Override
@@ -78,7 +78,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         btnSubmit = (Button) rootView.findViewById(R.id.btnLogin);
         btnSignup = (Button) rootView.findViewById(R.id.btnSignup);
-        btnFBLogin = rootView.findViewById(R.id.btnFBLogin);
 
 //        btnSubmit.imgIcon.setImageResource(R.drawable.ic_btn_login);
 //        btnSubmit.btnText.setText(getString(R.string.btn_signin));
@@ -90,7 +89,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         btnSubmit.setOnClickListener(this);
         btnSignup.setOnClickListener(this);
-        btnFBLogin.setOnClickListener(this);
         txtForgotPassword.setOnClickListener(this);
 
         callbackManager = CallbackManager.Factory.create();
@@ -163,9 +161,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                     }
                 }
         }
-        if (v == btnFBLogin) {
-            fbLogin();
-        }
+//        if (v == btnFBLogin) {
+//            fbLogin();
+//        }
     }
 
     public void fbLogin() {
