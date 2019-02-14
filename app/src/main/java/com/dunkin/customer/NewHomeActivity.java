@@ -216,7 +216,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
 //                        @Override
 //                        public void onAnimationEnd(Animation animation) {
 //                            view.clearAnimation();
-//                            tabAdapter.notifyDataSetChanged();
+                            tabAdapter.notifyDataSetChanged();
 //                        }
 //
 //                        @Override
@@ -256,7 +256,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
 //                        @Override
 //                        public void onAnimationEnd(Animation animation) {
 //                            view.clearAnimation();
-//                            tabAdapter.notifyDataSetChanged();
+                            tabAdapter.notifyDataSetChanged();
 //                        }
 //
 //                        @Override
@@ -280,7 +280,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
 //                        @Override
 //                        public void onAnimationEnd(Animation animation) {
 //                            view.clearAnimation();
-//                            tabAdapter.notifyDataSetChanged();
+                            tabAdapter.notifyDataSetChanged();
 //                        }
 //
 //                        @Override
@@ -304,7 +304,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
 //                        @Override
 //                        public void onAnimationEnd(Animation animation) {
 //                            view.clearAnimation();
-//                            tabAdapter.notifyDataSetChanged();
+                            tabAdapter.notifyDataSetChanged();
 //                        }
 //
 //                        @Override
@@ -327,7 +327,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
 //                        @Override
 //                        public void onAnimationEnd(Animation animation) {
 //                            view.clearAnimation();
-//                            tabAdapter.notifyDataSetChanged();
+                            tabAdapter.notifyDataSetChanged();
 //                        }
 //
 //                        @Override
