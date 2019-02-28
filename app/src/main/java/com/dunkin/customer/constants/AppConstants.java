@@ -16,7 +16,8 @@ public class AppConstants {
 
     public static final String POST = "post";
     public static final String GET = "get";
-    public static final String GCM_SENDER_ID = "604439655068"; // OLD
+    public static final String GCM_SENDER_ID = "61784081159"; // OLD
+//    public static final String GCM_SENDER_ID = "604439655068"; // OLD
     //public static final String GCM_SENDER_ID = "863509219024"; // NEW
     public static final String USER_EMAIL_ADDRESS = "email";
     public static final String USER_NAME = "name";

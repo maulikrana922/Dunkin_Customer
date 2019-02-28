@@ -1,20 +1,27 @@
 {
   "project_info": {
-    "project_number": "863509219024",
-    "project_id": "dunkin-customerapp"
+    "project_number": "61784081159",
+    "firebase_url": "https://dunkin-leb.firebaseio.com",
+    "project_id": "dunkin-leb",
+    "storage_bucket": "dunkin-leb.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:863509219024:android:be6fa2016325a65d",
+        "mobilesdk_app_id": "1:61784081159:android:be6fa2016325a65d",
         "android_client_info": {
           "package_name": "com.dunkin.customer"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "61784081159-af3hqt7n386kute702b3bdvdhcat5342.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyBFCjat1kh4aHfhkcWEVbE6uZHM1QilmDI"
+          "current_key": "AIzaSyAiqv4CpMV3Fv6ewR8LZ_OEkZhfvr26Ag8"
         }
       ],
       "services": {
@@ -26,7 +33,7 @@
           "other_platform_oauth_client": []
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }

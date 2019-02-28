@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/custom_notification"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -44,7 +45,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/spacing_medium"
                 android:layout_marginStart="@dimen/spacing_medium"
-                android:maxLines="2"
                 android:textColor="#6E6E6E"
                 android:textSize="14sp" />
         </LinearLayout>
