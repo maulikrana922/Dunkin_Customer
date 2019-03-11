@@ -34,12 +34,12 @@ public class RegistrationIntentService extends IntentService {
 //        myPrefs = AppUtils.getAppPreference(this);
         InstanceID instanceID = InstanceID.getInstance(this);
         try {
-            String token = instanceID.getToken(AppConstants.GCM_SENDER_ID,
-                    GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
-//            String token = FirebaseInstanceId.getInstance().getToken();
+//            String token = instanceID.getToken(AppConstants.GCM_SENDER_ID,
+//                    GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+            String token = FirebaseInstanceId.getInstance().getToken();
 //            myPrefs.edit().putString(AppConstants.GCM_TOKEN_ID, token).apply();
 
-            Dunkin_Log.d("GCMToken Id : ", token);
+//            Dunkin_Log.d("FCMToken Id : ", token);
 
             myPrefs = AppUtils.getAppPreference(this);
             SharedPreferences.Editor editor = myPrefs.edit();

@@ -2,7 +2,6 @@ package com.dunkin.customer;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -21,6 +20,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -164,6 +164,10 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             getSupportActionBar().setDisplayShowHomeEnabled(false);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
+
+        if (!TextUtils.isEmpty(AppUtils.getAppPreference(this).getString(AppConstants.GCM_TOKEN_ID, ""))) {
+            Log.w("FCM token: ", AppUtils.getAppPreference(this).getString(AppConstants.GCM_TOKEN_ID, ""));
         }
 
         if (getIntent().hasExtra("FromGCM")) {
@@ -980,6 +984,13 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
         }
     }
 
+    public void removeBackStackFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        for (int i = 0; i < fm.getBackStackEntryCount(); ++i) {
+            fm.popBackStack();
+        }
+    }
+
     public class GetFileTask extends AsyncTask<String, Void, String> {
         private FileDownloadListener downloadListner;
 
@@ -1049,13 +1060,6 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                 e.printStackTrace();
             }
             return null;
-        }
-    }
-
-    public void removeBackStackFragment(){
-        FragmentManager fm = getSupportFragmentManager();
-        for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
-            fm.popBackStack();
         }
     }
 }

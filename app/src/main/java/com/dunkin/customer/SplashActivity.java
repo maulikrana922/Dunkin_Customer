@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +27,7 @@ import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.models.CountriesModel;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
@@ -131,7 +133,8 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void getGcmToken() {
-        if (myPrefs.getString(AppConstants.GCM_TOKEN_ID, null) == null) {
+        String token = myPrefs.getString(AppConstants.GCM_TOKEN_ID, "");
+        if (TextUtils.isEmpty(token) || (!(token.equals(FirebaseInstanceId.getInstance().getToken())))) {
             Intent intent = new Intent(SplashActivity.this, RegistrationIntentService.class);
             startService(intent);
         } else {

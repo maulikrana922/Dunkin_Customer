@@ -47,13 +47,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     @Override
     public void onMessageReceived(RemoteMessage message) {
-        Dunkin_Log.e("GCMResponse", message.toString());
+        Dunkin_Log.e("FCMResponse", message.toString());
         int counter = AppUtils.getAppPreference(this).getInt(AppConstants.NOTIFICATION_COUNTER, -1);
         SharedPreferences.Editor editor = AppUtils.getAppPreference(this).edit();
         editor.putInt(AppConstants.NOTIFICATION_COUNTER, counter + 1);
         editor.apply();
-        Map data = message.getData();
-        sendNotification(data, counter);
+        sendNotification(message.getData(), counter);
     }
 
     private void sendNotification(Map data, int counter) {
@@ -230,7 +229,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             RemoteViews contentView = new RemoteViews(getPackageName(), R.layout.custom_notification);
             contentView.setImageViewResource(R.id.notification_image, R.mipmap.ic_launcher);
             contentView.setTextViewText(R.id.notification_title, getApplication().getString(R.string.app_name));
-            contentView.setTextViewText(R.id.notification_text, Html.fromHtml(data.get("message").toString()));
+            contentView.setTextViewText(R.id.notification_text, data.get("message")!=null ? Html.fromHtml(data.get("message").toString()) : "");
             if (bitmap != null)
                 contentView.setImageViewBitmap(R.id.ivNotiBigPic, bitmap);
 //            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
@@ -242,7 +241,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             RemoteViews contentViewExpanded = new RemoteViews(getPackageName(), R.layout.custom_notification_expaned_big_picture);
             contentViewExpanded.setImageViewResource(R.id.notification_image, R.mipmap.ic_launcher);
             contentViewExpanded.setTextViewText(R.id.notification_title, getApplication().getString(R.string.app_name));
-            contentViewExpanded.setTextViewText(R.id.notification_text, Html.fromHtml(data.get("message").toString()));
+            contentViewExpanded.setTextViewText(R.id.notification_text, data.get("message")!=null ? Html.fromHtml(data.get("message").toString()) : "");
             if (bitmap != null) {
                 contentViewExpanded.setImageViewBitmap(R.id.ivBigPicture, bitmap);
 //                notificationBuilder.setCustomBigContentView(contentViewExpanded);
