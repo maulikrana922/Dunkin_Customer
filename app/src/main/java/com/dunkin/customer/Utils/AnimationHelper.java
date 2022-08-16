@@ -27,9 +27,10 @@ package com.dunkin.customer.Utils;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
-import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.view.animation.Interpolator;
+
+import androidx.core.view.ViewCompat;
 
 import java.util.ArrayList;
 import java.util.List;

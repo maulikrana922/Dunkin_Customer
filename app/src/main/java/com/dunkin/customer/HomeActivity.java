@@ -11,12 +11,15 @@ import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -770,7 +773,7 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
 
             case AppConstants.MENU_SETTINGS:
-                startActivityForResult(new Intent(HomeActivity.this, com.dunkin.customer.SettingActivity.class), 301);
+                startActivityForResult(new Intent(HomeActivity.this, SettingActivity.class), 301);
                 return true;
 
             case AppConstants.MENU_CONTACT_US:
@@ -834,17 +837,17 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onSaveInstanceState(final Bundle outState) {
-        //outState.putInt(NAV_ITEM_ID, mNavItemId);
-        //super.onSaveInstanceState(outState);
-
-        //No call for super(). Bug on API Level > 11.
-
-        // If you need to save the instance, and add something to your outState Bundle you can use the following :
-        //outState.putString("WORKAROUND_FOR_BUG_19917_KEY", "WORKAROUND_FOR_BUG_19917_VALUE");
-        //super.onSaveInstanceState(outState);
-    }
+//    @Override
+//    protected void onSaveInstanceState(final Bundle outState) {
+//        //outState.putInt(NAV_ITEM_ID, mNavItemId);
+//        //super.onSaveInstanceState(outState);
+//
+//        //No call for super(). Bug on API Level > 11.
+//
+//        // If you need to save the instance, and add something to your outState Bundle you can use the following :
+//        //outState.putString("WORKAROUND_FOR_BUG_19917_KEY", "WORKAROUND_FOR_BUG_19917_VALUE");
+//        //super.onSaveInstanceState(outState);
+//    }
 
     private void showDialogBox(String message, String title) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(HomeActivity.this);
@@ -869,7 +872,7 @@ public class HomeActivity extends AppCompatActivity {
                                 editor.apply();
                                 CustomerApplication.setLocale(new Locale(AppConstants.LANG_EN));
                                 finish();
-                                startActivity(new Intent(HomeActivity.this, com.dunkin.customer.RegisterActivity.class));
+                                startActivity(new Intent(HomeActivity.this, RegisterActivity.class));
                             } else if (jsonResponse.getInt("success") == 100) {
                                 AppUtils.showToastMessage(getApplicationContext(), jsonResponse.getString("message"));
                             } else {
@@ -1036,7 +1039,7 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    public class MyActionBarDrawerToggle extends android.support.v7.app.ActionBarDrawerToggle {
+    public class MyActionBarDrawerToggle extends ActionBarDrawerToggle {
         MyActionBarDrawerToggle(Activity activity, final DrawerLayout drawerLayout, Toolbar toolbar, int openDrawerContentDescRes, int closeDrawerContentDescRes) {
             super(activity, drawerLayout, toolbar, openDrawerContentDescRes, closeDrawerContentDescRes);
 

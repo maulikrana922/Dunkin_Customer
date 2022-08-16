@@ -8,9 +8,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -38,6 +39,7 @@ import com.dunkin.customer.listener.OnGiftClick;
 import com.dunkin.customer.models.GiftModel;
 import com.dunkin.customer.models.RestaurantModel;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.google.android.material.tabs.TabLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;

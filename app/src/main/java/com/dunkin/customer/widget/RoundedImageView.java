@@ -14,7 +14,9 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-public class RoundedImageView extends android.support.v7.widget.AppCompatImageView {
+import androidx.appcompat.widget.AppCompatImageView;
+
+public class RoundedImageView extends AppCompatImageView {
 
        public RoundedImageView(Context ctx, AttributeSet attrs) {
               super(ctx, attrs);
@@ -33,7 +35,7 @@ public class RoundedImageView extends android.support.v7.widget.AppCompatImageVi
                      return;
               }
               Bitmap b = ((BitmapDrawable) drawable).getBitmap();
-              Bitmap bitmap = b.copy(Bitmap.Config.ARGB_8888, true);
+              Bitmap bitmap = b.copy(Config.ARGB_8888, true);
 
               int w = getWidth(), h = getHeight();
 

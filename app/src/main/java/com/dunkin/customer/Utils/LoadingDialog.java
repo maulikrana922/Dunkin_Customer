@@ -2,8 +2,9 @@ package com.dunkin.customer.Utils;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatDialog;
 import android.view.Window;
+
+import androidx.appcompat.app.AppCompatDialog;
 
 import com.dunkin.customer.R;
 

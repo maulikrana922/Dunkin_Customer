@@ -9,9 +9,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.ActivityCompat;import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -222,15 +221,15 @@ public class NearRestaurantFragment extends Fragment implements OnMapReadyCallba
                 @Override
                 protected void onClickConfirmed(View v, Marker marker) {
                     rm = markers.get(marker);
-                    Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+                    Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
                     String[] recipients = new String[]{rm.getEmail(), "",};
 
-                    emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, recipients);
+                    emailIntent.putExtra(Intent.EXTRA_EMAIL, recipients);
 
-                    emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "");
+                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "");
 
-                    emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "");
+                    emailIntent.putExtra(Intent.EXTRA_TEXT, "");
 
                     emailIntent.setType("message/rfc822");
 

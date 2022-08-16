@@ -14,9 +14,13 @@ import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.content.ContextCompat;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 import android.text.Html;
+import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.bumptech.glide.Glide;
@@ -31,6 +35,7 @@ import com.dunkin.customer.OrderHistoryDetailActivity;
 import com.dunkin.customer.PromoCodeDetailActivity;
 import com.dunkin.customer.R;
 import com.dunkin.customer.RegisterActivity;
+import com.dunkin.customer.RegistrationIntentService;
 import com.dunkin.customer.SplashActivity;
 import com.dunkin.customer.Utils.AppUtils;
 import com.dunkin.customer.Utils.Dunkin_Log;
@@ -44,10 +49,28 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
+    private String TAG = "MyFirebaseInstanceIDService";
+    private SharedPreferences myPrefs;
+
 
     @Override
+    public void onNewToken(@NonNull String token) {
+        myPrefs = AppUtils.getAppPreference(this);
+        Log.d(TAG, "Refreshed token: " + token);
+        // TODO: Implement this method to send any registration to your app's servers.
+        sendRegistrationToServer(token);
+        // Fetch updated Instance ID token and notify our app's server of any changes (if applicable).
+        Intent i = new Intent(this, RegistrationIntentService.class);
+        startService(i);
+    }
+
+    private void sendRegistrationToServer(String token) {
+        // Add custom implementation, as needed.
+        myPrefs.edit().putString(AppConstants.GCM_TOKEN_ID, token).apply();
+    }
+    @Override
     public void onMessageReceived(RemoteMessage message) {
-        Dunkin_Log.e("FCMResponse", message.toString());
+        Dunkin_Log.e("FCMResponse", message.getData().toString());
         int counter = AppUtils.getAppPreference(this).getInt(AppConstants.NOTIFICATION_COUNTER, -1);
         SharedPreferences.Editor editor = AppUtils.getAppPreference(this).edit();
         editor.putInt(AppConstants.NOTIFICATION_COUNTER, counter + 1);
@@ -214,8 +237,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             if (data.containsKey("pic_url")) {
                 try {
                     bitmap = Glide.with(getApplicationContext())
-                            .load(data.get("pic_url"))
                             .asBitmap()
+                            .load(data.get("pic_url"))
                             .centerCrop()
                             .into(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                             .get();

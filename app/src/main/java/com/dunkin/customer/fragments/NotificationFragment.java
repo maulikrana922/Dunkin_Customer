@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +31,7 @@ import com.dunkin.customer.constants.AppConstants;
 import com.dunkin.customer.controllers.AppController;
 import com.dunkin.customer.models.NotificationModel;
 import com.dunkin.customer.models.NotificationResponseModel;
+import com.dunkin.customer.widget.CustomTextView;
 import com.dunkin.customer.widget.RelativeLayoutButton;
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -49,7 +50,7 @@ public class NotificationFragment extends Fragment {
     private Context context;
     private ProgressBar progressLoading;
     private ListView lvList;
-    private RelativeLayoutButton btnRemove, btnRemoveSelected;
+    private RelativeLayoutButton  btnRemove,btnRemoveSelected;
     private List<NotificationModel> notificationList;
     private NotificationAdapter notificationAdapter;
 
@@ -62,10 +63,10 @@ public class NotificationFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_notification, container, false);
-        btnRemove = (RelativeLayoutButton) rootView.findViewById(R.id.btnRemove);
-        btnRemove.imgIcon.setImageResource(R.drawable.ic_white_submit);
-        btnRemove.btnText.setText(getString(R.string.btn_remove_notification));
-        btnRemove.setVisibility(View.GONE);
+        btnRemove = (RelativeLayoutButton) rootView.findViewById(R.id.btnRemoveL);
+        ((RelativeLayoutButton)rootView.findViewById(R.id.btnRemoveL)).imgIcon.setImageResource(R.drawable.ic_white_submit);
+        ((RelativeLayoutButton)rootView.findViewById(R.id.btnRemoveL)).btnText.setText(getString(R.string.btn_remove_notification));
+        ((RelativeLayoutButton)rootView.findViewById(R.id.btnRemoveL)).setVisibility(View.GONE);
 
         btnRemoveSelected = (RelativeLayoutButton) rootView.findViewById(R.id.btnRemoveSelected);
         btnRemoveSelected.imgIcon.setImageResource(R.drawable.ic_white_submit);
@@ -83,7 +84,7 @@ public class NotificationFragment extends Fragment {
             e.printStackTrace();
         }
 
-        btnRemove.setOnClickListener(new View.OnClickListener() {
+        ((RelativeLayoutButton)rootView.findViewById(R.id.btnRemoveL)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final JSONArray jsonArray = new JSONArray();
@@ -233,10 +234,10 @@ public class NotificationFragment extends Fragment {
         list.clear();
         notificationAdapter.notifyDataSetChanged();
         if (notificationList != null && notificationList.size() > 0) {
-            btnRemove.setVisibility(View.VISIBLE);
+            ((RelativeLayoutButton)rootView.findViewById(R.id.btnRemoveL)).setVisibility(View.VISIBLE);
             btnRemoveSelected.setVisibility(View.VISIBLE);
         } else {
-            btnRemove.setVisibility(View.GONE);
+            ((RelativeLayoutButton)rootView.findViewById(R.id.btnRemoveL)).setVisibility(View.GONE);
             btnRemoveSelected.setVisibility(View.GONE);
         }
     }
@@ -262,10 +263,10 @@ public class NotificationFragment extends Fragment {
                 lvList.setEmptyView(rootView.findViewById(R.id.emptyElement));
 
                 if (notificationList != null && notificationList.size() > 0) {
-                    btnRemove.setVisibility(View.VISIBLE);
+                    ((RelativeLayoutButton)rootView.findViewById(R.id.btnRemoveL)).setVisibility(View.VISIBLE);
                     btnRemoveSelected.setVisibility(View.VISIBLE);
                 } else {
-                    btnRemove.setVisibility(View.GONE);
+                    ((RelativeLayoutButton)rootView.findViewById(R.id.btnRemoveL)).setVisibility(View.GONE);
                     btnRemoveSelected.setVisibility(View.GONE);
                 }
             }

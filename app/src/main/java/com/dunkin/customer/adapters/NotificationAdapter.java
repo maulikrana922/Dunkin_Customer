@@ -2,7 +2,7 @@ package com.dunkin.customer.adapters;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;

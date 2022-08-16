@@ -10,7 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Patterns;
@@ -292,7 +292,10 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
     private void bottomSheetFavRestaurant(final List<RestaurantModel> list) {
         try {
-            final View view = getLayoutInflater(null).inflate(R.layout.bottom_sheet_layout_fav_restaurant, null);
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
+
+
+            final View view =inflater.inflate(R.layout.bottom_sheet_layout_fav_restaurant, null);
 
             lvRestaurantList = (ListView) view.findViewById(R.id.lvRestaurantList);
 

@@ -85,7 +85,7 @@ public class CartActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void checkOut() {
-        Intent i = new Intent(context, com.dunkin.customer.CartDetailActivity.class);
+        Intent i = new Intent(context, CartDetailActivity.class);
         startActivityForResult(i, 1);
     }
 

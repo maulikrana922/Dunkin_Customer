@@ -31,8 +31,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignBottom="@+id/imgLogo"
+        android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imgLogo"
         android:layout_marginEnd="@dimen/spacing_medium"
         android:layout_marginLeft="@dimen/spacing_medium"

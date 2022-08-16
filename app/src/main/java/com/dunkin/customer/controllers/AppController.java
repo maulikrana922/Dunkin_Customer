@@ -1,6 +1,7 @@
 package com.dunkin.customer.controllers;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import com.dunkin.customer.DBAdaters.DBAdapter;
 import com.dunkin.customer.Utils.AppUtils;
@@ -191,6 +192,8 @@ public class AppController {
         jsonRequest.put("lang_flag", AppUtils.getAppPreference(context).getString(AppConstants.USER_LANGUAGE, AppConstants.LANG_EN));
         jsonRequest.put("isDirectExit", isDirectExit);
         //  Dunkin_Log.e("DataRequest", jsonRequest.toString());
+//        Toast.makeText(context, "Api = "+ URLConstant.LOGOUT_USER_URL, Toast.LENGTH_SHORT).show();
+
         org.apache.http.entity.StringEntity se = new org.apache.http.entity.StringEntity(jsonRequest.toString(), AppConstants.encodeType);
         AppUtils.requestCallAsyncTask(URLConstant.LOGOUT_USER_URL, jsonRequest.toString(), callback);
     }

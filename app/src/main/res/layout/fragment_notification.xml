@@ -5,7 +5,7 @@
     android:padding="@dimen/spacing_medium">
 
     <include
-        android:id="@+id/btnRemove"
+        android:id="@+id/btnRemoveL"
         layout="@layout/rl_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

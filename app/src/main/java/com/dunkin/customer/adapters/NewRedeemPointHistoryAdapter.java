@@ -1,8 +1,11 @@
 package com.dunkin.customer.adapters;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +33,7 @@ public class NewRedeemPointHistoryAdapter extends RecyclerView.Adapter<NewRedeem
 
 
     @Override
-    public void onBindViewHolder(NewRedeemPointHistoryAdapter.ItemHolder viewHolder, int position) {
+    public void onBindViewHolder(ItemHolder viewHolder, int position) {
         RedeemHistoryModel redeemHistoryModel = getItem(position);
 
         viewHolder.itemLayout.setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent));
@@ -60,8 +63,8 @@ public class NewRedeemPointHistoryAdapter extends RecyclerView.Adapter<NewRedeem
     }
 
     @Override
-    public NewRedeemPointHistoryAdapter.ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new NewRedeemPointHistoryAdapter.ItemHolder(
+    public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new ItemHolder(
                 LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.custom_redeem_history_layout,
                                 parent, false));

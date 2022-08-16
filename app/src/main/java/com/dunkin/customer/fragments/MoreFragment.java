@@ -11,8 +11,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import javax.annotation.Nullable;
+
+
+import androidx.fragment.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -132,8 +134,7 @@ public class MoreFragment extends Fragment {
                         newsFragmentTitles = new ArrayList<>();
                         navigationList = new ArrayList<>();
                         LinkedHashMap<String, LinkedHashMap<Integer, String>> navigationMap;
-                        navigationMap = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONObject("message").toString(), new TypeReference<LinkedHashMap<String, LinkedHashMap<Integer, String>>>() {
-                        }); // get all vlaues
+                        navigationMap = AppUtils.getJsonMapper().readValue(jsonResponse.getJSONObject("message").toString(), new TypeReference<LinkedHashMap<String, LinkedHashMap<Integer, String>>>() {}); // get all vlaues
 
                         Set<String> navigationKey = navigationMap.keySet(); // get only key
 
@@ -673,7 +674,7 @@ public class MoreFragment extends Fragment {
                         editor.apply();
                         CustomerApplication.setLocale(new Locale(AppConstants.LANG_EN));
                         ((Activity) context).finish();
-                        startActivity(new Intent(context, com.dunkin.customer.RegisterActivity.class));
+                        startActivity(new Intent(context, RegisterActivity.class));
                     }
                 });
 
@@ -705,7 +706,7 @@ public class MoreFragment extends Fragment {
                                 editor.apply();
                                 CustomerApplication.setLocale(new Locale(AppConstants.LANG_EN));
                                 homeActivity.finish();
-                                startActivity(new Intent(homeActivity, com.dunkin.customer.RegisterActivity.class));
+                                startActivity(new Intent(homeActivity, RegisterActivity.class));
                             } else if (jsonResponse.getInt("success") == 100) {
                                 AppUtils.showToastMessage(homeActivity, jsonResponse.getString("message"));
                             } else {

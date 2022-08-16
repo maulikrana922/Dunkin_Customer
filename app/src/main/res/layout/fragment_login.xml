@@ -82,6 +82,7 @@
                             android:paddingStart="@dimen/spacing_large"
                             android:textColor="@color/textbox_font"
                             android:textColorHint="@color/textbox_font"
+                            android:importantForAutofill="no"
                             app:fontName="dd_light.otf" />
                     </LinearLayout>
 

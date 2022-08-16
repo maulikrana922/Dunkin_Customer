@@ -12,8 +12,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.NotificationCompat;import androidx.core.content.ContextCompat;
 import android.text.Html;
 import android.widget.RemoteViews;
 

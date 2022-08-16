@@ -54,7 +54,7 @@ public class ImageUpdateAppDialog extends Dialog {
     public static ImageUpdateAppDialog newInstance(Context mContext, String imgPath, boolean FromWhere) {
         if (f == null) {
             int theme = R.style.LoadingDialog;
-            f = new com.dunkin.customer.dialogs.ImageUpdateAppDialog(mContext, theme/*android.R.style.Theme_Translucent_NoTitleBar_Fullscreen*/, imgPath, FromWhere);
+            f = new ImageUpdateAppDialog(mContext, theme/*android.R.style.Theme_Translucent_NoTitleBar_Fullscreen*/, imgPath, FromWhere);
         }
         return f;
     }
@@ -62,7 +62,7 @@ public class ImageUpdateAppDialog extends Dialog {
     public static ImageUpdateAppDialog newInstance(Context mContext, String imgPath) {
         if (f == null) {
             int theme = R.style.LoadingDialog;
-            f = new com.dunkin.customer.dialogs.ImageUpdateAppDialog(mContext, theme/*android.R.style.Theme_Translucent_NoTitleBar_Fullscreen*/, imgPath);
+            f = new ImageUpdateAppDialog(mContext, theme/*android.R.style.Theme_Translucent_NoTitleBar_Fullscreen*/, imgPath);
         }
         return f;
     }

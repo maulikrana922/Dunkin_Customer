@@ -2,8 +2,13 @@
     <!--<string name="app_name">Dunkin Lebanon</string>-->
     <string name="app_name" translatable="false">Dunkin Leb</string>
     <!--<string name="facebook_app_id" translatable="false">673553769448453</string>-->
-    <string name="facebook_app_id">1970560159903967</string>
-    <string name="fb_login_protocol_scheme">fb1970560159903967</string>
+
+
+    <string name="facebook_app_id">3174642972749803</string>
+    <string name="fb_login_protocol_scheme">fb3174642972749803</string>
+    <string name="facebook_client_token">f550badb22fec5e978325d7f3a1d88cd</string>
+   <!-- <string name="facebook_app_id">1970560159903967</string>
+    <string name="fb_login_protocol_scheme">fb1970560159903967</string>-->
     <string name="google_id" translatable="false">AIzaSyAHzEEEadS4uCmVkeLS8mazKMIHfnt62-I</string>
     <string name="lbl_app_version" translatable="false">V4.0.11032019</string>
     <!--<string name="lbl_consulting_website" translatable="false">www.MindSource-Consulting.com - All Rights Reserved - Copyright © 2016</string>-->

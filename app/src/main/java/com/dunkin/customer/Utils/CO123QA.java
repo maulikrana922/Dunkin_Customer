@@ -6,12 +6,29 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 
 /**
  * Created by mital on 9/11/17.
  */
 
 public class CO123QA {
+
+    public static String compress(String string) throws IOException {
+        ByteArrayOutputStream os = new ByteArrayOutputStream(string.length());
+        GZIPOutputStream gos = new GZIPOutputStream(os);
+        gos.write(string.getBytes());
+        gos.close();
+        byte[] compressed = os.toByteArray();
+        os.close();
+        return base64Compress(compressed);
+    }
+
+    private static String base64Compress(byte[] data) {
+        return Base64.encodeToString(data, Base64.NO_WRAP);
+    }
+
+
 
 
 

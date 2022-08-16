@@ -211,7 +211,7 @@
         <!--android:dividerHeight="2dp"-->
         <!--android:scrollbars="none" />-->
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lvLoadList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

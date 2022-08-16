@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -25,6 +25,7 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,6 +39,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     LinearLayout llLoginSignUp;
     TextView txtFBLogin;
+    LoginButton facebookBtn;
     CallbackManager callbackManager;
 
     @Override
@@ -45,8 +47,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+
         llLoginSignUp = (LinearLayout) findViewById(R.id.llLoginSignUp);
         txtFBLogin = findViewById(R.id.txtFBLogin);
+        facebookBtn=findViewById(R.id.login_button);
+        facebookBtn.setOnClickListener(this);
         txtFBLogin.setOnClickListener(this);
         callbackManager = CallbackManager.Factory.create();
 
@@ -95,13 +100,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             case R.id.txtFBLogin:
                 fbLogin();
                 break;
+
         }
     }
+
 
     public void fbLogin() {
         LoginManager.getInstance().logOut();
         callbackManager = CallbackManager.Factory.create();
-        LoginManager.getInstance().registerCallback(callbackManager,
+        facebookBtn.registerCallback(callbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
@@ -200,6 +207,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     }
                 });
         LoginManager.getInstance().logInWithReadPermissions(this, Collections.singletonList("email, public_profile"));
+        facebookBtn.performClick();
     }
 
     @Override

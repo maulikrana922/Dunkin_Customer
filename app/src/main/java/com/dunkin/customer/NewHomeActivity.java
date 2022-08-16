@@ -13,12 +13,15 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -520,7 +523,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
                         editor.apply();
                         CustomerApplication.setLocale(new Locale(AppConstants.LANG_EN));
                         NewHomeActivity.this.finish();
-                        startActivity(new Intent(NewHomeActivity.this, com.dunkin.customer.RegisterActivity.class));
+                        startActivity(new Intent(NewHomeActivity.this, RegisterActivity.class));
                     } else if (jsonResponse.getInt("success") == 100) {
 
                         AppUtils.showToastMessage(mContext, jsonResponse.getString("message"));
@@ -606,7 +609,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
 
     @TargetApi(Build.VERSION_CODES.M)
     public boolean getAppPermissions() {
-        if (ActivityCompat.checkSelfPermission(NewHomeActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+        if (ActivityCompat.checkSelfPermission(NewHomeActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 || ActivityCompat.checkSelfPermission(NewHomeActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(NewHomeActivity.this, PERMISSIONS, 101);
@@ -791,17 +794,17 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
             isScanWinEnable = jsonResponse.getString("isScanWinEnable");
             isOfferEnable = jsonResponse.getString("isOfferEnable");
             if (ActivityCompat.checkSelfPermission(mContext,
-                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
                     &&
                     ActivityCompat.checkSelfPermission(mContext,
-                            android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                            Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 
                 ActivityCompat.requestPermissions(NewHomeActivity.this, permsReadWrite, PERMISSION_STORAGE_READ_WRITE_REQUEST_CODE);
             } else if (ActivityCompat.checkSelfPermission(mContext,
-                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
                     &&
                     ActivityCompat.checkSelfPermission(mContext,
-                            android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                            Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                 fileDownload();
             }
         }
@@ -813,7 +816,7 @@ public class NewHomeActivity extends AppCompatActivity implements OnTabClick, Vi
          */
 
 //        showProgressDialog();
-        new NewHomeActivity.GetFileTask(mContext, new FileDownloadListener() {
+        new GetFileTask(mContext, new FileDownloadListener() {
             @Override
             public void onFileDownload(String path) {
 //                dismissProgressDialog();

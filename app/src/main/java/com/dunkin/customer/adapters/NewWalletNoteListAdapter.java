@@ -1,7 +1,8 @@
 package com.dunkin.customer.adapters;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,8 +64,8 @@ public class NewWalletNoteListAdapter extends RecyclerView.Adapter<NewWalletNote
     }
 
     @Override
-    public NewWalletNoteListAdapter.ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new NewWalletNoteListAdapter.ItemHolder(
+    public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new ItemHolder(
                 LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.item_column_layout_new,
                                 parent, false));

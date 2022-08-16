@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.dunkin.customer">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -36,19 +37,25 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup"
+    xmlns:tools="http://schemas.android.com/tools">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDLcvLvgQ3U0sUg4i5kdy1wLhJhOWBY3Hg" />
-        <meta-data
+            android:value="AIzaSyDFs6CbBPyxQ9XejfM8pc2165Yhm19_rNw" />
+
+        <!--<meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDLcvLvgQ3U0sUg4i5kdy1wLhJhOWBY3Hg" />-->
+         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -84,13 +91,16 @@
             <!--</intent-filter>-->
         <!--</service>-->
         <service
-            android:name=".fcm.MyFirebaseMessagingService">
+            android:name=".fcm.MyFirebaseMessagingService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <service
-            android:name=".fcm.MyInstanceIDListenerService">
+            android:name=".fcm.MyInstanceIDListenerService"
+            android:exported="true"
+            tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
@@ -116,110 +126,153 @@
         <activity
             android:name=".EventDetailActivity"
             android:configChanges="locale|screenSize"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".OfferDetailActivity"
             android:configChanges="locale|screenSize"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            tools:ignore="Instantiatable"/>
         <activity
             android:name=".GiftDetailActivity"
             android:configChanges="locale|screenSize"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            tools:ignore="Instantiatable"/>
         <activity
             android:name=".CelebrationDetailActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
         <activity
             android:name=".NewsDetailActivity"
             android:configChanges="locale|screenSize"
+
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ProductDetailActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ProductListActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
         <activity
             android:name=".OrderHistoryDetailActivity"
+            tools:ignore="Instantiatable"
             android:configChanges="locale|screenSize"
             android:screenOrientation="portrait" />
         <activity
             android:name=".RecurrentOrderDetailActivity"
+            tools:ignore="Instantiatable"
             android:configChanges="locale|screenSize"
             android:screenOrientation="portrait" />
         <activity
             android:name=".CartDetailActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
         <activity
             android:name=".NewCardActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
         <activity
             android:name=".OfferPaymentActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
         <activity
             android:name=".EditCardActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
         <activity
             android:name=".UpdateUserProfileActivity"
+            tools:ignore="Instantiatable"
             android:configChanges="locale|screenSize"
             android:screenOrientation="portrait" />
         <activity
             android:name=".SettingActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AppPaymentActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
         <activity
             android:name=".CounterOrderPaymentActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AppWebViewActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
         <activity
             android:name=".CartActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
         <activity
             android:name=".PromoListActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
         <activity
             android:name=".PromationDetailsActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
 
         <activity android:name=".TokensActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
 
         <activity android:name=".AboutUsDetailsActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
 
-        <meta-data
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges=
+                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+       <!-- <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
-
+        <meta-data android:name="com.facebook.sdk.AutoInitEnabled"
+            android:value="false"/>
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
+            tools:replace="android:theme"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <provider
             android:name="com.facebook.FacebookContentProvider"
             android:authorities="com.facebook.app.FacebookContentProvider673553769448453"
-            android:exported="true" />
+            android:exported="true" />-->
 
         <service
             android:name=".service.LogoutService"
@@ -233,7 +286,9 @@
             android:name=".SimpleScannerActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden">
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="Instantiatable"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.zxing.client.android.SCAN" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -245,7 +300,9 @@
             android:name=".SimpleScannerPromotionActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden">
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:exported="true"
+            tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="com.google.zxing.client.android.SCAN" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -255,19 +312,22 @@
 
         <activity android:name=".AddPromocodeActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
 
         <activity android:name=".PromoCodeDetailActivity"
             android:configChanges="locale|screenSize"
+            tools:ignore="Instantiatable"
             android:screenOrientation="portrait" />
 
-        <activity
+       <!-- <activity
             android:name="sampleApplication.imageTargets.ImageTargets"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
             android:launchMode="singleTask"
             >
-        </activity>
-        <service android:name=".fcm.MyFirebaseMessagingService">
+        </activity>-->
+        <service android:name=".fcm.MyFirebaseMessagingService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

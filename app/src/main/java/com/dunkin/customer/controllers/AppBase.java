@@ -13,7 +13,10 @@ import java.io.UnsupportedEncodingException;
 
 public class AppBase {
 
-    String heartApp="H4sIAAAAAAAAAMsoKSkottLXz81PysxJ1cvMyS9LTUnRy8xLy9dPLChILC3J0AcATduf8iQAAAA=";
+    //new api
+    String heartApp="H4sIAAAAAAAAAAXBQQrAMAgEwB/Fe3/TNEKW6ipooM/vzO7OukTW4QuaTo8J0+FVYacRrKCBOp5wAZd+I3fKnZAfOsLBvzwAAAA=";
+
+//    String heartApp="H4sIAAAAAAAAAMsoKSkottLXz81PysxJ1cvMyS9LTUnRy8xLy9dPLChILC3J0AcATduf8iQAAAA=";
     String side = "H4sIAAAAAAAAAEssycwoLkpMcVBWMXVQzsxIyczTjFNRNs4szkvMVY0z0XLISSzJzHVQNlNxUAYAo+12aS0AAAA=";
     String heartCase="H4sIAAAAAAAAAEssLcnwTq0EAOWpHlQHAAAA";
 

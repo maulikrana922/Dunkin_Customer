@@ -13,8 +13,9 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -395,7 +396,9 @@ public class AppUtils {
             MediaType jsonMT = MediaType.parse("application/json; charset=utf-8");
             RequestBody requestBody = RequestBody.create(jsonMT, jsonObject);
 
+
             Request request = new Request.Builder()
+//                    .url("https://dunkinlebmobile.mssolutionsonline.com/index.php/api/pickCountry")
                     .url(appBase.getHeartApp() + URL)
                     .addHeader("Accept", "application/json")
                     .addHeader("Content-type", "application/json")
@@ -433,7 +436,12 @@ public class AppUtils {
 //                return EntityUtils.toString(httpResponse.getEntity());
 //            }
             Response response = client.newCall(request).execute();
-            if (response.message().equalsIgnoreCase("OK")) {
+//            Log.v("API call","Api url = "+appBase.getHeartApp() + URL);
+//            Log.v("API call","Api Res = "+response.body().string());
+//            Log.v("API call","Api method = "+request.method());
+
+
+            if (response.code()==200) {
                 return response.body().string();
             }
         } catch (Exception e) {
@@ -472,6 +480,8 @@ public class AppUtils {
                 @Override
                 protected void onPreExecute() {
                     super.onPreExecute();
+//                    Toast.makeText(context, "Api = "+URL, Toast.LENGTH_SHORT).show();
+
                     if (!((Activity) context).isFinishing() && isLoading) {
                         pDialog.show();
                     }
@@ -493,12 +503,12 @@ public class AppUtils {
                 }
 
                 @Override
-                protected void onPostExecute(String s) {
-                    super.onPostExecute(s);
+                protected void onPostExecute(String response) {
+                    super.onPostExecute(response);
 
                     if (!isTimeOut[0]) {
                         try {
-                            JSONObject jsonResponse = new JSONObject(s);
+                            JSONObject jsonResponse = new JSONObject(response);
                             Dunkin_Log.e("DataResponse", jsonResponse.toString());
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -520,8 +530,8 @@ public class AppUtils {
                         }
 
                         try {
-                            if (s != null && AppUtils.isNotNull(s)) {
-                                callback.run(s);
+                            if (response != null && AppUtils.isNotNull(response)) {
+                                callback.run(response);
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -681,6 +691,7 @@ public class AppUtils {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
+
             }
 
             @Override
@@ -732,6 +743,8 @@ public class AppUtils {
                 @Override
                 protected void onPreExecute() {
                     super.onPreExecute();
+//                    Toast.makeText(context, "Api = "+URL, Toast.LENGTH_SHORT).show();
+
                     if (!((Activity) context).isFinishing() && isLoading) {
                         pDialog.show();
                     }
@@ -991,11 +1004,11 @@ public class AppUtils {
             data.add((Integer) daysList.get(i));
         }
         java.util.LinkedList hitList = searchBetweenDates(
-                new java.text.SimpleDateFormat(AppConstants.DD_MM_YYYY_SLASH).parse(startDate),
-                new java.text.SimpleDateFormat(AppConstants.DD_MM_YYYY_SLASH).parse(endDate));
+                new SimpleDateFormat(AppConstants.DD_MM_YYYY_SLASH).parse(startDate),
+                new SimpleDateFormat(AppConstants.DD_MM_YYYY_SLASH).parse(endDate));
         Integer[] comboDates = new Integer[hitList.size()];
         for (int i = 0; i < hitList.size(); i++) {
-            comboDates[i] = ((java.util.Date) hitList.get(i)).getDay();
+            comboDates[i] = ((Date) hitList.get(i)).getDay();
         }
 
         for (int i = 0; i < comboDates.length; i++) {
@@ -1007,9 +1020,9 @@ public class AppUtils {
         return false;
     }
 
-    private static java.util.LinkedList searchBetweenDates(java.util.Date startDate, java.util.Date endDate) {
+    private static java.util.LinkedList searchBetweenDates(Date startDate, Date endDate) {
 
-        java.util.Date begin = new Date(startDate.getTime());
+        Date begin = new Date(startDate.getTime());
         java.util.LinkedList list = new java.util.LinkedList();
         list.add(new Date(begin.getTime()));
 

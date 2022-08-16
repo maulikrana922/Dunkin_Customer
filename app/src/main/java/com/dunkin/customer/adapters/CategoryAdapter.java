@@ -1,6 +1,8 @@
 package com.dunkin.customer.adapters;
 
 import android.content.Context;
+import android.graphics.Point;
+import android.os.Build;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +37,13 @@ public class CategoryAdapter extends BaseAdapter {
         //params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, 300);
 
         Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-        screenWidth = display.getWidth();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB_MR2) {
+            screenWidth = display.getWidth();
+        } else {
+            Point size = new Point();
+            display.getSize(size);
+        }
+
         //screenHeight = (int) (display.getHeight() / (3.8 + 0.05));
         screenHeight = (int) (display.getHeight() / 4.00);
 
